@@ -1,0 +1,11 @@
+<% if (['all', page.layout].includes(theme.plugins.tianli_gpt.field)) { %>
+  <script defer src="<%- theme.plugins.tianli_gpt?.js %>"></script>
+  <script defer>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      new ChucklePostAI(Object.assign({
+        el: 'article.content',
+        css: `/css/_plugins/tianli_gpt`
+      }, JSON.parse(`<%- JSON.stringify(theme.plugins.tianli_gpt) %>`)))
+    });
+  </script>
+<% } %>

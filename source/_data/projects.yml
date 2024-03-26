@@ -1,0 +1,14 @@
+weekly:
+  title: 代码之外周刊
+  subtitle: 每周一 07：30 分享一周以来看到的精彩内容
+  tags: 代码之外周刊
+  cover: false
+#  logo:
+#    src: /source/img/logo.png
+#    small: 112px
+#    large: 240px
+  description: 代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。
+#  repo: xaoxuu/hexo-theme-stellar
+  beaudar:
+    repo: wmyskxz/blog-comments
+    'issue-term': 'Q & A'

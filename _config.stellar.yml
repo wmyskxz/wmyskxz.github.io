@@ -1,0 +1,97 @@
+#sidebar:
+#  menu:
+#    post: '[btn.blog](/)'
+#    wiki: '[btn.wiki](/wiki/)'
+#    notes: '[代码之外周刊](/weekly/)'
+#    more: '[更多](/more/)'
+#  widgets:
+#    #### 自动生成的页面 ####
+#    # 主页
+#    home: search, welcome, recent, timeline # for home
+#    # 博客索引页
+#    blog_index: search_blog, recent, timeline # for categories/tags/archives
+#    # 文档索引页
+#    wiki_index: search_docs, recent, timeline # for wiki
+#    # 其它（404）
+#    others: search, welcome, recent, timeline # for 404 and ...
+#    #### 手动创建的页面 ####
+#    # 文章内页
+#    post: toc, ghrepo, search, ghissues  # for pages using 'layout:post'
+#    # 文档内页
+#    wiki: search, ghrepo, toc, ghissues, related # for pages using 'layout:wiki'
+#    # 其它 layout:page 的页面
+#    page: welcome, toc, search # for custom pages using 'layout:page'
+#  logo:
+#    title: '[<img no-lazy height="32px" src="img/logo.png"/>](/)'
+
+# 侧边栏主功能导航菜单
+menubar:
+  columns: 3 # 一行多少个
+  items: # 可按照自己需求增加，符合以下格式即可
+     - id: post # 页面中高亮的 menu_id
+       theme: '#1BCDFC' # 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
+       icon: solar:documents-bold-duotone # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
+       title: 博客 # 标题
+       url: / # 跳转链接，支持相对路径和绝对路径
+     - id: wiki
+       theme: '#3DC550'
+       icon: solar:notebook-bookmark-bold-duotone
+       title: 代码之外周刊
+       url: /wiki/weekly/
+#     - id: explore
+#       theme: '#FA6400'
+#       icon: solar:planet-bold-duotone
+#       title: 探索
+#       url: /explore/
+     - id: social
+       theme: '#F44336'
+       icon: solar:chat-square-like-bold-duotone
+       title: 关于我
+       url: /more/
+
+# 评论
+comments:
+  service: beaudar
+  beaudar:
+    repo: wmyskxz/blog-comments
+# 文章搜索
+search:
+  service: local_search
+  local_search: # 在 front-matter 中设置 indexing:false 来避免被搜索索引
+    field: all # post, page, all
+    path: /search.json # 搜索文件存放位置
+    content: true # 是否搜索内容
+    codeblock: true # 是否搜索代码块（需要content: true)
+
+# Sidebar widgets
+widgets:
+  # Recent update
+  recent:
+    layout: recent
+    rss: /atom.xml # npm i hexo-generator-feed
+    limit: 5 # Count of posts
+  # TOC (valid only in layout:post/wiki)
+  toc:
+    layout: toc
+    list_number: false
+    min_depth: 0
+    max_depth: 5
+#    fallback: recent # Use a backup widget when toc does not exist.
+
+article:
+  type: tech
+  auto_excerpt: 100
+  # npm i hexo-related-popular-posts
+  related_posts:
+    max_count: 5
+    enable: false
+    title: 您可能感兴趣的文章
+    auto_cover: true
+#footer:
+#  social:
+#    github:
+#      icon: '<img src="/assets/placeholder/social/08a41b181ce68.svg"/>'
+#      url: https://
+#    music:
+#      icon: '<img src="/assets/placeholder/social/3845874.svg"/>'
+#      url: https://

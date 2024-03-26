@@ -1,0 +1,664 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0" theme-name="Stellar" theme-version="1.27.0">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>比特币(1)——理解货币以及货币发展史 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="Part 1. 比特币简介比特币的诞生2008 年爆发全球金融危机。   图片来源：http:&#x2F;&#x2F;cnpolitics.org&#x2F;2014&#x2F;12&#x2F;capitalizing-on-crisis&#x2F;  同年的 11 月 1 日，一个自称 中本聪 的人在 P2P foundation 网站上发布了比特币白皮书《比特币：一种点对点的电子现金系统》，陈述了他对电子货币的新设想——比特币就此面世。 从 2009">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币(1)——理解货币以及货币发展史">
+<meta property="og:url" content="https://www.wmyskxz.com/bitcoin/1/index.html">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="Part 1. 比特币简介比特币的诞生2008 年爆发全球金融危机。   图片来源：http:&#x2F;&#x2F;cnpolitics.org&#x2F;2014&#x2F;12&#x2F;capitalizing-on-crisis&#x2F;  同年的 11 月 1 日，一个自称 中本聪 的人在 P2P foundation 网站上发布了比特币白皮书《比特币：一种点对点的电子现金系统》，陈述了他对电子货币的新设想——比特币就此面世。 从 2009">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608290234599-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-13/1607852645418-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608024946591-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-13/1607858423061-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608028083869-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608029214989-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608274412332-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608274846962-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608275454502-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608276704347-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608278522399-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608279897164-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608280376403-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608281773960-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608281182063-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608282285294-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608282828375-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608286792011-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608289168739-image.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608289338173-image.png">
+<meta property="article:published_time" content="2020-12-19T07:47:12.000Z">
+<meta property="article:modified_time" content="2022-10-06T12:44:02.176Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="比特币">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608290234599-image.png">
+  
+  
+  
+  <meta name="keywords" content="比特币">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.27.0">
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">我没有三颗心脏的博客</div><div class="sub normal cap">2024 年与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="代码之外周刊" href="/wiki/weekly/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/bitcoin/2/"><span class="title">比特币(2)——最大优势是价值存储</span></a><a class="item title" href="/weekly/9/"><span class="title">一周精彩内容分享（第 9 期）：活在自己的时区</span></a><a class="item title" href="/weekly/78/"><span class="title">一周精彩内容分享（第 78 期）：不要因为走得太慢而失败</span></a><a class="item title" href="/weekly/71/"><span class="title">一周精彩内容分享（第 71 期）：Donald Knuth 谈工作习惯、解决问题和幸福感</span></a><a class="item title" href="/weekly/38/"><span class="title">一周精彩内容分享（第 38 期）：我们需要延迟满足吗</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA/">好奇星人</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2020-12-19T07:47:12.000Z">2020-12-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2022-10-06T12:44:02.176Z">2022-10-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>比特币(1)——理解货币以及货币发展史</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608290234599-image.png"></p>
+<h1 id="Part-1-比特币简介"><a href="#Part-1-比特币简介" class="headerlink" title="Part 1. 比特币简介"></a>Part 1. 比特币简介</h1><h2 id="比特币的诞生"><a href="#比特币的诞生" class="headerlink" title="比特币的诞生"></a>比特币的诞生</h2><p>2008 年爆发全球<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/2007%E5%B9%B4%E2%80%932008%E5%B9%B4%E7%92%B0%E7%90%83%E9%87%91%E8%9E%8D%E5%8D%B1%E6%A9%9F" title="金融危机">金融危机</a>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-13/1607852645418-image.png"></p>
+<ul>
+<li>图片来源：<a target="_blank" rel="noopener" href="http://cnpolitics.org/2014/12/capitalizing-on-crisis/">http://cnpolitics.org/2014/12/capitalizing-on-crisis/</a></li>
+</ul>
+<p>同年的 11 月 1 日，一个自称 <strong>中本聪</strong> 的人在 P2P foundation 网站上发布了比特币白皮书<a target="_blank" rel="noopener" href="https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf" title="比特币白皮书">《比特币：一种点对点的电子现金系统》</a>，陈述了他对电子货币的新设想——比特币就此面世。</p>
+<p>从 2009 年 1 月 3 日正式运行起，从最开始只有少数几个人参与的小项目，到如今 <strong>市值 2 万 3 千亿人民币</strong>，也仅仅过去 11 年。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608024946591-image.png" alt="来源：https://coinmarketcap.com/zh/currencies/bitcoin/"></p>
+<p>有人说，如果在 10 年前花 10 万购买比特币，那么现在也有千亿资产了，都能把马云、王健林、马化腾等一众富豪抛之脑后。</p>
+<p>为什么现在比特币这么值钱？这短短十一年间到底发生了什么？</p>
+<p>这些问题的答案无不回到一个最基础最根本的问题上——<strong>比特币是什么？</strong></p>
+<h2 id="比特币是什么？"><a href="#比特币是什么？" class="headerlink" title="比特币是什么？"></a>比特币是什么？</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-13/1607858423061-image.png"></p>
+<p>简单来说，比特币是一种 <strong>虚拟货币</strong>。</p>
+<p>从另一个角度来说，比特币也是一种数字时代的 <strong>新技术</strong>，它同车轮、电话或者任何技术存在的原因相同：<strong>能够让它的用户受益。</strong></p>
+<p><em>(简单来说)</em> 它解决的是人类社会亘古存在的老问题：<strong>如何让经济价值跨越时间和空间流动。</strong></p>
+<p>要想彻底理解比特币，我们需要从源头开始——理解什么是「货币」。</p>
+<h1 id="Part-2-理解货币"><a href="#Part-2-理解货币" class="headerlink" title="Part 2. 理解货币"></a>Part 2. 理解货币</h1><h2 id="第一职能——交易中介"><a href="#第一职能——交易中介" class="headerlink" title="第一职能——交易中介"></a>第一职能——交易中介</h2><p>最简单的价值交换方式就是 **”以物易物”**。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608028083869-image.png"></p>
+<p>但这仅仅在 <strong>产品和服务都很有限</strong> 的 <strong>小群体</strong> 之间，是可行的。</p>
+<p>一旦经济体超过一定复杂度，专业化的分工以及庞大的市场，会让 <strong>需求耦合</strong> 的问题暴露得更加彻底——可能你需要对方的东西，但对方不需要你的东西。</p>
+<p>这个问题不仅仅是商品需求不匹配这么简单，它有三个层次。</p>
+<p>第一是 <strong>价值尺度</strong> 上不匹配，想象一下用鞋换房子，你既不可能只换取房子中的一块砖，房主也很难收下与整个房子价值相匹配的一大堆鞋子。</p>
+<p>第二是 <strong>时间</strong> 上不匹配，譬如你很难攒够足够的苹果去换一辆车子——因为苹果在交易完成前可能就该腐烂了。</p>
+<p>第三是 <strong>空间</strong> 上不匹配，你可能想在一个地方售出房子而在另一个地方购买房子，但是房子根本没有便携性。</p>
+<p>解决上述问题的唯一办法就是间接地以物易物：使用人们 <strong>广泛接受</strong> 的单一的 <em>(或少数几种)</em> 用作 <strong>交易中介</strong> 的 <strong>商品</strong>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-15/1608029214989-image.png"></p>
+<p><strong>交易中介</strong> 是货币之所以成为货币最重要的功能。</p>
+<p>也并没有什么原则来界定什么可以什么不可以称为货币。</p>
+<p>在人类的历史上，很多东西都承担过货币的角色，除了最著名的 <strong>黄金</strong> 和 <strong>白银</strong>，还有铜、贝壳、大石头、盐、牲畜、政府债券、宝石等等…</p>
+<p>甚至在某些特定的环境下，酒精和香烟 <em>(例如监狱)</em> 都可以充当货币来使用。</p>
+<p><strong>能够在交易中充当中间介质的东西，就是货币</strong>。</p>
+<h2 id="第二职能——价值存储"><a href="#第二职能——价值存储" class="headerlink" title="第二职能——价值存储"></a>第二职能——价值存储</h2><p>货币除了能够充当交易的中间介质，还需要有 <strong>价值存储</strong> 的功能——对应上面说的时间上的适销性——也就是能够帮助人们存储财富。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608274412332-image.png"></p>
+<p>假设我是一个偏僻小岛的果农，这个小岛与世隔绝，贝壳是小岛上少有固定的材料，于是我们约定使用贝壳作为货币。</p>
+<p>假设正常情况下，我每一年的收成大概能够换到 200 个贝壳。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608274846962-image.png"></p>
+<p>可是今年当我换了 200 个贝壳之后，人们发现邻边的小岛上能够有几率找到贝壳，这相当于是在 “捡钱” 啊！</p>
+<p>于是越来越多人加入了这个 “出海” 的行列，于是市面上的贝壳就变多了，</p>
+<p>所以物品交易时，贝壳的价值变低了——因为大家都知道贝壳来得相对容易了一些，之前卖 2 个贝壳的现在可能就要 5 个。</p>
+<p>所以表面上看是 <strong>物价上涨</strong> 了，但其实是贝壳的价值变低了——而对于我这个已经用劳动换取贝壳的人来说，我的 <strong>财富缩水</strong> 了。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608275454502-image.png"></p>
+<p>这一现象叫做 **”软通货陷阱”**：任何物品，一旦被用作价值存储的载体，都会带来供给的增加；任何供给可以轻易大量增加的物品，一旦被选择成为价值存储的载体，都会毁灭存储者的财富。</p>
+<p><em>(软通货：增加供给难度不那么高的货币)</em></p>
+<p>一切都是因为获取贝壳太容易了——开条船出去找就行了。</p>
+<p>因此，任何物品要 <strong>承担货币</strong> 的角色，它的 <strong>生产成本</strong> 必须 <strong>很高</strong>，否则生产者赚快钱的诱惑将摧毁储蓄者的财富，人们在这种货币环境中，存储的动机也会被摧毁殆尽。</p>
+<p>而一旦这些充当货币的贝壳失去了本该有的<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/621890152715.htm" title="货币硬度的解释">硬度</a>，它们的持有者就会遭受严重的财产蒸发，整个社会结构也会因此分崩离析。</p>
+<p>于是，随着人类生产的技术能力不断进步，金属和商品的使用也开始不断增加，在长期的货币竞争中，黄金凭借其 <strong>稳定的物理和化学特性</strong>，以及 <strong>稳定</strong> 的 <strong>低供给率</strong>，在货币市场中终于是拔得头筹。*(下面会详细说)*</p>
+<h2 id="第三职能——记账单位"><a href="#第三职能——记账单位" class="headerlink" title="第三职能——记账单位"></a>第三职能——记账单位</h2><p>在最开始我们的小岛上，大家都是能认同贝壳作为货币的，这并不是因为贝壳本身的性质，而是因为它的 <strong>适销性</strong>。</p>
+<p>只有用 <strong>统一的交易中介</strong> 做 <strong>记账单位</strong>，复杂的经济核算才有可能实现，才会有随之而来的复杂生产的专业化分工、资本积累和大型市场的形成。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608276704347-image.png"></p>
+<p><strong>市场经济的运作依赖于价格。</strong></p>
+<p>准确地说，价格依赖于一种共同的交易中介，反映不同商品的 <strong>相对稀缺性</strong>。</p>
+<p>如果是在一个没有公认的交易中介的经济环境中，那么每一次交易的商品都不得不以彼此的价格来定价，这就将出现海量的价格，导致经济核算困难。</p>
+<p>所以作为货币的物品需要有广泛的接受度才行。</p>
+<h1 id="Part-3-从贝壳到政府货币"><a href="#Part-3-从贝壳到政府货币" class="headerlink" title="Part 3. 从贝壳到政府货币"></a>Part 3. 从贝壳到政府货币</h1><p>上面👆，我们简单理解了作为货币需要：</p>
+<ol>
+<li>能够承担 <strong>交易中介</strong>；</li>
+<li>能够 <strong>存储价值</strong>；</li>
+<li>能够作为统一的 <strong>记账单位</strong>；</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608278522399-image.png"></p>
+<h2 id="货币发展简史"><a href="#货币发展简史" class="headerlink" title="货币发展简史"></a>货币发展简史</h2><p>在<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34278151" title="货币发展史">货币发展史</a>上，多种商品扮演过货币的角色，它们的 <strong>硬度</strong> 和 <strong><a target="_blank" rel="noopener" href="https://bihu.com/article/1296987" title="健全货币概念和意义">健全程度</a></strong> 各不相同，这取决于每个时代的技术能力。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608279897164-image.png"></p>
+<p>比如最早开始的贝壳，海边的人明显比内陆的人更容易获得，所以很快，贝壳以及使用类似软通货作为货币的金融体系就崩溃了。</p>
+<p>随着生产力的发展，人们急需一种能够通用的货币，并且这种货币必须难以获得、不容易损坏腐烂、能够易于分割便于支付各种大小金额的支付。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608280376403-image.png"></p>
+<p>经过多次尝试之后，最后全世界几乎所有的文明都不约而同地选择了两种金属作为货币：<strong>黄金</strong> 和 <strong>白银</strong>。</p>
+<p>但是黄金和白银的数量毕竟稀少，随着生产力的不断发展，物资越来越丰富，黄金和白银不够使用，人类历史上第一次<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%80%9A%E8%B4%A7%E7%B4%A7%E7%BC%A9/529" title="通货紧缩 wiki">通货紧缩</a>，钱不够了！——于是由政府出面，用其他金属铸造货币，铜钱出现。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608281773960-image.png" alt="来源：https://ast.sina.cn/mingli/2015-12-02/detail-ifxmazmy2354832.d.html?from=wap"></p>
+<p><strong>铜钱是人类历史上的第一次代币</strong>，永恒的货币只有黄金和白银。</p>
+<p>后来随着生产力的持续发达，人们进行交易的时候需要大量的铜钱，特别是远程交易的时候。</p>
+<p>比如，内陆的人去海边买盐，西北的人去江南买茶，都需要带大量货币前往，既辛苦又不安全，于是出现了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%A4%E5%AD%90/564925" title="交子 wiki">最早的纸币——交子</a>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608281182063-image.png" alt="交子，发行于 1023 年的成都"></p>
+<p>最早的纸币并不是政府 <em>(中央银行)</em> 发行的，而是由钱庄发行的，也就是早期的商业银行，你要带货币去远方，那么把货币存在当地的钱庄，钱庄给你一张凭证，你拿着凭证去目的地换成货币。</p>
+<p>人们很快发现，其实也不需要换成货币，只要拿着凭证就可以交易了，对方拿着凭证去钱庄换钱也是一样的，而对方也是要拿着货币交易，所以也可以不用去兑换货币，于是市面上就流通了大量的钱庄的凭证。</p>
+<p>后来政府发现，既然钱庄可以印凭证，我也可以，我比钱庄还有信誉，于是政府开始印制凭证，于是人类最早的纸币出现，时间是一千多年前，中国宋朝。</p>
+<p><strong>纸币是人类历史上的第二次代币。</strong></p>
+<p>人们之所以相信 <strong>纸币</strong>，是因为相信手里的纸币 <strong>对应</strong> 着 <strong>国库里的金银</strong>，然而政府发现，只要自己不断印刷纸币，自己就有源源不断的钱可以花，于是就失去控制了。</p>
+<p>人类历史上第一次出现了 <strong>通货膨胀</strong>，纸币崩溃了。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608282285294-image.png" alt="面额 50 万亿的津巴布韦币"></p>
+<p>二次大战后，各国政府为了保证纸币不崩溃，基本都<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%87%91%E6%9C%AC%E4%BD%8D" title="金本位制度 wiki">跟黄金挂钩</a>，国库有多少黄金，就印刷多少纸币，于是跟原始社会一样，又出现 <strong>通货紧缩</strong>，钱不够用了。</p>
+<p>上世纪 50 年代，美国政府决定，<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20410264" title="知乎-当时美国为什么选择将美元跟黄金脱钩？">纸币和黄金脱钩</a>，美联储根据市场需求决定印刷多少纸币。美国政府用自己的的经济、军事、政治实力为美元做保证。</p>
+<p>其他国家也纷纷宣布纸币和黄金脱钩，但是如何保证自己印刷的纸币值得信赖呢，于是又纷纷和美元挂钩，和美元保持一个稳定的汇率，比如人民币，最近几十年和美元的汇率基本上在 6 左右波动。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608282828375-image.png"></p>
+<p>于是现在全世界的货币就都和美国的印钞机连在了一起，全世界人民的劳动和财产的价值都是<a target="_blank" rel="noopener" href="https://www.sohu.com/a/402274222_120345784" title="2020年美国四次进入「印钞机」模式，将本土经济危机转嫁到其他国家">美联储说了算</a>。</p>
+<p>货币就这样从贝壳到食盐、牲畜、白银、黄金和以黄金背书的政府货币，终于<a target="_blank" rel="noopener" href="https://www2.deloitte.com/content/dam/Deloitte/cn/Documents/about-deloitte/dttp/deloitte-cn-dttp-v2ch1-zh-150127.pdf" title="货币发展一个比较详尽细节的版本">发展</a>到了目前几乎全球统一的货币形态——政府发行的法定货币 *(也称为 “法币”)*。</p>
+<h2 id="政府货币的历年表现"><a href="#政府货币的历年表现" class="headerlink" title="政府货币的历年表现"></a>政府货币的历年表现</h2><p>从理论上讲，创造一种 <strong>人为稀缺</strong> 的资产并赋予它货币的角色，是可能的。</p>
+<p>世界各国政府在放弃金本位后就这么做了，比特币的创造者也这么做了，但结果却截然相反。</p>
+<p>在法定货币不再和黄金挂钩之后，纸币的供给量增速高于黄金，因此大家看到的结果就是纸币的价值相对黄金大幅下跌。</p>
+<p>整体看来，各国货币供应量平均每年增长 <code>32.16%</code>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608286792011-image.png" alt="167国广义货币年均增长率（1960～2015年）"></p>
+<p>这是一个相当可怕的数字。这也正是白银在货币竞争中输给黄金的原因——黄金的供给增长率较低，意味着 <strong>购买力</strong> 下降的速度比白银慢得多。</p>
+<p><a target="_blank" rel="noopener" href="https://academy.binance.com/zh/articles/what-is-hyperinflation" title="解释了什么是恶性通货膨胀">恶性通货膨胀</a>的坏处远远不只是很多人失去了很多钱，它是社会经过几百上千年才建立的经济生产结构的彻底崩溃。</p>
+<p>政府负责货币供给的 <strong>问题</strong> 在于，通货的硬度 <strong>完全取决</strong> 于那些主张不扩大货币供给的人的政治实力。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608289168739-image.png"></p>
+<p>货币硬度只来自政治约束，而在物理上、经济上或自然上，政府生产多少货币完全没有任何限制。</p>
+<p>牲畜、白银、黄金和贝壳的生产都需要付出大量劳动，且不可能一下子大量生产，但是政府货币的生产只需要政府的法令就够了。</p>
+<p>不断增加的货币供应量意味着货币不断贬值，使货币的持有者财富受损，使货币的生产者和最早获得货币的人受益。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2020-12-18/1608289338173-image.png"></p>
+<p><strong>历史无数次地表明，政府将不可避免地屈服于货币供给膨胀的诱惑。</strong></p>
+<p>无论是纯粹的因为贪污腐败，还是因为“国家紧急状态”，又或者是受到通货膨胀学派泛滥的蛊惑，政府总会找到一个理由和方法来增加货币供给，扩大政府权力，同时稀释货币持有者的财富。</p>
+<p>这与铜生产商为了应对铜的货币需求而开采更多铜没有什么不同——它奖励货币的生产者，但惩罚那些选择用铜来储备财富的人。</p>
+<p>在如今，政治进程使货币理智越来越成为一个幻想。正如弗里德里希·哈耶克（Friedrich Hayek）所言：</p>
+<blockquote>
+<p>在将货币从把持它们的政府手中解放出来之前，我相信我们再也不可能重新获得良好的货币。现在的情况是，我们能做的，只是以聪明迂回的方式引入一些它们无法阻止的东西。</p>
+</blockquote>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>好了，本篇已经够长了，我们也基本理解了 <strong>货币</strong> 以及它简要的 <strong>发展历程</strong>，发现政府货币发布以来的表现一直是 “差强人意”。</p>
+<p>我想你对比特币为什么会 “大火” 已经有了初步的猜想，我们在下篇再来继续详细讲讲。</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/bbll/2020-nian-zhong-zong-jie/">2020年终总结</a></div><div class="item" id="next"></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-%E6%AF%94%E7%89%B9%E5%B8%81%E7%AE%80%E4%BB%8B"><span class="toc-text">Part 1. 比特币简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-text">比特币的诞生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">比特币是什么？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-%E7%90%86%E8%A7%A3%E8%B4%A7%E5%B8%81"><span class="toc-text">Part 2. 理解货币</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%81%8C%E8%83%BD%E2%80%94%E2%80%94%E4%BA%A4%E6%98%93%E4%B8%AD%E4%BB%8B"><span class="toc-text">第一职能——交易中介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%81%8C%E8%83%BD%E2%80%94%E2%80%94%E4%BB%B7%E5%80%BC%E5%AD%98%E5%82%A8"><span class="toc-text">第二职能——价值存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%81%8C%E8%83%BD%E2%80%94%E2%80%94%E8%AE%B0%E8%B4%A6%E5%8D%95%E4%BD%8D"><span class="toc-text">第三职能——记账单位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-3-%E4%BB%8E%E8%B4%9D%E5%A3%B3%E5%88%B0%E6%94%BF%E5%BA%9C%E8%B4%A7%E5%B8%81"><span class="toc-text">Part 3. 从贝壳到政府货币</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A7%E5%B8%81%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2"><span class="toc-text">货币发展简史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BF%E5%BA%9C%E8%B4%A7%E5%B8%81%E7%9A%84%E5%8E%86%E5%B9%B4%E8%A1%A8%E7%8E%B0"><span class="toc-text">政府货币的历年表现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.27.0" async></script>
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || null
+        }
+      });
+    })
+  }
+</script><script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
