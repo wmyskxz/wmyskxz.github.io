@@ -1,0 +1,25 @@
+name: 代码之外周刊
+title: 代码之外周刊
+subtitle: '每个人的独立博客 | Designed by xaoxuu'
+tags: [代码之外周刊]
+icon: /assets/wiki/stellar/icon.svg
+cover: /assets/wiki/stellar/icon.svg
+description: 希望「代码之外周刊」能成为您探索技术和技术之外世界的小窗口，能带给您更多灵感和惊喜！
+repo: wmyskxz/weekly
+search:
+  filter: /wiki/weekly/
+  placeholder: 在「代码之外周刊」中搜索...
+leftbar:
+  - tree
+#  - related
+comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/wmyskxz/weekly/issues) 反馈。'
+comments:
+  service: beaudar
+  beaudar:
+    repo: wmyskxz/blog-comments
+base_dir: /wiki/weekly/
+tree:
+  - index
+  - source
+  - related
+share: true

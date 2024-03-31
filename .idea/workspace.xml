@@ -2,7 +2,241 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826886aa-2a9a-4de0-8a6c-b58735e0ea73" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/_data/links/sites_blog.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_data/links/sites_news.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_data/links/sites_newsletter.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_data/wiki.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_data/wiki/weekly.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/100.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/101.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/102.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/103.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/104.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/105.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/106.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/107.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/108.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/109.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/110.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/111.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/82.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/83.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/84.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/85.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/86.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/87.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/88.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/89.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/90.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/91.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/92.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/93.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/94.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/95.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/96.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/97.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/98.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weekly/99.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.stellar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.stellar.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/1.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/10.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/10.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/100.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/100.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/101.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/101.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/102.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/102.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/103.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/103.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/104.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/104.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/105.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/105.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/106.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/106.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/107.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/107.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/108.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/108.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/109.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/109.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/11.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/11.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/110.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/110.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/111.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/111.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/12.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/12.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/13.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/13.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/14.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/14.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/15.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/15.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/16.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/16.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/17.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/17.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/18.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/18.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/19.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/19.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/20.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/20.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/21.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/21.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/22.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/22.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/23.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/23.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/24.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/24.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/25.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/25.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/26.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/26.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/27.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/27.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/28.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/28.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/29.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/29.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/3.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/30.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/30.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/31.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/31.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/32.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/32.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/33.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/33.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/34.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/34.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/35.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/35.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/36.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/36.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/37.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/37.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/38.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/38.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/39.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/39.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/4.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/40.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/40.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/41.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/41.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/42.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/42.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/43.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/43.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/44.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/44.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/45.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/45.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/46.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/46.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/47.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/47.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/48.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/48.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/49.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/49.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/5.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/50.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/50.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/51.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/51.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/52.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/52.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/53.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/53.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/54.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/54.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/55.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/55.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/56.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/56.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/57.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/57.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/58.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/58.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/59.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/59.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/6.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/6.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/60.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/60.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/61.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/61.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/62.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/62.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/63.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/63.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/64.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/64.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/65.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/65.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/66.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/66.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/67.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/67.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/68.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/68.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/69.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/69.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/7.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/7.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/70.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/70.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/71.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/71.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/72.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/72.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/73.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/73.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/74.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/74.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/75.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/75.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/76.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/76.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/77.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/77.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/78.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/78.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/79.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/79.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/8.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/8.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/80.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/80.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/81.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/81.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/82.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/82.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/83.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/83.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/84.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/84.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/85.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/85.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/86.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/86.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/87.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/87.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/88.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/88.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/89.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/89.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/9.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/9.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/90.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/90.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/91.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/91.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/92.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/92.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/93.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/93.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/94.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/94.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/95.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/95.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/96.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/96.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/97.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/97.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/98.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/98.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/99.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/99.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/AA批量处理.py" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/AA处理到summary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/weekly/summary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/summary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/weekly/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/source.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/wiki/weekly/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/wiki/weekly/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trasnfer/runMe.py" beforeDir="false" afterPath="$PROJECT_DIR$/trasnfer/runMe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/1.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/10.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/10.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/11.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/11.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/12.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/12.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/13.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/13.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/14.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/14.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/15.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/15.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/16.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/16.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/17.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/17.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/18.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/18.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/19.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/19.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/2.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/20.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/20.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/21.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/21.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/22.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/22.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/23.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/23.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/24.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/24.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/25.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/25.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/26.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/26.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/27.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/27.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/28.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/28.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/29.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/29.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/3.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/30.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/30.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/31.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/31.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/32.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/32.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/33.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/33.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/34.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/34.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/35.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/35.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/36.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/36.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/37.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/37.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/38.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/38.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/39.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/39.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/4.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/40.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/40.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/41.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/41.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/42.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/42.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/43.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/43.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/44.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/44.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/45.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/45.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/46.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/46.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/47.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/47.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/48.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/48.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/49.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/49.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/5.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/50.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/50.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/51.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/51.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/52.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/52.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/53.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/53.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/54.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/54.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/55.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/55.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/56.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/56.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/57.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/57.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/58.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/58.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/59.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/59.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/6.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/6.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/60.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/60.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/61.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/61.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/62.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/62.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/63.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/63.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/64.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/64.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/65.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/65.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/66.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/66.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/67.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/67.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/68.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/68.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/69.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/69.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/7.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/7.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/70.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/70.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/71.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/71.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/72.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/72.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/73.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/73.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/74.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/74.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/75.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/75.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/76.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/76.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/77.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/77.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/78.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/78.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/79.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/79.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/8.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/8.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/80.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/80.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/81.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/81.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly/9.md" beforeDir="false" afterPath="$PROJECT_DIR$/weekly/9.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +276,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28akHPHAQHSlLgUQFQrG58DiZAP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,27 +289,29 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/MyBlog/wmyskxz.com/themes&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/MyBlog/wmyskxz.com/source/_data/links&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyBlog\wmyskxz.com\source\_data\links" />
+      <recent name="E:\MyBlog\wmyskxz.com\source\wiki\weekly" />
       <recent name="E:\MyBlog\wmyskxz.com\themes" />
       <recent name="E:\MyBlog\wmyskxz.com\source\_posts\weekly" />
-      <recent name="E:\MyBlog\wmyskxz.com\source\wiki\weekly" />
       <recent name="E:\MyBlog\wmyskxz.com\trasnfer" />
-      <recent name="E:\MyBlog\wmyskxz.com\source\_posts\bitcoin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MyBlog\wmyskxz.com" />
+      <recent name="E:\MyBlog\wmyskxz.com\source\wiki" />
+      <recent name="E:\MyBlog\wmyskxz.com\source\_data\wiki" />
+      <recent name="E:\MyBlog\wmyskxz.com\source\_data" />
       <recent name="E:\MyBlog\wmyskxz.com\source\_posts\weekly" />
-      <recent name="E:\MyBlog\wmyskxz.com\source\_posts" />
-      <recent name="E:\MyBlog\wmyskxz.com\trasnfer" />
-      <recent name="E:\MyBlog\wmyskxz.com\source\wiki\weekly" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.AA批量处理">
-    <configuration name="AA批量处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.AA处理到summary">
+    <configuration name="AA处理到summary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wmyskxz.com" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,7 +324,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/_posts/weekly/AA批量处理.py" />
+      <option name="SCRIPT_NAME" value="E:\MyBlog\wmyskxz.com\source\_posts\weekly\AA处理到summary.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,7 +423,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.AA批量处理" />
+        <item itemvalue="Python.AA处理到summary" />
         <item itemvalue="Python.runMe (1)" />
         <item itemvalue="Python.runMe (2)" />
         <item itemvalue="Python.test" />
@@ -235,12 +473,28 @@
       <workItem from="1711328841279" duration="4509000" />
       <workItem from="1711429440120" duration="6558000" />
       <workItem from="1711457644953" duration="4939000" />
-      <workItem from="1711513693427" duration="2958000" />
+      <workItem from="1711513693427" duration="4853000" />
+      <workItem from="1711530554383" duration="7564000" />
+      <workItem from="1711598153881" duration="14000" />
+      <workItem from="1711598183043" duration="1807000" />
+      <workItem from="1711687357615" duration="1797000" />
+      <workItem from="1711756445695" duration="1296000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/wmyskxz_com$AA.coverage" NAME="AA批量处理 Coverage Results" MODIFIED="1711332306920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/_posts/weekly" />

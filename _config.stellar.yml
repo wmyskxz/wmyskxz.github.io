@@ -36,8 +36,8 @@ menubar:
      - id: wiki
        theme: '#3DC550'
        icon: solar:notebook-bookmark-bold-duotone
-       title: 代码之外周刊
-       url: /wiki/weekly/
+       title: 项目
+       url: /wiki/
 #     - id: explore
 #       theme: '#FA6400'
 #       icon: solar:planet-bold-duotone
