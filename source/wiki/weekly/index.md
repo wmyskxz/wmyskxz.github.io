@@ -25,6 +25,7 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 04/15 [代码之外周刊（第 114 期）：工作与生活平衡的弊端](https://www.wmyskxz.com/weekly/114)
 - 04/08 [代码之外周刊（第 113 期）：人类是没有耐心的价值觅食者](https://www.wmyskxz.com/weekly/113)
 - 04/01 [代码之外周刊（第 112 期）：社会权力的游戏](https://www.wmyskxz.com/weekly/112)
 - 03/25 [代码之外周刊（第 111 期）：哈佛世纪研究：何为幸福生活？](https://www.wmyskxz.com/weekly/111)

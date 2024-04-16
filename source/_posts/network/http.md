@@ -10,6 +10,7 @@ references:
    - '[The Evolution of HTTP](https://www.oreilly.com/library/view/learning-http2/9781491962435/ch01.html)'
    - '[xxxxHub 都用上了 HTTP/2 ，它牛逼在哪？ | 小林Coding](https://mp.weixin.qq.com/s/TvGAmKKrKrcWlsV2cfC34g)'
    - '[一文读懂 HTTP/2 及 HTTP/3 特性](https://blog.fundebug.com/2019/03/07/understand-http2-and-http3/)'
+
 ---
 
 

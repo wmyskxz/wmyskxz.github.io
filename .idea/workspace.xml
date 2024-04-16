@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826886aa-2a9a-4de0-8a6c-b58735e0ea73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/source/_posts/bbll/2021-nian-zhong-zong-jie.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/network/dns.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/network/how-browser-work.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/network/how-to-link.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/network/how-to-work.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/_posts/network/http.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/network/http.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/network/http.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,16 +52,16 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/MyBlog/wmyskxz.com/source/_posts/network",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/MyBlog/wmyskxz.com/source/_posts/network&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MyBlog\wmyskxz.com\source\_posts\network" />
@@ -255,7 +250,7 @@
       <workItem from="1711904946947" duration="394000" />
       <workItem from="1711928783435" duration="3413000" />
       <workItem from="1712515881219" duration="403000" />
-      <workItem from="1712564537777" duration="2284000" />
+      <workItem from="1712564537777" duration="2685000" />
     </task>
     <servers />
   </component>
