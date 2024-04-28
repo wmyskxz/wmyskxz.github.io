@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826886aa-2a9a-4de0-8a6c-b58735e0ea73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/network/http.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/network/http.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,16 +55,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/MyBlog/wmyskxz.com/source/_posts/network&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/MyBlog/wmyskxz.com/source/_posts/weekly&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyBlog\wmyskxz.com\source\_posts\weekly" />
       <recent name="E:\MyBlog\wmyskxz.com\source\_posts\network" />
       <recent name="E:\MyBlog\wmyskxz.com\source\_posts\bbll" />
-      <recent name="E:\MyBlog\wmyskxz.com\source\_posts\weekly" />
       <recent name="E:\MyBlog\wmyskxz.com\source\_data\links" />
       <recent name="E:\MyBlog\wmyskxz.com\source\wiki\weekly" />
     </key>
@@ -251,6 +249,7 @@
       <workItem from="1711928783435" duration="3413000" />
       <workItem from="1712515881219" duration="403000" />
       <workItem from="1712564537777" duration="2685000" />
+      <workItem from="1713697741149" duration="61000" />
     </task>
     <servers />
   </component>

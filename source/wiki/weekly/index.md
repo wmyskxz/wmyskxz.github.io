@@ -25,6 +25,7 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 04/22 [代码之外周刊（第 116 期）：脆弱的力量：怎样让情绪“绝对稳定”？](https://www.wmyskxz.com/weekly/116)
 - 04/22 [代码之外周刊（第 115 期）：2024 的 100 个趋势](https://www.wmyskxz.com/weekly/115)
 - 04/15 [代码之外周刊（第 114 期）：工作与生活平衡的弊端](https://www.wmyskxz.com/weekly/114)
 - 04/08 [代码之外周刊（第 113 期）：人类是没有耐心的价值觅食者](https://www.wmyskxz.com/weekly/113)
