@@ -1,0 +1,765 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0" theme-name="Stellar" theme-version="1.27.0">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>代码之外周刊（第 117 期）：凯文·凯利的73岁感悟 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 在今年南半球墨尔本的夜晚，人们正在抬头仰望一场特别的「有机烟花」，完成关于灯火阑珊的另一种想象。在正视各种污染与浪费的设计探索中，来自荷兰的艺术家与创新者 Daan Roosegaarde 为传统的烟花、气球、纸屑、孔明灯等庆祝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码之外周刊（第 117 期）：凯文·凯利的73岁感悟">
+<meta property="og:url" content="https://www.wmyskxz.com/weekly/117/index.html">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 在今年南半球墨尔本的夜晚，人们正在抬头仰望一场特别的「有机烟花」，完成关于灯火阑珊的另一种想象。在正视各种污染与浪费的设计探索中，来自荷兰的艺术家与创新者 Daan Roosegaarde 为传统的烟花、气球、纸屑、孔明灯等庆祝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505175541.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/gitee/2f119c84-b426-41e7-80f9-387548f2f8f7.jpg">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505164141.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505100603.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505101137.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505101156.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104006.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104231.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104142.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104212.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104328.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114304.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114316.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114325.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505093439.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505001919.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505094328.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505111116.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505125244.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505132211.png">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png">
+<meta property="article:published_time" content="2024-05-05T23:30:00.000Z">
+<meta property="article:modified_time" content="2024-05-05T17:11:44.935Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="代码之外周刊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505175541.png">
+  
+  
+  
+  <meta name="keywords" content="代码之外周刊">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.27.0">
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">我没有三颗心脏的博客</div><div class="sub normal cap">2024 年与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/117/"><span class="title">代码之外周刊（第 117 期）：凯文·凯利的73岁感悟</span></a><a class="item title" href="/weekly/116/"><span class="title">代码之外周刊（第 116 期）：脆弱的力量：怎样让情绪“绝对稳定”？</span></a><a class="item title" href="/weekly/115/"><span class="title">代码之外周刊（第 115 期）：2024 的 100 个趋势</span></a><a class="item title" href="/weekly/114/"><span class="title">代码之外周刊（第 114 期）：工作与生活平衡的弊端</span></a><a class="item title" href="/network/how-to-work/"><span class="title">图解|网络究竟是如何运作的？</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-05-05T23:30:00.000Z">2024-05-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-05-05T17:11:44.935Z">2024-05-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>代码之外周刊（第 117 期）：凯文·凯利的73岁感悟</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图"></a>题图</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505175541.png"></p>
+<p>在今年南半球墨尔本的夜晚，人们正在抬头仰望一场特别的「<a target="_blank" rel="noopener" href="https://www.topys.cn/article/33835" title="夏夜晚风，想邀请你看一场特别的有机烟花">有机烟花</a>」，完成关于灯火阑珊的另一种想象。在正视各种污染与浪费的设计探索中，来自荷兰的艺术家与创新者 Daan Roosegaarde 为传统的烟花、气球、纸屑、孔明灯等庆祝方式提供了一种可持续的替代方案 SPARK。</p>
+<p>没有火，不产生烟和噪音，<strong>由数十万个可反射和吸收光线的可生物降解的气泡组成</strong>，一旦释放，就可以乘风在空中漂浮、游动、上升，就像大气中的生物发光，被凉爽的夜风和人类的眼睛捕捉到。最终 SPARK 可以上升至 50 米，方圆几公里都可以看到这些美丽的“光火花”。</p>
+<h1 id="本周讨论：凯文·凯利的73岁感悟"><a href="#本周讨论：凯文·凯利的73岁感悟" class="headerlink" title="本周讨论：凯文·凯利的73岁感悟"></a>本周讨论：凯文·凯利的73岁感悟</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/gitee/2f119c84-b426-41e7-80f9-387548f2f8f7.jpg"></p>
+<p>凯文·凯利（Kevin Kelly），常被称为“KK”。他是《连线》杂志（Wired Magazine）第一任主编；曾担任《全球评论》（Whole Earth Review，乔布斯最喜欢的杂志）主编和出版人；同时是位作家，著有《失控》、《必然》等书。</p>
+<p>在每年生日之时，KK 都会撰文分享他的生活经验和感悟。我们曾经在 <a href="http://www.wmyskxz.com/weekly/62" title="一周精彩内容分享（第 62 期）：凯文·凯利的70岁人生感悟">62 期</a>的时候分享了他在 70 岁时的感悟，他也把每一年的这些感悟在 2023 年总结成了一本书：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505164141.png"></p>
+<p>今年他快要 73 岁了，在<a target="_blank" rel="noopener" href="https://kk.org/thetechnium/101-additional-advices/" title="101 附加建议">他的博客</a>分享了 101 条在书中<strong>从未出现过的全新建议</strong>。这些建议仍然值得学习，精选翻译一些，分享给大家。</p>
+<p><strong>01.</strong></p>
+<p>一个人是无法真正成为自己的。成为独一无二的自己不是一个人的事。矛盾的是，你需要世界上的每一个人帮助你成为独一无二的人。</p>
+<p><strong>02.</strong></p>
+<p>要想成功，最可靠的方法就是创造自己对成功的定义。先把箭射出去，然后在箭的落点周围画一个靶心。你就是赢家！</p>
+<p><strong>03.</strong></p>
+<p>当你发现自己拖延时，不要抗拒。相反，靠进去。拖延 100%。尝试在 5 分钟内什么都不做。让它成为你的工作。你会失败的。5 分钟后，您将准备好并渴望工作。</p>
+<p><strong>04.</strong></p>
+<p>如果你想知道外科医生有多好，不要问其他医生。问护士。</p>
+<p><strong>05.</strong></p>
+<p>观点鲜明，表述清晰，但又松弛有度，这就是知识分子生活的秘诀。经常问问自己：怎样才能改变我的想法？</p>
+<p><strong>06.</strong></p>
+<p>你没有义务喜欢所有人，你可以自由地强烈地不喜欢一个人。但你欠每个人——即使是那些你不喜欢的人——基本的尊重。</p>
+<p><strong>07.</strong></p>
+<p>忘掉试图决定自己人生命运的想法吧。那太宏大了。相反，只要想清楚未来两年应该做什么就可以了。</p>
+<p><strong>08.</strong></p>
+<p>无论何时拥抱他人，都要最后一个松手。</p>
+<p><strong>09.</strong></p>
+<p>不要把好东西（高档酒或瓷器）留到永远不会出现的罕见场合，而是要随时使用它们。</p>
+<p><strong>10.</strong></p>
+<p>最好的园艺建议：找到你能种好的东西，并种很多很多。</p>
+<p><strong>11.</strong></p>
+<p>千万不要犹豫投资自己–花钱去上一堂课、学习一门新技能。这些微薄的支出会带来巨大的回报。</p>
+<p><strong>12.</strong></p>
+<p>在父母健在时采访他们。一边录音，一边不断提问。你会学到令人惊叹的东西。或者雇人将他们的故事制作成口述历史、纪录片或书籍。这对他们和您的家庭都将是一份巨大的礼物。</p>
+<p><strong>13.</strong></p>
+<p>在购买任何实物（纪念品、家具、书籍、工具、鞋子、设备）时，问问自己：这东西要放在哪里？除非它有地方住，否则就不要买。为了让其他东西进来，有些东西可能需要离开。</p>
+<p><strong>14.</strong></p>
+<p>多任务处理是个神话。不要在走路、跑步、骑车或开车时发短信。只要你停下来一分钟，没人会错过你。</p>
+<p><strong>15.</strong></p>
+<p>在你的生活中，至少应该有一件事是你喜欢的，尽管你并不擅长。这就是你的游戏时间，它能让你永葆青春。永远不要为此道歉。</p>
+<p><strong>16.</strong></p>
+<p>在一个新想法从你脑海中消失之前，你有 5 分钟的时间采取行动。</p>
+<p><strong>17.</strong></p>
+<p>不要害怕失败。但要害怕平凡。</p>
+<p><strong>18.</strong></p>
+<p>当你陷入困境或不知所措时，请专注于能推动你的项目前进的最小可能的事情。</p>
+<p><strong>19.</strong></p>
+<p>发现你喜欢 “无所事事 “的人，并经常与他们一起无所事事。这些关系维持得越久，你就活得越久。</p>
+<p><strong>20.</strong></p>
+<p>当你尝试新事物时，不要把它看成是成功与失败的问题，而是成功与学会成功的问题。</p>
+<p><strong>21.</strong></p>
+<p>要讲一个好故事，你必须揭示一个惊喜，否则它只是一个报告。</p>
+<p><strong>22.</strong></p>
+<p>当你玩一场漫长的游戏时，小的进步更重要，因为长远的眼光可以让你把小的进步复合成相当大的成就。</p>
+<p><strong>23.</strong></p>
+<p>如果你比别人更幸运，那就建造一张更长的桌子，而不是更高的篱笆。</p>
+<p><strong>24.</strong></p>
+<p>许多人没有完成，但更多的人没有开始。任何工作最难的是开始。只有开始才能完成，所以要善于开始。</p>
+<p><strong>25.</strong></p>
+<p>你永远不会遇到一个非常成功的悲观主义者。如果你想出人头地，就得在乐观方面做得更好。</p>
+<p><strong>本期内容较长，感谢耐心阅读，Be Better~</strong></p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.theverge.com/2024/5/2/24146743/university-of-tokyo-atacama-observatory-telescope-highest-altitude-infrared" title="世界上最高的天文台">世界上最高的天文台</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505100603.png"></p>
+<p>经过 26 年的规划和建设，东京大学阿塔卡马天文台（TAO）于周二正式开放。这架 6.5 米高的光学红外 TAO 望远镜位于智利阿塔卡马沙漠的 Chajnantor 山上，高 18,500 英尺，现在是<strong>世界上最高的望远镜</strong>。</p>
+<p>如此之高意味着空气中的水分要少得多;TAO 可以观测到“几乎整个近红外波长范围”，包括中红外波长。Phys.org 指出，没有其他地球望远镜可以做到这一点。东京大学写道，这种地面天文台能够拍摄更高分辨率的太空照片，这要归功于它们的光圈比天基天文台更大。根据东京大学的公告，从 2025 年开始，该望远镜将用于了解“星系的诞生和行星的起源”。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505101137.png" alt="直径 6.5 米的望远镜示意图"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505101156.png" alt="TAO 的主镜"></p>
+<p>然而，TAO 坐在如此极端的高度上的好处是有代价的，因为人类不适合在这么高的地方生活。</p>
+<p>正如 Phys.org 所指出的，即使是在里面工作的研究人员也需要采取预防措施，以便在面对高原反应时保持健康。该团队计划最终从较低的基地设施远程操作望远镜，以避免此类问题。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://www.skyatnightmagazine.com/space-science/what-does-night-sky-look-like-mars" title="喜欢看火星上的夜空吗？这就是在红色星球上观星的感觉">在火星上看夜空</a>（英文）</p>
+<p>在火星上进行夜晚观星是什么样的体验？首先，火星上很少有多云的夜晚，这使得它在很多方面成为业余天文学的理想地点。火星的夜晚通常和地球上清晰的沙漠天空一样清澈。你会看到两颗卫星——火卫一（Phobos）和火卫二（Deimos），而不是一个。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104006.png" alt="美国宇航局火星勘测轨道飞行器拍摄的火卫一（左）和火卫一（右）的两张独立图像。图片来源：NASA/JPL-caltech/亚利桑那大学"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104231.png" alt="火星上日全食的景象。2022年4月20日，美国宇航局的毅力号火星车拍摄了火星卫星火卫一从太阳前方经过的图像。图片来源：NASA/JPL-Caltech/ASU/MSSS/SSI"></p>
+<p>从火星基地黄昏时出来，你会在多岩石的地貌上空的火星夜空中看到美丽的日落。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104142.png" alt="2005年，美国宇航局的“精神号”火星探测器拍摄的火星古谢夫陨石坑的日落图像。图片来源：NASA/JPL/Texas A&amp;M/Cornell"></p>
+<p>由于多尘的大气，你会看到紫色和蓝色的日落，太阳在落到地平线上的轮廓分明的火山后面之前，会缩小成一个缩小的蓝色硬币。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104212.png" alt="美国宇航局的好奇号火星车拍摄的火星标记带谷图像。蓝色代表上午，黄色代表下午。图片来源：NASA/JPL-Caltech"></p>
+<p>好奇号漫游者拍摄的照片表明，太阳落山后，你有很好的机会看到银色蓝色的夜光云在暮色中闪耀，甚至可能是一场令人惊叹的展示，让我们自己夏日天空中的任何景象都相形见绌。根据一年中的时间，你也可能看到一颗“晚星”在薰衣草色的暮色中闪耀。不是金星，而是地球，一颗明亮的银蓝色火花，在其最佳状态下会比-2.5等更亮。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505104328.png" alt="从火星上看到的地球，看起来像火星天空中最亮的星星。图片来源：美国宇航局喷气推进实验室-加州理工学院/马林空间科学系统/德克萨斯农工大学。资料来源：美国宇航局喷气推进实验室。"></p>
+<p>如果地球显示出满月或凸月相，通过你的望远镜，你将看到熟悉的绿色大陆和蓝色海洋在白天的一面，以及城市灯光在夜晚的一面闪烁。</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://www.topys.cn/article/34245" title="美丽的刺绣背面，是健康崩塌">刺绣背面，是健康崩塌</a></p>
+<p>在快节奏的都市中，亚健康不是一个新鲜的词汇。许多人多多少少都存在亚健康的状态，但由于其危害尚不明显，尚未引起足够的重视。最近，一位日本大学生馬杉帆々香采用了一种新颖且有视觉冲击力的表现方法，让人对亚健康的危害一目了然。</p>
+<p>她的作品主题是为兴和制药的产品“キューピーコーワヒーリング锭”做推广。这种药物可以提高睡眠质量、缓解疲劳症状，改善都市人群的亚健康状态。为引起人们对身体状况的重视，馬杉帆々香 用一种乍一看和健康压根毫无关系的事物来承载创意——刺绣。</p>
+<p>她将手工刺绣拆解为正反两面，将其并列展示。刺绣正面寓意人们对外展示出的面貌，反面则代表亚健康状态真实的模样。即便一个人表面看起来充满活力，但实际上疲劳、失眠等等问题已经将ta的身体和精神折磨地如刺绣另一面——在混乱的线条中失去了原有的平衡感。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114304.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114316.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505114325.png"></p>
+<p>对刺绣双面性的巧妙利用，让这幅作品也获得了专业人士的青睐。4 月 3 日，馬杉帆々香凭借此作品，获得第 91 届日本每日广告设计奖“广告主命题”类优秀奖作品。</p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://www.wheresyoured.at/the-rot-economy/" title="腐烂经济">腐烂经济</a>（英文）</p>
+<p>这篇文章讨论了现代商业资本部署中一个严重的问题，即公共和私人投资者以及市场本身已经与“良好”业务的真正概念完全脱节，他们只关注一个指标——<strong>增长</strong>。这里的“增长”并不是指变得更“大”或“更好”，而只是指“更多”。</p>
+<p>这意味着公司正在产生更多的收入、更高的估值、获得更多的市场份额，并找到更多产生这些东西的方法。</p>
+<p>在公共市场上，这意味着像谷歌、Meta 和微软这样的公司因其无焦点、资本密集型的业务而受到奖励，当形势变得艰难时，这些公司需要大规模裁员，因为市场喜欢他们找到了节省资金的方法。他们不会因为糟糕的规划、停滞不前的产品、人力资本管理不善或普遍缺乏真正创新而受到惩罚，因为数字一直在上升。</p>
+<p>比如 Meta（Facebook 的母公司）在构建一个永远不会存在的元宇宙上烧钱后，股价受到了打击。然而，一旦扎克伯格解雇了 11,000人，并声称 2023 年将是“效率年”，尽管 Facebook 活跃用户增长下降，他们在同一个元宇宙部门损失了 137 亿美元，市场还是以双位数增长回应了 Meta 的股价。</p>
+<p>文章还讨论了谷歌的类似但略有不同的故事，谷歌的核心产品——搜索——已经从一个寻找信息的地方变成了一个越来越被操纵的 SEO 优化垃圾的迷宫。</p>
+<p>文章最后指出，风险投资和公共市场实际上并不奖励或尊重“良好”的商业或“良好”的CEO——他们奖励那些能够推动提高资产价值的增长的人。文章呼吁，我们需要在评估企业的方式上进行重大转变，否则我们将继续经历对人力资本的狂饮和净化的惩罚性周期。</p>
+<p><em>PS：这个博主每篇文章内容都还挺深度的，不过就是立场太鲜明…大部分都是“骂”这个“骂”那个…</em></p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://kk.org/thetechnium/better-than-fre/" title="比免费更好">比免费更好</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505093439.png"></p>
+<p>这篇文章由凯文·凯利（Kevin Kelly）撰写，题为《比免费更好》（Better Than Free），探讨了在互联网时代，当复制品（copies）变得极其丰富甚至免费时，企业和创作者如何创造价值并从中获益。文章指出，互联网本质上是一个复制机器，它不断地复制我们在其上进行的每一个动作、每一个字符、每一个思想。这种复制是数字经济的基础，但也对传统的基于销售珍贵复制品的商业模式构成了挑战。</p>
+<p><strong>凯利提出了一个核心问题：如果复制品是免费的，我们如何通过它们赚钱？</strong> 他的回答是，当复制品变得极其丰富时，它们变得无价值，而不能被复制的东西变得稀缺和有价值。因此，我们需要销售不能被复制的东西。</p>
+<p>文章列出了八种不能被复制的价值，凯利称之为“生成性”（generative）价值，因为它们必须被生成、成长、培养和呵护。这些生成性价值包括：</p>
+<ol>
+<li>即时性（Immediacy）：及时获取新内容的能力是有价值的。</li>
+<li>个性化（Personalization）：定制内容以满足个人特定需求的服务。</li>
+<li>解释性（Interpretation）：为免费软件提供的支持和指导。</li>
+<li>真实性（Authenticity）：确保内容是真实和可靠的。</li>
+<li>可访问性（Accessibility）：通过订阅服务方便地获取内容。</li>
+<li>具体化（Embodiment）：将数字内容具体化，如通过高质量的屏幕或3D显示。</li>
+<li>赞助（Patronage）：粉丝愿意为支持他们喜欢的创作者而付费。</li>
+<li>可发现性（Findability）：在大量免费作品中，帮助用户发现和找到作品的能力。</li>
+</ol>
+<p>凯利认为，这些生成性价值需要一套新的技能集。在免费复制品的世界中取得成功，不是通过分销技能，也不是通过知识产权和版权的法律技能，更不是通过囤积和稀缺性的技能。相反，这些新的生成性价值要求我们理解丰富如何孕育共享心态，慷慨如何成为商业模式，以及培养和呵护不能通过点击鼠标复制的特质变得至关重要。 </p>
+<p>文章最后指出，在这个网络化经济中，金钱并不跟随复制品的路径，而是跟随注意力的路径，而注意力有自己的回路。凯利还提到，尽管广告被广泛认为是解决免费的悖论的方案，但它只是注意力所采取的路径之一，在长期内，广告只会是出售免费内容的新方法中的一部分。</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://benjiweber.co.uk/blog/2023/10/15/engineering-team-lessons-from-cycling/" title="工程团队从自行车运动中吸取的教训">工程团队从自行车运动中吸取的教训</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505001919.png"></p>
+<p>本文通过<strong>自行车运动的比喻</strong>，深入探讨了软件开发团队中协作的重要性。作者指出，像自行车队一样，软件团队在合作时能够比单打独斗更快地实现目标。文章强调了团队合作的空气动力学优势，即通过集体努力可以克服环境挑战，实现更高效的目标达成。同时，作者也提到了个人工作的优势，如在软件团队中，个别成员的专长可以帮助团队抓住机会，解决突发问题。</p>
+<p>整体而言，文章倡导在软件开发中灵活运用团队和个人的优势，以适应不断变化的市场和技术环境。</p>
+<hr>
+<p>4、 <a target="_blank" rel="noopener" href="https://natureofcode.com/introduction/" title="《代码的本质》（第二版）">《代码的本质》（第二版）</a>（英文）</p>
+<p>这是一本印刷书记的在线版本，探索了通过创意编码框架 Processing 在软件中模拟自然界中不可预测的进化和突现特性。作者提到，自他大约十年前自费出版以来，技术和创意媒体世界已经发生了巨大变化，因此他现在推出了一个围绕 JavaScript 和 p5.js 库构建的新版本（因为它们适合初学者，并且所有代码都可以在浏览器中运行。）。</p>
+<p>作者强调了这本书不是严格的科学书籍，也不是艺术或设计书籍，而是一本传统的编程教科书，重点在于面向对象编程。</p>
+<p>这里不仅有作者的 Youtube 频道和在线 Coding 平台，提供了与书中内容相关的视频教程。还有一个可能的教学大纲，将书中的内容设计为适合 14 周的课程，并鼓励读者分享他们的工作和反馈。他将这本书视为一个活文档，并鼓励社区参与和贡献。</p>
+<p>总之是一个质量相当在线的资料。</p>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://www.selfawaresoup.com/notes/2024/05/01/the-user-is-on-their-own/" title="用户是独立的">用户是独立的</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505094328.png"></p>
+<blockquote>
+<p>我们要么期望人们超级自给自足，要么期望复杂的事情变得超级容易。</p>
+</blockquote>
+<p>在这篇文章中，作者深入探讨了用户界面设计中的一个核心概念——<strong>直观性</strong>。她指出，尽管我们期望用户界面直观易用，但现实中几乎没有什么是真正直观的。她通过日常物品的例子，如电源按钮和电钻，说明了即使是看似简单的设备也需要一定的学习和指导。</p>
+<p>作者强调，计算机和其他复杂设备的使用同样需要社区支持、良好的文档和可访问的学习资源。她认为，设计界面时应考虑到这些问题，并对那些在使用过程中遇到困难的人表示同情。</p>
+<hr>
+<p>6、<a target="_blank" rel="noopener" href="https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/" title="你需要知道的现代CSS（2024年春季版）">你需要知道的现代CSS（2024年春季版）</a>（英文）</p>
+<p>这是一篇关于最新的 CSS 新增功能列表的详细说明，提供了基本的使用示例。如果你想了解最新的 CSS 技术和实践，这篇文章是一个很好的资源。</p>
+<hr>
+<p>7、<a target="_blank" rel="noopener" href="https://sites.wpp.com/annualreports/2014/what-we-think/essay-by-jeremy-bullmore/#reportcontents" title="在你到达那里之前，你可能不知道你要去哪里">在你到达那里之前，你可能不知道你要去哪里</a>（英文）</p>
+<p>这篇文章通过阿基米德确认王冠是否是纯金的故事，探讨了直觉在创意过程中的重要性。作者强调，无论是科学还是商业营销，<strong>直觉和逻辑</strong>都是创新过程中不可或缺的两个阶段。直觉可以引导我们发现新的想法，而逻辑则用于验证和证明这些想法。在品牌策略中，直觉的作用尤为关键，它能帮助我们捕捉品牌的本质，即使这个过程看起来不够精确或专业。</p>
+<p>文章最后提出，我们应该坦诚地承认直觉在我们所有真正有创意和价值的工作中所占的份额，并从他人的诚实中获取勇气。</p>
+<hr>
+<p>8、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxMDc4NDc5OA==&mid=2649436267&idx=1&sn=70590babf62b742201d6f87658cd9228" title="看完大模型，我决定改变自己的大脑">看完大模型，我决定改变自己的大脑</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505111116.png" alt="每个文字进入大模型先转为特征向量"></p>
+<p>文章讲述了作者在学习了大型语言模型（LLM）的工作原理后，决定改变自己的思维模式，向大模型学习。文章以 GPT-3 为例，介绍了大模型如何通过 Transformer 结构和注意力机制来处理语言信息。</p>
+<p>作者强调了大模型的特征向量、融会贯通的能力、理解语境和语义的方法、自我修炼的过程，以及举重若轻的能力。文章指出，大模型的智能虽然不同于人类，但其结构和训练过程非常值得人类学习。</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4_itQzLazydVv7C3chKcJg" title="又臭又腥的石楠花，为什么满大街都种 | 答案如下">又臭又腥的石楠花，为什么满大街都种 | 答案如下</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505125244.png"></p>
+<p>石楠花因其含有“1-吡咯啉”（1-pyrroline）而散发出与人类精液相似的气味，这是其腥臭味的来源。尽管石楠花的气味在网络上引起热议和调侃，但它在城市绿化中的应用却非常普遍。石楠花的提取物中还含有苯甲醛和苯乙醇，这些物质的相互作用构成了石楠花复杂的气味。</p>
+<p>尽管气味难闻，石楠树因其在景观效果和成本上的高“性价比”而受到园林部门的青睐。课代表总结：</p>
+<ol>
+<li>观赏性高：石楠树，尤其是红叶石楠，因其春季新叶鲜红夺目，具有很高的观赏价值，被称为“红叶绿篱之王”，在城市绿化中能够提供良好的视觉效果。</li>
+<li>经济实惠：石楠树的种植成本低廉，得益于其扦插技术和组培技术的成熟，使得种苗生产成本大幅降低。红叶石楠的价格远低于其他树种，使其成为城市绿化经济上的首选。</li>
+<li>养护成本低：石楠树具有较强的抗旱性和抗寒性，对不利环境的抵抗能力强，因此在日常养护上较为省心，减少了水、肥料、药剂、机械的使用频率，从而降低了长期的养护成本。</li>
+<li>符合绿化原则：石楠作为土生土长的本地植物，符合植物景观优化原则中对乡土性和观赏性树种的保留和推广，这也是其在城市绿化中得到广泛应用的原因之一。</li>
+<li>政策支持：国务院办公厅发布的《关于科学绿化的指导意见》提倡节俭务实推进城乡绿化，推广抗逆性强、养护成本低的地被植物，石楠树的特性符合这一政策导向。</li>
+<li>适应性强：石楠树能够在多种气候条件下生长，适应性强，这使得它成为城市绿化中一个稳定和可靠的选择。</li>
+</ol>
+<p>当然了，忍无可忍的你也别太难过，石楠的整个花期也只有 7-10 天，受不了的小伙伴可以避开或者带上口罩，接着就可以尽情享受石楠的好处了。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1z2HlZSnJN7ugeT10_-3IA" title="为什么你能感觉到背后有人盯着你 | 答案如下">为什么你能感觉到背后有人盯着你 | 答案如下</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240505132211.png"></p>
+<p>课代表总结：</p>
+<ol>
+<li>心理作用：人们感觉到背后有人注视自己可能只是一种心理作用，而非实际的感知。这种感觉可能是对环境中微妙线索的无意识反应，如微小的气味、空气流动或温度变化。、</li>
+<li>生理反应：超心理学家通过测量皮肤电反应等生理指标来研究“被凝视感”，认为即使参与者没有意识到，他们的生理反应可能揭示了对他人目光的某种感知。</li>
+<li>环境和刺激性因素：2023 年的虚拟现实研究显示，通过精心设计的环境因素（如黑暗、人物出现、红色调色板和悬疑音乐）和刺激性因素（如视觉和听觉的细微变化、颈后的触觉），可以成功诱发“被凝视感”。</li>
+<li>焦虑和紧张：焦虑或紧张情绪可能会放大人们对于被注视的感觉，提高警惕性，导致人们误将主观体验当作真实事件。</li>
+<li>自我实现的预言：人们可能因为怀疑背后有人注视而回头，这一动作反而吸引了后面人的注意，从而验证了被注视的感觉。</li>
+<li>盲视现象：尽管“被凝视感”可能是错觉，但人类的大脑确实具有无意识的视觉处理能力，如盲视现象所示，这表明大脑能够处理一些我们并未意识到的视觉信息。</li>
+</ol>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<blockquote>
+<p>我认为，不久之后，所有计算机用户都将有能力从头开始开发小型软件工具，并描述他们希望对已在使用的软件进行的修改。换句话说，LLM 将代表终端用户编程工具支持方面的一个进步：普通人能够充分利用计算机的通用能力，而无需求助于复杂的普通编程。迄今为止，这一愿景一直受制于将模糊的非正式意图转化为正式的可执行代码；现在，由于 LLM 的出现，这一瓶颈正在迅速打开。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming" title="LLM时代的可塑软件">LLM时代的可塑软件</a>（英文）</p>
+<p>2、</p>
+<blockquote>
+<p>我们文化的默认假设是，每个人都应该始终追求完美——满足于任何不足都被视为一种令人遗憾的妥协。这在大多数软件开发情况下都是错误的：而是专注于保持软件简单，“足够好”，尽早启动它，并迭代改进、增强和重构它。这就是软件成功的方式！</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://ep2013.europython.eu/conference/talks/good-enough-is-good-enough" title="“足够好”就够好了！">“足够好”就够好了！</a>（英文） </p>
+<p>3、</p>
+<blockquote>
+<p>在实践中，我倾向于发现您实际上只需要两个日志级别：ERROR 和 INFO。 那是因为我们真的只关心某些东西是否应该提醒我们。 对于日志的所有其他用途，我们希望查看所有上下文。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://ntietz.com/blog/the-only-two-log-levels-you-need-are-info-and-error/" title="您只需要两个日志级别是 INFO 和 ERROR">您只需要两个日志级别是 INFO 和 ERROR</a>（英文）</p>
+<p>4、</p>
+<blockquote>
+<p>我们活着，我们死了。除此之外，我们什么也控制不了。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://americandreaming.substack.com/p/we-live-and-we-die-we-control-nothing" title="“我们活着，我们死去。除此之外，我们什么也控制不了。">“我们活着，我们死去。除此之外，我们什么也控制不了。</a>（英文）</p>
+<p>5、</p>
+<blockquote>
+<p>大多数人的一生，仿佛竹节虫转世，全是节点。</p>
+<p>从出生开始，早教、上学、就业、结婚、生娃……每个都至关重要，一旦在某个节点没打上卡，就意味着与标准时间产生了“时差”，从此万劫不复，永远过不上“正确”的人生。</p>
+<p>于是休息，就成了一块看得见却摸不着的大饼。别人的 gap year，是旅游和义工；我们的 gap year，是用来准备高四、大五、考研二战、考公考编的三四五战。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxNjYwMzMwNw==&mid=2649609491&idx=1&sn=34694752660ad074a2c1e2c28d940d7c" title="中国年轻人，不敢gap year">中国年轻人，不敢gap year</a></p>
+<p>6、</p>
+<blockquote>
+<p>不要让一时的迷茫，遮住你眼中的光芒，不要让一时的磨难，抹掉你的勇气，青年就该有青年的胆魄，青年就该有青年的锐气。</p>
+<p>每个时代有每个时代的答案，没有人能告诉你所有的答案，曾经的经验或套路，都无法导引明天的路。</p>
+<p>迎着新时代的风，敢想敢干，敢拼敢闯，看梦想一点点实现，让改变一点点发生，这也是每一代青春，给时代最好的答案。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://news.mydrivers.com/1/977/977995.htm" title="雷军五四青年节演讲登上人民日报：敢做梦才有机会改变世界">雷军</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.com/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/116/">代码之外周刊（第 116 期）：脆弱的力量：怎样让情绪“绝对稳定”？</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE"><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E5%87%AF%E6%96%87%C2%B7%E5%87%AF%E5%88%A9%E7%9A%8473%E5%B2%81%E6%84%9F%E6%82%9F"><span class="toc-text">本周讨论：凯文·凯利的73岁感悟</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.27.0" async></script>
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || null
+        }
+      });
+    })
+  }
+</script><script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
