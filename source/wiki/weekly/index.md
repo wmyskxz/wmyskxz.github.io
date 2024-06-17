@@ -25,6 +25,8 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 05/20 [代码之外周刊（第 121 期）：数量永远胜过质量](https://www.wmyskxz.com/weekly/121)
+- 05/20 [代码之外周刊（第 120 期）：这个时代“努力”到底有没有用？](https://www.wmyskxz.com/weekly/120)
 - 05/20 [代码之外周刊（第 119 期）：怎样让你的工位更健康？](https://www.wmyskxz.com/weekly/119)
 - 05/13 [代码之外周刊（第 118 期）：导演陆川：当你“拼命搞钱”时，你能收获什么？](https://www.wmyskxz.com/weekly/118)
 - 05/06 [代码之外周刊（第 117 期）：凯文·凯利的73岁感悟](https://www.wmyskxz.com/weekly/117)
