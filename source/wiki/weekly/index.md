@@ -25,6 +25,7 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 05/20 [代码之外周刊（第 122 期）：数量永远胜过质量](https://www.wmyskxz.com/weekly/122)
 - 05/20 [代码之外周刊（第 121 期）：数量永远胜过质量](https://www.wmyskxz.com/weekly/121)
 - 05/20 [代码之外周刊（第 120 期）：这个时代“努力”到底有没有用？](https://www.wmyskxz.com/weekly/120)
 - 05/20 [代码之外周刊（第 119 期）：怎样让你的工位更健康？](https://www.wmyskxz.com/weekly/119)
