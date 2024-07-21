@@ -25,6 +25,8 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 07/08 [代码之外周刊（第 126 期）：关于睡眠的弥天大谎](https://www.wmyskxz.com/weekly/126)
+- 07/08 [代码之外周刊（第 125 期）：面对复杂，保持欢喜](https://www.wmyskxz.com/weekly/125)
 - 07/08 [代码之外周刊（第 124 期）：面对复杂，保持欢喜](https://www.wmyskxz.com/weekly/124)
 - 07/01 [代码之外周刊（第 123 期）：我们应该给自己多大的压力？](https://www.wmyskxz.com/weekly/123)
 - 06/24 [代码之外周刊（第 122 期）：数量永远胜过质量](https://www.wmyskxz.com/weekly/122)
