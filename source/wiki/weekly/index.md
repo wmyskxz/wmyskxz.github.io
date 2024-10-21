@@ -25,8 +25,16 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
-- 07/08 [代码之外周刊（第 126 期）：关于睡眠的弥天大谎](https://www.wmyskxz.com/weekly/126)
-- 07/08 [代码之外周刊（第 125 期）：面对复杂，保持欢喜](https://www.wmyskxz.com/weekly/125)
+- 10/21 [代码之外周刊（第 134 期）：你这病，少上点班就好了](https://www.wmyskxz.com/weekly/134)
+- 10/14 [代码之外周刊（第 133 期）：“老子不干了”是安全感的“最高境界”？](https://www.wmyskxz.com/weekly/133)
+- 09/30 [代码之外周刊（第 132 期）：2024年国庆假期能做的6件小事](https://www.wmyskxz.com/weekly/132)
+- 09/23 [代码之外周刊（第 131 期）：取舍才能拥有更好的人生](https://www.wmyskxz.com/weekly/131)
+- 09/02 [代码之外周刊（第 130 期）：假努力，不如不努力](https://www.wmyskxz.com/weekly/130)
+- 08/19 [代码之外周刊（第 129 期）：你会改变](https://www.wmyskxz.com/weekly/129)
+- 08/05 [代码之外周刊（第 128 期）：最小努力原则](https://www.wmyskxz.com/weekly/128)
+- 07/29 [代码之外周刊（第 127 期）：最重要的事](https://www.wmyskxz.com/weekly/127)
+- 07/22 [代码之外周刊（第 126 期）：关于睡眠的弥天大谎](https://www.wmyskxz.com/weekly/126)
+- 07/15 [代码之外周刊（第 125 期）：面对复杂，保持欢喜](https://www.wmyskxz.com/weekly/125)
 - 07/08 [代码之外周刊（第 124 期）：面对复杂，保持欢喜](https://www.wmyskxz.com/weekly/124)
 - 07/01 [代码之外周刊（第 123 期）：我们应该给自己多大的压力？](https://www.wmyskxz.com/weekly/123)
 - 06/24 [代码之外周刊（第 122 期）：数量永远胜过质量](https://www.wmyskxz.com/weekly/122)
