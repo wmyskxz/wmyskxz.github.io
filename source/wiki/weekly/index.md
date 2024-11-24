@@ -25,6 +25,9 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 11/25 [代码之外周刊（第 137 期）：像水管工一样思考，而不是像CEO](https://www.wmyskxz.com/weekly/137)
+- 11/18 [代码之外周刊（第 136 期）：不要轻易给自己贴标签](https://www.wmyskxz.com/weekly/136)
+- 10/28 [代码之外周刊（第 135 期）：永远不要让别人定义你是谁](https://www.wmyskxz.com/weekly/135)
 - 10/21 [代码之外周刊（第 134 期）：你这病，少上点班就好了](https://www.wmyskxz.com/weekly/134)
 - 10/14 [代码之外周刊（第 133 期）：“老子不干了”是安全感的“最高境界”？](https://www.wmyskxz.com/weekly/133)
 - 09/30 [代码之外周刊（第 132 期）：2024年国庆假期能做的6件小事](https://www.wmyskxz.com/weekly/132)
