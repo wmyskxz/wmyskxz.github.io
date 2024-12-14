@@ -25,6 +25,7 @@ title: 卷首语&合集
 
 # 2024 年（正在更新）
 
+- 12/09 [代码之外周刊（第 138 期）：“婚姻教皇”的婚姻幸福指南](https://www.wmyskxz.com/weekly/138)
 - 11/25 [代码之外周刊（第 137 期）：像水管工一样思考，而不是像CEO](https://www.wmyskxz.com/weekly/137)
 - 11/18 [代码之外周刊（第 136 期）：不要轻易给自己贴标签](https://www.wmyskxz.com/weekly/136)
 - 10/28 [代码之外周刊（第 135 期）：永远不要让别人定义你是谁](https://www.wmyskxz.com/weekly/135)
