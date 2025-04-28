@@ -23,6 +23,11 @@ title: 卷首语&合集
 
 ![](https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-6/1612590449967-image.png)
 
+# 2025 年（正在更新）
+
+- 04/28 [代码之外周刊（第 139 期）：努力背后的真相](https://www.wmyskxz.com/weekly/139)
+
+
 # 2024 年（正在更新）
 
 - 12/09 [代码之外周刊（第 138 期）：“婚姻教皇”的婚姻幸福指南](https://www.wmyskxz.com/weekly/138)
