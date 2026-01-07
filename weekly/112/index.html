@@ -1,0 +1,1087 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>代码之外周刊（第 112 期）：社会权力的游戏 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 最近，美国航空公司和日本制造公司 Whill 合作，打造了一款具有自动导航功能的电动轮椅，背后还能装行李。肢体行动受限用户在过了安检后，就可以到指定地方等待，临近登机时间后，工作人员就会安排他们坐上这款轮椅，输入登机口，就能直接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码之外周刊（第 112 期）：社会权力的游戏">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/112/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 最近，美国航空公司和日本制造公司 Whill 合作，打造了一款具有自动导航功能的电动轮椅，背后还能装行李。肢体行动受限用户在过了安检后，就可以到指定地方等待，临近登机时间后，工作人员就会安排他们坐上这款轮椅，输入登机口，就能直接">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2024-03-31T23:30:00.000Z">
+<meta property="article:modified_time" content="2026-01-07T03:12:39.638Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="代码之外周刊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="代码之外周刊">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2024-04-01T07:30:00+08:00","dateModified":"2026-01-07T11:12:39+08:00","datePublished":"2024-04-01T07:30:00+08:00","description":"","headline":"代码之外周刊（第 112 期）：社会权力的游戏","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/112/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/112/","keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401010725.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/86/"><span class="title">一周精彩内容分享（第 86 期）：赛马时代结束，超级APP登场</span></a><a class="item title" href="/weekly/45/"><span class="title">一周精彩内容分享（第 45 期）：两套用户画像工具</span></a><a class="item title" href="/weekly/53/"><span class="title">一周精彩内容分享（第 53 期）：运气与风险</span></a><a class="item title" href="/bitcoin/3/"><span class="title">比特币(3)——比特币的其他优势</span></a><a class="item title" href="/bitcoin/2/"><span class="title">比特币(2)——最大优势是价值存储</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-03-31T23:30:00.000Z">2024-04-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-07T03:12:39.638Z">2026-01-07</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>代码之外周刊（第 112 期）：社会权力的游戏</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图"></a>题图</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401010725.png"></p>
+<p>最近，美国航空公司和日本制造公司 Whill 合作，打造了一款具有<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/t-nixXoiYojis1h379uxCw" title="去年河北水灾的「泡水图书」迎来了意外「新生」| Feel Good 周报">自动导航功能</a>的电动轮椅，背后还能装行李。肢体行动受限用户在过了安检后，就可以到指定地方等待，临近登机时间后，工作人员就会安排他们坐上这款轮椅，输入登机口，就能直接开启。</p>
+<h1 id="本周讨论：社会权力的游戏"><a href="#本周讨论：社会权力的游戏" class="headerlink" title="本周讨论：社会权力的游戏"></a>本周讨论：社会权力的游戏</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://havefun.zhubai.love/posts/2317731909297909760" title="富于理性#94 社会权力的游戏">富于理性#94 社会权力的游戏</a>）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401005653.png" alt="使用 Midjourney 绘制"></p>
+<p>1959 年，学界提出权力的六种基础（bases of social power）。其中，「社会权力」（social power）指影响他人行为，并抵制他人影响自己的能力。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401005609.png" alt="（图源：《亲密关系》中的总结）"></p>
+<p>虽然「权力基础模型」不能提供对权力逻辑最深度、全面的解析，但它确实是一个简洁、好上手的模型。</p>
+<p>使用这个模型，我们可以逐一分析以下的几个问题：</p>
+<ul>
+<li>作为最能赚钱的玩家，巴菲特如何参与社会权力的游戏？</li>
+<li>拿破仑如何崛起，为何摔落？</li>
+<li>82 年生的金智英，为何会精神崩溃？</li>
+<li>当红流量明星，面临着什么隐忧？</li>
+<li>刚出新手村，年轻人如何在社会上立足？</li>
+</ul>
+<p>这些问题看似千差万别，但有一个简洁的思维模型，可以帮助思考：<strong>权力的基础</strong>。</p>
+<h2 id="巴菲特的权利密码"><a href="#巴菲特的权利密码" class="headerlink" title="巴菲特的权利密码"></a>巴菲特的权利密码</h2><p>以巴菲特为例，我们逐一分析他拥有的各项权力。你会发现，他是一位「六边形战士」：</p>
+<p><strong>1）专家权力</strong></p>
+<p>首先，他拥有高超的投资技艺，以此获得专家权力。他在近80年的职业生涯中，不断磨练技艺，形成了强大的专业能力，这是他的立身之本，也是其他各项权力之源。</p>
+<p><strong>2）奖赏权力与强迫权力</strong></p>
+<p>通过积累大量财富，巴菲特拥有了可观的奖赏与强迫权力。</p>
+<p>对于旗下公司，巴菲特有权提拔或裁撤公司高管。</p>
+<p>他的教导也能帮学生更强地掌握投资的秘诀，比如，对于知名的学生（如李录），他的指导正是一种奖赏。学生的成功，又反过来能增强他的信息权力。</p>
+<p><strong>3）合理权力（符合社会规范）</strong></p>
+<p>一旦成家立业，成为公司掌门人、一家之长，巴菲特可以自如地行使相关权威，施行合理权力。</p>
+<p>他喜欢在股东信里强调伯克希尔·哈撒韦交了多少税，这也在巩固自己的合理权力。</p>
+<p><strong>4）参照权力（因为他人对你有尊重与爱，能施加影响力）</strong></p>
+<p>在「门徒」眼中，巴菲特是奥玛哈的圣人。</p>
+<p>最重要的，当然是他把几乎全部家产捐回社会，生活低调简朴，这是跨文化普遍被认可的美德。</p>
+<p>此外，他各方面的细节也做得很好。</p>
+<p>就社会义务而言，90 年代末，他协助收拾长期资本公司倒台后的烂摊子；2008年，在金融危机风雨飘摇时，他出来喊话“Buy America, I am”，为金融界注入信心。</p>
+<p>生涯中晚期，他积极布道，分享关于人生和投资的智慧。</p>
+<p>就与人交往而言，他精心研究过表达的艺术，擅长自嘲，风趣幽默。例如，他在1998年的一次演讲中，仅仅80分钟就让听众大笑 20 次。</p>
+<p>由此，他得到多方的尊重与爱戴。这也是幸福的源泉。</p>
+<p><strong>5）信息权力</strong></p>
+<p>想象一下，如果有一位能干的、清贫的年轻人，他能获得巴菲特当前掌控的信息，哪怕只有1%，也足够他成为亿万富豪。</p>
+<p>以上这些权力相辅相成。在社会权力的游戏中，巴菲特绝对是技艺最高超的玩家之一。</p>
+<h2 id="拿破仑的崛起与衰落"><a href="#拿破仑的崛起与衰落" class="headerlink" title="拿破仑的崛起与衰落"></a>拿破仑的崛起与衰落</h2><p>拿破仑则提供了典型案例。他起初获取权力，然后善用权力，最终滥用权力。</p>
+<p>年轻时，拿破仑原本是一位贫穷军官，法国大革命期间，他凭借军事才华脱颖而出，立下赫赫军功，这是<strong>专家权力</strong>。</p>
+<p>随后十年，他带领军队从一个胜利走向另一个胜利，步步高升，这使他得以掌握更强的武力，即<strong>强迫权力</strong>。</p>
+<p>他借武力改组政府，成为最高执政之一，有力维护社会秩序，获得<strong>合理权力</strong>。</p>
+<p>他作为击退外敌的民族英雄，作为广受爱戴的凯旋将军，得到巨大的<strong>参照权力</strong>。</p>
+<p>最终，他在 35 岁时自立为帝，获得法国最高的<strong>奖赏与强迫权力</strong>。</p>
+<p>称帝之后，拿破仑权力日益昌隆。对外，他仍然屡战屡胜，成为欧洲的「王中之王」。对内，他推动编撰《拿破仑法典》，建立法律秩序，促进社会的稳定与发展，也巩固了自身权力。</p>
+<p>然而，随着权力欲望一再膨胀，失败的种子也已播下。</p>
+<p>为了惩戒英国，他下令欧洲大陆诸国不得与英国通商，此时，他的<strong>合理权力</strong>就已经受到损害。因为当时英国主宰海上贸易，中断贸易后，受苦的是大陆上的万千民众，比如砂糖很快就出现了短缺。当俄国违抗他的禁令时，拿破仑怒火中烧，远征俄国，大败而归，最终发展至滑铁卢的溃败。武力（<strong>强迫权力</strong>）随着胜利到来，也随着溃败而逝去。</p>
+<p>这是他滥用权力的后果，最终也促成他的衰落。</p>
+<h2 id="金智英为何发疯"><a href="#金智英为何发疯" class="headerlink" title="金智英为何发疯"></a>金智英为何发疯</h2><p>唐纳德·特朗普的前妻伊万娜·特朗普曾有一句名言，“Don’t get mad, get everything.” 一种翻译是「别抓狂，抓牢所有东西。」</p>
+<p>地球另一端，比伊万娜·特朗普年轻 33 岁的韩国女性金智英，没有止步于抓狂。作为小说人物，她最终还是「发了疯」。</p>
+<p>怎么发疯呢？金智英像是被母亲附身，在与丈夫的父母聚餐时，她会用母亲的语气，说些「大逆不道」的话：「每次过节，你们家规矩太多，都让我家智英准备得太辛苦。过完节，她都全身酸痛。」「亲家公，恕我冒昧：只有你们家人团聚很重要吗？我们也是除了过节以外，没有别的机会可以聚在一起好好看看三个孩子。既然你们的女儿可以回娘家，那也应该让我们的女儿回来才对吧！」</p>
+<p>好端端的，为什么她会发疯？</p>
+<p>要考究这个问题，请想象两位分别生活在韩国和美国的全职妈妈。</p>
+<p>有些劣势是相通的。暂且先不谈自我实现，谈些更接地气的。例如，经济资源有限（缺乏<strong>奖赏权力</strong>）、信息获取不足（缺乏<strong>信息权力</strong>），以及需要承担沉重的家务负担（社会赋予男性的<strong>合理权力</strong>）。</p>
+<p>就<strong>参照权力</strong>而言，在美国等国家，为家庭事务付出的劳动，能得到更充分的尊重与承认（虽然也十分有限）。而在东亚，至少截止目前，所有这类再生产劳动都被严重贬低，因此，如果一位女性花大量精力从事这些工作，她很容易被歧视。</p>
+<p>金智英情绪崩溃，开始「被附身」，直接导火索，正是她听到有人称呼自己为「妈虫」。她不由得控诉，「我赌上自己的性命把孩子生下来，甚至放弃了自己所有的生活、工作、梦想，只为了带孩子，我却成了他们口中的一只虫，你说我接下来该怎么办？」</p>
+<p>那么，发疯意味着什么？</p>
+<p>发疯是跳脱框架，是对压顶式的、不合理的「合理权力」的反抗，是一种变形的<strong>强迫权力</strong>。虽然，在这个阶段，金智英所给出的惩罚，最终也不过是「非暴力不合作」，说出一些（不中听的）真话罢了。</p>
+<h2 id="流量明星的权力"><a href="#流量明星的权力" class="headerlink" title="流量明星的权力"></a>流量明星的权力</h2><p>当红男性流量明星是非常有趣的一个群体。</p>
+<p>他们主要拥有<strong>参照权力</strong>，来自粉丝对偶像的爱慕、向往和理想化。娱乐产业极强的造梦能力，与大众的理想化需求、钟情幻想一拍即合，形成明星的权力基础。</p>
+<p>因此，对于流量明星，最糟糕的事，就是出现恶性新闻，而且得是精准打击粉丝幻想的恶性新闻。例如，某位年轻演员当年危险驾驶，够成违法行为，但粉丝群体不离不弃，全力帮助他重塑良好形象；而当嫖娼新闻爆出，粉丝群体的幻想直接被粉碎，只留下一地鸡毛。</p>
+<p>这些事件，俗称「塌房」。实际上，坍塌的是偶像的<strong>参照权力</strong>。</p>
+<h2 id="经典游戏攻略"><a href="#经典游戏攻略" class="headerlink" title="经典游戏攻略"></a>经典游戏攻略</h2><p>刚出新手村，想要在社会上立足的年轻人，可以参考这套经典的游戏攻略：</p>
+<p>最靠谱的，是磨练出一门技艺，赢得<strong>专业权力</strong>；</p>
+<p>以此为基础，多为集体、为他人服务，对贡献抱有激情，在组织中担任职务、或赢得权威，得到<strong>合理权力</strong>；</p>
+<p>端端正正做人，真诚地与人交往，从想得到友爱和尊重的人那里得到友爱和尊重，得到<strong>参照权力</strong>；</p>
+<p>在工作与广泛交往中，得到有价值的信息，这是<strong>信息权力</strong>；</p>
+<p>以上四者，可以帮助年轻玩家在社会上立足。</p>
+<p>能实现这些的，是非常幸运的玩家。那么，自然应该合理分配积攒的资源，明智地实行<strong>奖赏权力与强迫权力</strong>，以参与塑造一个更值得期待的未来。</p>
+<p><strong>本期内容较多，感谢内阅读~ Be Better~</strong></p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.atlasobscura.com/articles/when-did-dogs-become-our-best-friends" title="狗什么时候成为我们最好的朋友？">狗什么时候成为我们最好的朋友？</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331084718.png"></p>
+<p>在意大利第二长河——阿迪杰河畔的维罗纳，考古学家们发现了一个铁器时代（2000 年历史）的墓地。其中一个名为 B19 的墓穴里，有一个婴儿和一只狗的完整骨骼，静静地躺在一起。</p>
+<p>通过对骨骼的同位素分析，科学家发现这只狗的饮食与众不同，主要是碳水化合物，而且它还有一条曾经折断过的腿。这些细节让人猜测，<strong>它可能是家中的宠物</strong>，受到了与人类成员相同的关爱。</p>
+<p>这个发现再次证明了狗和人类之间深远而特殊的关系。从数万年前古老的狼逐渐演化成为狗，它们不仅是我们的工作伙伴，更是我们情感上的依靠。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://spectrum.ieee.org/inkjet-printer" title="喷墨打印机不仅仅是用于打印">喷墨打印机不仅仅用于打印</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331093833.png"></p>
+<p>喷墨打印技术自 20 世纪 80 年代初以来，从嘈杂的办公室设备演变成今天家庭和办公室中不可或缺的静音打印工具。现代喷墨打印头能够在每秒数万次的频率下，精确控制仅有 14 微米直径的墨滴，展现了微电子机械系统（MEMS）技术的精妙。</p>
+<p>但喷墨技术的应用已<strong>远远超出了打印纸张</strong>，涉及基因组学、电路板制造，甚至是 3D 打印等多个领域。</p>
+<p>一个例子是将 3D 喷墨打印用于个性化医疗。这个想法是生产为特定患者定制的药物片剂。这种个性化药丸可以包括对个体剂量的简单微调，以及通过修改片剂的结合剂和结构来调整药物的释放速率——从非常快到缓慢和持续。患者可以每天服用一种复方药，而不是每天在复杂的时间表上处理多种药物，这是一种包含多种药物的3D打印药片，每种药物的释放速率都不同。</p>
+<p>喷墨系统也特别适用于以薄膜形式打印药物，例如应用于皮肤的透皮贴剂和用于脸颊的颊膜，药物可以直接进入血液，而无需首先通过消化系统。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331094230.png" alt="可以使用喷墨系统制造 DNA 微阵列，以在阵列的每个位置构建定制设计的 DNA 链。"></p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://www.nature.com/articles/d41586-024-00871-6" title="如何让老的免疫系统恢复年轻">如何让老的免疫系统恢复年轻</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331152622.png" alt="血液干细胞（如图所示;人工着色）产生红细胞和免疫细胞。图片来源：科学图片库"></p>
+<p>在最新的科学突破中，研究人员发现了一种方法，可以使老年小鼠的免疫系统恢复年轻活力。这项研究不仅为抗衰老领域带来了新的希望，也可能对未来的人类健康产生深远影响。</p>
+<ul>
+<li>免疫系统重启：通过靶向老年小鼠的造血干细胞，科学家成功降低了与炎症相关的细胞类型，从而减少了过度炎症并恢复了免疫反应。</li>
+<li>科学的进步：这项发表在《自然》杂志上的研究，展示了通过抗体治疗，老年小鼠对疫苗接种的反应更强，对病毒感染的抵抗力也得到了提升。</li>
+<li>未来的希望：尽管这种方法还需要数年时间才能在人体中进行测试，但它已经证明了通过调整干细胞种群平衡，可以有效地逆转免疫系统的衰老。</li>
+</ul>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://nanmu.me/en/posts/2022/what-happens-on-gitlab-when-you-do-git-push/" title="当你做 git push 时，GitLab 上会发生什么？">当你做 git push 时，GitLab 上会发生什么？</a>（英文）</p>
+<p>这篇文章解释了 Githe 和 GitLab 的幕后工作。以下是提炼的一些重点，感兴趣的可以看看：</p>
+<ul>
+<li>.git 文件夹的秘密：每个使用 Git 的项目都有一个隐藏的 .git 文件夹，它保存了所有 Git 的信息。这次我们重点关注其中的 heads、remotes 和 tags 部分，它们是如何在你推送代码时发挥作用的。</li>
+<li>服务器的裸仓库：服务器端的 Git 仅在 .git 文件夹中存储信息，这被称为裸仓库。当你克隆或推送代码时，GitLab 是如何处理这些信息的？</li>
+<li>SSH 与 HTTP(S) 的对话：无论是通过 SSH 还是 HTTP(S)，GitLab 都有一套独特的机制来处理你的 git push。GitLab Shell 的 gitlab-sshd 和 Workhorse 是如何确保安全和效率的？</li>
+<li>Gitaly 的高效管理：Gitaly 是 GitLab 的心脏，负责管理 Git 仓库并确保操作的高效性。它是如何通过最小化磁盘 IO 操作来提升性能的？</li>
+</ul>
+<p>其中有意思的是，Gitaly 的名字：这是将“Git”与人口荒凉的俄罗斯村庄“Aly”混合在一起，旨在实现最少的磁盘 IO 操作，就像 Aly 的人口最少一样。这种俏皮的命名强调了开发人员的效率和极简主义目标。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://pvs-studio.com/en/blog/posts/1108/" title="不要修复任何东西——而是培养接受度：游戏中的错误已经成为功能">不要修复任何东西——而是培养接受度：游戏中的错误已经成为功能</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331091854.png"></p>
+<p>这是一个有趣的话题：游戏开发中的错误如何成为创新的催化剂？这篇文章通过一系列著名游戏的例子，展示了开发者如何将错误转化为游戏特色：</p>
+<ul>
+<li><strong>意外的美味</strong>：在《矮人要塞》中，玩家竟然可以用酒精来烹饪，这个由错误产生的特性如此受欢迎，以至于开发者决定保留它。</li>
+<li><strong>意外的伴侣</strong>：《星露谷物语》中，美丽的蓝发女孩阿比盖尔竟然会吃掉你送她的钻石，这个有趣的bug最终成为了游戏中一个独特的亮点。</li>
+<li><strong>意外的跳跃</strong>：《雷神之锤》中的一个小错误，让玩家发现了火箭跳跃的乐趣，这个特性不仅在《雷神之锤》中流行，也影响了后来的多款游戏。</li>
+</ul>
+<blockquote>
+<p>错误是任何过程的一部分，尤其是在编程中。</p>
+</blockquote>
+<p>这句话提醒我们，即使是在技术严谨的游戏开发中，错误也可以成为创新的起点。让我们拥抱错误，从中学习，不断进步。祝大家编程愉快，游戏愉快！</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://longform.asmartbear.com/two-big-things/" title="你可以有两件大事，但不能有三件">你可以有两件大事，但不能有三件</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331143131.png"></p>
+<p>在生活中，我们不可能“拥有一切”。实际上，我们只能在三件大事中选择两件来专注。这篇文章提出了一个有趣的时间管理理论，让我们一起来看看。</p>
+<ul>
+<li>时间分配：我们每天有24小时，如果按照1950年代的标准来分配，8小时工作，8小时家庭和通勤，还有8小时睡眠和个人清洁。这意味着“工作”和“家庭”是你每周可以投入40多小时的两件大事。</li>
+<li>选择的代价：如果你想在全职工作的同时创业，那么你可能会牺牲家庭时间。这也是为什么在成家之前创业会更容易一些。</li>
+<li>生活的规则：生活的规则是你可以在生活中拥有两件“大事”，但不可能三件。这些大事包括工作、家庭、社交生活、孩子和配偶等。</li>
+</ul>
+<p>文章中还提到了一些发人深思的观点，比如“尝试拥有一切的人，实际上从未真正成功”。它提醒我们，我们需要做出选择，并且接受我们无法同时在多个领域都做到最好。</p>
+<hr>
+<p>4、<a target="_blank" rel="noopener" href="https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/" title="在 IDE 中使用 GitHub Copilot：提示、技巧和最佳实践">在 IDE 中使用 GitHub Copilot：提示、技巧和最佳实践</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331145243.png"></p>
+<p>在这个技术迅速发展的时代，AI 已经成为我们工作流程中不可或缺的一部分。GitHub Copilot 不仅仅是一个代码补全工具，它的功能已经远远超出了这个范畴。</p>
+<p>这里是来自 Github 官方博客的一篇最佳实践指南。</p>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://sspai.com/post/87652" title="空想特摄的浪漫：奥特曼入坑指南">空想特摄的浪漫：奥特曼入坑指南</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331153531.png"></p>
+<p>探索奥特曼系列的历史，这个几乎成为文化符号的系列，不仅仅是儿童的英雄故事，它还承载着深刻的社会意义和世代的记忆。以下是本文的精华摘要：</p>
+<ul>
+<li>空想特摄的起源：奥特曼，或称Ultraman，诞生于60年代的日本，一个战后反战情绪高涨却又渴望战斗场面的社会。在不能展现国与国战斗的限制下，怪兽电影成为了一种新的表达方式。</li>
+<li>昭和到令和：奥特曼经历了昭和、平成到令和三个时代，每个时代的奥特曼都有其独特风格，从初代奥特曼的英雄梦想到平成三杰的科幻冒险，再到令和时代的新生代奥特曼，每一代都有其标志性的变化。</li>
+<li>社会影响力：奥特曼不仅是儿童的偶像，也是成年人的怀旧之物。它通过屏幕上的英雄形象，鼓励着全世界的孩子们在逆境中坚持，并成为了一个时代的文化标志。</li>
+</ul>
+<p>“奥特曼就是空想的浪漫，让我们对‘英雄’这个词有了一个具象化的认知。”这句话深刻地表达了奥特曼对多代人心中英雄概念的塑造和影响。它不仅是一部特摄剧，更是一种文化现象，激发了无数人心中对正义和勇气的向往。🌟</p>
+<hr>
+<p>6、<a target="_blank" rel="noopener" href="https://sspai.com/post/78230" title="家用咖啡手册 01 | 咖啡种类这么多，到底有什么不同？">家用咖啡手册 01 | 咖啡种类这么多，到底有什么不同？</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331155053.png"></p>
+<p>咖啡爱好者们，想在家享受一杯完美的咖啡吗？这歌《家用咖啡手册》系列将是你的贴心指南。这篇作为开头，介绍了一些咖啡种类的问题：</p>
+<ul>
+<li>咖啡种类揭秘：了解不同咖啡产品的分类，从速溶到现磨，每种都有其独特的风味和消费群体。</li>
+<li>速溶咖啡的进化：速溶咖啡不再单调，喷雾干燥和冻干技术的对比，让你选择适合自己口味的咖啡。</li>
+<li>即饮咖啡的便捷：即饮咖啡省去了繁琐步骤，直接享受咖啡的快感，尤其是黑咖啡，简单纯粹。</li>
+<li>挂耳咖啡的魅力：挂耳咖啡提供了接近手冲体验的便利，多样的选择让每一杯都充满期待。</li>
+</ul>
+<p>咖啡不只是一种饮品，它是一种生活态度，一种对美好生活的追求。</p>
+<hr>
+<p>7、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/_afGDGlLm6t6_EdArN2Rtw" title="亲密关系的牢笼">亲密关系的牢笼</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240331223807.png" alt="陈立人（左）、于璇（右）"></p>
+<p>世人瞩目的“谷歌中国工程师杀妻案”目前还在审理，虽然已有不少媒体跟进，但整个案子仍笼罩在重重迷雾之中，人们最感到困惑不解的是：像这样优秀的年轻人为什么要自毁前途？按说他们生活如此美满，到底哪里出了问题，怎么会走到这一步？杀人动机又是什么？</p>
+<p>在这篇深刻的文章中，作者维舟探讨了亲密关系中的控制欲如何变成了一种无形的束缚，甚至可能导致悲剧的发生。以下是文章的几个关键观点：</p>
+<ul>
+<li>控制欲的极致：对于某些人来说，控制欲如此强烈，以至于他们宁愿毁掉一切也不愿放手。</li>
+<li>社会与文化的影响：文章指出，我们的社会文化常常将这种窒息的控制欲误解为“爱”，而忽视了其负面的压迫性。</li>
+<li>自由与独立的重要性：真正的爱应该是支持和尊重个体的自由和独立，而不是将对方囚禁在一种共生的依赖关系中。</li>
+</ul>
+<p>“爱不是牢笼。真正的爱必将使人自由。”这些话语强调了个体自由的重要性，并挑战了我们对于爱和关系的传统看法。这篇文章是对那些在亲密关系中感到被束缚的人的一种启示，提醒我们要重新审视我们对爱的理解和期望。</p>
+<hr>
+<p>8、<a target="_blank" rel="noopener" href="https://www.xiaoyuzhoufm.com/episode/659955abd4deab69c2b152f1?s=eyJ1IjoiNjYwNzYwNjJlZGNlNjcxMDRhNTU4ZDYyIn0=" title="S2E7 内容创作者的窘境">S2E7 内容创作者的窘境</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401002705.png"></p>
+<p>这是一期小宇宙的<strong>播客类节目</strong>（时长 90 分钟）。本来是想放在一周讨论的，但是内容实在是繁杂庞大。所以在这里做一个简单的介绍。是一期很有共鸣的故事。</p>
+<p>Jack 的故事是一位内容创作者在现代互联网时代的缩影，反映了许多创业者所面临的挑战和窘境。他的经历展示了在追求艺术创作激情与经济利益之间的艰难平衡，以及在公众评价和个人信念之间的斗争。</p>
+<p>Jack 出身于一个经济条件良好的家庭，他的父亲是一名流行病学家。早年间，他就展现出对音乐的浓厚兴趣，并拥有了一间装备齐全的音乐工作室。他在斯坦福大学完成了音乐学位，虽然他最初是从物理系转过来的。毕业后，他并没有像许多同学那样进入硅谷的创业圈，而是选择留在家中，专注于创作和上传 YouTube 视频。</p>
+<p>Jack 的创作路上，首先面临的是<strong>经济回报与投入不成比例的窘境</strong>。他在 YouTube 上的视频创作虽富有创意和热情，却很难获得足够的经济收益。他的视频虽然制作精良，却因不符合主流市场口味而播放量有限。他的独特风格，如强调“所见即所听”，禁止对嘴型和假弹，虽然得到了小部分人的认可，但在广阔的网络世界中显得边缘化，难以吸引大众关注。</p>
+<p>随着时间的推移，Jack 逐渐感受到了<strong>公众误解和评价的压力</strong>。尽管他努力保持自己的艺术原则和创作风格，但观众往往更关注娱乐性而非艺术价值，这让他陷入了认同和价值的危机。他的创作被一些人视为寻求关注和流量的手段，而非真正的艺术表达。</p>
+<p>作为一个内容创作者，Jack 还面临着<strong>职业身份的认同问题</strong>。在互联网上，内容创作者往往被边缘化，不被视为传统意义上的职业。这种职业的不确定性和社会的不认可加剧了 Jack 的内心挣扎。他需要不断地证明自己的工作不仅是一种爱好或暂时的追求，而是一种正当的、可持续的职业选择。</p>
+<p>与此同时，Jack 也体会到了<strong>与传统产业的冲突</strong>。他的创作方式与传统音乐产业的运作模式有着明显的差异，这导致他在尝试与音乐产业接轨时遇到了阻碍。他的音乐风格和创作理念难以被传统音乐市场接受，这使得他难以通过传统的音乐产业获得成功。</p>
+<p>就在 Jack 几乎要放弃的时候，一个转机出现了。他开始思考，是否有一种方式，可以不依赖传统的音乐产业体系，直接与喜欢他音乐的人建立连接。这个思考最终促成了 Patreon 平台的诞生。Jack 与一个老友共同创立了这个平台，旨在帮助像他一样的独立创作者，通过粉丝的支持来实现创作和生活的自由。</p>
+<p>Patreon 的成功，对 Jack 来说是一种救赎。他终于找到了一种方式，既可以坚持自己的音乐理念，又能获得经济上的独立。这个平台不仅改变了Jack的生活轨迹，也为全球的内容创作者提供了新的可能性。</p>
+<p>通过 Jack 的经历，我们可以看到互联网时代创业者的多重挑战：如何在追求艺术真实性和商业成功之间找到平衡点，如何在遭受公众误解和评价时保持自我，如何在职业选择上获得社会的认可，以及如何在传统产业和新兴媒介之间寻找自己的位置。</p>
+<hr>
+<p>9、<a target="_blank" rel="noopener" href="https://www.wuzao.com/document/generative-ai-for-beginners/" title="面向初学者的生成式人工智能课程">面向初学者的生成式人工智能课程</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401004746.png"></p>
+<p>微软官方提供的十二章系列课程，了解构建生成式 AI 应用程序的基础知识。每章都涵盖了生成式人工智能原理和应用程序开发的一个关键方面。 在整个系列课程中，我们将建立我们自己的生成式人工智能初创公司，以便您可以了解如何实现您的想法。</p>
+<p>最关键还支持中文学习！码住！</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/paagiiOW1mU8HRBVESCY9w" title="没开玩笑，爱抖腿的人最后都瘦了 | 答案如下">没开玩笑，爱抖腿的人最后都瘦了 | 答案如下</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20240401004132.png"></p>
+<p>文章通过科学研究揭示了抖腿不仅是一种常见的无意识动作，而且实际上是一种有效的有氧运动，可以改善全身的代谢调节。文章中提到的“比目鱼肌俯卧撑”（SPU）是一种坐姿下的拓屈运动，能够<strong>显著提高小腿比目鱼肌的局部耗氧量，从而增加体内脂肪和碳水化合物的氧化率</strong>。</p>
+<p>但过于频繁的抖腿，或许是在提醒久坐又缺乏锻炼的你，该去体检了。</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<blockquote>
+<p>作为一名系统工程师，奇怪的是，制作有价值且被广泛使用的东西是很容易的。但要获得报酬要困难得多。</p>
+<p>部分原因是竞争通常是由一些有史以来最赚钱的公司的高薪团队制作的完全免费软件。部分原因是我们以某种方式最终形成了一种社区规范，即为软件收费是不道德的。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.scattered-thoughts.net/writing/how-to-trade-software-for-small-money/" title="如何用软件换取小额资金？">如何用软件换取小额资金？</a>（英文）</p>
+<p>2、</p>
+<blockquote>
+<p>如果你必须努力工作，那就意味着你没有“聪明”地工作。创始人经常将“困难”浪漫化，寻找困难的方法，而不是简单的方法。我知道很难接受。多年来，我自己都是那个否认它的人。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=39844788" title="我一生都在努力工作。我后悔了">Hackernwes 读者</a>（英文）</p>
+<p>3、</p>
+<blockquote>
+<p>没有比开源更好的学习工程的地方了。没有比开源更好的地方来牺牲你的个人生活和心理健康了。你在这两者之间取得平衡的方式完全取决于你和你为你的开源工作建立的文化。让你的想法成为现实。帮助他人。而且，最重要的是，记住偶尔从开源中抽出一周的时间，它会得到回报的。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://kettanaito.com/blog/the-dark-side-of-open-source" title="开源的阴暗面">开源的阴暗面</a>（英文）</p>
+<p>4、</p>
+<blockquote>
+<p>在追寻幸福很久之后，我认为，幸福是一种从日常最基本的满足当中，获得愉悦的能力。</p>
+<p>就拿现在的我来说，吃到一顿满意的饭菜、忙到飞起还是有30分钟午休时间、投入地看一部精彩的电影、看几页书有收获了、与好友嗨聊一下午……只要这些简单的事情被满足，就可以开心很久。</p>
+<p>而且幸福绝不是未来获得多大的成就，<strong>只是在此时此刻，你总有办法让自己过得开心。</strong></p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6-xxvYXONeadTX6RbikRgw" title="能把生活过好的人，每天都是假期 | 13件提升生活幸福感的小事">能把生活过好的人，每天都是假期 | 13件提升生活幸福感的小事</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/113/">代码之外周刊（第 113 期）：人类是没有耐心的价值觅食者</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/111/">代码之外周刊（第 111 期）：哈佛世纪研究：何为幸福生活？</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE"><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E7%A4%BE%E4%BC%9A%E6%9D%83%E5%8A%9B%E7%9A%84%E6%B8%B8%E6%88%8F"><span class="toc-text">本周讨论：社会权力的游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B4%E8%8F%B2%E7%89%B9%E7%9A%84%E6%9D%83%E5%88%A9%E5%AF%86%E7%A0%81"><span class="toc-text">巴菲特的权利密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BF%E7%A0%B4%E4%BB%91%E7%9A%84%E5%B4%9B%E8%B5%B7%E4%B8%8E%E8%A1%B0%E8%90%BD"><span class="toc-text">拿破仑的崛起与衰落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%91%E6%99%BA%E8%8B%B1%E4%B8%BA%E4%BD%95%E5%8F%91%E7%96%AF"><span class="toc-text">金智英为何发疯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%98%8E%E6%98%9F%E7%9A%84%E6%9D%83%E5%8A%9B"><span class="toc-text">流量明星的权力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5"><span class="toc-text">经典游戏攻略</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

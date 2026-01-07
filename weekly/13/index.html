@@ -1,0 +1,999 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>一周精彩内容分享（第 13 期）：大坑和小铲子 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="这里记录过去一周，我看到的值得分享的东西。 一方面是整理记录一下自己一周的学习，另一方面也是期待自己有更多的输出，有更多的价值。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图讨论：大坑和小铲子(观点来自：阮一峰)  假设你的目标是要找到地下的金子，但是你不知道它埋在哪里，也不知道埋得有多深。你只知道，运气好的话，可能会偶然走在路上，就在草">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一周精彩内容分享（第 13 期）：大坑和小铲子">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/13/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="这里记录过去一周，我看到的值得分享的东西。 一方面是整理记录一下自己一周的学习，另一方面也是期待自己有更多的输出，有更多的价值。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图讨论：大坑和小铲子(观点来自：阮一峰)  假设你的目标是要找到地下的金子，但是你不知道它埋在哪里，也不知道埋得有多深。你只知道，运气好的话，可能会偶然走在路上，就在草">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2021-05-01T23:30:00.000Z">
+<meta property="article:modified_time" content="2026-01-07T03:12:36.344Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="代码之外周刊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="代码之外周刊">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2021-05-02T07:30:00+08:00","dateModified":"2026-01-07T11:12:36+08:00","datePublished":"2021-05-02T07:30:00+08:00","description":"","headline":"一周精彩内容分享（第 13 期）：大坑和小铲子","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/13/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/13/","keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619907920469-image.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/86/"><span class="title">一周精彩内容分享（第 86 期）：赛马时代结束，超级APP登场</span></a><a class="item title" href="/weekly/45/"><span class="title">一周精彩内容分享（第 45 期）：两套用户画像工具</span></a><a class="item title" href="/weekly/53/"><span class="title">一周精彩内容分享（第 53 期）：运气与风险</span></a><a class="item title" href="/bitcoin/3/"><span class="title">比特币(3)——比特币的其他优势</span></a><a class="item title" href="/bitcoin/2/"><span class="title">比特币(2)——最大优势是价值存储</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2021-05-01T23:30:00.000Z">2021-05-02</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-07T03:12:36.344Z">2026-01-07</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>一周精彩内容分享（第 13 期）：大坑和小铲子</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>这里记录过去一周，我看到的值得分享的东西。</p>
+<p>一方面是整理记录一下自己一周的学习，另一方面也是期待自己有更多的输出，有更多的价值。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图讨论：大坑和小铲子"><a href="#题图讨论：大坑和小铲子" class="headerlink" title="题图讨论：大坑和小铲子"></a>题图讨论：大坑和小铲子</h1><p>(观点来自：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/survivor/startup/hole.html" title="《未来世界的幸存者》：大坑和小铲子">阮一峰</a>)</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619907920469-image.png"></p>
+<p>假设你的目标是要找到地下的金子，但是你不知道它埋在哪里，也不知道埋得有多深。你只知道，运气好的话，可能会偶然走在路上，就在草丛里捡到金子；运气不好的话，在地底挖一辈子，依然两手空空。</p>
+<p>你唯一的工具就是一把小铲子。可能因为没有资金，或者没有人脉，总之，你只搞到了一把小铲子。悲惨的人生，不是吗？</p>
+<p>你一个人，加上一把铲子，开始了寻找黄金之旅。长途漫漫。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619908118952-image.png" alt="图片来源：@网络"></p>
+<p>现在，你有两种选择。</p>
+<p>选择一：留在一个地点，挖一个大坑，但是不知道何年何月才能挖到地下的金子。</p>
+<p>选择二：每个地点挖 5 米，如果找不到金子，就换个地方再挖。结果你挖了几百个小坑，而不是一个大坑。</p>
+<p>请问你会如何选择？</p>
+<p>推而广之，如果你在经营一项事业，你就有两种策略。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619908329942-image.png"></p>
+<p><strong>策略一：单一化策略</strong>。认准一个方向，不断地挖坑，通过长期重复性的付出，创造价值，赢得他人的信任，把产品销售出去。</p>
+<p><strong>策略二：多元化策略</strong>。你四处出击，到处挖坑，将有限的资源分散使用。这时，你最好期望你的眼光很准，能找对地方，一旦将产品投入市场，就立刻能打开销路。因为你的铲子很小，如果金子埋得很深，你就不会有第二次机会。</p>
+<p>有些人出生的时候，是带着大铲子来到这个世界的。因为铲子大，他挖一下，等于别人挖十下，那么也许他可以多挖几个地方。</p>
+<p>但更多的人只有一把小铲子，其他的都要靠自己。这种时候，你最好不要采用第二种策略，因为埋得浅的金子都被大铲子或者幸运儿挖走了，不会留给你的。<strong>事实上，你唯一的机会就是在一个方向不停地挖。</strong></p>
+<p>你必须认识到，不是你一个人在找金子，是所有人都在找金子。那些容易找到的金子，几乎可以肯定，一定已经被别人捡走了。那些有高级设备的人，把埋得浅的金子，也挖得差不多了。这就是说，第二种策略实际上是无效的，就算你挖一千个小坑，也找不到金子。</p>
+<p><strong>你唯一的策略，就是认定一个方向，坚持不懈往下挖，直到挖成</strong>。你很可能还是不会找到金子，但是在往下挖的过程中，你可能会找到其他有用的矿物。而且，由于长期地在这个领域奋斗，你会对周围一切极其熟悉，变成这个领域的专家。附近的人遇到各种问题，也会来找你征求意见。</p>
+<p>另一方面，风沙来临的时候，那些小坑都会被掩埋，只有你的大坑会留下来，成为地面上难以磨灭的印记。或者，随着时间流逝，那些小坑都会慢慢荒芜，野草覆盖，人们再也无从发现它们，只有你的大坑还能被后代的人们辨识出来。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619908669018-image.png"></p>
+<p>举例来说，古罗马都是石头建筑，建造起来非常困难和昂贵，可能一年只能造一幢，但是两千年过去了，很多建筑都留到了今天；古代中国都是木建筑或砖瓦建筑，建造起来比较容易和廉价，可能一年可以造几十幢，但是根本留存不下来，完整的唐朝和唐以前的建筑，现在完全找不到，就连许多清朝的房子，现在都腐烂得不像样子。</p>
+<p>最后，如果你想人生中留下一些东西，那么因为你挖了一个大坑，人们会记得你。这就是你留下的痕迹。共勉。</p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://news.cnblogs.com/n/691707/" title="熟鸡蛋返生孵小鸡论文引热议 作者称利用超心理意识能量方法">奇葩学术宇宙</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-29/1619660254606-image.png"></p>
+<p>最近，一篇有关#熟蛋返生孵雏鸡论文#在网上疯传，引发网友热议：少一点修仙搞笑，不要侮辱我智商。</p>
+<p>据公开报道信息显示，该校老师郭平长期从事人体潜意识唤醒开发运用研究，还有物体穿瓶越壁、熟绿豆返生发芽等相关著作。</p>
+<p>并且<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FdrdC_D0gwZPqk1MdNWQ3Q" title="“煮熟的鸡蛋 可以反生孵化出小鸡”？原谅我，被打败了...">深扒下来</a>，还是开设“超感知全能全脑”、“原子能量波动速读”、“蒙眼辨色”课程的全能训练班学校的校长。说到底，作妖的背后都是为了圈钱。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-29/1619660799669-170545559457.gif" alt="做一个正常人好难.gif"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/AhPJE2Sg9dBTdZ72uOTtTQ" title="郑爽可能要坐牢了！？而这还不是最可怕的….">郑爽天价片酬背后，可能存在“局中局”？</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-29/1619659499704-image.png"></p>
+<p>最近郑爽在热搜上挂了好几天，原因是 4 月 26 日，郑爽的前男友张恒曝光了郑爽通过阴阳合同在《倩女幽魂》项目中获得收入 1.6 亿元，按 77 个工作日计算，日薪超 208 万元。</p>
+<p>这个事情，一是她被曝通过阴阳合同逃税漏税，涉及到了全体纳税人的利益和社会公平的问题；</p>
+<p>二是背后的投资方深扒下来，让人有“不好的联想”：会不会阴阳合同只是幌子，天价片酬的背后，有没有可能是在帮人洗钱？</p>
+<p>对这件事情感兴趣的朋友强烈建议读一读链接，记录了郑爽瓜的始末，让人咋舌。</p>
+<p><a target="_blank" rel="noopener" href="https://wallstreetcn.com/articles/3629348" title="郑爽回应！应缴税或超5000万，众明星工作室注销，央媒怒批，发生什么事了？">另外</a>受该事件影响，75 位一线艺人旗下的公司已经关闭超过 200 家。相关部门也已经展开了调查。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-30/1619770436844-image.png"></p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/456959883" title="北京人社局副处长变身“外卖小哥” 12小时仅赚41元累瘫街头">北京人社局副处长体验送外卖：「太委屈了，这个钱太不好挣了」</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-29/1619661079799-image.png"></p>
+<p>4 月 27 日，北京卫视播出《我为群众办实事之局处长走流程》纪录片。在该纪录片中，北京人社局副处长拜师“外卖小哥”，体验送外卖的一天。一小时挣不到三块钱，12 小时送单却只赚 41 块。他累瘫在马路上：“太委屈了，这个钱太不好挣了。”</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/456959883" title="如何看待北京人社局副处长体验送外卖的一天，并表示「太委屈了，这个钱太不好挣了」? | 知乎讨论">知乎骑友表示</a>：直观来看，应该是国家想着手改善骑手的工作环境， 并派人实地调研了。</p>
+<p>为这样走在一线，不坐在办公室里制定政策的领导点赞！</p>
+<p>4、<strong>一句话消息</strong></p>
+<p>美国时间上周六凌晨 4 点左右，<a target="_blank" rel="noopener" href="https://www.cbc.ca/news/canada/british-columbia/beaver-internet-down-tumbler-ridge-1.6001594" title="Internet down in Tumbler Ridge, B.C., after beaver chews through fibre cable">一条海狸</a>咬断了一条重要的光纤电缆，造成不列颠哥伦比亚省的大约 900 位客户的互联网服务中断。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-26/1619404182185-image.png"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbc.com/news/technology-56847518" title="思科表示计算机芯片短缺将持续六个月">思科表示</a>计算机芯片短缺还将持续六个月。这主要是 5G、云计算、物联网和人工智能等技术推动需求的大幅增长。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-26/1619404705209-image.png"></p>
+<p><a target="_blank" rel="noopener" href="https://news.cnblogs.com/n/691764/" title="腾讯被抄袭获赔3000万：《DNF》被完整复刻为手游">最近</a>，腾讯因为经典游戏《DNF》被其他公司抄袭复刻为手游（例如：《阿拉德之怒》），获赔 3000 万。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619484508694-image.png" alt="网曝《阿拉德之怒》手游界面"></p>
+<p><a target="_blank" rel="noopener" href="https://www.latimes.com/business/technology/story/2021-04-28/google-is-saving-1-billion-per-year-as-a-result-of-employees-working-from-home" title="由于员工在家工作，Google每年可节省10亿美元">谷歌第一季度财报展示</a>，由于疫情影响，员工都在家办公，减少了出差和娱乐的费用，按年算，这将直接为谷歌省下 10 亿美元。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-30/1619737078269-image.png"></p>
+<p><a target="_blank" rel="noopener" href="https://www.163.com/dy/article/G7N3AFAJ05525KY4.html" title="腾讯起诉DD373索赔4000多万！发话：玩家仅有使用权没有交易权">最近</a>，在腾讯起诉 DD373 交易平台的庭审直播中，腾讯律师公然表示根据用户协议，明确禁止游戏账号、游戏币交易，用户对数据和虚拟物品不享有财产上的所有权，仅为使用权，如果账号被盗，腾讯保留追究的权利。引起<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/457298163" title="如何看待腾讯起诉游戏交易平台，庭审称「虚拟财产不属于用户，被盗用户需赔偿」？对游戏行业是否有影响？ | 知乎讨论">网友热议</a>。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-5-2/1619905362826-image.png"></p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://trekhleb.dev/blog/2017/solid-principles-around-you/" title="S.O.L.I.D. PRINCIPLES AROUND YOU">身边的 SOLID 原则</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-26/1619405571558-image.png" alt="文章图片截取"></p>
+<p>在本文中，使用生活中的一些例子，利用图片，简要介绍了面向对象编程和设计的 S.O.L.I.D 原则。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GqxHRMMLRyHchQgrXhumFg" title="中国人吃肉有罪，日本人排核废水无罪">中国人吃肉有罪，日本人排核废水无罪</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619478559947-image.png"></p>
+<p>从核废水的始末，延伸到国际上的各种歧视，特别是对于中国。中国新疆的棉花能够对世界构成威胁，而日本的核废水不会。去你丫的吧。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HHnFQaU2yWOr-UfN98lHPQ" title="所有前端都要看的2D游戏化互动入门基础知识">前端2D游戏化互动入门基础知识</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619482611961-2021-04-27%2008.15.19.gif"></p>
+<p>阿里系出品文章。现在已经有越来越多的“游戏化”产品，这是一篇对于使用 Eva.js 2D 游戏化互动的基础介绍。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://buttondown.email/hillelwayne/archive/why-uml-really-died/" title="Why UML &#39;Really&#39; Died">为什么 UML “真的” 消失了</a>（英文）</p>
+<p>UML 是一种用来构建软件模型的方法和语言，我在大学里学过。这一篇文章讨论了为什么 UML 消失的真正原因。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/G83kXBgcXKuR4AHz5YISUg" title="苹果的设计为什么那么厉害！">苹果的设计为什么那么厉害！</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619573123769-image.png"></p>
+<p>无论是界面还是文案，苹果无疑都是最好的参考。这里详细介绍了苹果的设计是如何引领行业的原因和方法。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://cacm.acm.org/opinion/articles/252174-the-10-best-practices-for-remote-software-engineering/fulltext#R10" title="开发人员远程工作的 10 个最佳实践">开发人员远程工作的 10 个最佳实践</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619596144269-image.png"></p>
+<p>如果您有计划或者对远程工作比较感兴趣，可以看看这总结的 10 点经验。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039910514?utm_source=sf-homepage" title="2020 中国独立开发者生存现状调研报告">2020 中国独立开发者生存现状调研报告</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619597537370-image.png"></p>
+<p>根据报告，大部分的独立开发者在一二线城市、每周平均工作 4 小时以下、做着开发网页的工作。更多请戳报告~</p>
+<p>8、<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns" title="常用设计模式有哪些？">设计模式图文教程</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-29/1619662743157-image.png"></p>
+<p>看图就知道，是一个不容错过的优质网站。</p>
+<p>9、<a target="_blank" rel="noopener" href="https://markodenic.com/css-tips/" title="CSS Tips">大多数教程中都看不到的 CSS 技巧</a></p>
+<p>介绍了一些非常实用的 CSS 技巧。同系列的还有：<a target="_blank" rel="noopener" href="https://markodenic.com/html-tips/" title="HTML Tips">HTML Tip</a> 和 <a target="_blank" rel="noopener" href="https://markodenic.com/javascript-tips/" title="JavaScript Tips">JavaScript Tips</a>。</p>
+<p>10、<a target="_blank" rel="noopener" href="https://www.huxiu.com/article/425238.html" title="生活中有很多压力，怎么办？">生活中有很多压力，怎么办？</a></p>
+<p>第一，做有门槛的事；第二，运动；第三，理解和评估情绪；第四，自我抽离。一定要记住：压力永远都不可怕，可怕的是面对压力的软弱。挺过去，这些就会成为丰富你生命体验的元素。</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/28078447/answer/1824134170" title="三大运营商的基站为什么要伪装？">三大运营商的基站为什么要伪装？</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619477702498-image.png"></p>
+<p>首先，基站有辐射这个事儿是谣言。站在基站 0.5 米远的位置，辐射仅为 0.01uT，而同等距离，笔记本电脑为 1.13uT，手机充电器为 16.11uT。</p>
+<p>但是谣言却很难消除。特别是小区里的大爷大妈，你敢建，我就敢拆。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619477935517-image.png"></p>
+<p>尽管多方辟谣，央妈也亲自上阵，但仍然无济于事。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619477966690-image.png"></p>
+<p>所以为了能够在大众的视野里活下去，基站的伪装，堪比谍战大片。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-27/1619478048934-image.png"></p>
+<h1 id="新奇"><a href="#新奇" class="headerlink" title="新奇"></a>新奇</h1><p>1、<a target="_blank" rel="noopener" href="https://www.itsnicethat.com/news/tecla-house-mario-cucinella-wasp-architecture-270421" title="This is the first house to be 3D printed from raw earth">第一个使用当地土壤材料 3D 打印的房子</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619600304645-image.png"></p>
+<p>最近，意大利一家 3D 打印公司 Wasp 使用当地的土壤为原材料，用 200 个小时 3D 打印出了一个 60 平方米的房屋。</p>
+<p>内部是一个起居区，厨房和卧室，家具部分集成到了结构中，其他独立的物件则设计为可回收或再利用。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619600559749-image.png"></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-4-28/1619600662479-image.png"></p>
+<p>由于完全使用现场发现的材料，从而消除了将材料运输到建筑工地的环境影响，对环境相当友好。并且建成该建筑平均耗电量不到 6 千瓦，也就是 6 度电。</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<p>行业红利没享受过，却又实实在在地见证过；早工作五到十年的同事积累的财富，又是自己一辈子都很难企及的。这种落差感、无力感，每天都活生生地上演，眼睁睁而无法逃避。</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/281845730/answer/985379922" title="为什么几乎所有大学专业都在劝退？ | 知乎讨论">为什么几乎所有大学专业都在劝退？</a></p>
+<p>2、</p>
+<p>打工人从秦朝忙到现在，也挣不了这么多。</p>
+<p>–<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/UwjWpV1eQD4Q8g1IbRS8-A" title="郑爽一部戏挣1.6亿？打工人从秦朝忙到现在，也挣不了这么多">郑爽一部戏挣1.6亿？</a></p>
+<p>3、</p>
+<p>事实上，用户根本就不关心你使用什么样的编程语言、你的代码是如何地优雅、干净、模块化和可维护。</p>
+<p>–<a target="_blank" rel="noopener" href="https://felipecsl.com/2021/04/26/nobody-cares-about-your-beautiful-code.html" title="Nobody cares about your beautiful code">Nobody cares about your beautiful code</a></p>
+<p>4、</p>
+<p>不管狗狗币是不是真的有价值，人们对狗头表情的爱都是真实的。</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.ifanr.com/app/1413693" title="狗头，这可能是人类历史上最有价值的表情包">狗头，这可能是人类历史上最有价值的表情包</a></p>
+<p>5、</p>
+<p>金钱就像狗尾巴，你要追着它跑，永远抓不住，但是你如果往前跑，它自然会跟着你。</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.huxiu.com/article/425065.html" title="财富一定通往自由？">财富一定通往自由？</a></p>
+<p>6、</p>
+<p>但现在的很多孩子，除了老师讲授的内容，他知道的东西非常有限。而且，我现在越来越少遇到那种学生——在谈及自己喜欢的东西时，眼里散射着光芒。</p>
+<p>–<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/DGljs4BtCdbNy76nbYPdaw" title="海淀区高中老师：每天被鸡的娃们，已经开始秃了.....">海淀区高中老师：每天被鸡的娃们，已经开始秃了…..</a></p>
+<p>7、</p>
+<p>希望我们的虚拟财产，也可以收到一份安全的保障，而不是一夜之间，我们都成了游戏公司的打工人。</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/457298163" title="如何看待腾讯起诉游戏交易平台，庭审称「虚拟财产不属于用户，被盗用户需赔偿」？对游戏行业是否有影响？ | 知乎讨论">知乎用户</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜天发布，同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-2-6/1612590449967-image.png"></p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/14/">一周精彩内容分享（第 14 期）：为什么你找不到喜欢的工作了</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/12/">一周精彩内容分享（第 12 期）：提高收入的根本途径</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE%E8%AE%A8%E8%AE%BA%EF%BC%9A%E5%A4%A7%E5%9D%91%E5%92%8C%E5%B0%8F%E9%93%B2%E5%AD%90"><span class="toc-text">题图讨论：大坑和小铲子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%A5%87"><span class="toc-text">新奇</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

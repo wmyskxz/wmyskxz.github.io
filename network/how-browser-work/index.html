@@ -1,0 +1,1026 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>浏览器的运行原理 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="前言现代浏览器十分复杂，颇有运行在操作系统之上的”操作系统”的意思，我们将尽可能用简单容易理解的例子来简单概括它主要的工作逻辑。  目录：  进程与线程概述； 浏览器架构； 浏览器视角下的输入； 页面如何渲染； 如何进行交互；  Part 1. 进程与线程概述计算机的核心是 CPU，它承担了几乎所有的计算任务。  你可以把 CPU 想象成是一个工厂，时刻在运行着。 假设这个工厂的电力有限，同一时刻">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的运行原理">
+<meta property="og:url" content="https://www.wmyskxz.cn/network/how-browser-work/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="前言现代浏览器十分复杂，颇有运行在操作系统之上的”操作系统”的意思，我们将尽可能用简单容易理解的例子来简单概括它主要的工作逻辑。  目录：  进程与线程概述； 浏览器架构； 浏览器视角下的输入； 页面如何渲染； 如何进行交互；  Part 1. 进程与线程概述计算机的核心是 CPU，它承担了几乎所有的计算任务。  你可以把 CPU 想象成是一个工厂，时刻在运行着。 假设这个工厂的电力有限，同一时刻">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2021-02-26T00:47:12.000Z">
+<meta property="article:modified_time" content="2026-01-07T03:12:39.514Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="网络">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2021-02-26T08:47:12+08:00","dateModified":"2026-01-07T11:12:39+08:00","datePublished":"2021-02-26T08:47:12+08:00","description":"","headline":"浏览器的运行原理","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/network/how-browser-work/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/network/how-browser-work/","keywords":"网络","thumbnailUrl":"https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613092805593-image.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/86/"><span class="title">一周精彩内容分享（第 86 期）：赛马时代结束，超级APP登场</span></a><a class="item title" href="/weekly/45/"><span class="title">一周精彩内容分享（第 45 期）：两套用户画像工具</span></a><a class="item title" href="/weekly/53/"><span class="title">一周精彩内容分享（第 53 期）：运气与风险</span></a><a class="item title" href="/bitcoin/3/"><span class="title">比特币(3)——比特币的其他优势</span></a><a class="item title" href="/bitcoin/2/"><span class="title">比特币(2)——最大优势是价值存储</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2021-02-26T00:47:12.000Z">2021-02-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-07T03:12:39.514Z">2026-01-07</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>浏览器的运行原理</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现代浏览器十分复杂，颇有运行在操作系统之上的”操作系统”的意思，我们将尽可能用简单容易理解的例子来简单概括它主要的工作逻辑。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613092805593-image.png"></p>
+<p>目录：</p>
+<ol>
+<li>进程与线程概述；</li>
+<li>浏览器架构；</li>
+<li>浏览器视角下的输入；</li>
+<li>页面如何渲染；</li>
+<li>如何进行交互；</li>
+</ol>
+<h1 id="Part-1-进程与线程概述"><a href="#Part-1-进程与线程概述" class="headerlink" title="Part 1. 进程与线程概述"></a>Part 1. 进程与线程概述</h1><p>计算机的核心是 CPU，它承担了几乎所有的计算任务。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613108531868-image.png"></p>
+<p>你可以把 CPU 想象成是一个工厂，时刻在运行着。</p>
+<p>假设这个工厂的电力有限，同一时刻只能供一个车间使用。这也就意味着，一个车间正在使用，其他车间都将不会被使用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613109734854-image.png"></p>
+<p>进程就好比车间，是工厂将要执行的任务。潜台词就是说，单个 CPU 任意时刻总是只能运行一个任务。</p>
+<p>一个车间可以有很多的工人，它们协同完成同一个任务。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613109681319-image.png"></p>
+<p>线程就是车间里的工人。</p>
+<p>假设工人都是很耗电的机器人，靠着分得工厂给的电力进行任务，每一次给的电力刚好够完成本次的任务，而工厂同一时刻又只能给一个机器人供电。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613111336416-2021-02-12%2014.22.01.gif"></p>
+<p>这几乎就是单核 CPU 的工作方式了：同一时刻只能做一个工作。</p>
+<p>但你仍然感觉到许多不同的任务正在 “同时” 运行着，这是因为当切换任务的速度足够快时，你将感知不到 CPU 同一时刻只能做一个工作的特性：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-12/1613113929628-2021-02-12%2015.10.50.gif"></p>
+<p>我们的 CPU 就这样飞速地奔腾着。</p>
+<p>每当我们打开一个应用，就会启动一个进程。程序也会创建一个或多个线程来帮助它完成工作。</p>
+<p>操作系统会为进程提供一个可使用的 “一块” 内存，就像开工厂占地一样，所有应用程序的状态信息都会保存在该<strong>私有</strong>内存空间中。程序关闭时，相应进程会消失，操作系统也会释放内存。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-14/1613271928755-2021-02-14%2011.03.39.gif"></p>
+<p>进程可以请求操作系统启动<strong>另一个进程</strong>来执行不同的任务。此时内存不同区域会分给新进程。</p>
+<p>如果两个进程需要对话，他们可以通过 <strong>进程间通信（IPC）</strong> 来进行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-14/1613273462146-2021-02-14%2011.28.02.gif"></p>
+<p>许多应用程序就是这样设计的，如果一个工作进程失去响应，该进程就可以在不停止应用程序的情况下靠着其他进程重新启动。</p>
+<h1 id="Part-2-浏览器架构"><a href="#Part-2-浏览器架构" class="headerlink" title="Part 2. 浏览器架构"></a>Part 2. 浏览器架构</h1><p>那么如何通过进程和线程构建 web 浏览器呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613373465624-image.png"></p>
+<p>虽然对于如何构建 web 浏览器没有明确的标准，但现在拥有一个导航栏、输入框、标签页这样类似的设计却是不同浏览器之间默契的共同选择。</p>
+<p>浏览器的架构也总体分为两类：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613374379135-image.png" alt="单进程和多进程的架构方式"></p>
+<p>现在已经很难看到单进程的架构方式了，因为单进程的浏览器需要处理的事情太多（网络、渲染、管理插件等），极不稳定和安全。因此市面上主流的浏览器都已经升级为多进程的方式。</p>
+<p>就拿 Chrome 举例来说，就采取了下方的架构方式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613375883290-image.png" alt="多层表示 Chrome 为每个标签页运行多个进程"></p>
+<ul>
+<li>最顶层是浏览器进程，负责协调处理其他进程模块的任务。</li>
+<li>UI 进程负责控制地址栏、标签页等；</li>
+<li>渲染进程控制标签页内网站的展示。</li>
+<li>插件进程控制站点使用的任意插件，比如：Flash。</li>
+<li>GPU 进程单独处理来自不同应用发送的绘制请求。</li>
+<li>….</li>
+</ul>
+<p>多进程的好处显而易见。比如当你打开了三个标签页，其中一个崩溃了，你可以关掉它而不会影响其他两个标签页：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613380439068-2021-02-15%2017.13.07.gif"></p>
+<p>并且由于进程的数据是私有的，所以一定程度上能够保证安全性。</p>
+<p>但缺点也显而易见。我们上面用车间来类比进程，用工人来类比线程，显然「建一座车间」比「招聘一个工人」消耗的资源要大得多——哪怕车间只有一个工人——这里比较明显的是对内存的消耗。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613380869088-image.png" alt="iState 软件截图"></p>
+<p>为了避免过大的内存消耗，Chrome 把一些服务做了聚合：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613381859976-2021-02-15%2017.37.07.gif"></p>
+<p>这样就能一定程度上减少内存的开销。</p>
+<h1 id="Part-3-浏览器视角下的输入"><a href="#Part-3-浏览器视角下的输入" class="headerlink" title="Part 3. 浏览器视角下的输入"></a>Part 3. 浏览器视角下的输入</h1><p>当在浏览器中键入一个 URL 地址，浏览器会做什么处理呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613383524018-2021-02-15%2018.04.50.gif"></p>
+<h2 id="第一步：处理输入"><a href="#第一步：处理输入" class="headerlink" title="第一步：处理输入"></a>第一步：处理输入</h2><p>我们已经习惯了一个链接打开就对应一个外部网站，但它还可能是浏览器本身的设置页（如 <code>chrome://settings/</code>），或是本地硬盘的地址（如 Mac 下的 <code>\</code>）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613383877870-image.png"></p>
+<p>所以我们的第一步就是要判断这个输入到底是个啥：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613385118994-2021-02-15%2018.31.02.gif"></p>
+<h2 id="第二步：开始导航"><a href="#第二步：开始导航" class="headerlink" title="第二步：开始导航"></a>第二步：开始导航</h2><p>随着用户输入完毕按下 Enter 键，UI 线程知道要启用网络去调取网站的信息。网络线程会负责联系目标主机并获取到信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613386391288-2021-02-15%2018.51.50.gif"></p>
+<p>网络线程获取信息的过程，发生了很多事，比如 DNS 域名解析、TLS 建立连接等，如果不熟悉可以看看<a href="https://www.wmyskxz.cn/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BD%91%E7%BB%9C/">之前的系列文章</a>。</p>
+<h2 id="第三步：读取响应"><a href="#第三步：读取响应" class="headerlink" title="第三步：读取响应"></a>第三步：读取响应</h2><p>总之网络线程为我们取到了来自网站的响应，大概长这样：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613388277797-image.png"></p>
+<p>响应分为 header 和 payload 两个部分。header 类似于一本书的版权、作者介绍等相关信息，而 payload 才是真实的数据内容。</p>
+<p>浏览器需要根据响应头里的 <code>Content-Type</code> 来区分对应内容的类型，例如 <code>text/html</code> 时浏览器会对内容进行 HTML 解析，<code>image/png</code> 则调用图片渲染器。</p>
+<p>然而完全信任网站响应的 <code>Content-Type</code> 是不行的，因为一旦 <code>Content-Type</code> 未指定或者是一个错误的值的时候，就会发生未知的错误。</p>
+<p>所以当收到响应主体（payload）时，网络线程会在必要时检查数据的前几个字节，以确保数据内容与 header 里标识的数据类型（Content-Type）一致。如果不一致，那么就需要进行 MIME 类型嗅探来猜测该数据的类型。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613389595083-image.png"></p>
+<p>当响应是一个 HTML 文件时，此时也会进行安全检查（<a target="_blank" rel="noopener" href="https://safebrowsing.google.com/">SafeBrowsing 检查</a>）。如果域名和相应数据似乎匹配到了一个已知的恶意网站，那么网络线程会显示一个警告页面。</p>
+<p>除此之外，还会发生 <strong>C</strong>ross <strong>O</strong>rigin <strong>R</strong>ead <strong>B</strong>locking（<strong>CORB</strong>）检查，以确保敏感的跨域数据不被传给渲染进程。</p>
+<h2 id="第四步：查找渲染进程"><a href="#第四步：查找渲染进程" class="headerlink" title="第四步：查找渲染进程"></a>第四步：查找渲染进程</h2><p>一旦所有的检查执行完毕并且网络线程确信浏览器会导航到请求的站点，网络线程会告诉 UI 线程所有的数据准备完毕。UI 线程会寻找渲染进程去开始渲染 web 页面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613390132556-2021-02-15%2019.54.19.gif"></p>
+<p>由于网络请求会花费几百毫秒才获取回响应，因此可以应用一个优化措施。</p>
+<p>当第 2 步 UI 线程正发送一个 URL 请求给网络线程时，它已经知道它们会导航到哪个站点。在网络请求的同时，UI 线程并行地尝试主动寻找或开启一个渲染进程。</p>
+<p>这样，如果一切按预期进行，渲染进程在网络线程接受到数据时就已经处于待命状态。</p>
+<h2 id="第五步：提交导航"><a href="#第五步：提交导航" class="headerlink" title="第五步：提交导航"></a>第五步：提交导航</h2><p>现在数据和渲染进程已经就绪，浏览器进程会发送一个 IPC（进程间通信）到渲染进程去提交导航。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613390923406-2021-02-15%2020.07.54.gif"></p>
+<p>这时地址栏会更新、标签页的历史记录也会更新，前进/后退按钮会走向刚导航过的站点。渲染进程根据 HTML 内容开始解析并渲染页面。最终您将看到网站设计者设计的网站。</p>
+<h1 id="Part-4-页面如何渲染"><a href="#Part-4-页面如何渲染" class="headerlink" title="Part 4. 页面如何渲染"></a>Part 4. 页面如何渲染</h1><p>渲染进程涉及 Web 性能的许多方面，流程非常复杂，我们只做必要的理解。如果您想要深入了解，可以在 <code>web.dev</code> 找到相关资源。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613391808812-image.png"></p>
+<p>渲染进程内部包含主线程、工作线程、合成线程和光栅线程。</p>
+<p>在详细说明之前，请先想象一个这样的场景：您站在一副简单绘画的面前，如何通过打电话来让您的朋友知道这幅画究竟长什么样子呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613395408072-2021-02-15%2021.18.41.gif"></p>
+<p>如果您真打算这么做，这里参考 HTML 解析的过程给您提供一些建议。</p>
+<p>首先，图中的元素以及具体元素的属性分开描述（如：图里有一个圆是元素，圆有多大具体在什么位置等是属性）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613410989702-2021-02-16%2001.42.28.gif"></p>
+<p>这样做的好处是<strong>可阅读性</strong>变高了，有哪些元素，以及元素哪些属性一目了然，也利于分别维护和修改。（类似于书的目录和对应内容一样）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613444760561-image.png"></p>
+<p>另外是你可以提炼一些通用的属性来减少描述：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613443633237-2021-02-16%2010.46.27.gif"></p>
+<p>然后，最好是<strong>分层</strong>进行描述，因为图画是有层次的，光有元素大小、位置等信息是不够的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613446434249-2021-02-16%2011.32.33.gif"></p>
+<p>元素实际上就是我们通常说的 HTML 文件，HTML 文件中包含了描述元素属性的 CSS 样式文件。每个浏览器对应常见的样式都会有默认的样式。</p>
+<p>浏览器实际上要知道绘制些什么元素，每个元素属性如何是要分成三步的：1）通过 HTML 绘制元素树（俗称 DOM 树）；2）通过 CSS 文件绘制样式树（俗称 CSSOM 树）；3）综合两颗树绘制渲染树（俗称 Render Tree）；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613449544481-2021-02-16%2012.24.11.gif"></p>
+<p>现在浏览器知道文档的结构、每个元素的样式、页面的几何形状和绘制顺序，它是如何绘制页面的？把这些信息转换为屏幕上的像素，我们称为<strong>光栅化</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613450200926-2021-02-16%2012.35.27.gif"></p>
+<p>处理这种情况的一种简单的方法是，先在光栅化视窗内的画面，如果用户滚动页面，则移动光栅框，并光栅化填充缺少的部分。这就是 Chrome 首次发布时处理光栅化的方式。</p>
+<p>但是，现代浏览器会运行一个更复杂的过程，我们称为<strong>合成</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613450898711-2021-02-16%2012.47.27.gif"></p>
+<p>合成是一种将页面的各个部分<strong>分层，分别光栅化</strong>，并在称为合成线程的单独线程中合成为页面的技术。如果发生滚动，由于图层已经光栅化，因此它所要做的只是<strong>合成一个新帧</strong>。动画也可以以相同的方式（移动图层和合成新帧）实现。</p>
+<p>另外需要说明的是<strong>如何进行描述是有相当的技巧的</strong>。例如「正中心有一个 <em>半径为 2</em> 的圆」和「正中心有一个 <em>直径为页面宽度 50%</em> 的圆」是完全不同的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613455603365-2021-02-16%2014.05.46.gif"></p>
+<p>如何进行组织描述，这需要网站建设者的经验。</p>
+<h1 id="Part-5-如何进行交互"><a href="#Part-5-如何进行交互" class="headerlink" title="Part 5. 如何进行交互"></a>Part 5. 如何进行交互</h1><p>在浏览器眼中，用户的一切行为都是输入。不单单是滚动鼠标滑轮，或是点击屏幕、按下按键等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613454335691-2021-02-16%2013.44.15.gif"></p>
+<p>对于浏览器进程来说只存在事件和对应坐标，只有渲染进程知道页面究竟长啥样，以及究竟该如何处理事件。浏览器进程只负责把事件和坐标发送给渲染进程。</p>
+<p>我们也可以编写自己的逻辑文件（js 文件）来监听某一事件进行对应的处理。然后再统一由渲染进程进行<strong>合成</strong>。为了浏览流畅，浏览器需要保证渲染进程的渲染速度与屏幕刷新率一致（大概每秒 60 帧）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613457107543-image.png"></p>
+<p>另外为了降低主线程中传递过量的调用，Chrome 也会把一些连续的事件进行合并。</p>
+<p>浏览器进程监听并发送事件给渲染进程进行渲染，这大概就是浏览器交互的基本方式。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>浏览器的复杂远不是一篇文章能解释清楚的，本篇文章也只是想让大家理解浏览器的<strong>基本过程和原理</strong>。尽可能使用动图的形式清晰地表达，希望大家能用餐愉快。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-16/1613458062772-image.png"></p>
+<p>本文大量借鉴了 Chrome 官方 developer 分享的<a target="_blank" rel="noopener" href="https://hasaki.xyz/blog/2020-01-20-%E8%BD%AC%E8%BD%BD%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98/">系列文章</a>（下2），如果有想更加深入了解的小伙伴也可以阅读更加硬核的<a target="_blank" rel="noopener" href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/">浏览器工作原理揭秘文章</a>（下4）</p>
+<p>至此，我们对浏览器已经有了相当的了解了。后续也会继续跟大家一起学习计算机网络的基础知识，也会尝试着跟着<a target="_blank" rel="noopener" href="https://roadmap.sh/backend">后端学习路线图</a>的脚步跟着大家一起学习进阶。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-1/1612147071259-image.png" alt="https://roadmap.sh/backend"></p>
+<p>这里是<strong>我没有三颗心脏</strong>，欢迎关注公众号 wmyskxz，2021，与您在 <strong>Be Better</strong> 的路上共同成长！</p>
+<p>（完）</p>
+</article>
+<div class="article-footer">
+    <section id="references">
+      <div class="header"><span>参考资料</span></div>
+      <div class="body">
+        <ul>
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的简单解释</a></p>
+
+        </li>
+        
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://hasaki.xyz/blog/2020-01-20-%E8%BD%AC%E8%BD%BD%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E9%83%A8%E6%8F%AD%E7%A7%98/">转载：现代浏览器内部揭秘</a></p>
+
+        </li>
+        
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://blog.fundebug.com/2019/01/03/understand-browser-rendering/">深入浅出浏览器渲染原理</a></p>
+
+        </li>
+        
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/">浏览器工作原理幕后揭秘</a></p>
+
+        </li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/4/">一周精彩内容分享（第 4 期）：你的命运不是一头骡子</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/3/">一周精彩内容分享（第 3 期）：开工大吉的 B 面</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">Part 1. 进程与线程概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">Part 2. 浏览器架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E8%BE%93%E5%85%A5"><span class="toc-text">Part 3. 浏览器视角下的输入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%A4%84%E7%90%86%E8%BE%93%E5%85%A5"><span class="toc-text">第一步：处理输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%BC%80%E5%A7%8B%E5%AF%BC%E8%88%AA"><span class="toc-text">第二步：开始导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%93%8D%E5%BA%94"><span class="toc-text">第三步：读取响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E6%9F%A5%E6%89%BE%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B"><span class="toc-text">第四步：查找渲染进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E6%8F%90%E4%BA%A4%E5%AF%BC%E8%88%AA"><span class="toc-text">第五步：提交导航</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-4-%E9%A1%B5%E9%9D%A2%E5%A6%82%E4%BD%95%E6%B8%B2%E6%9F%93"><span class="toc-text">Part 4. 页面如何渲染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-5-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92"><span class="toc-text">Part 5. 如何进行交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

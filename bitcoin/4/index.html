@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>比特币(4)——实现原理 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="Part 0. 前言在前面我们已经了解到了：  比特币 代表了诞生于数字时代的对 货币问题 新的 技术解决方案； 比特币 最大的价值在于 价值存储，是拥有极高存量-增量比的 健全货币； ….   可是这一切是如何通过技术实现的呢？这一篇文章就将 尽可能通俗 地解答这一问题。 Part 1. 从一个例子入手现在假设 A、B、C、D 四个人合租一套房子，因为时常有金钱上的往来，为了省事，他们选择使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币(4)——实现原理">
+<meta property="og:url" content="https://www.wmyskxz.cn/bitcoin/4/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="Part 0. 前言在前面我们已经了解到了：  比特币 代表了诞生于数字时代的对 货币问题 新的 技术解决方案； 比特币 最大的价值在于 价值存储，是拥有极高存量-增量比的 健全货币； ….   可是这一切是如何通过技术实现的呢？这一篇文章就将 尽可能通俗 地解答这一问题。 Part 1. 从一个例子入手现在假设 A、B、C、D 四个人合租一套房子，因为时常有金钱上的往来，为了省事，他们选择使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2021-01-05T06:47:12.000Z">
+<meta property="article:modified_time" content="2026-01-07T03:12:36.445Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="比特币">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="比特币">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2021-01-05T14:47:12+08:00","dateModified":"2026-01-07T11:12:36+08:00","datePublished":"2021-01-05T14:47:12+08:00","description":"","headline":"比特币(4)——实现原理","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/bitcoin/4/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/bitcoin/4/","keywords":"比特币","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609829373164-image.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/86/"><span class="title">一周精彩内容分享（第 86 期）：赛马时代结束，超级APP登场</span></a><a class="item title" href="/weekly/45/"><span class="title">一周精彩内容分享（第 45 期）：两套用户画像工具</span></a><a class="item title" href="/weekly/53/"><span class="title">一周精彩内容分享（第 53 期）：运气与风险</span></a><a class="item title" href="/bitcoin/3/"><span class="title">比特币(3)——比特币的其他优势</span></a><a class="item title" href="/bitcoin/2/"><span class="title">比特币(2)——最大优势是价值存储</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA/">好奇星人</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2021-01-05T06:47:12.000Z">2021-01-05</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-07T03:12:36.445Z">2026-01-07</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>比特币(4)——实现原理</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609829373164-image.png"></p>
+<h1 id="Part-0-前言"><a href="#Part-0-前言" class="headerlink" title="Part 0. 前言"></a>Part 0. 前言</h1><p>在<a href="https://www.wmyskxz.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" title="比特币系列文章">前面</a>我们已经了解到了：</p>
+<ol>
+<li><strong>比特币</strong> 代表了诞生于数字时代的对 <strong>货币问题</strong> 新的 <strong>技术解决方案</strong>；</li>
+<li><strong>比特币</strong> 最大的价值在于 <strong>价值存储</strong>，是拥有极高存量-增量比的 <strong>健全货币</strong>；</li>
+<li>…. </li>
+</ol>
+<p>可是这一切是如何通过技术实现的呢？这一篇文章就将 <strong>尽可能通俗</strong> 地解答这一问题。</p>
+<h1 id="Part-1-从一个例子入手"><a href="#Part-1-从一个例子入手" class="headerlink" title="Part 1. 从一个例子入手"></a>Part 1. 从一个例子入手</h1><p>现在<a target="_blank" rel="noopener" href="http://youtu.be/obRzfcvMshM" title="例子出处 | 比特币原理">假设</a> A、B、C、D 四个人合租一套房子，因为时常有金钱上的往来，为了省事，他们选择使用客厅的一块白板 <strong>用来记账</strong>，到月底一起结清：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609723047969-image.png"></p>
+<p>如果有人调皮，往白板上 <strong>凭空写一条记录</strong>，例如：A 需要向 C 支付 50，那么月底 A 就会多支付 50，为了避免这样的情况发生，每一条记录后面都需要 <strong>本人确认签字</strong>：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609724284619-image.png"></p>
+<p>后来由于账目过多，于是大家决定 <strong>转用电脑</strong> 来记录，但这样一来 <strong>签名成了问题</strong>。</p>
+<p>一方面在电脑上不方便手写签名，另一方面手写签名也很容易被复制，所以我们需要转换成专门用于电脑的 <strong>数字签名</strong>。</p>
+<h1 id="Part-2-哈希-hash-算法"><a href="#Part-2-哈希-hash-算法" class="headerlink" title="Part 2. 哈希(hash)算法"></a>Part 2. 哈希(hash)算法</h1><p>使用数字签名，我们需要考虑严格的 <strong>对应性</strong>，也就是说一条签名只能用于指定的记录才行：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609725006590-image.png"></p>
+<p>例如这里的第一条记录 <em>（A→C 转账 50）</em> 需要严格对应 <em>数字签名 1</em>，不能对应第二条，也不能允许金额变更 *(如果金额更改应该是其他的数字签名)*。</p>
+<p>这样才能对记录的正确性有保证。</p>
+<p><strong>可是数字签名如何生成呢？</strong> 这里需要介绍一种被称为 <strong>哈希(hash)算法</strong> 的工具。</p>
+<p>它的作用是能把 <strong>任意长度的输入</strong> 变成 <strong>固定长度的二进制输出</strong>。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609726417478-image.png" alt="图示采用 CRC-32 Hash 算法"></p>
+<p>在比特币的世界中，采用了 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SHA-2" title="SHA-2 维基百科">SHA-256 算法</a> 来生成数字签名，其中 <strong>SHA</strong> 是 <strong>Secure Hash Algorithm</strong> <em>(安全哈希算法)</em> 的简写，<code>256</code> 表示无论输入什么值都会生成一个 <code>256</code> 位的二进制数 *(由 <code>0</code>/<code>1</code> 组成)*。</p>
+<p>并且 <strong>相同的输入</strong>，总会得到 <strong>相同的结果</strong>，结果又不能倒推回输入，所以我们可以使用 SHA-256 作为我们的数字签名。</p>
+<p>例如，我们把第一条记录用 SHA-256 算法对应生成一条数字签名：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609727181178-image.png"></p>
+<p>即使是相差一个字、一个点，都会造成最终通过 SHA-256 生成的签名完全不一样，且毫无规律可寻：*(这样就能满足一一对应)*</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609727341274-image.png"></p>
+<p>所以我们算是解决了对应性的难题：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609727565971-image.png"></p>
+<h1 id="Part-3-非对称加密"><a href="#Part-3-非对称加密" class="headerlink" title="Part 3. 非对称加密"></a>Part 3. 非对称加密</h1><p>但是这样还远远不够，即使一一对应，也不能证明像上述这样生成的数字签名是 <strong>本人生成</strong> 的，因为 SHA-256 是公开的算法，任何人都能通过它生成数字签名。</p>
+<p><strong>如何才能验证是 A 生成的签名而不是 B 生成的呢？</strong></p>
+<p>于是想出了一个办法，这个办法叫 <strong>非对称加密</strong>。</p>
+<h2 id="加密和解密"><a href="#加密和解密" class="headerlink" title="加密和解密"></a>加密和解密</h2><p>先来解释一下什么叫加密，用大家平时比较喜欢的一串数字来举例：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609728774073-image.png"></p>
+<p><code>5201314</code> 是大家比较能知道的意思，但是把每一位数字都 <code>+2</code> 之后变成 <code>7423536</code> 就不那么容易明白了，这个过程就叫 <strong>加密</strong>，还原的过程则叫 <strong>解密</strong>。</p>
+<h2 id="对称加密和非对称加密"><a href="#对称加密和非对称加密" class="headerlink" title="对称加密和非对称加密"></a>对称加密和非对称加密</h2><p>像上面例子中那样加密和解密过程一样的 *(<code>±2</code>)*，我们称之为 <strong>对称加密</strong>，加密和解密过程不一样的则称之为 <strong>非对称加密</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/33645891" title="如何用通俗易懂的话来解解释非对称加密 | @永安在线反欺诈">举个例子</a>，假设我们现在需要加密的字符是 <code>520</code>，我们 <strong>加密</strong> 的方法是把这个数乘以 <code>91</code>，并把结果的最后三位公布出来：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609729371801-image.png"></p>
+<p><strong>解密</strong> 我们当然不能通过除以 <code>91</code> 来完成，而是通过 <code>x11</code>，取出结果后三位来还原：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609729505456-image.png"></p>
+<p>这是因为 <code>91*11=1001</code>，任何一个三位数乘以 <code>1001</code> 显然后三位是不会变的。</p>
+<p>这大概就是 <strong>非对称加密的原理</strong> 了，只是可能原理更为复杂。</p>
+<p>通常，在这个原理被保密的情况下，我们把解密的方法公布到网上，数字 <code>11</code> 就被我们称为 <strong>公钥</strong>，人人都能知道，人人都能对应还原。</p>
+<p>这个用来加密的数字 <code>91</code> 我们称之为 <strong>私钥</strong>，只有你自己知道。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609743152479-image.png" alt="图片来源：https://bitcoin.org/zh_CN/how-it-works"></p>
+<p>一组配对的公钥和私钥，也就能解决 <strong>可验证</strong> 的问题了，因为私钥有且仅有一个与之配对的公钥。</p>
+<p>他人可以使用你的公钥加密信息，然后发送给你，你用私钥解密，取出信息。反过来，你也可以用私钥加密信息，别人用你的公钥解开，从而证明这个信息确实是你发出的，且未被篡改，这也就是 <strong>数字签名</strong> 了。<em>（更详细的介绍请看<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" title="数字签名是什么？ | 阮一峰">《什么是数字签名》</a>）。</em></p>
+<p>于是我们又解决了 <strong>可验证</strong> 问题：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609730389122-image.png"></p>
+<h1 id="Part-4-去中心化"><a href="#Part-4-去中心化" class="headerlink" title="Part 4. 去中心化"></a>Part 4. 去中心化</h1><p>好了，目前我们的账本已经算是可用了，但是整个过程我们是信赖 “电脑” 这个 <strong>第三方</strong> 的，如果出现什么问题 *(比如中毒了)*，那就是无可避免的损失。</p>
+<p>现在我们的交易大部分都依赖于这样的 <strong>第三方</strong>，比如银行、支付宝，面对高昂的手续费、繁琐流程以及监管的问题，比特币给出的答案是：<strong>去中心化</strong>。</p>
+<p>在<a target="_blank" rel="noopener" href="https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf" title="比特币白皮书 PDF">比特币提出时</a>，就说明了比特币是一种完全 <strong>点对点</strong> 的电子货币系统，也就是说交易就像给某人发电子邮件一样简单，完全不需要借助任何第三方。</p>
+<p><em>(这当然也有缺点在上一篇中我们提到一些——比如违法活动的进行更难追溯和查找)</em></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609745102736-image.png" alt="图片来源：https://bitcoin.org/zh_CN/how-it-works"></p>
+<p><strong>每一个人</strong> 都拥有一个 <strong>完整的账本</strong>，每个人都是中心，这样即使部分账本存在问题也不会影响。</p>
+<p>每一次交易的发生都会把这一次交易的信息公布到网上，每个人 <strong>验证成功</strong> 之后都会记录到自己的账本中。</p>
+<p>比如，A 向 B 支付了 50，那么 A 就会使用自己的 <strong>私钥</strong> 进行加密然后 <strong>广播</strong> 到每一个人告诉他们这一消息：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-4/1609747533765-image.png"></p>
+<p>每一个收到的人再使用 A 的 <strong>公钥</strong> 进行解密验证确实是 A 向 B 支付了 50，并且开始检查自己的账本，开始回溯检查 <strong>确保 A 的账户上有 50</strong> 用于支付给 B。</p>
+<p>如果一切 OK，那么每个人的账本上都记录上了这一条消息。</p>
+<h2 id="三个一致性问题"><a href="#三个一致性问题" class="headerlink" title="三个一致性问题"></a>三个一致性问题</h2><p>每个人都存储 <strong>所有</strong> 的转账记录，这会存在三个关于 <strong>一致性</strong> 的问题。</p>
+<p><strong>第一个问题是：如何进行同步？</strong></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609800792670-image.png"></p>
+<p>因为整个系统运行在网络，有的计算机可能会处于 <strong>“离线”</strong> 的状态，但交易时刻都在发生，这就会出现账本不一致的情况，如何才能保证不同计算机之间数据之间的数据同步问题呢？</p>
+<p><strong>第二个问题是：如何防止记录被篡改？</strong></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609800944724-image.png"></p>
+<p>例如黑客可能篡改网络中某些账本中的部分数据，导致账目不一致甚至冲突的情况发生，最终比特币网络崩坏，如何才能保证数据不会被恶意篡改呢？</p>
+<p><strong>第三个问题是：如何防止同一笔比特币收入被重复使用？</strong></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609801360575-image.png"></p>
+<p>之前看到有人问：如果在 ATM 机跟支付宝中同时转走账户剩余的钱，那么是不是会凭空多出一笔？</p>
+<p>当然不会，因为 <strong>银行</strong> 这样的 <strong>第三方机构</strong> 会帮你做出决定：先转走哪一笔那么另一笔就会失效。</p>
+<p>可是比特币网络中，由于有些人先收到消息有些人后收到消息，那么究竟使用哪一条消息为准，又如何防止 “凭空多出一笔” 这样的事情发生呢？</p>
+<h1 id="Part-5-区块链"><a href="#Part-5-区块链" class="headerlink" title="Part 5. 区块链"></a>Part 5. 区块链</h1><p>上述的一致性问题，比特币世界采用 <strong>区块链</strong> 的方式来解决。</p>
+<h2 id="区块链-区块-链"><a href="#区块链-区块-链" class="headerlink" title="区块链 = 区块 + 链"></a>区块链 = 区块 + 链</h2><p>在比特币世界中，大约每 10 分钟会结算一次这 10 分钟以来的交易记录并输出一个新的 “账本”：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609804054748-image.png"></p>
+<p>这些 “账本” 当然不是交易记录的 <strong>简单复合</strong>，而是包括了：前一个 “账本” 是哪一个、前一个 “账本” 所有数据计算出的 Hash 值等等信息的 <strong>复杂数据体</strong>。</p>
+<p>这样我们既能通过简单的验证保证 <strong>数据的正确性</strong>，又能把所有的 “账本” 都 <strong>串联</strong> 起来：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609805040236-image.png"></p>
+<p>好了，换个名字，区块链有了：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609805149131-image.png"></p>
+<blockquote>
+<p>辽宁沈阳一小区大门上，66 把锁串联在一起，被誉为 **”最便宜的门禁系统”**，也号称 <strong>“区块链实体化”</strong> 技术…</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609803783296-image.png" alt="区块链实体化..."></p>
+</blockquote>
+<h2 id="新区块由-“矿工”-生成"><a href="#新区块由-“矿工”-生成" class="headerlink" title="新区块由 “矿工” 生成"></a>新区块由 “矿工” 生成</h2><p>比特币网络中每一个新区块都由 <strong>“矿工”</strong> 生成，它们会 <strong>逐条检查每一条记录</strong> 是否符合要求，例如每一条记录是否有正确的数字签名、支付是否合理等。</p>
+<p>然后将验证完之后的比特币交易记录添加到自己正在制作的 <strong>新区块</strong> 中，制作完成就马上发送到比特币网络中的每一个节点。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609806157279-image.png"></p>
+<p>节点收到这个新区块的信息，如果验证之后符合要求，就添加到目前 <strong>区块链的末尾</strong>。</p>
+<p>那么问题来了，比特币网络有许许多多的 “矿工”，这也意味着这可能会 <strong>同一时间</strong> 内能生成很多 <strong>基本信息大致相同</strong> 的 **”新区块”**。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609806400319-image.png"></p>
+<p>虽然这些 “新区块” 中大致都是近期内验证好的交易记录，但是每个区块具体包含哪些交易记录，可能各不相同。</p>
+<p>比特币网络只能认可维护 <strong>同一条区块链</strong>，比特币网络上的 <strong>每个节点</strong> 都必须选择 <strong>同一个新区块</strong> 添加到末尾，但是这又很难制定一个统一的选择标准。</p>
+<h2 id="POW-Proof-Of-Work-工作量证明"><a href="#POW-Proof-Of-Work-工作量证明" class="headerlink" title="POW(Proof Of Work)工作量证明"></a>POW(Proof Of Work)工作量证明</h2><p>比特币世界解决方法是：<strong>采用一个巧妙的方法限制单位时间内生成的新区块的数量</strong>。</p>
+<p>如果每过 10 分钟左右的时间，整个比特币世界只有 <strong>一个</strong> “矿工” 能够生成 <strong>一个</strong> 新区块，那么也就不用再进行选择，区块链也将添加唯一一个新区块到末尾。</p>
+<p>这个巧妙的方法就是：当 “矿工” 完成新区块的验证打包之后，还需要做一个 <strong>额外的工作</strong> 才能把生成的区块发布到网络上。</p>
+<p>额外工作的整个过程可以分为 2 步：</p>
+<ol>
+<li>将新制作区块所包含的 <strong>内容</strong>（前一个区块所有内容的 SHA-256 函数值 + 新区块基本信息 + 新区块所包含所有交易记录）组合成一个 <strong>字符串</strong>；</li>
+<li>在这个字符串的末尾添加一个 <strong>随机数</strong>，组成新字符串；</li>
+</ol>
+<p>只有当这个新组成的字符串通过 SHA-256 算法得到的 <code>256</code> 位二进制数的前 <code>72</code> 位 **全是 <code>0</code>**，才算成功完成了这个额外的工作。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609807917121-image.png"></p>
+<p><strong>这个额外工作的难度非常高</strong> *(前 <code>72</code> 位为 <code>0</code> 的概率为 1 / 2<sup>72</sup>)*，高到整个比特币网络大约 10 分钟时间也只有一个 “矿工” 能够 <strong>找到这个随机数</strong>。</p>
+<p>原因就在于 SHA-256 函数的特点是：虽然每个输入值都对应一个输出值，但是这 256 位二进制数完全随机没有规律。</p>
+<p>找到这个满足条件的随机数的 <strong>唯一方法</strong> 就是 <strong>以最快的速度输入不同的随机数不停地试</strong>。</p>
+<p>当 “矿工” 找到这个随机数之后，会将这个 <strong>随机数打包进当前区块</strong> 然后打包发布到比特币网络，所有节点就可以根据这个随机数和新区块的基本信息 <strong>快速验证</strong> 是否符合要求。</p>
+<p>虽然找到这个 <strong>随机数</strong> 完全靠运气，但矿工的运算能力越强，这个运气就会越好，这也是 “矿工” 们<a target="_blank" rel="noopener" href="https://www.sohu.com/a/421650311_100245697" title="比特币矿机的演变之路">不断升级设备</a>的原因。</p>
+<h2 id="矿工激励机制"><a href="#矿工激励机制" class="headerlink" title="矿工激励机制"></a>矿工激励机制</h2><p>是什么支持着 “矿工” 们不停升级自己的设备去打包新的区块呢？</p>
+<p>在比特币世界里，每成功打包一个新区块，就会奖励给 “矿工” 一定数量的比特币，最初是 <code>50</code> 个，每产生 21 万区块 *(也就是大约 4 年时间)*，奖励就会减半，2020 年这一奖励已降至 6.25 比特币。</p>
+<p>另外当前区块中所有交易产生的交易费也归 “矿工” 所有。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609809959619-image.png"></p>
+<p>拿 2017 年举例，每打包一个区块会得到 12.5 比特币的奖励，交易产生的交易费大约是 2 比特币 *(参照上图)*，也就是总收入约 14.5 比特币。</p>
+<p>按照 2017 年 12 月 16 日的行情，这大约值 26 万美元，即 <strong>170 万人民币</strong>。</p>
+<p>换句话说，一个运气好的矿工，10 分钟左右，就能产生 170 万的收入。</p>
+<h2 id="工作难度调整"><a href="#工作难度调整" class="headerlink" title="工作难度调整"></a>工作难度调整</h2><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609825183087-image.png" alt="图片来源：http://www.time-weekly.com/post/264828"></p>
+<p>巨大的经济利益带来的是挖矿设备的不断升级，这也导致了整个比特币网络计算能力的提高。</p>
+<p>为了维持平均 10 分钟生成一个区块的速度，比特币网络会每 2 个星期调整一次工作难度。</p>
+<p>例如从前 72 位为 0 调整为前 73 位，难度也是几何级的增加。</p>
+<h2 id="一致性问题回顾"><a href="#一致性问题回顾" class="headerlink" title="一致性问题回顾"></a>一致性问题回顾</h2><p>好了，我们来回顾一下区块链是如何解决上面提到过的一致性问题的。</p>
+<h3 id="如何进行同步？"><a href="#如何进行同步？" class="headerlink" title="如何进行同步？"></a>如何进行同步？</h3><p>比特币网络仅仅维护网络中唯一一条 <strong>最长的区块链</strong>，所以不论是新加入的节点还是需要同步的节点，都以此为准。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609825692104-image.png"></p>
+<p>很容易知道，即使 “矿工” 有了 <strong>额外的工作</strong> 需要做，但仍然会发生 <strong>两个区块同时发布</strong> 到网络上的情况。</p>
+<p>此时网络上一部分节点先接受到 A 的区块，另一部分接受到 B 的区块。</p>
+<p>此时两个区块都不丢弃，直到下一个区块 C 产生，由于 <strong>额外的工作</strong> 不会凑巧得又有两个新区块同时产生，此时 C 区块前面的区块是 A 那么整个区块链网络就接受 A 这一条，反之则接受 B。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609826381825-image.png"></p>
+<p>这时候 A 区块中未被打包的交易记录又会被丢到网络中等待打包。</p>
+<p>就算很凑巧仍然有区块同时被打包在 A 和 B 区块的后面，那么继续等待 <strong>最长链</strong> 的产生就好了。</p>
+<p>通常来说，正常的交易被区块链接受后，后面再接上 2-3 个区块就能确保已经被区块链完全接受了，大一点的交易则等待 3-6 个区块。</p>
+<p>如此就保证了网络中 <strong>仅有一条唯一的长链</strong> 产生，所有的节点都以此为准。</p>
+<h3 id="如何防止篡改"><a href="#如何防止篡改" class="headerlink" title="如何防止篡改"></a>如何防止篡改</h3><p>在 <strong>额外工作</strong> 中我们提及到，每一个区块都带有 <strong>上一个区块所有交易信息</strong> 的 SHA-256 的值，区块由此链接起来：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609826946495-image.png"></p>
+<p>即使是很微小的改动，也会导致该区块的 SHA-256 值不一致，导致后续链接的区块断裂：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609827171865-image.png"></p>
+<p>由于区块链只维护一条最长链，所以只有当篡改者拥有的计算能力超过 <strong>整个网络中其他节点的计算能力的总和</strong> 时，才能通过不断完成 <strong>额外工作</strong> 添加新区块的方式，使当前修改的区块成为<a target="_blank" rel="noopener" href="https://academy.binance.com/zh/articles/what-is-a-51-percent-attack" title="该攻击又被称为 51% 攻击">最长链</a>。</p>
+<p>区块链的参与者越多，这一难度越大。</p>
+<p>就算有人成功地篡改了交易记录，他也不大可能得到任何好处，因为由于他的攻击，比特币网络的价值会大幅下跌，乃至归零。</p>
+<p>换句话说，为了摧毁比特币，攻击者需要付出极大的成本，却不会得到任何回报。</p>
+<p><strong>算力的分散、代码的强抗更改性、稳如山的货币政策，是比特币存活下来并成长到今天这个规模的原因。</strong></p>
+<h3 id="如何防止同一笔比特币收入被重复使用"><a href="#如何防止同一笔比特币收入被重复使用" class="headerlink" title="如何防止同一笔比特币收入被重复使用"></a>如何防止同一笔比特币收入被重复使用</h3><p>区块链中的每一条交易记录都记录了完整的 <strong>代码可追溯</strong> 的流转信息。</p>
+<p>在打包新区块的时候，如果发现交易记录的 <strong>上一笔交易</strong> 已经出现在了 <strong>之前的区块</strong> 中，那么就会 <strong>放弃掉</strong> 该记录；</p>
+<p>如果 <strong>同一个区块</strong> 中出现了 <strong>两笔来源相同</strong> 的记录，那么也只会 <strong>选择其中一条</strong> 进行记录。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>好了，到目前为止我们已经把比特币使用的技术和相关知识都通俗的讲述了一遍，不知道小伙伴们有没有真的理解比特币呢？</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/BlogImage02/2021-1-5/1609829257431-image.png"></p>
+<p>现在来对主要技术和特点做一下<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gW411i7Hx?from=search&seid=4990745897491513785" title="比特币原理优质视频讲解">总结</a>：</p>
+<ol>
+<li>利用 <strong>SHA-256 算法</strong> 和 <strong>非对称加密</strong> 来制作 <strong>数字签名</strong>；</li>
+<li>利用 <strong>区块链</strong> 中的区块存储比特币交易记录；</li>
+<li>设置 <strong>额外工作</strong> 从而控制单位时间内生成区块的个数，同时保护比特币网络；</li>
+<li>将一定数额的比特币和区块内的所有交易费奖励，用于成功生成该区块的矿工奖励，<strong>激励</strong> 更多矿工加入比特币网络，促使比特币网络茁壮成长；</li>
+<li>比忒不转账不依赖银行或其他金融机构；</li>
+<li>比特币网络内比特币的总量不会超过 2100 万。</li>
+</ol>
+<p>（完）</p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/network/how-to-work/">图解|网络究竟是如何运作的？</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/bitcoin/3/">比特币(3)——比特币的其他优势</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-0-%E5%89%8D%E8%A8%80"><span class="toc-text">Part 0. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-%E4%BB%8E%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="toc-text">Part 1. 从一个例子入手</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-%E5%93%88%E5%B8%8C-hash-%E7%AE%97%E6%B3%95"><span class="toc-text">Part 2. 哈希(hash)算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-3-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">Part 3. 非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86"><span class="toc-text">加密和解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E5%92%8C%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">对称加密和非对称加密</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-4-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="toc-text">Part 4. 去中心化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">三个一致性问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-5-%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="toc-text">Part 5. 区块链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE-%E5%8C%BA%E5%9D%97-%E9%93%BE"><span class="toc-text">区块链 &#x3D; 区块 + 链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%8C%BA%E5%9D%97%E7%94%B1-%E2%80%9C%E7%9F%BF%E5%B7%A5%E2%80%9D-%E7%94%9F%E6%88%90"><span class="toc-text">新区块由 “矿工” 生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POW-Proof-Of-Work-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E"><span class="toc-text">POW(Proof Of Work)工作量证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%BF%E5%B7%A5%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6"><span class="toc-text">矿工激励机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E9%9A%BE%E5%BA%A6%E8%B0%83%E6%95%B4"><span class="toc-text">工作难度调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98%E5%9B%9E%E9%A1%BE"><span class="toc-text">一致性问题回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">如何进行同步？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E7%AF%A1%E6%94%B9"><span class="toc-text">如何防止篡改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%90%8C%E4%B8%80%E7%AC%94%E6%AF%94%E7%89%B9%E5%B8%81%E6%94%B6%E5%85%A5%E8%A2%AB%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8"><span class="toc-text">如何防止同一笔比特币收入被重复使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    }
+    el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
