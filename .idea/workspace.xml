@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="826886aa-2a9a-4de0-8a6c-b58735e0ea73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/node_modules/hexo-theme-stellar/scripts/.cache/stellar-version.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hexo-theme-stellar/scripts/.cache/stellar-version.json" afterDir="false" />
-    </list>
+    <list default="true" id="826886aa-2a9a-4de0-8a6c-b58735e0ea73" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -293,7 +291,7 @@
       <workItem from="1732469615655" duration="277000" />
       <workItem from="1734148826433" duration="1385000" />
       <workItem from="1767752704941" duration="2213000" />
-      <workItem from="1767756076715" duration="303000" />
+      <workItem from="1767756076715" duration="618000" />
     </task>
     <servers />
   </component>

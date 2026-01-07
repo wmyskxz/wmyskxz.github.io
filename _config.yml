@@ -105,5 +105,5 @@ theme: stellar
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/wmyskxz/wmyskxz.github.io
+  repo: https://github.com/wmyskxz/wmyskxz.github.io.git
   branch: master
