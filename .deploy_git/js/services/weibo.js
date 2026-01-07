@@ -3,13 +3,14 @@ utils.jq(() => {
     const els = document.getElementsByClassName('ds-weibo');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
-      const api = el.getAttribute('api');
+      const api = el.dataset.api;
       if (api == null) {
         continue;
       }
       const default_avatar = el.getAttribute('avatar') || def.avatar;
       // layout
-      utils.request(el, api, function(data) {
+      utils.request(el, api, async resp => {
+        const data = await resp.json();
         const arr = data.tweets || [];
         const limit = el.getAttribute('limit');
         arr.forEach((item, i) => {

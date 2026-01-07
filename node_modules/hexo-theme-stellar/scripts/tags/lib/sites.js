@@ -9,17 +9,18 @@
 
 module.exports = ctx => function(args) {
   args = ctx.args.map(args, ['repo', 'api'], ['group'])
+  const host = ctx.theme.config.api_host.ghraw
   var api
   if (args.api) {
     api = args.api
   } else if (args.repo) {
-    api = 'https://api.vlts.cc/output_data/v2/' + args.repo
+    api = `https://${host}/${args.repo}/output/v2/data.json`
   }
   
   var el = '<div class="tag-plugin sites-wrap">'
   if (api) {
-    el += '<div class="ds-sites"'
-    el += ' api="' + api + '"'
+    el += '<div class="data-service ds-sites"'
+    el += ' data-api="' + api + '"'
     el += '>'
     el += '<div class="grid-box"></div>'
     el += '</div>'
@@ -30,9 +31,15 @@ module.exports = ctx => function(args) {
       if (item?.url && item?.title) {
         el += `<div class="grid-cell site-card">`
         el += `<a class="card-link" target="_blank" rel="external nofollow noopener noreferrer" href="${item.url}">`
-        el += `<img src="${item.cover || item.screenshot || ('https://api.vlts.cc/screenshot?url=' + item.url + '&width=1280&height=720')}" onerror="javascript:this.removeAttribute(&quot;data-src&quot;);this.src=&quot;${ctx.theme.config.default.cover}&quot;;"/>`
+        el += `<div class="lazy-box snapshot">`
+        el += `<img class="lazy" data-src="${item.cover || item.snapshot || item.screenshot || ('https://image.thum.io/get/width/1280/crop/720/' + item.url)}" onerror="javascript:this.removeAttribute(&quot;data-src&quot;);this.src=&quot;${ctx.theme.config.default.cover}&quot;;"/>`
+        el += `<div class="lazy-icon" style="background-image:url(&quot;${ctx.theme.config.default.loading}&quot;);"></div>`
+        el += `</div>`
         el += `<div class="info">`
-        el += `<img src="${item.icon || item.avatar || ctx.theme.config.default.link}" onerror="javascript:this.removeAttribute(&quot;data-src&quot;);this.src=&quot;${item.icon || item.avatar || ctx.theme.config.default.link}&quot;;"/>`
+        el += `<div class="lazy-box icon">`
+        el += `<img class="lazy" data-src="${item.icon || item.avatar || ctx.theme.config.default.link}" onerror="javascript:this.removeAttribute(&quot;data-src&quot;);this.src=&quot;${item.icon || item.avatar || ctx.theme.config.default.link}&quot;;"/>`
+        el += `<div class="lazy-icon" style="background-image:url(&quot;${ctx.theme.config.default.loading}&quot;);"></div>`
+        el += `</div>`
         el += `<span class="title">${item.title}</span>`
         el += `<span class="desc">${item.description || item.url}</span>`
         el += `</div>`

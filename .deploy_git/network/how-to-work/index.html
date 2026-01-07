@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0" theme-name="Stellar" theme-version="1.27.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
   
   <meta name="generator" content="Hexo 5.4.2">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -12,49 +13,27 @@
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="theme-color" content="#f8f8f8">
-  
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
   <title>图解|网络究竟是如何运作的？ - 我没有三颗心脏的博客</title>
 
   
     <meta name="description" content="前言 毫无疑问，互联网已经彻底改变了人们的生活，不管怎样，它或许是我们建造的最伟大的工具。 但它是怎么工作的？它属于谁？它身在何方？又是谁来保证它持续运转呢？ (参考视频) 今天就让我们一起来探索探索。 互联网简史ARPA 成立1957 年，正值冷战期间，苏联人发射了世界上第一颗人造卫星，代号 SPUTNIK。  当卫星进入行星轨道后，美国人感觉自己技术落后的同时又开始了瞎想：苏联人既然有能力能将">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解|网络究竟是如何运作的？">
-<meta property="og:url" content="https://www.wmyskxz.cn/network/how-to-work/index.html">
+<meta property="og:url" content="https://www.wmyskxz.cn/network/how-to-work/">
 <meta property="og:site_name" content="我没有三颗心脏的博客">
 <meta property="og:description" content="前言 毫无疑问，互联网已经彻底改变了人们的生活，不管怎样，它或许是我们建造的最伟大的工具。 但它是怎么工作的？它属于谁？它身在何方？又是谁来保证它持续运转呢？ (参考视频) 今天就让我们一起来探索探索。 互联网简史ARPA 成立1957 年，正值冷战期间，苏联人发射了世界上第一颗人造卫星，代号 SPUTNIK。  当卫星进入行星轨道后，美国人感觉自己技术落后的同时又开始了瞎想：苏联人既然有能力能将">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611624706967-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661594560-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661860001-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626580942-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626386471-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611641572588-2021-01-26%2014.10.56.gif">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611643227688-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611707413524-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716584110-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716725148-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716970147-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611889191303-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890185396-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890241726-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890648980-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891447134-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891742824-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611892595087-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611893096347-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894042487-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894767072-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611912674482-image.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611913364923-image.png">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
 <meta property="article:published_time" content="2021-01-30T00:47:12.000Z">
 <meta property="article:modified_time" content="2024-04-08T09:07:12.300Z">
 <meta property="article:author" content="我没有三颗心脏">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611624706967-image.png">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
   
   
   
@@ -65,7 +44,8 @@
     <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.27.0">
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
 
   
     <link rel="shortcut icon" href="/img/logo.jpg">
@@ -73,25 +53,26 @@
 
   
 
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2021-01-30T08:47:12+08:00","dateModified":"2024-04-08T17:07:12+08:00","datePublished":"2021-01-30T08:47:12+08:00","description":"","headline":"图解|网络究竟是如何运作的？","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/network/how-to-work/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/network/how-to-work/","keywords":"网络","thumbnailUrl":"https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611624706967-image.png","image":1}</script>
   
 </head>
 <body>
 
-<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">我没有三颗心脏的博客</div><div class="sub normal cap">2025 年与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
 
 <div class="nav-area">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
-
 
 <nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
 </div>
 <div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/139/"><span class="title">代码之外周刊（第 139 期）：努力背后的真相</span></a><a class="item title" href="/weekly/138/"><span class="title">代码之外周刊（第 138 期）：“婚姻教皇”的婚姻幸福指南</span></a><a class="item title" href="/weekly/135/"><span class="title">代码之外周刊（第 135 期）：永远不要让别人定义你是谁</span></a><a class="item title" href="/weekly/136/"><span class="title">代码之外周刊（第 136 期）：不要轻易给自己贴标签</span></a><a class="item title" href="/weekly/137/"><span class="title">代码之外周刊（第 137 期）：像水管工一样思考，而不是像CEO</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/139/"><span class="title">代码之外周刊（第 139 期）：努力背后的真相</span></a><a class="item title" href="/weekly/138/"><span class="title">代码之外周刊（第 138 期）：“婚姻教皇”的婚姻幸福指南</span></a><a class="item title" href="/weekly/135/"><span class="title">代码之外周刊（第 135 期）：永远不要让别人定义你是谁</span></a><a class="item title" href="/weekly/136/"><span class="title">代码之外周刊（第 136 期）：不要轻易给自己贴标签</span></a><a class="item title" href="/weekly/137/"><span class="title">代码之外周刊（第 137 期）：像水管工一样思考，而不是像CEO</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -115,26 +96,26 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611624706967-image.png"></p>
+  </div><article class="md-text content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611624706967-image.png"></p>
 <p>毫无疑问，<strong>互联网</strong>已经彻底改变了人们的生活，不管怎样，它或许是我们建造的最伟大的工具。</p>
 <p><strong>但它是怎么工作的？它属于谁？它身在何方？又是谁来保证它持续运转呢？</strong> <em>(<a target="_blank" rel="noopener" href="https://www.yxgapp.com/the-secrets-behind-how-the-internet-works/" title="网络究竟是如何运作的？">参考视频</a>)</em></p>
 <p>今天就让我们一起来探索探索。</p>
 <h1 id="互联网简史"><a href="#互联网简史" class="headerlink" title="互联网简史"></a>互联网简史</h1><h2 id="ARPA-成立"><a href="#ARPA-成立" class="headerlink" title="ARPA 成立"></a>ARPA 成立</h2><p>1957 年，正值冷战期间，苏联人发射了世界上第一颗人造卫星，代号 SPUTNIK。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661594560-image.png" alt="Sputnik - wiki"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661594560-image.png" alt="Sputnik - wiki"></p>
 <p>当卫星进入行星轨道后，美国人感觉自己技术落后的同时又开始了瞎想：苏联人既然有能力能将卫星正确发射到轨道，那么同样的原子弹也可以精准地丢到美国来。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661860001-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611661860001-image.png"></p>
 <p>作为响应，美国国防部组建了研究计划局 *(Advanced Research Projects Agency，ARPA)*，并开始琢磨着<strong>将科学的技术运用于军事领域当中</strong>。</p>
 <h2 id="分布式通讯网络"><a href="#分布式通讯网络" class="headerlink" title="分布式通讯网络"></a>分布式通讯网络</h2><p><a target="_blank" rel="noopener" href="https://www.rand.org/">兰德</a>公司成立于 1946 年，总部位于加利福尼亚州圣莫尼卡，目前是一家非营利性机构，旨在帮助制定公共政策和改善决策过程。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626580942-image.png" alt="兰德原始建筑"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626580942-image.png" alt="兰德原始建筑"></p>
 <p>在冷战时期，兰德研究人员设想了 <em>「如果美国突然遭遇核袭击」</em> 这样的可能战争场景时发现：<em>如果突然爆发核冲突，通讯系统将受到严重威胁，指挥系统可能会停电。</em></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626386471-image.png" alt="保罗·巴兰"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611626386471-image.png" alt="保罗·巴兰"></p>
 <p>1964 年，一个名叫 <strong>保罗·巴兰(Paul Baran)</strong> 的兰德主要研究人员发表了一篇名为<a target="_blank" rel="noopener" href="https://www.rand.org/content/dam/rand/pubs/research_memoranda/2006/RM3420.pdf" title="《分布式通信》论文">《分布式通信》</a>的论文，其中概述了一种足以抵抗核袭击的<strong>弹性通信系统</strong>。</p>
-<p>尽管<strong>不可能建立一个保证所有单点可用</strong>的通信系统，但巴兰认为，可以想象有一个系统可以迫使敌人摧毁 “n 个站点” 才能让系统瘫痪——只要 n 足够大，即使在热核时代，也可以构建高度可用的系统结构。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611641572588-2021-01-26%2014.10.56.gif"></p>
+<p>尽管<strong>不可能建立一个保证所有单点可用</strong>的通信系统，但巴兰认为，可以想象有一个系统可以迫使敌人摧毁 “n 个站点” 才能让系统瘫痪——只要 n 足够大，即使在热核时代，也可以构建高度可用的系统结构。<br><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611641572588-2021-01-26%2014.10.56.gif"></p>
 <p>巴兰率先提出通信网络只能围绕两个核心结构构建：「集中式」和「分布式」。</p>
 <p>在由此得出的三种可能网络类型中：A）集中式；B）分散式；C）分布式，发现<strong>分布式分布在发生军事打击时更可靠</strong>。</p>
 <p>但不幸的是，巴兰的理想网络太领先于时代，最终被困在了模拟阶段。</p>
 <h2 id="第一代互联网——阿帕网-ARPANET"><a href="#第一代互联网——阿帕网-ARPANET" class="headerlink" title="第一代互联网——阿帕网(ARPANET)"></a>第一代互联网——阿帕网(ARPANET)</h2><p>直到 1969 年，在 加州大学洛杉矶分校 UCLA，才终于奠定了互联网的第一个基石，并建立了<strong>第一代计算机网络 ARPANET</strong>——一个由美国国防部高级研究计划局 <em>(Advanced Research Projects Agency，ARPA)</em> 开发的第一代互联网。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611643227688-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-26/1611643227688-image.png"></p>
 <p>矛盾的是，十年前作为军事手段应对冷战威胁的方式开始变成了一种完全不同的网络。</p>
 <p>在 1967 年 10 月于盖特林堡 CM 研讨会上提出的 ARPANET 最初计划中，项目负责人 Larry Roberts 列举了建立该网络的一系列原因。</p>
 <p>他们都不关心军事问题——相反，他们着眼于在计算机之间共享数据负载、提供电子邮件服务、共享数据和程序，并着眼于提供一种用于远程登录和使用计算机的服务。</p>
@@ -145,55 +126,55 @@
 <p>2）通过资源共享来提高和提高计算机研究的效率。</p>
 </blockquote>
 <p><em>(历史趣闻：1969 年 10 月 29 日 UCLA 与斯坦福研究所（SRI）之间成功发出了第一个信号。在网络上发送的第一条消息应该是「Login」，但在发送字母「g」的时候，连接崩溃了。)</em></p>
-<h2 id="ARPANET-发展"><a href="#ARPANET-发展" class="headerlink" title="ARPANET 发展"></a>ARPANET 发展</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611707413524-image.png" alt="ARPANET 1969-1977 - wiki"></p>
+<h2 id="ARPANET-发展"><a href="#ARPANET-发展" class="headerlink" title="ARPANET 发展"></a>ARPANET 发展</h2><p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611707413524-image.png" alt="ARPANET 1969-1977 - wiki"></p>
 <p>在随后的几年中，ARPANET 进行了合并和扩展，而公众对这几乎一无所知。</p>
 <p>1971 年，阿帕网扩充到 15 个节点，历经几年成功运行后，已发展成为连接许多大学、研究所和公司的遍及美国领土的计算机网，并能通过卫星通信与相距较远的夏威夷州、英国的伦敦和北欧的挪威连接，使欧洲用户也能通过英国和挪威的节点接入网络。</p>
 <p>后来效仿阿帕网出现了很多不同的网络，由于阿帕网无法做到与其它类计算机网络交流，1973 年春，文顿·瑟夫（Vinton Cerf）和鲍勃·康（Bob Kahn）开始研究如何将阿帕网和另外两个已有的网络相连接。</p>
 <p>尤其是连接卫星网络（SAT NET）和基于夏威夷的分组业务的 ALOHA 网（ALOHA NET），瑟夫设计了新的计算机交流协议，最后被称为<strong>传送控制协议/互联网协议（TCP/IP）</strong>。</p>
 <p>在接下来的时间里，ARPA 网不断发展，联入了越来越多的电脑，并最终促生了现代互联网。</p>
-<h2 id="万维网的发明"><a href="#万维网的发明" class="headerlink" title="万维网的发明"></a>万维网的发明</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716584110-image.png" alt="Sir Tim Berners-Lee - wiki"></p>
+<h2 id="万维网的发明"><a href="#万维网的发明" class="headerlink" title="万维网的发明"></a>万维网的发明</h2><p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716584110-image.png" alt="Sir Tim Berners-Lee - wiki"></p>
 <p>二十年后，英国计算机科学家 Sir Tim Berners-Lee 在日内瓦的欧洲核子研究组织 CERN 工作，工作内容为修复 CERN 系统中因不同网络不兼容而造成的混乱。</p>
 <p>他给出的解决方案是：<strong>创建万维网（World Wide Web）</strong>。*(标准化服务器和客户端之间的通信)*</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716725148-image.png" alt="Tim Berners-Lee和第一个万维网页面"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716725148-image.png" alt="Tim Berners-Lee和第一个万维网页面"></p>
 <p>虽然「互联网」和「网站」常被当做同义词使用，但它们不是同一个东西。</p>
 <p>互联网是网络的基础结构，而网站存在于互联网之上，本质上网站是利用互联网来获取信息的途径。</p>
-<h1 id="互联网是如何将我们联系起来的？"><a href="#互联网是如何将我们联系起来的？" class="headerlink" title="互联网是如何将我们联系起来的？"></a>互联网是如何将我们联系起来的？</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716970147-image.png"></p>
+<h1 id="互联网是如何将我们联系起来的？"><a href="#互联网是如何将我们联系起来的？" class="headerlink" title="互联网是如何将我们联系起来的？"></a>互联网是如何将我们联系起来的？</h1><p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-27/1611716970147-image.png"></p>
 <p>如今互联网已成了跨越全球的互联化点阵，因此我们不得不问：<strong>「互联网是如何将我们所有人联系起来的？」</strong>。</p>
 <h2 id="跨洋光缆"><a href="#跨洋光缆" class="headerlink" title="跨洋光缆"></a>跨洋光缆</h2><p>光缆跨越海洋连接起了各国，这已经不是什么新鲜事。</p>
 <p>早在 1854 年第一条跨大西洋的<strong>电报电缆</strong>就已经开始施工了。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611889191303-image.png" alt="1858 年的跨大西洋海底电报电缆 - wiki"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611889191303-image.png" alt="1858 年的跨大西洋海底电报电缆 - wiki"></p>
 <p>相较于超复杂的跨洋光缆铺设技术，<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19721234" title="知乎 | 海底光缆是如何铺设的？">施工过程</a>却出人意料的简单。*(<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34713589" title="揭秘！关于海底光缆的最强科普！">了解更多关于海底光缆</a>)*</p>
 <p>海面上，轮船在放出光缆。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890185396-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890185396-image.png"></p>
 <p>海底下，电缆犁在把光缆固定到海底。</p>
 <p>每隔 40km~60km 还得有个中继器来保证信号。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890241726-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890241726-image.png"></p>
 <p>光缆里面只有光导纤维，外面包裹着厚厚几层保护壳——抵御海水腐蚀和偶尔的鲨鱼攻击等。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890648980-image.png" alt="典型海底光缆结构解析"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611890648980-image.png" alt="典型海底光缆结构解析"></p>
 <p>在海床上，光缆被铺设在由缆线埋设机在海底冲出的一条光缆沟内，最后借由海流让砂自然覆盖住电缆。</p>
 <p>如果海底地面不平，光缆就容易暴露，就容易收到船锚或其他自然灾害的损害。</p>
 <p>2008 年就发生了一场因为光缆受损而造成的事故，导致印度约 60％ 和埃及约 70％ 的互联网服务临时瘫痪。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891447134-image.png" alt="wiki"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891447134-image.png" alt="wiki"></p>
 <p>即使是在现在，光缆受损依然很常见，世界各地的破损光缆要不断进行维修。</p>
 <p>当然，还有很多其他通讯线路，仅切断一根光缆是不可能完全断网的。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891742824-image.png" alt="2015 年海底光缆绘制图"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611891742824-image.png" alt="2015 年海底光缆绘制图"></p>
 <p>尤其是在近现代，因为卫星时刻环绕地球，并从空中与互联网对接。</p>
 <p>当整个海底光缆铺设完成之后，将有一系列光缆铺满整个国家，直接连至你的家。</p>
 <h1 id="互联网到底归谁所有？"><a href="#互联网到底归谁所有？" class="headerlink" title="互联网到底归谁所有？"></a>互联网到底归谁所有？</h1><p>总的来说，互联网仍然在成长，地球上大约有一半的人可以使用它，所以直到大规模使用达到饱和时，我们才能看到互联网真正的潜力。</p>
 <p><strong>那么互联网到底归谁所有？</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611892595087-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611892595087-image.png"></p>
 <p>严格来说，它不属于任何人。</p>
 <p>互联网本身就是多种公共网络的自主互联，它是分散的，因此没有任何政府或机构拥有或控制互联网。</p>
 <p>但是政府有权利通过影响改过互联网服务提供商（ISPs）的法律，来控制其公民访问互联网的权限。</p>
 <p>例如，中国限制其公民访问油管（Youtube）等外国网站。*(<a target="_blank" rel="noopener" href="http://www.midphoto.com/chinese/whatsnew/2016/2.htm" title="深度分析|为什么我们不能访问谷歌？">深度分析|为什么我们不能访问谷歌？</a>)*</p>
-<h2 id="ICANN-机构"><a href="#ICANN-机构" class="headerlink" title="ICANN 机构"></a>ICANN 机构</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611893096347-image.png"></p>
+<h2 id="ICANN-机构"><a href="#ICANN-机构" class="headerlink" title="ICANN 机构"></a>ICANN 机构</h2><p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611893096347-image.png"></p>
 <p>2016 年，美国政府正式交出数据库所有权，将<strong>互联网域名管理权</strong>交给 ICANN 这个组织——这意味着互联网所有权重新回归到人民大众手里。</p>
 <p><strong>ICAAN</strong> 是一个独立机构，由多个利益相关的社群组成——这表明 ICAAN 会向网络大众征集意见，并<strong>最大可能保持开放和透明</strong>。</p>
 <p>所以你可能没有听过 ICAAN，但该非盈利组织有一项重要举措，以维持互联网安全——<strong>他们管理域名系统（DNS)，主要任务是分配网址</strong>。</p>
 <p>即当你输入网址 <code>www.google.com</code> 时，需要保证你接收到的响应来自谷歌，而不是其他伪造的盗版谷歌。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894042487-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894042487-image.png"></p>
 <h2 id="其他互联网组织"><a href="#其他互联网组织" class="headerlink" title="其他互联网组织"></a>其他互联网组织</h2><p>ICANN 只是确保互联网正常运行的一个组织，但不是唯一一个，还有很多其他组织。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894767072-image.png" alt="Internet governance - wiki"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611894767072-image.png" alt="Internet governance - wiki"></p>
 <p>比如互联网工程任务组（Internet Engineering Task Force）和由蒂姆·伯纳斯·李掌管的万维网联合会（The World Wide Web Consortium）。</p>
 <p><strong>这些组织设置标准、制定协议，并确保互联网的安全性和开放性。</strong></p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>所以互联网是如何运行的呢？大概总结起来就是：</p>
@@ -201,24 +182,26 @@
 <li>通过<strong>海底光缆</strong>实现全球的<strong>物理连接</strong>；</li>
 <li>通过<strong>各种互联网组织</strong>制定的协议、规则<strong>互通互信</strong>；</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611912674482-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611912674482-image.png"></p>
 <p>不可争辩的是，互联网已经彻底改变了我们的生活，它渗入到我们生活的方方面面。</p>
 <p>人们可以仅通过一部手机，就可以浏览全世界的百科全书，使用搜索引擎解决问题的人也不在少数。</p>
 <p>这些巨量的信息也参杂了巨量的误导信息，在互联网时代，人们更容易用确认偏误来验证自己的观点，从而导致了臭名昭著的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E5%A3%B0%E5%AE%A4%E6%95%88%E5%BA%94/15898741?fr=aladdin" title="百度百科|回声室效应">回声室效应</a>。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611913364923-image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-29/1611913364923-image.png"></p>
 <p>我们需要警醒的是<strong>互联网不仅仅有积极的一面</strong>，也有<a target="_blank" rel="noopener" href="https://book.douban.com/subject/5379664/" title="豆瓣|互联网如何毒化了我们的大脑">消极的一面</a>。</p>
 <p>几乎任何技术都有这样的问题，人性使然，我们总是会抱怨人造工具的使用方式，而不是工具本身。</p>
 <p>尽管如此，互联网总归是一个非常强大的工具，但是我们应该正确的使用它。</p>
 <p>希望你对互联网如何工作，谁控制它有了一定的了解，感谢阅读。</p>
-
-<div class="article-footer fs14">
+</article>
+<div class="article-footer">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
       <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
     </section>
-    </div>
-</article>
+    
+
+</div>
+
 <div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/1/">一周精彩内容分享（第 1 期）："世纪逼空大战"</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/network/how-to-link/">28张图解 | 互联网究竟是「如何连接，如何进行通信」的？</a></div></section></div>
 
 
@@ -241,17 +224,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%AE%80%E5%8F%B2"><span class="toc-text">互联网简史</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARPA-%E6%88%90%E7%AB%8B"><span class="toc-text">ARPA 成立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E8%AE%AF%E7%BD%91%E7%BB%9C"><span class="toc-text">分布式通讯网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%BB%A3%E4%BA%92%E8%81%94%E7%BD%91%E2%80%94%E2%80%94%E9%98%BF%E5%B8%95%E7%BD%91-ARPANET"><span class="toc-text">第一代互联网——阿帕网(ARPANET)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARPANET-%E5%8F%91%E5%B1%95"><span class="toc-text">ARPANET 发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E5%8F%91%E6%98%8E"><span class="toc-text">万维网的发明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86%E6%88%91%E4%BB%AC%E8%81%94%E7%B3%BB%E8%B5%B7%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="toc-text">互联网是如何将我们联系起来的？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E6%B4%8B%E5%85%89%E7%BC%86"><span class="toc-text">跨洋光缆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%88%B0%E5%BA%95%E5%BD%92%E8%B0%81%E6%89%80%E6%9C%89%EF%BC%9F"><span class="toc-text">互联网到底归谁所有？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ICANN-%E6%9C%BA%E6%9E%84"><span class="toc-text">ICANN 机构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%84%E7%BB%87"><span class="toc-text">其他互联网组织</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></div><div class="widget-footer">
-
-<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
-</div></aside><div class='float-panel blur'>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%AE%80%E5%8F%B2"><span class="toc-text">互联网简史</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARPA-%E6%88%90%E7%AB%8B"><span class="toc-text">ARPA 成立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E8%AE%AF%E7%BD%91%E7%BB%9C"><span class="toc-text">分布式通讯网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%BB%A3%E4%BA%92%E8%81%94%E7%BD%91%E2%80%94%E2%80%94%E9%98%BF%E5%B8%95%E7%BD%91-ARPANET"><span class="toc-text">第一代互联网——阿帕网(ARPANET)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARPANET-%E5%8F%91%E5%B1%95"><span class="toc-text">ARPANET 发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E5%8F%91%E6%98%8E"><span class="toc-text">万维网的发明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86%E6%88%91%E4%BB%AC%E8%81%94%E7%B3%BB%E8%B5%B7%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="toc-text">互联网是如何将我们联系起来的？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E6%B4%8B%E5%85%89%E7%BC%86"><span class="toc-text">跨洋光缆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%88%B0%E5%BA%95%E5%BD%92%E8%B0%81%E6%89%80%E6%9C%89%EF%BC%9F"><span class="toc-text">互联网到底归谁所有？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ICANN-%E6%9C%BA%E6%9E%84"><span class="toc-text">ICANN 机构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%84%E7%BB%87"><span class="toc-text">其他互联网组织</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -260,7 +241,10 @@
   </button>
 </div>
 </div><div class="scripts">
+
+
 <script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -269,6 +253,9 @@
       day: `天前`,
     },
     root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
   };
 
   // required plugins (only load if needs)
@@ -276,23 +263,66 @@
     ctx.search = {};
     ctx.search.service = `local_search`;
     if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"codeblock":true,"sort":"-date"}`);
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
       ctx.search[ctx.search.service] = service_obj;
     }
   }
   const def = {
     avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
     cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
   };
   const deps = {
-    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
-    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
   }
   
 
 </script>
 
 <script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
   const utils = {
     // 懒加载 css https://github.com/filamentgroup/loadCSS
     css: (href, before, media, attributes) => {
@@ -355,7 +385,7 @@
 
     js: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
-      if (src.startsWith('/')){
+      if (src.startsWith('/')) {
         src = ctx.root + src.substring(1);
       }
       script.src = src;
@@ -368,7 +398,7 @@
         script.async = true
       }
       script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
+      script.onload = script.onreadystatechange = function () {
         const loadState = this.readyState
         if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
         script.onload = script.onreadystatechange = null
@@ -384,7 +414,7 @@
         fn()
       }
     },
-    
+
     onLoading: (el) => {
       if (el) {
         $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
@@ -403,54 +433,105 @@
       }
     },
     request: (el, url, callback, onFailure) => {
-      let retryTimes = 3;
-      utils.onLoading(el);
-      function req() {
-        return new Promise((resolve, reject) => {
-          let status = 0; // 0 等待 1 完成 2 超时
-          let timer = setTimeout(() => {
-            if (status === 0) {
-              status = 2;
-              timer = null;
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
               reject('请求超时');
-              if (retryTimes == 0) {
-                onFailure();
-              }
+            } else {
+              setTimeout(load, 1000);
             }
           }, 5000);
-          fetch(url).then(function(response) {
-            if (status !== 2) {
-              clearTimeout(timer);
-              resolve(response);
-              timer = null;
-              status = 1;
-            }
-            if (response.ok) {
-              return response.json();
-            }
-            throw new Error('Network response was not ok.');
-          }).then(function(data) {
-            retryTimes = 0;
-            utils.onLoadSuccess(el);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
             callback(data);
-          }).catch(function(error) {
-            if (retryTimes > 0) {
-              retryTimes -= 1;
-              setTimeout(() => {
-                req();
-              }, 5000);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
             } else {
-              utils.onLoadFailure(el);
-              onFailure();
+              setTimeout(load, 1000);
             }
           });
-        });
-      }
-      req();
-    },
-  };
-</script>
+        };
 
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
 <script>
   const sidebar = {
     leftbar: () => {
@@ -476,37 +557,198 @@
     }
   }
 </script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
 
 <!-- required -->
-<script src="/js/main.js?v=1.27.0" async></script>
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
 
 <!-- optional -->
 
-  <script>
-  function loadBeaudar() {
-    const els = document.querySelectorAll("#comments #beaudar");
-    if (els.length === 0) return;
-    els.forEach((el, i) => {
-      try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
+  <script type="module">
+  const el = document.querySelector('#comments #beaudar');
+  util.viewportLazyload(el, load_beaudar, false);
+
+  function load_beaudar() {
+    if (!el) return;
+    try {
+      el.innerHTML = '';
+    } catch (error) {
+      console.error(error);
+    }
+    const script = document.createElement('script');
+    script.src = 'https://beaudar.lipk.org/client.js';
+    script.async = true;
+    for (const key of Object.keys(el.attributes)) {
+      const attr = el.attributes[key];
+      if (['class', 'id'].includes(attr.name) === false) {
+        script.setAttribute(attr.name, attr.value);
       }
-      var script = document.createElement('script');
-      script.src = 'https://beaudar.lipk.org/client.js';
-      script.async = true;
-      for (let key of Object.keys(el.attributes)) {
-        let attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
-        }
-      }
-      el.appendChild(script);
-    });
+    }
+    el.appendChild(script);
   }
-  window.addEventListener('DOMContentLoaded', (event) => {
-      loadBeaudar();
-  });
 </script>
 
 
@@ -514,7 +756,7 @@
 
 <script defer>
   window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
     for (let id of Object.keys(ctx.services)) {
       const js = ctx.services[id].js;
       if (id == 'siteinfo') {
@@ -522,6 +764,27 @@
         if (ctx.cardlinks?.length > 0) {
           utils.js(js, { defer: true }).then(function () {
             setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
           });
         }
       } else {
@@ -539,6 +802,76 @@
         }
       }
     }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
   });
 </script>
 
@@ -557,40 +890,24 @@
     hoverDelay: 25
   };
 </script>
-<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazy",
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    window.lazyLoadInstance?.update();
-  });
-</script><script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
     selector: `.timenode p>img`,
-    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
-    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
   };
-  var selector = '[data-fancybox]:not(.error)';
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
   if (ctx.fancybox.selector) {
     selector += `, ${ctx.fancybox.selector}`
   }
   var needFancybox = document.querySelectorAll(selector).length !== 0;
   if (!needFancybox) {
-    const els = document.getElementsByClassName('ds-memos');
-    if (els != undefined && els.length > 0) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
       needFancybox = true;
     }
   }
@@ -603,24 +920,25 @@
           autoStart: false,
         },
         caption: (fancybox, slide) => {
-          return slide.triggerEl.alt || null
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
         }
       });
     })
   }
-</script><script>
+</script>
+<script>
   window.addEventListener('DOMContentLoaded', (event) => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',
           spaceBetween: 8,
           centeredSlides: true,
           effect: effect,
-          loop: true,
+          rewind: true,
           pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -633,7 +951,8 @@
       })
     }
   });
-</script><script>
+</script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     window.codeElements = document.querySelectorAll('.code');
     if (window.codeElements.length > 0) {

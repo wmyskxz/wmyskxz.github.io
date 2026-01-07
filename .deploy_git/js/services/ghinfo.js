@@ -3,12 +3,13 @@ utils.jq(() => {
     const els = document.getElementsByClassName('ds-ghinfo');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
-      const api = el.getAttribute('api');
+      const api = el.dataset.api;
       if (api == null) {
         continue;
       }
       // layout
-      utils.request(null, api, function(data) {
+      utils.request(null, api, async resp => {
+        const data = await resp.json();
         function fill(data) {
           for (let key of Object.keys(data)) {
             $(el).find("[type=text]#" + key).text(data[key]);

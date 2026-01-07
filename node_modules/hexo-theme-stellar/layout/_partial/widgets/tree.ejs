@@ -20,7 +20,7 @@ function layoutDocTree(pages) {
       isActive += ' active'
     }
     if (proj.pages.length > 1) {
-      let href = url_for(p.path);
+      let href = pretty_url(p.path);
       if (p.is_homepage) {
         href += '#start'
       }
@@ -60,7 +60,7 @@ function layoutDiv(fallback) {
     }
   }
   if (el.trim().length > 0) {
-    return `<widget class="widget-wrapper${scrollreveal(' ')} post-list">${el}</widget>`
+    return `<widget class="widget-wrapper doc-tree post-list">${el}</widget>`
   } else {
     return ''
   }

@@ -15,7 +15,7 @@ function layoutDiv() {
   if (repo == undefined) {
     return el;
   }
-  item.api = theme.api_host.ghapi + '/repos/' + repo + '/issues?per_page=' + item.limit;
+  item.api = `https://${theme.api_host.ghapi}/repos/${repo}/issues?per_page=${item.limit}`;
   if (item.labels) {
     item.api += '&labels=' + item.labels;
   }
@@ -26,8 +26,14 @@ function layoutDiv() {
       el += '</div>';
     }
     el += '<div class="widget-body fs14">';
-      el += '<div class="tag-plugin timeline ds-timeline"';
-      ['api', 'user'].forEach(key => {
+      el += '<div class="tag-plugin timeline data-service ds-timeline"';
+      // dataset
+      ['api'].forEach(key => {
+        if (item[key]) {
+          el += ' data-' + key + '="' + item[key] + '"';
+        }
+      });
+      ['user'].forEach(key => {
         if (item[key]) {
           el += ' ' + key + '="' + item[key] + '"';
         }

@@ -13,12 +13,13 @@ utils.jq(() => {
     const timelines = document.getElementsByClassName('ds-timeline');
     for (var i = 0; i < timelines.length; i++) {
       const el = timelines[i];
-      const api = el.getAttribute('api');
+      const api = el.dataset.api;
       if (api == null) {
         continue;
       }
       // layout
-      utils.request(el, api, function(data) {
+      utils.request(el, api, async resp => {
+        const data = await resp.json();
         const query = new URL(api).search;
         const arr = data.content || data;
         var users = [];
@@ -100,6 +101,7 @@ utils.jq(() => {
           cell += '</div>';
           $(el).append(cell);
         });
+        window.wrapLazyloadImages(el);
       });
     }
   });

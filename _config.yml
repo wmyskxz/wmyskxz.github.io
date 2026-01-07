@@ -6,7 +6,7 @@
 title: 我没有三颗心脏的博客
 avatar: /img/logo.jpg
 favicon: /img/logo.jpg
-subtitle: 2025 年与您一起 Be Better~ | 自由、坚定
+subtitle: 与您一起 Be Better~ | 自由、坚定
 description: '96年自由技术人员一枚'
 keywords:
 author: 我没有三颗心脏
@@ -94,7 +94,7 @@ pagination_dir: page
 ## include:/exclude: options only apply to the 'source/' folder
 include:
 exclude:
-ignore:
+ignore: /.idea
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
