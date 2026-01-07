@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>代码之外周刊（第 143 期）：游戏人生：从死亡焦虑到生命自主 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 科学家在北大西洋发现了一条估计有 512 岁的格陵兰鲨鱼，如果这个年龄准确，它将成为地球上最古老的脊椎动物！想象一下，这条鲨鱼出生于 1505 年，比莎士比亚还要早几十年。当哥伦布刚刚”发现”美洲新大陆时，这条鲨鱼就已经在北极海">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码之外周刊（第 143 期）：游戏人生：从死亡焦虑到生命自主">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/143/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 科学家在北大西洋发现了一条估计有 512 岁的格陵兰鲨鱼，如果这个年龄准确，它将成为地球上最古老的脊椎动物！想象一下，这条鲨鱼出生于 1505 年，比莎士比亚还要早几十年。当哥伦布刚刚”发现”美洲新大陆时，这条鲨鱼就已经在北极海">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2025-06-21T23:30:00.000Z">
+<meta property="article:modified_time" content="2026-01-07T05:06:42.095Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="代码之外周刊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="代码之外周刊">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2025-06-22T07:30:00+08:00","dateModified":"2026-01-07T13:06:42+08:00","datePublished":"2025-06-22T07:30:00+08:00","description":"","headline":"代码之外周刊（第 143 期）：游戏人生：从死亡焦虑到生命自主","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/143/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/143/","keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622110121.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/161/"><span class="title">代码之外周刊（第 161 期）：AI时代的七个核心问题</span></a><a class="item title" href="/weekly/160/"><span class="title">代码之外周刊（第 160 期）：就让所有不开心，都留在 2025 年吧</span></a><a class="item title" href="/weekly/159/"><span class="title">代码之外周刊（第 159 期）：硅谷富豪的&quot;超级婴儿&quot;实验</span></a><a class="item title" href="/weekly/158/"><span class="title">代码之外周刊（第 158 期）：赢得越多，选择越少——成功为何会变成枷锁</span></a><a class="item title" href="/weekly/157/"><span class="title">代码之外周刊（第 157 期）：全网最忙的五人组</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-06-21T23:30:00.000Z">2025-06-22</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-07T05:06:42.095Z">2026-01-07</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>代码之外周刊（第 143 期）：游戏人生：从死亡焦虑到生命自主</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图"></a>题图</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622110121.png"></p>
+<p>科学家在北大西洋发现了一条估计有 512 岁的格陵兰鲨鱼，如果这个年龄准确，它将成为地球上<a target="_blank" rel="noopener" href="https://www.beautyofplanet.com/scientists-discover-512-year-old-shark-which-would-be-the-oldest-living-vertebrate-on-the-planet-2" title="科学家发现 512 岁的鲨鱼，这将是地球上现存最古老的脊椎动物">最古老的脊椎动物</a>！想象一下，这条鲨鱼出生于 1505 年，比莎士比亚还要早几十年。当哥伦布刚刚”发现”美洲新大陆时，这条鲨鱼就已经在北极海域游弋了。它见证了人类历史上的无数变迁：文艺复兴、工业革命、两次世界大战，甚至互联网的诞生。</p>
+<h1 id="本周讨论：游戏人生：从死亡焦虑到生命自主"><a href="#本周讨论：游戏人生：从死亡焦虑到生命自主" class="headerlink" title="本周讨论：游戏人生：从死亡焦虑到生命自主"></a>本周讨论：游戏人生：从死亡焦虑到生命自主</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_hQz0suN29c" title="給孩子的信：你將在兩萬多天後死去，而在此之前…… | 死亡與遊戲的哲思">給孩子的信：你將在兩萬多天後死去，而在此之前…… | 死亡與遊戲的哲思</a>（视频））</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622100756.png"></p>
+<p><em>这篇文章改写自一位父亲写给孩子的长信。在这个充满焦虑的时代，我们都需要重新思考什么是真正值得追求的生活。</em> </p>
+<h2 id="问题的起点"><a href="#问题的起点" class="headerlink" title="问题的起点"></a>问题的起点</h2><p>每个人平均会活大约 2.8 万天。这个数字听起来残酷但准确——我们都知道生命有限，却很少认真思考这个事实对我们意味着什么。</p>
+<p>更有趣的现象是：孩子们在 7-8 岁才开始真正理解死亡的含义，但这种震撼很快就会被遗忘。成年后，”死亡”更多变成了一个修辞词汇——“烦死了”、”累死了”，而不是一个需要面对的现实。</p>
+<p>这种回避并非偶然。人类文明的一个重要功能，就是帮助我们暂时忘记死亡焦虑。古代用宗教和神话，现代用消费和娱乐。问题是：这种忘记真的有效吗？</p>
+<h2 id="消费社会的”死里逃生”机制"><a href="#消费社会的”死里逃生”机制" class="headerlink" title="消费社会的”死里逃生”机制"></a>消费社会的”死里逃生”机制</h2><h3 id="商品作为成人玩具"><a href="#商品作为成人玩具" class="headerlink" title="商品作为成人玩具"></a>商品作为成人玩具</h3><p>现代人对商品的痴迷，本质上是对童年礼物的成人版重现。每个包装盒都是礼物盒的变体，每次购买都在重复”意外惊喜，正合我意”的体验。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622101418.png" alt="@网络图片"></p>
+<p>广告营销有两个核心目标：让你在购买前就产生期待，并把每一天都变成值得”奖励自己”的节日。这种机制的巧妙之处在于，它提供的是”受控的惊喜”——看似意外，实则在你的掌控范围内。</p>
+<p>以双 11 购物节为例：商品打折本身并不稀奇，但营销话术将其包装成”一年一度的购物狂欢”，制造出某种仪式感和稀缺性。你明知道这是营销套路，却依然会被那种”限时特价，错过再等一年”的紧迫感所驱动。</p>
+<h3 id="两重梦境的陷阱"><a href="#两重梦境的陷阱" class="headerlink" title="两重梦境的陷阱"></a>两重梦境的陷阱</h3><p>这种消费模式创造了两层现实：第一层是平庸的日常生活（被商家描述为”无聊、缺乏激情”），第二层是商品承诺的理想生活（”成功、时尚、有品味”）。</p>
+<p>问题在于，这种超越是虚假的。商品通过”假装打破沉闷”来实际维持沉闷，通过”假装提供意义”来掩盖意义的缺失。一个人如果一辈子都在追求外在的丰富和优越感，最终可能发现自己恰恰是最匮乏、最平庸的那个。</p>
+<p>社交媒体放大了这种效应：现实越匮乏，人们越热衷制造丰盛的假象。这些假象反过来让观看者更加觉得自己匮乏，形成恶性循环。</p>
+<h2 id="游戏的哲学：自愿的困难"><a href="#游戏的哲学：自愿的困难" class="headerlink" title="游戏的哲学：自愿的困难"></a>游戏的哲学：自愿的困难</h2><h3 id="什么是真正的游戏"><a href="#什么是真正的游戏" class="headerlink" title="什么是真正的游戏"></a>什么是真正的游戏</h3><p>游戏哲学经典《蚱蜢：游戏、生命和乌托邦》给出了一个精确定义：<strong>游戏就是自愿去克服非必要的障碍</strong>。</p>
+<p>足球运动是完美的例子：明明可以用手抱球直接放进球门，但规则偏偏规定只能用脚；明明可以直接跑到终点，但田径比赛要设置跨栏、障碍。这些”低效率”的规则，恰恰是游戏的精髓。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622101530.png" alt="@网络图片"></p>
+<p>这里的关键词是”自愿”。你接受这些看似愚蠢的限制，不是因为被迫，而是因为这些限制让活动变得有趣。这种态度与工作和娱乐都不同——工作是被迫的，娱乐是被动的，只有游戏是主动选择困难。</p>
+<h3 id="工作的悖论"><a href="#工作的悖论" class="headerlink" title="工作的悖论"></a>工作的悖论</h3><p>《蚱蜢》一书用寓言的形式揭示了工作的根本矛盾：工作的最终目标是消灭工作本身。</p>
+<ul>
+<li>医学的目标是消灭疾病，最终消灭医学</li>
+<li>教育的目标是消灭无知，最终消灭教育  </li>
+<li>生产的目标是消灭匮乏，最终消灭生产</li>
+</ul>
+<p>这个悖论指向一个理想状态：当所有问题都被技术解决后，人类唯一值得做的事情就是游戏。作者甚至描绘了一个”乌托邦”，那里物质极度丰裕，人们主要的活动就是各种游戏和运动。</p>
+<p>虽然这样的乌托邦可能永远无法实现，但它揭示了一个重要原则：<strong>只有在乌托邦中仍然值得做的事情，才是在任何时候都最值得做的事情</strong>。</p>
+<h2 id="心流与永恒轮回"><a href="#心流与永恒轮回" class="headerlink" title="心流与永恒轮回"></a>心流与永恒轮回</h2><h3 id="最佳体验的三要素"><a href="#最佳体验的三要素" class="headerlink" title="最佳体验的三要素"></a>最佳体验的三要素</h3><p>心理学家发现，人们最满足的体验来自”心流状态”——完全投入某项活动，以至于忘记时间和自我。心流需要三个条件：</p>
+<ol>
+<li><strong>明确的目标</strong>：知道要做什么</li>
+<li><strong>及时反馈</strong>：能够判断做得好不好  </li>
+<li><strong>必要的难度</strong>：不会太简单导致无聊，也不会太难导致焦虑</li>
+</ol>
+<p>电子游戏是最容易产生心流的活动，因为它们的难度匹配机制高度可控。好的游戏会根据玩家水平动态调整难度，让你始终处在”跳一跳就能够到”的挑战区间。</p>
+<h3 id="游戏独有的反馈机制"><a href="#游戏独有的反馈机制" class="headerlink" title="游戏独有的反馈机制"></a>游戏独有的反馈机制</h3><p>现实生活中也有目标、反馈和挑战，但游戏提供了一种现实世界无法提供的独特反馈：<strong>死而复生</strong>。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622101826.png" alt="@网络图片"></p>
+<p>这听起来简单，实际上是革命性的。现实中的失败往往无法逆转，但游戏中的失败是可以重来的。这种”永恒轮回”机制极大地扩展了我们的试错空间，让我们敢于面对更大的挑战。</p>
+<p>更深层地说，游戏目标的”无意义性”反而让它们变得有意义。你知道通关某个游戏对现实生活没有实际帮助，但正是这种”无关紧要”让你可以全情投入，而不必担心外在的评价和后果。</p>
+<h2 id="有限游戏与无限游戏"><a href="#有限游戏与无限游戏" class="headerlink" title="有限游戏与无限游戏"></a>有限游戏与无限游戏</h2><h3 id="两种根本不同的游戏"><a href="#两种根本不同的游戏" class="headerlink" title="两种根本不同的游戏"></a>两种根本不同的游戏</h3><p>世界上的游戏可以分为两类：</p>
+<ul>
+<li><strong>有限游戏</strong>：为了结束而玩的游戏。有明确的胜负标准，参与者的目标是赢得游戏并结束它。大多数竞技体育、考试升学都属于这类。</li>
+<li><strong>无限游戏</strong>：为了继续而玩的游戏。目标不是结束游戏，而是让游戏继续下去。艺术创作、科学探索、真正的学习都属于这类。</li>
+</ul>
+<h3 id="警惕被包装的有限游戏"><a href="#警惕被包装的有限游戏" class="headerlink" title="警惕被包装的有限游戏"></a>警惕被包装的有限游戏</h3><p>现代社会充斥着被包装成游戏的工作和消费活动：</p>
+<ul>
+<li>各种会员等级和积分系统</li>
+<li>社交媒体的点赞和关注机制  </li>
+<li>职场的晋升阶梯和绩效考核</li>
+<li>购物平台的签到和抽奖活动</li>
+</ul>
+<p>这些机制利用了游戏的表面特征（目标、反馈、奖励），但缺乏游戏的核心精神（自主选择、内在动机）。你以为自己在玩游戏，实际上你的”游戏”只是别人游戏中的一个棋子。</p>
+<p>判断标准很简单：如果这个”游戏”可以被外力随时取消，如果你参与它主要是为了外在奖励而非内在乐趣，那它就是有限游戏。</p>
+<h3 id="无限游戏的三个特征"><a href="#无限游戏的三个特征" class="headerlink" title="无限游戏的三个特征"></a>无限游戏的三个特征</h3><ol>
+<li><strong>自主性</strong>：你拥有参与的选择权，没有人能强制取消你的游戏资格</li>
+<li><strong>重复性</strong>：你愿意在看似枯燥的活动中反复练习而不厌倦</li>
+<li><strong>创造性</strong>：游戏过程能产生具有观赏性或利他价值的作品</li>
+</ol>
+<p>以音乐为例：学习钢琴符合所有三个条件。没人能阻止你弹琴（自主性），你愿意反复练习同一首曲子（重复性），最终你能演奏出感动他人的音乐（创造性）。</p>
+<h2 id="从练习到创作"><a href="#从练习到创作" class="headerlink" title="从练习到创作"></a>从练习到创作</h2><h3 id="差异性的重复"><a href="#差异性的重复" class="headerlink" title="差异性的重复"></a>差异性的重复</h3><p>西西弗斯推石头的神话常被理解为人生的荒谬，但也可以有另一种解读：如果西西弗斯在每次推石头时都能发现新的细节，获得新的体验，那么重复就不再是惩罚，而是练习。</p>
+<p>真正的练习是”差异性的重复”——表面上做同样的事情，实际上每次都有微妙的不同。一个钢琴家弹奏同一首曲子一千遍，每一遍都可能有新的感悟；一个程序员写同类型的代码，每次都可能发现更优雅的解决方案。</p>
+<p>这种练习让人逐渐从事物的”外围”（表面形式）进入”内核”（深层结构）。当你真正进入内核后，不同领域之间的界限开始模糊：写代码变成了建筑，演奏音乐变成了数学，绘画变成了诗歌。</p>
+<h3 id="时间的生产者"><a href="#时间的生产者" class="headerlink" title="时间的生产者"></a>时间的生产者</h3><p>《有限与无限的游戏》一书有一个精彩的观察：<strong>无限游戏者不消费时间，而是生产时间</strong>。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622102040.png" alt="@网络图片"></p>
+<p>这句话的意思是：当你深度投入某项无限游戏时，你不是在打发时间，而是在创造有价值的时间。你的练习和创作会凝固成作品，这些作品可以被分享和传播，从而影响他人的时间体验。</p>
+<p>书店里的每一本书、音乐平台上的每一首歌、博客上的每一篇文章，都是某个人”生产”出来的时间。当你阅读、聆听或观看这些作品时，你是在”消费”别人生产的时间。</p>
+<p>这个角度解释了为什么创作者往往感到充实而非空虚：他们在创造价值，而不仅仅是消费价值。即使创作过程很困难，但那是一种”有意义的困难”。</p>
+<h2 id="实践指南"><a href="#实践指南" class="headerlink" title="实践指南"></a>实践指南</h2><h3 id="识别你的无限游戏"><a href="#识别你的无限游戏" class="headerlink" title="识别你的无限游戏"></a>识别你的无限游戏</h3><p>回想一下你生命中那些让你忘记时间的活动。它们可能是：</p>
+<ul>
+<li>某种学习或研究（历史、科学、哲学）</li>
+<li>某种创作（写作、绘画、音乐、编程）</li>
+<li>某种运动或技能（登山、舞蹈、园艺）</li>
+<li>某种社交活动（教学、志愿服务、深度交流）</li>
+</ul>
+<p>真正的无限游戏有一个特征：即使没有外在奖励，你也愿意持续投入。即使暂时遇到挫折，你也想要继续下去。</p>
+<h3 id="从有限游戏转向无限游戏"><a href="#从有限游戏转向无限游戏" class="headerlink" title="从有限游戏转向无限游戏"></a>从有限游戏转向无限游戏</h3><ol>
+<li><p><strong>重新定义成功</strong>：不要只关注外在结果（分数、排名、收入），更要关注内在成长（技能提升、理解加深、创造力增强）</p>
+</li>
+<li><p><strong>拥抱必要困难</strong>：不要总是选择最轻松的路径，有意识地给自己设置一些”非必要的障碍”</p>
+</li>
+<li><p><strong>建立练习习惯</strong>：找到可以反复练习而不厌倦的活动，关注每次重复中的微妙差异</p>
+</li>
+<li><p><strong>创造而非仅仅消费</strong>：尝试将你的练习成果转化为可以分享的作品，即使最初的作品很粗糙</p>
+</li>
+</ol>
+<h3 id="技术时代的机遇"><a href="#技术时代的机遇" class="headerlink" title="技术时代的机遇"></a>技术时代的机遇</h3><p>我们生活在一个”技术平权”的时代。互联网让任何人都可以：</p>
+<ul>
+<li>免费获取高质量的学习资源</li>
+<li>低成本地创作和发布作品  </li>
+<li>找到同样兴趣的社群和合作者</li>
+<li>将爱好转化为生计来源</li>
+</ul>
+<p>这意味着从有限游戏转向无限游戏比以往任何时候都更容易。关键是要主动选择，而不是被动接受社会为你安排的”游戏”。</p>
+<h2 id="结语：游戏人生的真正含义"><a href="#结语：游戏人生的真正含义" class="headerlink" title="结语：游戏人生的真正含义"></a>结语：游戏人生的真正含义</h2><p>“游戏人生”常被误解为不负责任的态度，但真正的游戏人生恰恰相反：它要求你主动承担起创造意义的责任。</p>
+<p>当你把生活当作无限游戏时，你不再是被动的消费者，而是主动的创造者。你不再等待别人给你意义，而是通过自己的选择和行动创造意义。</p>
+<p>死亡焦虑来自对失控的恐惧，但无限游戏让你体验到一种特殊的控制感：<strong>在永恒轮回中，忘我地掌控自己的命运</strong>。这听起来矛盾，实际上是人类能够达到的最高境界之一。</p>
+<p>最后引用那位哲学家的话：”无限游戏者既不年轻也不年老，他们并不生活在别人的时间里。”</p>
+<p>当你找到自己的无限游戏时，你就获得了对抗死亡焦虑的最有力武器：一种自主创造的人生。</p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.topys.cn/article/34558" title="什么地方，能让你一天只玩两分钟手机？">什么地方，能让你一天只玩两分钟手机？</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622083959.png"></p>
+<p>这是一则很有意思的酒店广告，Palladium 酒店集团不像其他酒店那样炫耀豪华设施，而是展示了一组让人震惊的数据：他们的客人平均每天只在社交媒体上花 2-5 分钟！</p>
+<p>想象一下，在我们普通人每天刷手机几个小时的对比下，这简直像是另一个世界的事情。但仔细想想，这背后反映的问题更深刻——我们什么时候开始需要花钱去”买”一个不玩手机的环境了？</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622084055.png"></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622084109.png"></p>
+<p>韩国学者刘贤俊提出提出过一个观点：”<strong>线下生活是昂贵的，穷人的生活空间被挤到了线上。</strong>“这句话听起来刺耳，但细想确实如此。在这个超链接的时代，”免打扰”竟然成了新的奢侈品。Palladium 的营销策略看似简单，实际上精准抓住了现代人内心深处的焦虑——我们都渴望逃离数字绑架，但却很难做到。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://www.wilderness.org/articles/blog/congress-making-more-250-million-acres-public-lands-available-sale" title="美国国会拟出售2.5亿英亩公共土地">美国国会拟出售2.5亿英亩公共土地</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622084441.png"></p>
+<p>美国参议院共和党人推出了一项法案，计划将超过 2.5 亿英亩的公共土地”开放销售”。就是那些美国人民平时去徒步、露营、逃离城市喧嚣的地方。</p>
+<p>这不是什么小打小闹的土地调整，而是涉及 11 个州的大规模”清仓”——从阿拉斯加的 8280 万英亩到华盛顿州的 537 万英亩，连北极、莫哈韦沙漠这些生态宝地都在”待售清单”上。更让人不安的是，法案的限制条件少得可怜，基本上除了荒野研究区和一些特定保护区外，大部分土地都可以卖给”任何有兴趣的买家”。</p>
+<p>想象一下，那些人们用来”数字排毒”的地方，可能很快就会挂上”私人领地，禁止入内”的牌子。这背后的逻辑更让人深思：<strong>为了给富人减税和资助某些政治项目，政府竟然要把属于全民的自然资源当商品来卖。</strong></p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://xeiaso.net/blog/2025/rolling-ladder-behind-us/" title="在我们身后滚动梯子">我们正在”踢掉身后的梯子”吗？</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622085721.png" alt="两片杂草被蓄水池分割开的照片"></p>
+<p>你知道”卢德主义者”的真实故事吗？他们其实不是什么盲目反对技术的人，而是一群被新技术”背叛”的熟练织工。</p>
+<p>想象一下，原本需要博士级别技能的织布工人，一天能赚 600，结果机械织布机出现后，他们的工资一周才 600。更讽刺的是，这些织工最初是想和资本家合作，用新技术做出更好更便宜的布料，但资本家只想要更多利润，宁可生产垃圾布料让消费者频繁更换，把一次性购买变成订阅制。</p>
+<p>现在看看我们的科技行业，是不是有种似曾相识的感觉？</p>
+<p>公司只想招”高级”工程师，却不愿意培养新人；AI 工具被包装成”生产力革命”，但真正受益的是谁？作者提到一个很扎心的现象：现在连 NASA 都造不出当年的F1火箭发动机了，因为那些制造工艺和经验已经失传。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://charity.wtf/2025/06/19/in-praise-of-normal-engineers/" title="赞扬“普通”工程师">赞扬“普通”工程师</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622090635.png"></p>
+<blockquote>
+<p>软件从来都不是个人英雄主义的产物。</p>
+</blockquote>
+<p>确实存在那些看起来像”魔法师”一样的工程师，他们的能力让人惊叹，这也是”10x工程师”概念如此流行的原因。</p>
+<p>问题不在于承认有些工程师确实比其他人厉害10倍，而在于我们对这个概念的误用。首先，生产力怎么衡量？在微处理器、Web服务、AI训练各个不同领域，用不同的技术栈，面对不同的业务阶段，”10x”根本没有统一标准。更重要的是，<strong>软件不是个人拥有的，是团队拥有的</strong>！</p>
+<p>真正优秀的工程组织，不是那种必须招到世界顶尖工程师才能运转的地方，而是让普通的、踏实的软件工程师能够持续交付价值、推动业务前进的地方。</p>
+<p>作者用了一个很形象的比喻：任何傻瓜都能搭建一个只有天才才能操作的系统，但真正的挑战是建立一个让普通人也能做出非凡成就的环境。</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://www.dedao.cn/course/article?id=7EGBgdkRbn1mKgdRb9VY890D3rvPOA" title="早懂早受益，不要做房间里“最聪明”的人">早懂早受益，不要做房间里“最聪明”的人</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20250622094413.png" alt="@网络图片"></p>
+<p>英国创业公司 Builder.ai 上个月宣布破产，这本来不算什么大新闻，但这家公司的经历绝对配得上”年度最佳荒诞剧”的称号。</p>
+<p>想象一下，一家号称用 AI 写代码的公司，8 年来愣是没有任何AI技术，所有代码都是印度程序员手写的！更离谱的是，这个完全的草台班子竟然骗过了微软、软银、卡塔尔投资局等一众大佬，估值一度超过 15 亿美元。创始人杜加尔的履历包装得天花乱坠：17 岁开发全球首个货币套利系统，21 岁创办云计算公司…</p>
+<p>但故事的精彩之处不在于骗局本身，而在于它揭示的一个深刻问题：为什么这些商界老江湖也会上当？聪明和理性是两码事！<strong>聪明人依赖直觉，理性的人使用工具</strong>。</p>
+<p>一个简单的数学题完美诠释了这一点：球和球拍总价 1.1 美元，球拍比球贵1美元，球多少钱？麻省理工的学霸们大多答 0.1 美元，但正确答案是 0.05 美元。X+（1+X）=1.1，一个最简单的方程式，竟然比名校学霸的直觉更可靠。</p>
+<hr>
+<p>4、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Y8N9juBMLfgoE86iXptENg" title="聊聊3个容易被误解的心理学概念">聊聊3个容易被误解的心理学概念</a></p>
+<p>这篇文章深入探讨了三个容易被误解的心理学概念：课题分离、活在当下和接纳自我。</p>
+<ul>
+<li>课题分离常被误解为冷漠，其实它强调的是每个人应专注于自己的责任范围，不越界干预他人事务。</li>
+<li>活在当下并非不考虑未来，而是指在做一件事时全身心投入，避免被过去的后悔和未来的担忧干扰。</li>
+<li>接纳自我也不等于安于现状，而是调整对理想自我的预期，使其更贴近真实自我，从而减少内心的冲突和痛苦。</li>
+</ul>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/gxSf03IS60yZRDdu6Tr82g" title="够与多">够与多</a></p>
+<p>孟岩大大的新文章。通过三个故事深入探讨了财富、欲望与“足够”的关系。</p>
+<ul>
+<li>第一个故事讲述了一位金融行业朋友因薪水下降而郁闷，反映出人们常因比较而陷入对财富的无尽追求。</li>
+<li>第二个故事是关于DFS创始人查克·费尼，他匿名捐赠了全部财富，选择了简单而自由的生活。</li>
+<li>第三个故事则讲述了德国富翁阿道夫·默克尔因金融危机和投资失败陷入绝望，最终自杀。</li>
+</ul>
+<p>同样的财富数字，对不同的人意味着不同的生活状态和内心感受。查克·费尼在“我已经足够”中找到了自由，而阿道夫·默克尔在“我还要更多”中看到了绝望。</p>
+<hr>
+<p>6、<a target="_blank" rel="noopener" href="https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e" title="通往 AGI 之路">通往 AGI 之路</a></p>
+<p>这是我在使用、学习 cursor 的路上，发现的宝藏知识库，提供了一个全面系统的 AI 学习路径。里面有各种各样的分享，非常 Nice。</p>
+<hr>
+<p>7、<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SgTWzEEmF/" title="给你100万随便花？第一站我们去了这里！">给你100万随便花？第一站我们去了这里！</a>（视频）</p>
+<p>影视飓风出品，编导拿着 100 万带我们走进了巴厘岛数字游民的世界。我比较印象深刻的是，数字游民已经发展得相当成熟，比如可以利用不同时区的时差，让工作可以 24 小时转动（通过外包），也可以赚取发达国家的钱，在发展中国家中不错的消费。</p>
+<p>但是也有一些数字游民的负面情况，带动巴厘岛当地消费的同时，也对原住民产生了深刻的影响，比如垃圾、交通等。</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>本周暂无；</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<blockquote>
+<p>我就坐在那看它写，它写完我甚至 accept 都不用按。</p>
+<p>感觉我不是工程师了，我是 Claude 的监工。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/discovery/item/684b66200000000021018cb9?source=webshare&xhsshare=pc_web&xsec_token=ABWcd8rkMFvcI-jZtVJgPwl1gjIPpH4QjxFASJ2_8ujxw=&xsec_source=pc_share" title="Claude Code 写代码，我坐着变傻">@小红书用户</a></p>
+<p>2、</p>
+<blockquote>
+<p>普通人可以以非常低的成本生存，换取他们从古自今都未曾有过的自由，可以自由选择生活方式，去任何地方，做任何事情。之所以还是红利，是因为现在大部分人还没意识到这一点，都在用生命日复一日地换取一些不需要的东西～</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/423780782" title="现阶段的时代红利是什么？">现阶段的时代红利是什么？</a></p>
+<p>3、</p>
+<blockquote>
+<p>有趣的是，《渣男模拟器》这名字大伙想的是体验一下渣男的感觉，《捞女游戏》则有相当一部分群体想的是“凭啥说我们”。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/1918892031922647604/answer/1919351153843483854" title="如何评价 Steam 新游《捞女游戏》（已改名《情感反诈模拟器》）？">如何评价 Steam 新游《捞女游戏》（已改名《情感反诈模拟器》）？</a></p>
+<p>4、</p>
+<blockquote>
+<p>为什么人类要不断攀登险峰？是期待这险峰之巅有令人惊奇的美景。倘使已经攀登至七成的高度，并且险峰之巅根本没有什么美景，而七成高度的地方却是山花灿漫，乱云飞渡，美不胜收，那么谁也不愿花费力气去攀登顶峰的。</p>
+<p>下流阶层的不求上进就跟登山是一个道理。如今，廉价商店里以令人惊讶、不敢相信自己眼睛的低廉价格出售各色商品。……这样的时代，松松垮垮照样能够生活，努力工作的人却可能会被讥讽为傻瓜，因此，便有越来越多的人松松垮垮地生活着。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZfWVInNJwo76jsKmpdgMZA" title="日本年轻人早就不想努力了">《下流社会》</a></p>
+<p>5、</p>
+<blockquote>
+<p>我现在更像一名策展人，而不是那种深度沉浸其中，我精心设计每个功能？我描述我想要什么，评估 AI 给我什么，调整提示，然后迭代。是的，它很高效。甚至是革命性的。但感觉缺少一些重要的东西——那种时间消失、你完全沉浸在创作中的流动状态。如果这成为跨团队的主导工作流程，我们是否会冒着一个充满高效但奇怪的超然开发人员的行业的风险？</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://nicolaiarocci.com/ai-coding-is-less-fun/" title="AI 编码不那么有趣">AI 编码不那么有趣</a>（英文）</p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a target="_blank" rel="noopener" href="https://www.wmyskxz.com/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/144/">代码之外周刊（第 144 期）：为什么努力不再是成功的保证</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/142/">代码之外周刊（第 142 期）：为什么我们很难快乐？</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE"><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F%EF%BC%9A%E4%BB%8E%E6%AD%BB%E4%BA%A1%E7%84%A6%E8%99%91%E5%88%B0%E7%94%9F%E5%91%BD%E8%87%AA%E4%B8%BB"><span class="toc-text">本周讨论：游戏人生：从死亡焦虑到生命自主</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E8%B5%B7%E7%82%B9"><span class="toc-text">问题的起点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E7%A4%BE%E4%BC%9A%E7%9A%84%E2%80%9D%E6%AD%BB%E9%87%8C%E9%80%83%E7%94%9F%E2%80%9D%E6%9C%BA%E5%88%B6"><span class="toc-text">消费社会的”死里逃生”机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%86%E5%93%81%E4%BD%9C%E4%B8%BA%E6%88%90%E4%BA%BA%E7%8E%A9%E5%85%B7"><span class="toc-text">商品作为成人玩具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E9%87%8D%E6%A2%A6%E5%A2%83%E7%9A%84%E9%99%B7%E9%98%B1"><span class="toc-text">两重梦境的陷阱</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%9A%84%E5%93%B2%E5%AD%A6%EF%BC%9A%E8%87%AA%E6%84%BF%E7%9A%84%E5%9B%B0%E9%9A%BE"><span class="toc-text">游戏的哲学：自愿的困难</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%B8%B8%E6%88%8F"><span class="toc-text">什么是真正的游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%82%96%E8%AE%BA"><span class="toc-text">工作的悖论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E6%B5%81%E4%B8%8E%E6%B0%B8%E6%81%92%E8%BD%AE%E5%9B%9E"><span class="toc-text">心流与永恒轮回</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E4%BD%93%E9%AA%8C%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-text">最佳体验的三要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%8B%AC%E6%9C%89%E7%9A%84%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="toc-text">游戏独有的反馈机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%97%A0%E9%99%90%E6%B8%B8%E6%88%8F"><span class="toc-text">有限游戏与无限游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%A0%B9%E6%9C%AC%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B8%B8%E6%88%8F"><span class="toc-text">两种根本不同的游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AD%A6%E6%83%95%E8%A2%AB%E5%8C%85%E8%A3%85%E7%9A%84%E6%9C%89%E9%99%90%E6%B8%B8%E6%88%8F"><span class="toc-text">警惕被包装的有限游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E9%99%90%E6%B8%B8%E6%88%8F%E7%9A%84%E4%B8%89%E4%B8%AA%E7%89%B9%E5%BE%81"><span class="toc-text">无限游戏的三个特征</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%BB%83%E4%B9%A0%E5%88%B0%E5%88%9B%E4%BD%9C"><span class="toc-text">从练习到创作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E5%BC%82%E6%80%A7%E7%9A%84%E9%87%8D%E5%A4%8D"><span class="toc-text">差异性的重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%9A%84%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-text">时间的生产者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97"><span class="toc-text">实践指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E4%BD%A0%E7%9A%84%E6%97%A0%E9%99%90%E6%B8%B8%E6%88%8F"><span class="toc-text">识别你的无限游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E6%9C%89%E9%99%90%E6%B8%B8%E6%88%8F%E8%BD%AC%E5%90%91%E6%97%A0%E9%99%90%E6%B8%B8%E6%88%8F"><span class="toc-text">从有限游戏转向无限游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%97%B6%E4%BB%A3%E7%9A%84%E6%9C%BA%E9%81%87"><span class="toc-text">技术时代的机遇</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD%EF%BC%9A%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F%E7%9A%84%E7%9C%9F%E6%AD%A3%E5%90%AB%E4%B9%89"><span class="toc-text">结语：游戏人生的真正含义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
