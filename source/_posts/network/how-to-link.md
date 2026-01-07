@@ -16,7 +16,7 @@ references:
 
 ![](https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-30/1612015776326-image.png)
 
-在[上一篇](https://www.wmyskxz.com/network/how-to-work)中，我们讲解了网络是靠跨洋的海底电缆以及各大互联网组织制定的规则、协议来进行连接运作的。
+在[上一篇](https://www.wmyskxz.cn/network/how-to-work)中，我们讲解了网络是靠跨洋的海底电缆以及各大互联网组织制定的规则、协议来进行连接运作的。
 
 **但是具体是怎么进行连接的？** 没有说明得很清楚，今天就让我们一起来探索探索。
 

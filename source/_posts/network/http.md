@@ -287,7 +287,7 @@ HTTPS（HTTP over SSL）采取嵌套新一层安全套接字层（Secure Socket 
 
 ## 如何防止被篡改？
 
-在之前介绍[比特币原理](https://www.wmyskxz.com/2021/01/05/li-jie-bi-te-bi-4/)的时候，我们提到过一种**哈希算法**。它的作用是能把**任意长度的输入**编程**固定长度的二进制输出**。
+在之前介绍[比特币原理](https://www.wmyskxz.cn/2021/01/05/li-jie-bi-te-bi-4/)的时候，我们提到过一种**哈希算法**。它的作用是能把**任意长度的输入**编程**固定长度的二进制输出**。
 
 ![](https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-1-4/1609726417478-image.png)
 

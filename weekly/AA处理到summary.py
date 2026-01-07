@@ -39,6 +39,6 @@ with open('summary.txt', 'w', encoding='utf-8') as summary_file:
     for date_obj, title, journal_number in extracted_info:
         # 格式化日期
         formatted_date = date_obj.strftime('%m/%d')
-        summary_file.write(f"- {formatted_date} [{title}](https://www.wmyskxz.com/weekly/{journal_number})\n")
+        summary_file.write(f"- {formatted_date} [{title}](https://www.wmyskxz.cn/weekly/{journal_number})\n")
 
 print(f'Done! Extracted information is written to {output_file}.')

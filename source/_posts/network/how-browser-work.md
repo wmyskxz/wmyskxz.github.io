@@ -134,7 +134,7 @@ references:
 
 ![](https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613386391288-2021-02-15%2018.51.50.gif)
 
-网络线程获取信息的过程，发生了很多事，比如 DNS 域名解析、TLS 建立连接等，如果不熟悉可以看看[之前的系列文章](https://www.wmyskxz.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BD%91%E7%BB%9C/)。
+网络线程获取信息的过程，发生了很多事，比如 DNS 域名解析、TLS 建立连接等，如果不熟悉可以看看[之前的系列文章](https://www.wmyskxz.cn/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BD%91%E7%BB%9C/)。
 
 ## 第三步：读取响应
 

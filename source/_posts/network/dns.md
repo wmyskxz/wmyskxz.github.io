@@ -17,7 +17,7 @@ references:
 
 # 前言
 
-我们在[上一篇](https://www.wmyskxz.com/network/how-to-link)说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了**同一个网络**中。
+我们在[上一篇](https://www.wmyskxz.cn/network/how-to-link)说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了**同一个网络**中。
 
 但是类似于 `192.168.1.0` 这样的地址并不便于人类记忆，于是发明了 **域名(Domain Name)** 来帮助解决这样的问题。
 

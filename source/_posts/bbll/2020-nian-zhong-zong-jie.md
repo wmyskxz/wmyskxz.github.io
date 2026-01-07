@@ -14,7 +14,7 @@ date: 2021/01/03 10:29:12
 
 转眼间，2020 就过去了。
 
-**总的来说**，今年小目标 *(比如[博客](https://www.wmyskxz.com/) `10` w 访问量)* 完成得不错，但大方向上因为自己的 "贪玩" 有些没跟上。
+**总的来说**，今年小目标 *(比如[博客](https://www.wmyskxz.cn/) `10` w 访问量)* 完成得不错，但大方向上因为自己的 "贪玩" 有些没跟上。
 
 如果给今年一个 **关键词** 的话，那么就是：**迷茫**。
 
@@ -76,20 +76,20 @@ date: 2021/01/03 10:29:12
 
 **"学而不思则罔，思而不学则殆"**，所以也尝试着把自己的所思所想输出了一些：
 
-- [【人类观察所】"当代人"正经历的生活 - 02/22](https://www.wmyskxz.com/2020/02/22/ren-lei-guan-cha-suo-dang-dai-ren-zheng-jing-li-de-sheng-huo/)
-- ["长辈牌"电子产品：有一种评论朋友圈叫给你打电话 - 03/10](https://www.wmyskxz.com/2020/03/10/chang-bei-pai-dian-zi-chan-pin-you-yi-chong-ping-lun-peng-you-quan-jiao-gei-ni-da-dian-hua/)
-- [96年/离职8个月/拒绝华为offer/目前自由职业-记这大半年来的挣扎与迷茫 - 07/26](https://www.wmyskxz.com/2020/07/26/96-nian-chi-zhi-8-ge-yue-ju-jue-hua-wei-offer-mu-qian-zi-you-zhi-ye-ji-zhe-da-ban-nian-lai-de-zheng-zha-yu-mi-mang/)
-- [你记笔记吗？关于最近知识管理工具革新潮心脏有话要说 - 08/16](https://www.wmyskxz.com/2020/08/16/ni-ji-bi-ji-ma-guan-yu-zui-jin-zhi-shi-guan-li-gong-ju-ge-xin-chao-xin-zang-you-hua-yao-shuo/) 
-- [谈谈近况，谈谈自由职业，谈谈"金饭碗" - 12/09](https://www.wmyskxz.com/2020/11/11/tan-tan-jin-kuang-tan-tan-zi-you-zhi-ye-tan-tan-jin-fan-wan/)
-- [理解比特币(1)——货币以及货币发展史 - 12/18](https://www.wmyskxz.com/2020/12/18/li-jie-bi-te-bi-1/)
-- [理解比特币(2)——最大优势是价值存储 - 12/23](https://www.wmyskxz.com/2020/12/23/li-jie-bi-te-bi-2/)
+- [【人类观察所】"当代人"正经历的生活 - 02/22](https://www.wmyskxz.cn/2020/02/22/ren-lei-guan-cha-suo-dang-dai-ren-zheng-jing-li-de-sheng-huo/)
+- ["长辈牌"电子产品：有一种评论朋友圈叫给你打电话 - 03/10](https://www.wmyskxz.cn/2020/03/10/chang-bei-pai-dian-zi-chan-pin-you-yi-chong-ping-lun-peng-you-quan-jiao-gei-ni-da-dian-hua/)
+- [96年/离职8个月/拒绝华为offer/目前自由职业-记这大半年来的挣扎与迷茫 - 07/26](https://www.wmyskxz.cn/2020/07/26/96-nian-chi-zhi-8-ge-yue-ju-jue-hua-wei-offer-mu-qian-zi-you-zhi-ye-ji-zhe-da-ban-nian-lai-de-zheng-zha-yu-mi-mang/)
+- [你记笔记吗？关于最近知识管理工具革新潮心脏有话要说 - 08/16](https://www.wmyskxz.cn/2020/08/16/ni-ji-bi-ji-ma-guan-yu-zui-jin-zhi-shi-guan-li-gong-ju-ge-xin-chao-xin-zang-you-hua-yao-shuo/) 
+- [谈谈近况，谈谈自由职业，谈谈"金饭碗" - 12/09](https://www.wmyskxz.cn/2020/11/11/tan-tan-jin-kuang-tan-tan-zi-you-zhi-ye-tan-tan-jin-fan-wan/)
+- [理解比特币(1)——货币以及货币发展史 - 12/18](https://www.wmyskxz.cn/2020/12/18/li-jie-bi-te-bi-1/)
+- [理解比特币(2)——最大优势是价值存储 - 12/23](https://www.wmyskxz.cn/2020/12/23/li-jie-bi-te-bi-2/)
 
 技术方面因为逃离了一线的开发环境，所以也只有尝试输出一些自己觉得有帮助的文章：
 
-- [《Offer一箩筐》2W字总结面试套路14问——不给例子的教程都是耍流氓！！ - 12/09](https://www.wmyskxz.com/2020/09/16/offer-yi-luo-kuang-2w-zi-zong-jie-mian-shi-tao-lu-14-wen-bu-gei-li-zi-de-jiao-cheng-du-shi-shua-liu-mang/)
-- [一文带你深扒ClassLoader内核，揭开它的神秘面纱！ - 08/28](https://www.wmyskxz.com/2020/08/28/yi-wen-dai-ni-shen-ba-classloader-nei-he-jie-kai-ta-de-shen-mi-mian-sha/)
-- [计算机发展史—从织布机到IBM - 04/07](https://www.wmyskxz.com/2020/04/07/morethanjava-ji-suan-ji-fa-zhan-shi-cong-zhi-bu-ji-dao-ibm/)
-- [....](https://www.wmyskxz.com)
+- [《Offer一箩筐》2W字总结面试套路14问——不给例子的教程都是耍流氓！！ - 12/09](https://www.wmyskxz.cn/2020/09/16/offer-yi-luo-kuang-2w-zi-zong-jie-mian-shi-tao-lu-14-wen-bu-gei-li-zi-de-jiao-cheng-du-shi-shua-liu-mang/)
+- [一文带你深扒ClassLoader内核，揭开它的神秘面纱！ - 08/28](https://www.wmyskxz.cn/2020/08/28/yi-wen-dai-ni-shen-ba-classloader-nei-he-jie-kai-ta-de-shen-mi-mian-sha/)
+- [计算机发展史—从织布机到IBM - 04/07](https://www.wmyskxz.cn/2020/04/07/morethanjava-ji-suan-ji-fa-zhan-shi-cong-zhi-bu-ji-dao-ibm/)
+- [....](https://www.wmyskxz.cn)
 
 **好的方面** 是自己没有「为了输出而输出」，写的都是自己想写的，也没有水文，保证了每一篇的质量。
 
@@ -97,7 +97,7 @@ date: 2021/01/03 10:29:12
 
 ## 走过的路
 
-前半年的总结基本上都写在了这里：[传送门](https://www.wmyskxz.com/2020/07/26/96-nian-chi-zhi-8-ge-yue-ju-jue-hua-wei-offer-mu-qian-zi-you-zhi-ye-ji-zhe-da-ban-nian-lai-de-zheng-zha-yu-mi-mang/)，简单回顾一下今年走过的路吧：
+前半年的总结基本上都写在了这里：[传送门](https://www.wmyskxz.cn/2020/07/26/96-nian-chi-zhi-8-ge-yue-ju-jue-hua-wei-offer-mu-qian-zi-you-zhi-ye-ji-zhe-da-ban-nian-lai-de-zheng-zha-yu-mi-mang/)，简单回顾一下今年走过的路吧：
 
 1 月，拒绝薪资翻倍的华为第三方 Offer，选择当一名 MC *(我的世界)* 开发者；
 
@@ -105,7 +105,7 @@ date: 2021/01/03 10:29:12
 
 3 月，学习 Redis 和 Python，参与 MC *(我的世界)* 季度 Mod 开发；
 
-4 月，[MoreThanJava 系列](https://www.wmyskxz.com/tags/MoreThanJava/)开篇；
+4 月，[MoreThanJava 系列](https://www.wmyskxz.cn/tags/MoreThanJava/)开篇；
 
 5 月，全身心投入开发自认为卖爆的组件；
 
