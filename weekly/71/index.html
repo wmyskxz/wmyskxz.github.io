@@ -263,7 +263,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/72/">一周精彩内容分享（第 72 期）：生活就像《吃豆人》游戏</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/70/">一周精彩内容分享（第 70 期）：5% 的改变</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/73/">一周精彩内容分享（第 73 期）：AI 会瞄准你的工作吗？</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/70/">一周精彩内容分享（第 70 期）：5% 的改变</a></div></section></div>
 
 
 
@@ -273,12 +273,12 @@
       <p>快来参与讨论吧~</p>
 
     </section>
-    <section class='body cmt-body beaudar'>
+    <section class='body cmt-body giscus'>
       
 
 <svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
 
-<div id="beaudar" repo="wmyskxz/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
@@ -789,26 +789,25 @@
 <!-- optional -->
 
   <script type="module">
-  const el = document.querySelector('#comments #beaudar');
-  util.viewportLazyload(el, load_beaudar, false);
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
 
-  function load_beaudar() {
+  function load_discus() {
     if (!el) return;
     try {
-      el.innerHTML = '';
-    } catch (error) {
-      console.error(error);
-    }
-    const script = document.createElement('script');
-    script.src = 'https://beaudar.lipk.org/client.js';
-    script.async = true;
-    for (const key of Object.keys(el.attributes)) {
-      const attr = el.attributes[key];
-      if (['class', 'id'].includes(attr.name) === false) {
-        script.setAttribute(attr.name, attr.value);
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
       }
-    }
-    el.appendChild(script);
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
   }
 </script>
 
