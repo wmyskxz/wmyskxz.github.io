@@ -22,7 +22,7 @@
     <meta name="description" content="前言我们在上一篇说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了同一个网络中。 但是类似于 192.168.1.0 这样的地址并不便于人类记忆，于是发明了 域名(Domain Name) 来帮助解决这样的问题。 对应的，我们也需要一个系统来帮助”翻译”：  Part 1. DNS 是什么？DNS （Domain Name System 的缩写） 的作用非常简单，就是根据域名查出对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNS是什么？它是如何运作的？">
-<meta property="og:url" content="https://www.wmyskxz.com/network/dns/index.html">
+<meta property="og:url" content="https://wmyskxz.github.io/network/dns/index.html">
 <meta property="og:site_name" content="我没有三颗心脏的博客">
 <meta property="og:description" content="前言我们在上一篇说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了同一个网络中。 但是类似于 192.168.1.0 这样的地址并不便于人类记忆，于是发明了 域名(Domain Name) 来帮助解决这样的问题。 对应的，我们也需要一个系统来帮助”翻译”：  Part 1. DNS 是什么？DNS （Domain Name System 的缩写） 的作用非常简单，就是根据域名查出对">
 <meta property="og:locale" content="zh_CN">
@@ -110,7 +110,7 @@
     
   </div>
   </div><article class="md-text content"><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-8/1612775267339-image.png"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们在<a href="https://www.wmyskxz.com/network/how-to-link">上一篇</a>说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了<strong>同一个网络</strong>中。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们在<a target="_blank" rel="noopener" href="https://www.wmyskxz.com/network/how-to-link">上一篇</a>说到，IP 地址的发明把我们纷乱复杂的网络设备整齐划一地统一在了<strong>同一个网络</strong>中。</p>
 <p>但是类似于 <code>192.168.1.0</code> 这样的地址并不便于人类记忆，于是发明了 <strong>域名(Domain Name)</strong> 来帮助解决这样的问题。</p>
 <p>对应的，我们也需要一个系统来帮助”翻译”：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-2/1612232538793-image.png"></p>

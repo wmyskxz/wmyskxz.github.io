@@ -22,7 +22,7 @@
     <meta name="description" content="前言现代浏览器十分复杂，颇有运行在操作系统之上的”操作系统”的意思，我们将尽可能用简单容易理解的例子来简单概括它主要的工作逻辑。  目录：  进程与线程概述； 浏览器架构； 浏览器视角下的输入； 页面如何渲染； 如何进行交互；  Part 1. 进程与线程概述计算机的核心是 CPU，它承担了几乎所有的计算任务。  你可以把 CPU 想象成是一个工厂，时刻在运行着。 假设这个工厂的电力有限，同一时刻">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器的运行原理">
-<meta property="og:url" content="https://www.wmyskxz.com/network/how-browser-work/index.html">
+<meta property="og:url" content="https://wmyskxz.github.io/network/how-browser-work/index.html">
 <meta property="og:site_name" content="我没有三颗心脏的博客">
 <meta property="og:description" content="前言现代浏览器十分复杂，颇有运行在操作系统之上的”操作系统”的意思，我们将尽可能用简单容易理解的例子来简单概括它主要的工作逻辑。  目录：  进程与线程概述； 浏览器架构； 浏览器视角下的输入； 页面如何渲染； 如何进行交互；  Part 1. 进程与线程概述计算机的核心是 CPU，它承担了几乎所有的计算任务。  你可以把 CPU 想象成是一个工厂，时刻在运行着。 假设这个工厂的电力有限，同一时刻">
 <meta property="og:locale" content="zh_CN">
@@ -192,7 +192,7 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613385118994-2021-02-15%2018.31.02.gif"></p>
 <h2 id="第二步：开始导航"><a href="#第二步：开始导航" class="headerlink" title="第二步：开始导航"></a>第二步：开始导航</h2><p>随着用户输入完毕按下 Enter 键，UI 线程知道要启用网络去调取网站的信息。网络线程会负责联系目标主机并获取到信息：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613386391288-2021-02-15%2018.51.50.gif"></p>
-<p>网络线程获取信息的过程，发生了很多事，比如 DNS 域名解析、TLS 建立连接等，如果不熟悉可以看看<a href="https://www.wmyskxz.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BD%91%E7%BB%9C/">之前的系列文章</a>。</p>
+<p>网络线程获取信息的过程，发生了很多事，比如 DNS 域名解析、TLS 建立连接等，如果不熟悉可以看看<a target="_blank" rel="noopener" href="https://www.wmyskxz.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BD%91%E7%BB%9C/">之前的系列文章</a>。</p>
 <h2 id="第三步：读取响应"><a href="#第三步：读取响应" class="headerlink" title="第三步：读取响应"></a>第三步：读取响应</h2><p>总之网络线程为我们取到了来自网站的响应，大概长这样：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/wmyskxz/BlogImage02/2021-2-15/1613388277797-image.png"></p>
 <p>响应分为 header 和 payload 两个部分。header 类似于一本书的版权、作者介绍等相关信息，而 payload 才是真实的数据内容。</p>
