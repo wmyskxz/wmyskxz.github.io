@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法 你站在 3 楼，按了电梯的向下按钮。 电梯面板上显示：它正在 5 楼。你想，快了快了，马上就到——结果它开始往上走。8 楼、12 楼、15 楼……你在 3 楼干等着，看着数字越跳越高，心里那个烦躁劲儿就别提了。 为什么不先来接我？我明明按得最早啊！ 这个日常生活里的小烦恼，背后藏着一个计算机科学家研究了几十年的经典问题：当多个请求同时到来时，应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法">
+<meta property="og:url" content="https://www.wmyskxz.cn/elevator-scheduling-algorithm/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法 你站在 3 楼，按了电梯的向下按钮。 电梯面板上显示：它正在 5 楼。你想，快了快了，马上就到——结果它开始往上走。8 楼、12 楼、15 楼……你在 3 楼干等着，看着数字越跳越高，心里那个烦躁劲儿就别提了。 为什么不先来接我？我明明按得最早啊！ 这个日常生活里的小烦恼，背后藏着一个计算机科学家研究了几十年的经典问题：当多个请求同时到来时，应">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2026-02-26T06:37:00.000Z">
+<meta property="article:modified_time" content="2026-02-26T07:04:06.746Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="好奇星人">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="好奇星人">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2026-02-26T14:37:00+08:00","dateModified":"2026-02-26T15:04:06+08:00","datePublished":"2026-02-26T14:37:00+08:00","description":"","headline":"电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/elevator-scheduling-algorithm/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/elevator-scheduling-algorithm/","keywords":"好奇星人","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260225104542.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/elevator-scheduling-algorithm/"><span class="title">电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法</span></a><a class="item title" href="/weekly/167/"><span class="title">代码之外周刊（第 167 期）：未来最值钱的不是商品，是人情味</span></a><a class="item title" href="/weekly/166/"><span class="title">代码之外周刊（第 166 期）：“如果我需要靠运气才能成功，那我根本不会开始”</span></a><a class="item title" href="/weekly/165/"><span class="title">代码之外周刊（第 165 期）：泛泛之交，才是你最该经营的关系</span></a><a class="item title" href="/weekly/164/"><span class="title">代码之外周刊（第 164 期）：为什么大多数人的改变计划都会失败</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA/">好奇星人</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-26T06:37:00.000Z">2026-02-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-26T07:04:06.746Z">2026-02-26</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法"><a href="#电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法" class="headerlink" title="电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法"></a>电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260225104542.png"></p>
+<p>你站在 3 楼，按了电梯的向下按钮。</p>
+<p>电梯面板上显示：它正在 5 楼。你想，快了快了，马上就到——结果它开始往上走。8 楼、12 楼、15 楼……你在 3 楼干等着，看着数字越跳越高，心里那个烦躁劲儿就别提了。</p>
+<p>为什么不先来接我？我明明按得最早啊！</p>
+<p>这个日常生活里的小烦恼，背后藏着一个计算机科学家研究了几十年的经典问题：<strong>当多个请求同时到来时，应该先服务谁？</strong></p>
+<p>这个问题有个更正式的名字——<strong>调度问题</strong>（Scheduling Problem）。电梯要调度，计算机的硬盘要调度，CPU 要调度，甚至餐厅的服务员决定先端哪桌菜，本质上都是同一个问题。</p>
+<p>今天我们就从电梯出发，一步一步推演出计算机科学中几种经典的调度策略。你会发现，这些策略的核心思想出人意料地简单——但效果的差异却是巨大的。</p>
+<p>为了讲清楚每种策略的差异，我们需要一个统一的例子贯穿全文。</p>
+<h2 id="我们的实验场景"><a href="#我们的实验场景" class="headerlink" title="我们的实验场景"></a>我们的实验场景</h2><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226145108.png"></p>
+<p>假设一栋大楼有 <strong>20 层</strong>。电梯当前停在 <strong>5 楼</strong>。此刻，电梯的「待办列表」上有 6 个请求，按它们到达的先后顺序排列：</p>
+<blockquote>
+<p><strong>请求队列：3 → 15 → 2 → 8 → 12 → 5</strong></p>
+</blockquote>
+<p>也就是说：3 楼的人最先按的按钮，然后依次是 15 楼、2 楼、8 楼、12 楼，最后是 5 楼。</p>
+<p>接下来，我们用这同一组数据，试试不同的调度策略，看看电梯分别要跑多少层。</p>
+<h2 id="最朴素的想法：先来先服务（FCFS）"><a href="#最朴素的想法：先来先服务（FCFS）" class="headerlink" title="最朴素的想法：先来先服务（FCFS）"></a>最朴素的想法：先来先服务（FCFS）</h2><p>最直觉的策略是什么？——<strong>谁先按的，就先去谁那儿。</strong></p>
+<p>这在计算机科学里叫 <strong>FCFS</strong>，全称是 First Come, First Served，翻译过来就是「先来先服务」。它的规则极其简单：按照请求到达的顺序，一个一个处理。</p>
+<p>用我们的数据来跑一遍：</p>
+<p><strong>电梯的移动路线：5 → 3 → 15 → 2 → 8 → 12 → 5</strong></p>
+<p>每一段的移动楼层数：</p>
+<table>
+<thead>
+<tr>
+<th>路段</th>
+<th>从 → 到</th>
+<th>移动楼层数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第 1 段</td>
+<td>5 → 3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>第 2 段</td>
+<td>3 → 15</td>
+<td>12</td>
+</tr>
+<tr>
+<td>第 3 段</td>
+<td>15 → 2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>第 4 段</td>
+<td>2 → 8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>第 5 段</td>
+<td>8 → 12</td>
+<td>4</td>
+</tr>
+<tr>
+<td>第 6 段</td>
+<td>12 → 5</td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>44 层</strong></td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226145852.png"></p>
+<p>44 层。你有没有发现问题？</p>
+<p>看看第 2 段和第 3 段：电梯从 3 楼冲到 15 楼（12 层），然后又从 15 楼杀回 2 楼（13 层）。这两段加起来就是 25 层——<strong>电梯几乎把整栋楼跑了一个来回，就为了处理两个请求</strong>。</p>
+<p>问题出在哪？它严格按照「谁先来就先服务谁」的顺序执行，完全不考虑请求的位置。3 楼和 15 楼相距甚远，但因为 15 楼的请求排在 2 楼前面，电梯必须先跑到 15 楼再折返。</p>
+<p>这就像一个外卖骑手，手里有 6 个订单分布在城市各处，他不看地图、不规划路线，纯粹按下单时间一个一个送。可以想象，他会在城市里来回穿梭，跑出一条令人崩溃的折线。</p>
+<p><strong>FCFS 的优点：绝对公平。</strong> 每个请求都按先来后到的顺序处理，没有人被插队。</p>
+<p><strong>FCFS 的缺点：效率极差。</strong> 大量的移动被浪费在无意义的折返上。</p>
+<p>那有没有更聪明的办法？</p>
+<h2 id="一个自然的改进：最短寻道优先（SSTF）"><a href="#一个自然的改进：最短寻道优先（SSTF）" class="headerlink" title="一个自然的改进：最短寻道优先（SSTF）"></a>一个自然的改进：最短寻道优先（SSTF）</h2><p>既然 FCFS 的问题是「不看位置」，那我们就看位置——<strong>每次都去离当前位置最近的那个请求。</strong></p>
+<p>这种策略叫 <strong>SSTF</strong>，全称是 Shortest Seek Time First，意思是「最短寻道时间优先」。这里的「寻道」（Seek）原本是硬盘术语，指磁头移动到目标位置的过程，在电梯的场景里就是「移动到目标楼层」。</p>
+<p>规则很简单：电梯站在当前楼层，看看所有待处理的请求，哪个离自己最近，就先去哪个。到了之后，再看剩下的请求里哪个最近，继续去。如此反复，直到处理完所有请求。</p>
+<p>用同一组数据跑一遍。以前两步为例：电梯在 5 楼，5 楼本身就有请求（距离为 0），先处理它；然后看剩下的 [3, 15, 2, 8, 12]，3 楼最近（距离 2），去 3 楼；到了 3 楼，2 楼最近（距离 1），去 2 楼……以此类推，每次都贪心地选最近的。</p>
+<p>最终的移动路线和每一段的距离：</p>
+<table>
+<thead>
+<tr>
+<th>路段</th>
+<th>从 → 到</th>
+<th>选择理由</th>
+<th>移动楼层数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出发</td>
+<td>5 楼</td>
+<td>5 楼就在当前位置</td>
+<td>0</td>
+</tr>
+<tr>
+<td>第 1 段</td>
+<td>5 → 3</td>
+<td>3 楼最近（距离 2）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>第 2 段</td>
+<td>3 → 2</td>
+<td>2 楼最近（距离 1）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>第 3 段</td>
+<td>2 → 8</td>
+<td>8 楼最近（距离 6）</td>
+<td>6</td>
+</tr>
+<tr>
+<td>第 4 段</td>
+<td>8 → 12</td>
+<td>12 楼最近（距离 4）</td>
+<td>4</td>
+</tr>
+<tr>
+<td>第 5 段</td>
+<td>12 → 15</td>
+<td>只剩 15 楼</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td></td>
+<td><strong>16 层</strong></td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226150122.png"></p>
+<p>从 44 层直降到 16 层——<strong>效率提升了将近 2/3</strong>！这个改进效果是很惊人的。</p>
+<p>但先别急着高兴。SSTF 有一个致命的问题。</p>
+<p>想象一个场景：电梯在 10 楼附近，不断有人在 9 楼和 11 楼按按钮。由于 9 楼和 11 楼始终是最近的请求，电梯就会一直在 9 到 11 楼之间来回跑。如果有人在 2 楼或者 18 楼等着呢？他们可能永远也等不到电梯。</p>
+<p>这个问题在计算机科学里有个专门的名字，叫<strong>饥饿</strong>（Starvation）——某些请求因为持续有「更优先」的请求插队，而被无限期地拖延。就像一个总是被插队的人，永远排不到他。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226143313.png"></p>
+<p>在我们这个只有 6 个固定请求的例子里，SSTF 表现得很好，因为请求不会增加。但在真实的电梯或硬盘里，请求是源源不断到来的，饥饿问题就会真实地发生。</p>
+<p><strong>SSTF 的优点：移动距离短，效率高。</strong></p>
+<p><strong>SSTF 的缺点：可能让某些请求永远等不到——不公平。</strong></p>
+<p>有没有一种策略，既能像 SSTF 一样高效，又不会让任何人永远等下去？</p>
+<h2 id="真实电梯的策略：电梯算法（SCAN）"><a href="#真实电梯的策略：电梯算法（SCAN）" class="headerlink" title="真实电梯的策略：电梯算法（SCAN）"></a>真实电梯的策略：电梯算法（SCAN）</h2><p>你可能已经注意到了——你在真实生活中坐的电梯，既不是 FCFS 那种死板地按顺序来，也不是 SSTF 那种只顾最近的。真实电梯的行为是这样的：</p>
+<p><strong>选定一个方向，一路走到头，沿途有请求就停，走到顶之后掉头，再一路走下来。</strong></p>
+<p>这就是大名鼎鼎的<strong>电梯算法</strong>，在计算机科学中叫 <strong>SCAN 算法</strong>（扫描算法）。它的名字非常形象——就像一个扫描仪，从一头扫到另一头，再扫回来。由于它的行为和电梯完全一样，所以也被直接叫作<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Elevator_algorithm"><strong>电梯算法</strong>（Elevator Algorithm）</a>。早在 1960 年代，<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>（高德纳）就在《The Art of Computer Programming》中用电梯作为案例来讲解这类问题。</p>
+<p>规则很简单：</p>
+<ol>
+<li>选定一个初始方向（比如向上）</li>
+<li>朝这个方向移动，沿途遇到请求就处理</li>
+<li>一直走到大楼的<strong>顶层</strong>（不管顶层有没有请求——这样做的好处是规则极其简单，电梯不需要判断前方是否还有请求，只管朝一个方向走到底就行）</li>
+<li>掉头，朝反方向移动，同样沿途处理请求</li>
+<li>一直走到<strong>底层</strong></li>
+<li>重复以上过程</li>
+</ol>
+<p>用同一组数据跑一遍。假设电梯初始方向向上：</p>
+<p><strong>移动路线：5 → 8 → 12 → 15 → 20（到顶掉头）→ 3 → 2</strong></p>
+<p>注意：5 楼的请求在出发时就在当前楼层，直接处理（移动 0 层）。然后电梯向上扫描，依次处理 8、12、15 楼的请求，一直走到 20 楼（尽管 20 楼没有请求），然后掉头向下，处理 3 楼和 2 楼的请求。</p>
+<p>每一段的移动楼层数：</p>
+<table>
+<thead>
+<tr>
+<th>路段</th>
+<th>从 → 到</th>
+<th>说明</th>
+<th>移动楼层数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出发</td>
+<td>5 楼</td>
+<td>处理 5 楼请求</td>
+<td>0</td>
+</tr>
+<tr>
+<td>第 1 段</td>
+<td>5 → 8</td>
+<td>处理 8 楼请求</td>
+<td>3</td>
+</tr>
+<tr>
+<td>第 2 段</td>
+<td>8 → 12</td>
+<td>处理 12 楼请求</td>
+<td>4</td>
+</tr>
+<tr>
+<td>第 3 段</td>
+<td>12 → 15</td>
+<td>处理 15 楼请求</td>
+<td>3</td>
+</tr>
+<tr>
+<td>第 4 段</td>
+<td>15 → 20</td>
+<td>走到顶层（掉头）</td>
+<td>5</td>
+</tr>
+<tr>
+<td>第 5 段</td>
+<td>20 → 3</td>
+<td>掉头向下，处理 3 楼请求</td>
+<td>17</td>
+</tr>
+<tr>
+<td>第 6 段</td>
+<td>3 → 2</td>
+<td>处理 2 楼请求</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td></td>
+<td><strong>33 层</strong></td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226150159.png"></p>
+<p>33 层。比 FCFS 的 44 层少了 11 层，但比 SSTF 的 16 层多了 17 层。</p>
+<p>你可能会问：既然 SSTF 只要 16 层，为什么还要用 SCAN 的 33 层？</p>
+<p>因为 <strong>SCAN 解决了公平性问题</strong>。</p>
+<p>回忆一下 SSTF 的饥饿问题：远处的请求可能永远等不到。而 SCAN 算法保证了一件事——电梯从顶扫到底、再从底扫到顶，<strong>每个楼层最多等一个来回就一定会被服务到</strong>。在一栋 20 层的楼里，一个完整的来回最多就是 40 层（20 上 + 20 下），所以任何请求的最长等待时间是可以预知的、有上限的。</p>
+<p>三种策略的效率对比：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>移动路线</th>
+<th>总移动楼层数</th>
+<th>公平性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FCFS</td>
+<td>5→3→15→2→8→12→5</td>
+<td>44 层</td>
+<td>绝对公平（严格按顺序）</td>
+</tr>
+<tr>
+<td>SSTF</td>
+<td>5→5→3→2→8→12→15</td>
+<td>16 层</td>
+<td>不公平（可能饥饿）</td>
+</tr>
+<tr>
+<td>SCAN</td>
+<td>5→8→12→15→20→3→2</td>
+<td>33 层</td>
+<td>公平（等待时间有上限）</td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226142949.png"></p>
+<p>SCAN 在效率和公平之间取得了一个很好的平衡。它的效率不是最优的——但它保证了<strong>没有人会被永远忽略</strong>。</p>
+<p>不过，你可能已经注意到了一个明显的浪费——</p>
+<p>电梯在 15 楼处理完最后一个向上的请求之后，还要傻傻地走到 20 楼才掉头。15 到 20 楼这 5 层根本没有任何请求，完全是白跑的。</p>
+<p>有没有改进的空间？当然有。</p>
+<h2 id="电梯算法的改进：LOOK-和它的兄弟们"><a href="#电梯算法的改进：LOOK-和它的兄弟们" class="headerlink" title="电梯算法的改进：LOOK 和它的兄弟们"></a>电梯算法的改进：LOOK 和它的兄弟们</h2><h3 id="LOOK：不傻傻走到头"><a href="#LOOK：不傻傻走到头" class="headerlink" title="LOOK：不傻傻走到头"></a>LOOK：不傻傻走到头</h3><p>你可能早就想吐槽了——SCAN 要走到 20 楼顶层才掉头，可是最高的请求只在 15 楼，15 到 20 楼这段完全是浪费。</p>
+<p><strong>LOOK 算法</strong>就是这个改进版。它的规则和 SCAN 几乎完全一样，唯一的区别是：<strong>不走到顶层/底层，而是走到当前方向上最远的那个请求就掉头。</strong></p>
+<p>名字也很形象——LOOK，就是「往前看一看」，看到前面没有请求了，就掉头。</p>
+<p>用同一组数据跑一遍（方向向上）：</p>
+<p><strong>移动路线：5 → 8 → 12 → 15（最远的向上请求，掉头）→ 3 → 2</strong></p>
+<table>
+<thead>
+<tr>
+<th>路段</th>
+<th>从 → 到</th>
+<th>说明</th>
+<th>移动楼层数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出发</td>
+<td>5 楼</td>
+<td>处理 5 楼请求</td>
+<td>0</td>
+</tr>
+<tr>
+<td>第 1 段</td>
+<td>5 → 8</td>
+<td>处理 8 楼请求</td>
+<td>3</td>
+</tr>
+<tr>
+<td>第 2 段</td>
+<td>8 → 12</td>
+<td>处理 12 楼请求</td>
+<td>4</td>
+</tr>
+<tr>
+<td>第 3 段</td>
+<td>12 → 15</td>
+<td>处理 15 楼请求，掉头</td>
+<td>3</td>
+</tr>
+<tr>
+<td>第 4 段</td>
+<td>15 → 3</td>
+<td>掉头向下，处理 3 楼请求</td>
+<td>12</td>
+</tr>
+<tr>
+<td>第 5 段</td>
+<td>3 → 2</td>
+<td>处理 2 楼请求</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td></td>
+<td><strong>23 层</strong></td>
+</tr>
+</tbody></table>
+<p>23 层！比 SCAN 的 33 层省了整整 10 层，就是因为少走了「15 楼到 20 楼再回到 15 楼」这段冤枉路。</p>
+<p><strong>这其实就是你在真实生活中坐的电梯所使用的策略。</strong> 真实电梯不会傻傻地跑到顶楼再掉头——它会在最后一个有请求的楼层就停下来，然后反方向运行。</p>
+<h3 id="单程变种：C-SCAN-和-C-LOOK"><a href="#单程变种：C-SCAN-和-C-LOOK" class="headerlink" title="单程变种：C-SCAN 和 C-LOOK"></a>单程变种：C-SCAN 和 C-LOOK</h3><p>SCAN 和 LOOK 都是「来回扫」——向上走一趟，掉头再向下走一趟，两个方向都服务。但这有一个微妙的不公平：刚被扫过的那一端，请求会等很久才能被再次服务到。</p>
+<p><strong>C-SCAN</strong>（Circular SCAN）和 <strong>C-LOOK</strong> 的思路是：<strong>只在一个方向上提供服务</strong>。到头之后不掉头服务，而是快速返回起点重新开始。你可以把它想象成一辆单行线的公交车：从起点开到终点，空车跑回起点，再重新载客出发。</p>
+<p>这样做的好处是<strong>所有楼层的等待时间更加均匀</strong>。在大规模、高并发的真实场景里，这种均匀性非常重要。</p>
+<p>C-SCAN 是 SCAN 的单程版（走到顶层/底层），C-LOOK 是 LOOK 的单程版（走到最远请求）。用我们的数据跑出来，C-SCAN 是 36 层，C-LOOK 是 24 层——单次总距离并不占优，但它们的真正优势体现在持续运行时每个位置的平均等待时间更均匀。</p>
+<h3 id="全家族对比"><a href="#全家族对比" class="headerlink" title="全家族对比"></a>全家族对比</h3><p>让我们把所有策略放在一起比较：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>移动路线</th>
+<th>总楼层数</th>
+<th>核心特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FCFS</td>
+<td>5→3→15→2→8→12→5</td>
+<td><strong>44</strong></td>
+<td>严格按顺序，最公平但最低效</td>
+</tr>
+<tr>
+<td>SSTF</td>
+<td>5→5→3→2→8→12→15</td>
+<td><strong>16</strong></td>
+<td>总是去最近的，高效但可能饿死远处请求</td>
+</tr>
+<tr>
+<td>SCAN</td>
+<td>5→8→12→15→20→3→2</td>
+<td><strong>33</strong></td>
+<td>扫到底再掉头，公平且较高效</td>
+</tr>
+<tr>
+<td>C-SCAN</td>
+<td>5→8→12→15→20→1→2→3</td>
+<td><strong>36</strong></td>
+<td>只单向服务，等待时间最均匀</td>
+</tr>
+<tr>
+<td>LOOK</td>
+<td>5→8→12→15→3→2</td>
+<td><strong>23</strong></td>
+<td>到最远请求就掉头，实际电梯的做法</td>
+</tr>
+<tr>
+<td>C-LOOK</td>
+<td>5→8→12→15→2→3</td>
+<td><strong>24</strong></td>
+<td>单向版 LOOK，大规模场景更均匀</td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226145629.png"></p>
+<p>你会发现：在这个 6 个请求的小例子里，SSTF 的总移动距离最短。但别被小样本迷惑了——在真实场景中，请求是源源不断到来的，SSTF 的饥饿问题会变得非常严重。<strong>LOOK 和 C-LOOK 才是实际工程中最常用的策略</strong>，它们在效率、公平性和实现简单性之间取得了最佳平衡。</p>
+<p>这时候你可能会好奇：这些算法到底在哪里被用到？仅仅是电梯吗？</p>
+<h2 id="从电梯到硬盘：为什么计算机科学家关心这个？"><a href="#从电梯到硬盘：为什么计算机科学家关心这个？" class="headerlink" title="从电梯到硬盘：为什么计算机科学家关心这个？"></a>从电梯到硬盘：为什么计算机科学家关心这个？</h2><p>你可能觉得这些算法只是电梯的事。但如果我告诉你，你电脑里每一次打开文件、保存文档，背后都在用同样的算法呢？</p>
+<p>这些调度算法最重要的应用场景不是电梯——而是<strong>计算机的机械硬盘</strong>。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260225113554.png"></p>
+<h3 id="机械硬盘里的「电梯」"><a href="#机械硬盘里的「电梯」" class="headerlink" title="机械硬盘里的「电梯」"></a>机械硬盘里的「电梯」</h3><p>机械硬盘（HDD）的内部有一个或多个高速旋转的<strong>盘片</strong>，上面有一根<strong>读写头</strong>（也叫磁头），通过移动到不同位置来读写数据。数据存储在盘片上一圈一圈的同心圆上，每一圈叫一条<strong>磁道</strong>。读写头要读某个数据，就必须先移动到对应的磁道上——这个过程叫<strong>寻道</strong>（Seek）。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226145646.png"></p>
+<p>看到了吗？<strong>读写头在磁道之间移动，就像电梯在楼层之间移动。</strong> 多个读写请求排队等待，就像多个乘客按了不同楼层的按钮。这就是为什么磁盘调度算法和电梯算法是<strong>完全相同的问题</strong>。</p>
+<h3 id="这个问题有多重要？"><a href="#这个问题有多重要？" class="headerlink" title="这个问题有多重要？"></a>这个问题有多重要？</h3><p>在机械硬盘上，<strong>寻道是最耗时的操作</strong>。读写数据的时间主要由三部分组成：</p>
+<ol>
+<li><strong>寻道时间</strong>：读写头移动到目标磁道，典型值为 <strong>3-15 毫秒</strong></li>
+<li><strong>旋转延迟</strong>：盘片旋转到目标位置，7200 转硬盘平均约 <strong>4.17 毫秒</strong></li>
+<li><strong>传输时间</strong>：实际读写数据，这部分很短</li>
+</ol>
+<p>寻道时间是最大的瓶颈，而它的长短直接取决于调度算法决定了「先去哪条磁道」。一块典型的 7200 转消费级机械硬盘，每秒只能处理大约 80-100 个读写请求。如果调度算法不好，读写头在磁道之间来回折返，性能就会更差，系统就会变得缓慢。</p>
+<h3 id="Linux-内核中的「电梯」"><a href="#Linux-内核中的「电梯」" class="headerlink" title="Linux 内核中的「电梯」"></a>Linux 内核中的「电梯」</h3><p>在实际的操作系统中，磁盘调度算法被实现为 <strong>I/O 调度器</strong>。Linux 内核最早的磁盘调度器就直接被命名为 <strong>Linus Elevator</strong>（Linus 电梯）——光看名字就知道电梯算法和磁盘调度之间的关系有多紧密。它借鉴了 LOOK 算法的思路，同时加入了防饥饿机制。</p>
+<p>后来 Linux 引入了 <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers">CFQ（完全公平队列）</a>等调度器，不仅考虑「先去哪条磁道」，还考虑「每个程序都应该得到公平的服务」——这和我们前面讨论的公平性问题一脉相承。现代 Linux 内核提供了 <a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/v5.3/block/switching-sched.html">mq-deadline、BFQ 和 Kyber</a> 等调度器，它们都在效率和公平之间做着不同的权衡。</p>
+<h3 id="SSD-时代：电梯算法正在「退休」？"><a href="#SSD-时代：电梯算法正在「退休」？" class="headerlink" title="SSD 时代：电梯算法正在「退休」？"></a>SSD 时代：电梯算法正在「退休」？</h3><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260225114205.png" alt="机械硬盘 vs SSD"></p>
+<p>读到这里你可能会想：我的电脑用的是固态硬盘（SSD），不是机械硬盘，这些还重要吗？</p>
+<p>好问题。SSD 和机械硬盘有一个本质区别：<strong>SSD 没有物理上的移动部件。</strong> 它用电子芯片存储数据，访问任何位置的速度几乎是一样的——不存在「寻道」这个过程。</p>
+<p>数字对比一下就很直观了：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>机械硬盘（HDD）</th>
+<th>SATA 固态硬盘</th>
+<th>NVMe 固态硬盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>访问延迟</td>
+<td>3-15 毫秒</td>
+<td>0.08-0.16 毫秒</td>
+<td>0.01-0.03 毫秒</td>
+</tr>
+<tr>
+<td>相比 HDD</td>
+<td>—</td>
+<td>快约 <strong>100 倍</strong></td>
+<td>快约 <strong>500-1000 倍</strong></td>
+</tr>
+</tbody></table>
+<p>既然访问不同位置的时间差距微乎其微，那「先去哪个位置」就不再那么重要了。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260226145602.png"></p>
+<p>因此，现代 NVMe SSD 通常使用 <strong>none 调度器</strong>——也就是不做任何调度，请求来了就直接处理。电梯算法在 SSD 上基本「退休」了。</p>
+<p>但这并不意味着调度思想消失了。在现代系统中，调度的重心从「减少物理移动」转移到了「公平分配带宽」和「保证响应时间」等更高层次的问题。即使在 SSD 上，某些调度器仍然有用——不是为了减少寻道距离，而是为了防止某个程序霸占所有读写带宽导致系统卡顿。</p>
+<h2 id="简单规则的力量"><a href="#简单规则的力量" class="headerlink" title="简单规则的力量"></a>简单规则的力量</h2><p>让我们回顾一下整个旅程。</p>
+<p>我们从一个日常的烦恼出发——等电梯时的焦虑。然后一步一步尝试了不同的策略：</p>
+<ul>
+<li><strong>FCFS（先来先服务）</strong>：最简单、最公平，但效率最差——44 层。</li>
+<li><strong>SSTF（最短寻道优先）</strong>：效率最高，但可能让某些人永远等不到——16 层。</li>
+<li><strong>SCAN（电梯算法）</strong>：选定方向扫到底再掉头，兼顾效率和公平——33 层。</li>
+<li><strong>LOOK</strong>：SCAN 的实用改进，到最远请求就掉头——23 层。这就是真实电梯和经典磁盘调度器使用的策略。</li>
+</ul>
+<p>一个「选定方向走到底再掉头」的简单规则，就在效率和公平之间找到了优雅的平衡。它不是理论上的最优解，但它<strong>足够好、足够简单、足够可靠</strong>——这往往比「最优」更重要。</p>
+<p>这种思想在生活中到处都有。超市收银台旁边那条蛇形排队线——看起来绕来绕去好像更慢，但它保证了每个人的等待时间大致相同，不会有人因为选错了队而等得特别久。它和电梯算法的共同点在于：<strong>牺牲一点理论上的最优效率，换取所有人等待时间的均匀和可预期</strong>。</p>
+<p>下次你再站在电梯门前，看着数字跳来跳去的时候，也许你会想起——那个小小的数字背后，藏着一个简洁而深刻的算法。而你，已经理解了它。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Elevator_algorithm">Elevator algorithm - Wikipedia</a> —— 电梯算法（SCAN）的原理与变种</li>
+<li>Donald Knuth,《The Art of Computer Programming》, Volume 1 —— 以电梯模拟为案例讨论数据结构，其电梯运行规则与 SCAN 算法逻辑一致</li>
+<li>T.J. Teorey, T.B. Pinkerton, “A Comparative Analysis of Disk Scheduling Policies”, <em>Communications of the ACM</em>, 1972 —— 对各种磁盘调度策略的系统性能比较</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hard_disk_drive_performance_characteristics">Hard disk drive performance characteristics - Wikipedia</a> —— 机械硬盘的寻道时间、旋转延迟等性能参数</li>
+<li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers">IO Schedulers - Ubuntu Wiki</a> —— Linux I/O 调度器的介绍与选择指南</li>
+<li><a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/v5.3/block/switching-sched.html">Switching I/O Schedulers - Linux Kernel Documentation</a> —— Linux 内核文档中关于切换 I/O 调度器的说明</li>
+<li><a target="_blank" rel="noopener" href="https://atlarge-research.com/pdfs/2024-io-schedulers.pdf">2024 ICPE - I/O Schedulers Research</a> —— 2024 年对现代 Linux I/O 调度器的学术性能评测</li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/cs/scan-algorithm">SCAN Algorithm - Baeldung</a> —— SCAN 算法的图解教程</li>
+</ol>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/167/">代码之外周刊（第 167 期）：未来最值钱的不是商品，是人情味</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E6%A2%AF%E6%80%8E%E4%B9%88%E5%86%B3%E5%AE%9A%E5%85%88%E5%8E%BB%E5%87%A0%E6%A5%BC%EF%BC%9F%E2%80%94%E2%80%94%E4%BB%8E%E6%97%A5%E5%B8%B8%E7%AD%89%E7%94%B5%E6%A2%AF%E5%88%B0%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-text">电梯怎么决定先去几楼？——从日常等电梯到磁盘调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E7%9A%84%E5%AE%9E%E9%AA%8C%E5%9C%BA%E6%99%AF"><span class="toc-text">我们的实验场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E6%9C%B4%E7%B4%A0%E7%9A%84%E6%83%B3%E6%B3%95%EF%BC%9A%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1%EF%BC%88FCFS%EF%BC%89"><span class="toc-text">最朴素的想法：先来先服务（FCFS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E8%87%AA%E7%84%B6%E7%9A%84%E6%94%B9%E8%BF%9B%EF%BC%9A%E6%9C%80%E7%9F%AD%E5%AF%BB%E9%81%93%E4%BC%98%E5%85%88%EF%BC%88SSTF%EF%BC%89"><span class="toc-text">一个自然的改进：最短寻道优先（SSTF）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E7%94%B5%E6%A2%AF%E7%9A%84%E7%AD%96%E7%95%A5%EF%BC%9A%E7%94%B5%E6%A2%AF%E7%AE%97%E6%B3%95%EF%BC%88SCAN%EF%BC%89"><span class="toc-text">真实电梯的策略：电梯算法（SCAN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%A2%AF%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B%EF%BC%9ALOOK-%E5%92%8C%E5%AE%83%E7%9A%84%E5%85%84%E5%BC%9F%E4%BB%AC"><span class="toc-text">电梯算法的改进：LOOK 和它的兄弟们</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LOOK%EF%BC%9A%E4%B8%8D%E5%82%BB%E5%82%BB%E8%B5%B0%E5%88%B0%E5%A4%B4"><span class="toc-text">LOOK：不傻傻走到头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%A8%8B%E5%8F%98%E7%A7%8D%EF%BC%9AC-SCAN-%E5%92%8C-C-LOOK"><span class="toc-text">单程变种：C-SCAN 和 C-LOOK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%AE%B6%E6%97%8F%E5%AF%B9%E6%AF%94"><span class="toc-text">全家族对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%94%B5%E6%A2%AF%E5%88%B0%E7%A1%AC%E7%9B%98%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%85%B3%E5%BF%83%E8%BF%99%E4%B8%AA%EF%BC%9F"><span class="toc-text">从电梯到硬盘：为什么计算机科学家关心这个？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98%E9%87%8C%E7%9A%84%E3%80%8C%E7%94%B5%E6%A2%AF%E3%80%8D"><span class="toc-text">机械硬盘里的「电梯」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E6%9C%89%E5%A4%9A%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-text">这个问题有多重要？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%86%85%E6%A0%B8%E4%B8%AD%E7%9A%84%E3%80%8C%E7%94%B5%E6%A2%AF%E3%80%8D"><span class="toc-text">Linux 内核中的「电梯」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSD-%E6%97%B6%E4%BB%A3%EF%BC%9A%E7%94%B5%E6%A2%AF%E7%AE%97%E6%B3%95%E6%AD%A3%E5%9C%A8%E3%80%8C%E9%80%80%E4%BC%91%E3%80%8D%EF%BC%9F"><span class="toc-text">SSD 时代：电梯算法正在「退休」？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%A7%84%E5%88%99%E7%9A%84%E5%8A%9B%E9%87%8F"><span class="toc-text">简单规则的力量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
