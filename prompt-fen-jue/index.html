@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题 别学 100 条技巧了你一定经历过这种场景： 打开 Cursor，输入一段需求，AI 开始刷刷写代码。你满怀期待地等它写完，一看——方向全错。它用了你不想要的框架，改了你不让它动的文件，加了一堆你没要的功能。你叹口气，删掉重来，重新措辞，再试一次。 三个来回之后，你开始翻阅 Prompt Engineering 的教程。CRISP 框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题">
+<meta property="og:url" content="https://www.wmyskxz.cn/prompt-fen-jue/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题 别学 100 条技巧了你一定经历过这种场景： 打开 Cursor，输入一段需求，AI 开始刷刷写代码。你满怀期待地等它写完，一看——方向全错。它用了你不想要的框架，改了你不让它动的文件，加了一堆你没要的功能。你叹口气，删掉重来，重新措辞，再试一次。 三个来回之后，你开始翻阅 Prompt Engineering 的教程。CRISP 框">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2026-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-22T15:11:16.448Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="AI这件事">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="AI这件事">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2026-03-22T00:00:00+08:00","dateModified":"2026-03-22T23:11:16+08:00","datePublished":"2026-03-22T00:00:00+08:00","description":"","headline":"Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/prompt-fen-jue/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/prompt-fen-jue/","keywords":"AI这件事","image":[]}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/prompt-fen-jue/"><span class="title">Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题</span></a><a class="item title" href="/shenzhen-longxia-zhenxiang/"><span class="title">AI终于动手干活了——深圳千人排队养龙虾背后的真相</span></a><a class="item title" href="/bbll/zhe-ge-xin-wen-ju-ran-shi-zhen-de/"><span class="title">这个新闻居然是真的——一颗大脑被"上传"进电脑，然后"活"了</span></a><a class="item title" href="/weekly/169/"><span class="title">代码之外周刊（第 169 期）：为什么所有费用都必须付两遍？</span></a><a class="item title" href="/weekly/168/"><span class="title">代码之外周刊（第 168 期）：一份报告，让华尔街跌了一天</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/AI%E8%BF%99%E4%BB%B6%E4%BA%8B/">AI这件事</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-03-21T16:00:00.000Z">2026-03-22</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-22T15:11:16.448Z">2026-03-22</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="Prompt-焚诀——一个模板，终结你和-AI-的所有沟通问题"><a href="#Prompt-焚诀——一个模板，终结你和-AI-的所有沟通问题" class="headerlink" title="Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题"></a>Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260322230619.png"></p>
+<h2 id="别学-100-条技巧了"><a href="#别学-100-条技巧了" class="headerlink" title="别学 100 条技巧了"></a>别学 100 条技巧了</h2><p>你一定经历过这种场景：</p>
+<p>打开 Cursor，输入一段需求，AI 开始刷刷写代码。你满怀期待地等它写完，一看——方向全错。它用了你不想要的框架，改了你不让它动的文件，加了一堆你没要的功能。你叹口气，删掉重来，重新措辞，再试一次。</p>
+<p>三个来回之后，你开始翻阅 Prompt Engineering 的教程。CRISP 框架、GOLDEN Checklist、Chain-of-Thought、Few-Shot Prompting……你认真学了一圈，记了笔记，下次打开编辑器的时候——还是不知道第一句话该怎么写。</p>
+<p>问题不在于这些方法论不好——它们每一个都有道理。问题在于：<strong>理论太多，能直接用的武器太少。</strong></p>
+<p>你知道”要给上下文”，但具体给什么上下文、怎么组织、写在哪里？你知道”要加约束”，但约束太多 AI 会变死板，约束太少它又乱来，边界在哪？你知道”要让 AI 先想再做”，但这句话到底怎么写进 Prompt 里？</p>
+<p>焚诀要做的事很简单：<strong>从一堆方法论中提炼出一个可以直接复制粘贴的模板，作为你跟 AI 沟通的默认起点。</strong></p>
+<p>Cursor、Claude Code、Copilot、ChatGPT、Gemini——无论你用什么工具，贴进去就能用。</p>
+<p>下面就是这个模板。</p>
+<h2 id="模板全文"><a href="#模板全文" class="headerlink" title="模板全文"></a>模板全文</h2><p>先看完整版。每一行的作用，后面逐句拆解。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在我们开始之前：</span><br><span class="line"></span><br><span class="line">1. 先用你自己的话说说你理解的——我要解决什么问题、交付物是什么。标出你拿不准但自己做了假设的地方。如果你觉得有更好的技术方案，直接说，我来决定。</span><br><span class="line"></span><br><span class="line">2. 然后向我提问——每次最多 3 个最关键的问题，直到你对以下三点有 100% 的把握：</span><br><span class="line">   - 我真正想要达成的目标是什么（而不是我字面上说的）</span><br><span class="line">   - 有哪些我没说出口的约束或偏好（技术栈、性能要求、需要兼容的现有代码、不能动的部分）</span><br><span class="line">   - 你计划怎么实现——核心思路是什么、为什么选这个方案</span><br><span class="line"></span><br><span class="line">3. 在没有得到我明确的「可以开始」之前，不要写任何代码或修改任何文件。</span><br></pre></td></tr></table></figure>
+
+<p>就这些。没有 XML 标签，没有角色扮演指令，没有”你是一个 10 年经验的高级工程师”。</p>
+<p>一共三条规则，加起来不到 200 字。</p>
+<p>你可能会觉得：”就这？”</p>
+<p>对，就这。但在我解释它为什么有效之前，先给你看一组对比。</p>
+<h2 id="一组对比：同一个需求，两种写法"><a href="#一组对比：同一个需求，两种写法" class="headerlink" title="一组对比：同一个需求，两种写法"></a>一组对比：同一个需求，两种写法</h2><h3 id="场景：给现有项目加一个用户导出功能"><a href="#场景：给现有项目加一个用户导出功能" class="headerlink" title="场景：给现有项目加一个用户导出功能"></a>场景：给现有项目加一个用户导出功能</h3><p><strong>裸 Prompt（多数人的写法）：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给我写一个用户数据导出功能，支持 CSV 和 JSON 格式。</span><br></pre></td></tr></table></figure>
+
+<p><strong>AI 大概率会直接开写。</strong> 它不知道你的项目用什么框架，不知道你的用户表有多大，不知道哪些字段可以导出、哪些是敏感信息。它会基于自己的”常见做法”做一堆假设，然后给你一个”能跑但不一定能用”的实现。运气好的话，方向大致对；运气不好，你需要推翻重来。</p>
+<p><strong>用焚诀模板的写法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">我要给现有的用户管理模块加一个数据导出功能，支持 CSV 和 JSON 格式。</span><br><span class="line"></span><br><span class="line">在我们开始之前：</span><br><span class="line"></span><br><span class="line">1. 先用你自己的话说说你理解的——我要解决什么问题、交付物是什么。标出你拿不准但自己做了假设的地方。如果你觉得有更好的技术方案，直接说，我来决定。</span><br><span class="line"></span><br><span class="line">2. 然后向我提问——每次最多 3 个最关键的问题，直到你对以下三点有 100% 的把握：</span><br><span class="line">   - 我真正想要达成的目标是什么（而不是我字面上说的）</span><br><span class="line">   - 有哪些我没说出口的约束或偏好（技术栈、性能要求、需要兼容的现有代码、不能动的部分）</span><br><span class="line">   - 你计划怎么实现——核心思路是什么、为什么选这个方案</span><br><span class="line"></span><br><span class="line">3. 在没有得到我明确的「可以开始」之前，不要写任何代码或修改任何文件。</span><br></pre></td></tr></table></figure>
+
+<p><strong>AI 的典型输出：</strong></p>
+<blockquote>
+<p><strong>我的理解：</strong><br>你想在现有的用户管理模块中增加一个导出功能。交付物是一个可以让管理员将用户数据导出为 CSV 或 JSON 文件的接口/页面。</p>
+<p><strong>我做了以下假设（不确定是否正确）：</strong></p>
+<ul>
+<li>导出的是用户列表，不是单个用户的详情</li>
+<li>需要过滤掉敏感字段（密码哈希、token 等）</li>
+<li>导出对象是管理员角色，需要权限验证</li>
+</ul>
+<p><strong>我的 3 个问题：</strong></p>
+<ol>
+<li>导出的字段范围——是导出所有非敏感字段，还是管理员可以自选字段？</li>
+<li>数据量——用户表大概多大？如果超过 10 万行，需要考虑流式导出或异步任务</li>
+<li>现有项目用的是什么 ORM 和路由框架？我需要兼容你们的代码风格</li>
+</ol>
+</blockquote>
+<p>区别在哪？</p>
+<p>第一种写法，AI 直接开始写代码——方向对不对取决于它的假设是否碰巧跟你的需求一致。第二种写法，AI 先理解需求、暴露假设、提出关键问题——<strong>你在看到任何代码之前，就已经有机会纠正方向偏差</strong>。</p>
+<p>需要说清楚的是：这个模板不能保证 AI 最终写出完美的代码。即使走完了”复述-提问-确认”的流程，AI 依然可能在实现阶段犯错——逻辑漏洞、边界条件遗漏、性能问题。模板解决的是<strong>方向对齐</strong>的问题，不是<strong>实现质量</strong>的问题。后者需要测试、Code Review 和你自己的工程判断力。</p>
+<p>但方向对齐本身的价值是巨大的：<strong>在错误的方向上写出完美的代码，不如在正确的方向上写出需要打磨的代码。</strong></p>
+<h2 id="逐句拆解：这个模板在对-AI-的大脑做什么"><a href="#逐句拆解：这个模板在对-AI-的大脑做什么" class="headerlink" title="逐句拆解：这个模板在对 AI 的大脑做什么"></a>逐句拆解：这个模板在对 AI 的大脑做什么</h2><h3 id="打断默认行为：「在我们开始之前」"><a href="#打断默认行为：「在我们开始之前」" class="headerlink" title="打断默认行为：「在我们开始之前」"></a>打断默认行为：「在我们开始之前」</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在我们开始之前：</span><br></pre></td></tr></table></figure>
+
+<p>这六个字是整个模板最重要的一句话。</p>
+<p>它做了一件事：<strong>打断 AI 的默认行为。</strong></p>
+<p>所有主流 LLM 都有一个根深蒂固的训练倾向——用户说了需求，就立刻开始执行。这是 RLHF 训练出来的讨好本能：用户要什么，赶紧给，越快越好，显得我很有用。</p>
+<p>但”赶紧给”恰恰是问题的根源。AI 在还没理解你的真实意图时就开始写代码，相当于一个新来的工程师收到 Jira ticket 就开始 coding，连需求文档都没看完。</p>
+<p>「在我们开始之前」这六个字，等于在对 AI 说：<strong>停。别急着写代码。我们先对齐。</strong></p>
+<p>根据 <a target="_blank" rel="noopener" href="https://assets.anthropic.com/m/188122fea126a96b/original/Anthropic-Best-Practices-info-sheet.pdf">Anthropic 的 Prompt Engineering 最佳实践</a>，让模型”先思考再行动”是提升输出质量最有效的单一策略。这句话就是这个策略的最简实现。</p>
+<h3 id="三重保险：「先用你自己的话说说你理解的」"><a href="#三重保险：「先用你自己的话说说你理解的」" class="headerlink" title="三重保险：「先用你自己的话说说你理解的」"></a>三重保险：「先用你自己的话说说你理解的」</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 先用你自己的话说说你理解的——我要解决什么问题、交付物是什么。</span><br><span class="line">   标出你拿不准但自己做了假设的地方。</span><br><span class="line">   如果你觉得有更好的技术方案，直接说，我来决定。</span><br></pre></td></tr></table></figure>
+
+<p>这句话做了三件事，每一件都在解决一个高频问题：</p>
+<p><strong>第一件：复述需求。</strong> 你让 AI 用自己的话重新说一遍它理解的需求——这是最古老也最有效的沟通技术。在软件工程里，这叫 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">Rubber Duck Debugging</a> 的变体：不是你对着橡皮鸭解释问题，而是让 AI 对着你解释它理解的问题。如果 AI 的复述和你的意图不一致，你在这一步就能发现，而不是等它写完 500 行代码之后。</p>
+<p><strong>第二件：暴露假设。</strong>「标出你拿不准但自己做了假设的地方」——这一句的作用是<strong>让 AI 主动暴露它的不确定性</strong>。默认情况下，AI 不会告诉你它在猜。它会默默做出假设，然后基于这些未经验证的假设写出看起来很完整的代码。这些隐藏假设就是定时炸弹——表面上代码能跑，但建立在错误前提上的逻辑迟早要爆。</p>
+<p>Level Up Coding 的一篇分析文章将这种行为称为 <a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/four-vibe-coding-anti-patterns-f828841b5d25">Black Box Blindness（黑箱盲信）</a>——你接受了 AI 的输出，但不知道它背后做了什么假设。这句 Prompt 的作用就是把黑箱撬开。</p>
+<p><strong>第三件：鼓励替代方案。</strong>「如果你觉得有更好的技术方案，直接说，我来决定」——这句话给了 AI 一个许可：你可以不同意我的方案。默认状态下，AI 会尽量按你说的做，即使你的方案不是最优的。这句话打破了这种”唯命是从”的模式，让 AI 敢于提出更好的建议。但注意后半句——「我来决定」——决策权始终在你手里。</p>
+<h3 id="核心引擎：「然后向我提问」"><a href="#核心引擎：「然后向我提问」" class="headerlink" title="核心引擎：「然后向我提问」"></a>核心引擎：「然后向我提问」</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2. 然后向我提问——每次最多 3 个最关键的问题，直到你对以下三点有 100% 的把握：</span><br><span class="line">   - 我真正想要达成的目标是什么（而不是我字面上说的）</span><br><span class="line">   - 有哪些我没说出口的约束或偏好</span><br><span class="line">   - 你计划怎么实现——核心思路是什么、为什么选这个方案</span><br></pre></td></tr></table></figure>
+
+<p>这是模板的核心引擎。</p>
+<p><strong>「每次最多 3 个」</strong> 是一个刻意的约束。不设上限，AI 会一口气问你 10 个问题，其中 7 个无关紧要，你看完就不想回答了。限制为 3 个，迫使 AI 做优先级排序——只问最关键的。这个数字不是随便选的，而是经过反复测试的实践经验：3 个问题足够覆盖核心未知，又不会让对话变成问卷调查。</p>
+<p><strong>「我真正想要达成的目标是什么（而不是我字面上说的）」</strong> ——这一句是在教 AI 区分 <a target="_blank" rel="noopener" href="https://medium.com/@addyosmani/vibe-coding-is-not-the-same-as-ai-assisted-engineering-3f81088d5b98">stated needs 和 actual needs</a>。用户说”帮我写一个定时任务”，真正想解决的可能是”每天凌晨同步一次数据”。如果 AI 只听字面意思，它会从零写一个 cron 调度器；如果 AI 理解了真实目标，它可能会告诉你：”你的项目已经用了 Bull Queue，直接加一个 repeatable job 就行，不需要单独写定时任务。”</p>
+<p><strong>「有哪些我没说出口的约束或偏好」</strong> ——这句话解决的是 <a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/four-vibe-coding-anti-patterns-f828841b5d25">Prompt Thrashing（反复甩锅）</a> 问题。你说”帮我加个缓存”，AI 用了 Redis。你说”不要 Redis”，AI 改成 Memcached。你说”也不要 Memcached”，AI 再改成内存缓存……三个来回浪费了三轮对话，其实你一开始就应该说”用项目里已有的 node-cache 做内存缓存”。但你不会每次都记得提前说清所有约束——这句 Prompt 让 AI 主动来问你。</p>
+<p><strong>「你计划怎么实现——核心思路是什么、为什么选这个方案」</strong> ——这是 Plan Before Code 原则的自然语言实现。你不是在要求 AI 写一份正式的技术方案文档，而是让它在动手之前先说清楚”我打算怎么干”。根据 <a target="_blank" rel="noopener" href="https://turingpost.substack.com/p/ai-101-from-vibe-coding-to-spec-driven">Spec-Driven Development 的实践</a>，这一步能显著降低返工率——因为修改一个方案比修改一堆代码要便宜得多。</p>
+<h3 id="硬门禁：「在没有得到我明确的『可以开始』之前，不要写任何代码」"><a href="#硬门禁：「在没有得到我明确的『可以开始』之前，不要写任何代码」" class="headerlink" title="硬门禁：「在没有得到我明确的『可以开始』之前，不要写任何代码」"></a>硬门禁：「在没有得到我明确的『可以开始』之前，不要写任何代码」</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 在没有得到我明确的「可以开始」之前，不要写任何代码或修改任何文件。</span><br></pre></td></tr></table></figure>
+
+<p>这是一道硬门禁。</p>
+<p>没有这句话，AI 经常会在回答完问题之后”顺手”就开始写代码了——“既然我已经理解了需求，那我就直接写了吧。”不行。<strong>你还没看它的方案对不对，它就已经动手了。</strong></p>
+<p>这句话建立了一个明确的交接协议：AI 负责理解和规划，你负责审批和放行。只有你说了”可以开始”，代码才会产生。</p>
+<p>这个设计来自一个很朴素的工程经验：<strong>代码审查的最高效形式不是事后 Code Review，而是事前 Plan Review。</strong> 在代码已经写完之后做 Review，你面对的是沉没成本——推翻重来的心理阻力很大，很容易变成”差不多得了”。在方案阶段做 Review，推翻成本接近于零。</p>
+<h2 id="更多场景"><a href="#更多场景" class="headerlink" title="更多场景"></a>更多场景</h2><p>上面的用户导出功能是一个”新功能开发”的场景。下面再看两个不同类型的场景。</p>
+<h3 id="场景一：修-Bug"><a href="#场景一：修-Bug" class="headerlink" title="场景一：修 Bug"></a>场景一：修 Bug</h3><p><strong>裸 Prompt：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个函数报错了，帮我修一下。</span><br><span class="line"></span><br><span class="line">TypeError: Cannot read properties of undefined (reading &#x27;map&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>AI 的常见反应：</strong> 在 <code>map</code> 调用前加一个 <code>if (data)</code> 判断，表面上消除了报错，但没有追问”为什么 <code>data</code> 会是 <code>undefined</code>“——真正的 Bug 可能在上游的数据获取逻辑里。</p>
+<p><strong>用焚诀模板：</strong> 在报错信息和上下文描述后面附上焚诀模板（”出错的函数是 <code>UserList.tsx</code> 的 <code>renderUsers</code>，代码在第 42 行，组件从 <code>useUsers()</code> hook 拿数据”+ 模板原文）。</p>
+<p><strong>AI 的典型输出：</strong></p>
+<blockquote>
+<p><strong>我的理解：</strong> <code>renderUsers</code> 在 <code>data</code> 还未加载完成时就调用了 <code>.map()</code>，导致 <code>undefined.map()</code> 报错。但根本原因可能不是缺少空值判断——而是 <code>useUsers()</code> 的加载状态没有被正确处理。</p>
+<p><strong>我的假设：</strong> <code>useUsers()</code> 可能是一个异步 hook（如 React Query 或 SWR），有 <code>isLoading</code> / <code>data</code> / <code>error</code> 三个状态，但组件可能只用了 <code>data</code> 而忽略了 <code>isLoading</code>。</p>
+<p><strong>我的问题：</strong></p>
+<ol>
+<li><code>useUsers()</code> 是用什么库实现的？（React Query / SWR / 自定义 hook）</li>
+<li>这个组件之前是正常工作的吗？还是最近某次改动后才开始报错？（帮助定位是回归 Bug 还是一直存在的问题）</li>
+<li>你希望在数据加载中时显示什么？（loading spinner / 骨架屏 / 空状态）</li>
+</ol>
+</blockquote>
+<p>一个 Bug 修复请求，变成了一次根因分析。AI 没有急着贴创可贴，而是先搞清楚伤口在哪。</p>
+<h3 id="场景二：重构"><a href="#场景二：重构" class="headerlink" title="场景二：重构"></a>场景二：重构</h3><p><strong>裸 Prompt：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我重构这个文件，代码太乱了。</span><br></pre></td></tr></table></figure>
+
+<p><strong>AI 的常见反应：</strong> 大刀阔斧地重写整个文件，改变了函数签名、引入了新的设计模式、可能还重命名了变量——改完之后所有引用这个文件的地方都炸了。</p>
+<p><strong>用焚诀模板：</strong> 在重构需求描述后面附上焚诀模板（”我想重构 <code>src/services/payment.ts</code>，目前它有 800 行，职责混在一起了”+ 模板原文）。</p>
+<p><strong>AI 的典型输出：</strong></p>
+<blockquote>
+<p><strong>我的理解：</strong> 你想把 <code>payment.ts</code> 拆分成更小的模块，让每个模块职责单一。交付物是一组拆分后的文件，对外的 API 保持不变（不破坏调用方）。</p>
+<p><strong>我的假设：</strong></p>
+<ul>
+<li>重构的目标是可维护性，不是性能优化</li>
+<li>你希望保持现有的函数签名不变，只做内部拆分</li>
+<li>不引入新的设计模式（如 策略模式、工厂模式），除非你认为有必要</li>
+</ul>
+<p><strong>我的问题：</strong></p>
+<ol>
+<li>这个文件目前大致有几个职责？（我需要先读文件才能回答，但想确认你心中是否已有初步的拆分方向）</li>
+<li>有没有哪些函数是其他模块直接 import 的？（确认公开 API 的边界，重构时保持这些不变）</li>
+<li>你是希望一次性完成重构，还是分步进行？（如果是分步，我会先给出拆分计划，每一步确认后再执行）</li>
+</ol>
+</blockquote>
+<p>注意 AI 的第三个假设：”不引入新的设计模式”。如果没有模板，AI 在重构时最爱干的事就是把你的代码塞进某个设计模式里——你要的是”拆分文件”，它给你搞了一套”策略模式 + 工厂模式 + 依赖注入”。焚诀模板迫使 AI 先把假设摊开来，让你决定要不要搞那么复杂。</p>
+<h2 id="模板失效的时候"><a href="#模板失效的时候" class="headerlink" title="模板失效的时候"></a>模板失效的时候</h2><p>到这里你可能觉得这个模板挺好用。但我必须诚实地说：<strong>它不是银弹，有几类情况下它帮不了你。</strong></p>
+<h3 id="对齐之后依然翻车"><a href="#对齐之后依然翻车" class="headerlink" title="对齐之后依然翻车"></a>对齐之后依然翻车</h3><p>最常见的失败模式：AI 走完了”复述-提问-确认”的全流程，你看了它的方案觉得靠谱，说了”可以开始”——然后它写出的代码依然有问题。</p>
+<p>这不是模板的 Bug，而是模板的设计边界。焚诀解决的是<strong>方向对齐</strong>——确保 AI 理解了你要什么。但”理解了需求”和”写出正确的实现”之间还有一道鸿沟。AI 可能方案说得头头是道，但在实现时忘了处理并发、搞错了 API 的调用顺序、或者用了一个有已知 Bug 的库版本。</p>
+<p>所以模板必须配合下游的质量保障手段——测试、Code Review、渐进式验证。它不是终点，是起点。</p>
+<h3 id="AI-问了正确的问题但你给了错误的答案"><a href="#AI-问了正确的问题但你给了错误的答案" class="headerlink" title="AI 问了正确的问题但你给了错误的答案"></a>AI 问了正确的问题但你给了错误的答案</h3><p>另一个失败模式：AI 问你”用户表有多大？”，你随口说”不大，几千条”。结果上线后发现用户表其实已经有 50 万条了——之前你看的是测试环境。AI 基于你的回答选择了全量查询方案，生产环境直接超时。</p>
+<p>模板让 AI 来问你，但<strong>你的回答质量决定了最终结果</strong>。垃圾进，垃圾出——这条定律不会因为多了一个模板就失效。</p>
+<h3 id="需求本身就是模糊的"><a href="#需求本身就是模糊的" class="headerlink" title="需求本身就是模糊的"></a>需求本身就是模糊的</h3><p>有时候你自己也不知道想要什么。你说”帮我优化一下这个页面的体验”——AI 问你”具体哪个方面的体验？加载速度、交互流畅度、还是视觉布局？”你想了想，发现自己也说不清。</p>
+<p>模板不能替你想清楚需求。它能做的是<strong>让你更早地意识到需求不清晰</strong>——通过 AI 的追问，你被迫面对自己还没想清楚的部分。这本身是有价值的，但解决方案不在 Prompt 层面，而在需求分析层面。</p>
+<h2 id="微调指南"><a href="#微调指南" class="headerlink" title="微调指南"></a>微调指南</h2><p>焚诀模板是”满配版”。在不同场景下，你可以做减法。</p>
+<h3 id="简单任务：砍到只剩一句话"><a href="#简单任务：砍到只剩一句话" class="headerlink" title="简单任务：砍到只剩一句话"></a>简单任务：砍到只剩一句话</h3><p>如果任务足够简单——比如”把这个变量名从 <code>data</code> 改成 <code>userData</code>“——你不需要完整模板。但即使是简单任务，你也可以保留模板的精神，只用一句话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">帮我把 src/hooks/useAuth.ts 第 15 行的 data 改名为 userData，同时更新所有引用。</span><br><span class="line">改之前先告诉我会影响哪些文件。</span><br></pre></td></tr></table></figure>
+
+<p>核心思想不变：<strong>先说清楚再动手。</strong></p>
+<h3 id="复杂架构任务：加料"><a href="#复杂架构任务：加料" class="headerlink" title="复杂架构任务：加料"></a>复杂架构任务：加料</h3><p>如果任务涉及架构级别的决策——比如”设计一个消息队列系统”或”把单体服务拆成微服务”——可以在模板后面追加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">额外要求：</span><br><span class="line">- 给出至少 2 个可选方案，列出各自的优缺点</span><br><span class="line">- 画出数据流图（用 ASCII 或 Mermaid 语法）</span><br><span class="line">- 列出这个方案引入的新依赖，以及每个依赖的维护状态</span><br></pre></td></tr></table></figure>
+
+<h3 id="按工具适配"><a href="#按工具适配" class="headerlink" title="按工具适配"></a>按工具适配</h3><p><strong>Cursor：</strong> 模板直接粘贴在对话框即可。如果你想让它变成默认行为，写进 <code>.cursorrules</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># .cursorrules</span><br><span class="line"></span><br><span class="line">## 交互规则</span><br><span class="line">在接到任何编码任务时，先执行以下流程，不要直接写代码：</span><br><span class="line">1. 用自己的话复述你理解的需求和交付物，标出你做了假设的地方</span><br><span class="line">2. 提出最多 3 个关键问题</span><br><span class="line">3. 等待用户明确说「可以开始」后再写代码</span><br></pre></td></tr></table></figure>
+
+<p><strong>Claude Code：</strong> 写进项目根目录的 <code>CLAUDE.md</code>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># CLAUDE.md</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 交互协议</span></span><br><span class="line"><span class="bullet">-</span> 收到编码任务后，不要直接写代码</span><br><span class="line"><span class="bullet">-</span> 先复述你理解的需求，标出假设</span><br><span class="line"><span class="bullet">-</span> 提出最多 3 个关键问题</span><br><span class="line"><span class="bullet">-</span> 等用户说「可以开始」再动手</span><br></pre></td></tr></table></figure>
+
+<p>根据 <a target="_blank" rel="noopener" href="https://thepromptshelf.dev/blog/cursorrules-vs-claude-md">Claude Code 的分层规则系统</a>，写在 <code>CLAUDE.md</code> 里的指令会成为项目级的默认行为——你不需要每次对话都粘贴模板了。</p>
+<p><strong>ChatGPT / Gemini / 其他：</strong> 直接粘贴在对话开头即可。这些工具没有项目级指令文件的机制，所以需要每次新对话都贴一次。一个变通方案是保存为自定义 GPT 的 System Instructions 或 Gemini Gems 的指令。</p>
+<h3 id="团队协作场景"><a href="#团队协作场景" class="headerlink" title="团队协作场景"></a>团队协作场景</h3><p>如果你在团队中使用 AI 编程工具，可以把模板固化为团队规范：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># AGENTS.md（跨工具通用格式）</span></span><br><span class="line"></span><br><span class="line"><span class="section">## AI 协作协议</span></span><br><span class="line">本项目中所有 AI 编程助手必须遵守以下交互流程：</span><br><span class="line"><span class="bullet">1.</span> 收到任务后先复述需求，暴露假设</span><br><span class="line"><span class="bullet">2.</span> 提出最多 3 个关键问题</span><br><span class="line"><span class="bullet">3.</span> 等待人工确认后再编写代码</span><br><span class="line"></span><br><span class="line">此规则无例外。</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://thepromptshelf.dev/blog/cursorrules-vs-claude-md"><code>AGENTS.md</code></a> 是一种跨工具兼容的格式，Cursor、Claude Code、Copilot Workspace 等多个工具都能读取。</p>
+<h2 id="它到底解决了什么问题"><a href="#它到底解决了什么问题" class="headerlink" title="它到底解决了什么问题"></a>它到底解决了什么问题</h2><p>AI 犯错的原因有很多，但其中最常见的三个，这个模板都能缓解。</p>
+<h3 id="缺上下文"><a href="#缺上下文" class="headerlink" title="缺上下文"></a>缺上下文</h3><p>AI 不知道你的项目结构、技术栈、代码风格、业务背景。它只能看到你发给它的那几行 Prompt。缺失的上下文 = 它需要猜测的空间 = 猜错的概率。</p>
+<p>模板怎么缓解的：<strong>「先用你自己的话说说你理解的」</strong> ——迫使 AI 把它理解到的（以及没理解到的）全都暴露出来。你一眼就能看出它缺了什么上下文，补上就行。</p>
+<h3 id="缺约束"><a href="#缺约束" class="headerlink" title="缺约束"></a>缺约束</h3><p>AI 的输出空间是巨大的。”写一个导出功能”有一万种实现方式，不加约束就是在解空间里随机采样。</p>
+<p>模板怎么缓解的：<strong>「有哪些我没说出口的约束或偏好」</strong> ——AI 主动来问你约束是什么，而不是你绞尽脑汁去想”我还有什么没说清的”。</p>
+<h3 id="缺验证"><a href="#缺验证" class="headerlink" title="缺验证"></a>缺验证</h3><p>AI 不会主动告诉你它不确定的地方。它会用自信的语气写出错误的代码。</p>
+<p>模板怎么缓解的：<strong>「标出你拿不准但自己做了假设的地方」+「在没有得到我明确的『可以开始』之前，不要写任何代码」</strong> ——前者让 AI 主动标注不确定性，后者给了你一个验证窗口。</p>
+<p>注意我用的词是”缓解”而不是”解决”。模板提供的是一个更好的沟通起点，不是一个万无一失的保障。上下文可能补了但不够，约束可能问了但漏了，假设可能标了但你没注意看。模板把你从 60 分拉到 80 分，但从 80 分到 95 分需要的是领域经验、精确的上下文和对工具特性的深入理解。</p>
+<h3 id="模板不适用的场景"><a href="#模板不适用的场景" class="headerlink" title="模板不适用的场景"></a>模板不适用的场景</h3><p><strong>纯探索性对话</strong>——你还没有明确的任务，只是想让 AI 帮你调研一个技术方向，或者头脑风暴一些方案。这时候你不需要”先对齐再动手”，你需要的是发散式对话。模板此时反而是束缚。</p>
+<p><strong>极短的一次性指令</strong>——“帮我格式化这段 JSON”、”这个正则表达式是什么意思”。这类问题的上下文完全自包含，不需要模板介入。</p>
+<p><strong>AI 已经充分理解项目上下文时</strong>——如果你已经通过 <code>CLAUDE.md</code> / <code>.cursorrules</code> 给了充分的项目上下文，并且在同一个会话中已经完成了多轮对齐，后续的小改动可以直接下指令，不需要每次都走完整流程。</p>
+<p>一句话总结：<strong>焚诀模板解决的是”对齐”问题。如果不存在对齐风险，就不需要它。</strong></p>
+<h3 id="和其他方法论的关系"><a href="#和其他方法论的关系" class="headerlink" title="和其他方法论的关系"></a>和其他方法论的关系</h3><p>市面上不缺 Prompt 方法论。焚诀模板和它们的关系不是替代，而是互补：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.to/iniyarajan86/prompt-engineering-for-developers-10x-your-ai-coding-in-2026-8d6">CRISP 框架</a>告诉你”要给上下文”，焚诀模板让 AI 自己来要上下文</li>
+<li><a target="_blank" rel="noopener" href="https://promptbuilder.cc/blog/prompt-engineering-best-practices-2025">GOLDEN Checklist</a> 告诉你”要定义约束”，焚诀模板让 AI 自己来问约束</li>
+<li>Chain-of-Thought 告诉你”让 AI 分步推理”，焚诀模板的第 2 条本质上就是 CoT 的自然语言版</li>
+<li>Few-Shot Prompting 和焚诀模板不冲突，你可以在模板后面追加示例</li>
+</ul>
+<p>区别在于：<strong>方法论要求你在写 Prompt 之前做功课。焚诀模板把其中一部分功课转移给了 AI。</strong></p>
+<p>这不是说方法论没用——当你面对特别复杂或特别关键的任务时，CRISP 的系统化思考、Few-Shot 的示例引导，都能在焚诀模板的基础上进一步提升质量。焚诀是一个好的默认起点，但不是唯一需要的工具。</p>
+<h2 id="焚诀的本质"><a href="#焚诀的本质" class="headerlink" title="焚诀的本质"></a>焚诀的本质</h2><p>Vibe Coding 的支持者和反对者一直在吵一个问题：<a target="_blank" rel="noopener" href="https://medium.com/@addyosmani/vibe-coding-is-not-the-same-as-ai-assisted-engineering-3f81088d5b98">“Vibe Coding 到底是不是真正的编程？”</a> Google 的 Addy Osmani 在他广泛传播的文章中给出了一个更精准的区分：Vibe Coding 和 AI-Assisted Engineering 是两件完全不同的事——前者是”让 AI 写，我验收”，后者是”我主导，AI 辅助”。</p>
+<p>焚诀模板站在后者这边。它的本质不是一个 Prompt 技巧，而是一个<strong>沟通协议</strong>——你和 AI 之间的握手协议。它确保双方在动手之前达成共识：需求是什么、约束是什么、方案是什么。</p>
+<p>这和你跟人类工程师协作的道理完全一样。你不会对一个新来的同事说”帮我写个导出功能”然后转身就走。你会先确认他理解了需求，回答他的问题，看他的方案再说”可以”。</p>
+<p>AI 不是一个搜索引擎，也不是一个代码生成器。<strong>它是一个需要 onboarding 的新同事。</strong> 焚诀模板就是那个 onboarding 流程——只是压缩到了 200 字以内。</p>
+<p>所以，焚诀之后，你要记住的不是这个模板的具体文字——你可以随时查这篇文章复制粘贴。你要记住的是背后那一条原则：</p>
+<p><strong>先对齐，再动手。</strong></p>
+<p>这条原则在你用 AI 写代码时有效，在你跟人协作时有效，在你自己做任何需要明确方向的事情时，都有效。</p>
+<p>最好的 Prompt 技巧，就是你不再需要想 Prompt 技巧。</p>
+<h2 id="附：Prompt-焚诀速查卡"><a href="#附：Prompt-焚诀速查卡" class="headerlink" title="附：Prompt 焚诀速查卡"></a>附：Prompt 焚诀速查卡</h2><p>复制下面的文本，直接粘贴到你的 <code>CLAUDE.md</code> / <code>.cursorrules</code> / <code>AGENTS.md</code> 里。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在我们开始之前：</span><br><span class="line"></span><br><span class="line">1. 先用你自己的话说说你理解的——我要解决什么问题、交付物是什么。标出你拿不准但自己做了假设的地方。如果你觉得有更好的技术方案，直接说，我来决定。</span><br><span class="line"></span><br><span class="line">2. 然后向我提问——每次最多 3 个最关键的问题，直到你对以下三点有 100% 的把握：</span><br><span class="line">   - 我真正想要达成的目标是什么（而不是我字面上说的）</span><br><span class="line">   - 有哪些我没说出口的约束或偏好（技术栈、性能要求、需要兼容的现有代码、不能动的部分）</span><br><span class="line">   - 你计划怎么实现——核心思路是什么、为什么选这个方案</span><br><span class="line"></span><br><span class="line">3. 在没有得到我明确的「可以开始」之前，不要写任何代码或修改任何文件。</span><br></pre></td></tr></table></figure>
+
+<p>核心原则：<strong>先对齐，再动手。</strong></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://assets.anthropic.com/m/188122fea126a96b/original/Anthropic-Best-Practices-info-sheet.pdf">Anthropic Prompt Engineering Best Practices</a></li>
+<li><a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/four-vibe-coding-anti-patterns-f828841b5d25">Four Vibe Coding Anti-Patterns - Level Up Coding</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@addyosmani/vibe-coding-is-not-the-same-as-ai-assisted-engineering-3f81088d5b98">Vibe Coding Is Not the Same as AI-Assisted Engineering - Addy Osmani</a></li>
+<li><a target="_blank" rel="noopener" href="https://turingpost.substack.com/p/ai-101-from-vibe-coding-to-spec-driven">From Vibe Coding to Spec-Driven Development - Turing Post</a></li>
+<li><a target="_blank" rel="noopener" href="https://thepromptshelf.dev/blog/cursorrules-vs-claude-md">.cursorrules vs CLAUDE.md - The Prompt Shelf</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.to/iniyarajan86/prompt-engineering-for-developers-10x-your-ai-coding-in-2026-8d6">Prompt Engineering for Developers: 10x Your AI Coding in 2026</a></li>
+<li><a target="_blank" rel="noopener" href="https://promptbuilder.cc/blog/prompt-engineering-best-practices-2025">Prompt Engineering Best Practices 2025 - Prompt Builder</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@luxairlake/tdd-with-vibe-coding-why-this-combo-rules-the-ai-development-era-7518ff3155d2">TDD with Vibe Coding - Medium</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.to/smarttabdev/the-hidden-drawbacks-of-vibe-coding-for-professional-developers-22f2">The Hidden Drawbacks of Vibe Coding - Dev.to</a></li>
+<li><a target="_blank" rel="noopener" href="https://dashankadesilva.medium.com/vibe-coding-best-practices-for-everyday-development-09365f057e49">Vibe Coding Best Practices - Dashan Kadesilva</a></li>
+</ol>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/shenzhen-longxia-zhenxiang/">AI终于动手干活了——深圳千人排队养龙虾背后的真相</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prompt-%E7%84%9A%E8%AF%80%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%9D%BF%EF%BC%8C%E7%BB%88%E7%BB%93%E4%BD%A0%E5%92%8C-AI-%E7%9A%84%E6%89%80%E6%9C%89%E6%B2%9F%E9%80%9A%E9%97%AE%E9%A2%98"><span class="toc-text">Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%AD%A6-100-%E6%9D%A1%E6%8A%80%E5%B7%A7%E4%BA%86"><span class="toc-text">别学 100 条技巧了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%85%A8%E6%96%87"><span class="toc-text">模板全文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%84%E5%AF%B9%E6%AF%94%EF%BC%9A%E5%90%8C%E4%B8%80%E4%B8%AA%E9%9C%80%E6%B1%82%EF%BC%8C%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95"><span class="toc-text">一组对比：同一个需求，两种写法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%EF%BC%9A%E7%BB%99%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%8A%A0%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD"><span class="toc-text">场景：给现有项目加一个用户导出功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E5%8F%A5%E6%8B%86%E8%A7%A3%EF%BC%9A%E8%BF%99%E4%B8%AA%E6%A8%A1%E6%9D%BF%E5%9C%A8%E5%AF%B9-AI-%E7%9A%84%E5%A4%A7%E8%84%91%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-text">逐句拆解：这个模板在对 AI 的大脑做什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E6%96%AD%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA%EF%BC%9A%E3%80%8C%E5%9C%A8%E6%88%91%E4%BB%AC%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D%E3%80%8D"><span class="toc-text">打断默认行为：「在我们开始之前」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E9%87%8D%E4%BF%9D%E9%99%A9%EF%BC%9A%E3%80%8C%E5%85%88%E7%94%A8%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AF%9D%E8%AF%B4%E8%AF%B4%E4%BD%A0%E7%90%86%E8%A7%A3%E7%9A%84%E3%80%8D"><span class="toc-text">三重保险：「先用你自己的话说说你理解的」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%BC%95%E6%93%8E%EF%BC%9A%E3%80%8C%E7%84%B6%E5%90%8E%E5%90%91%E6%88%91%E6%8F%90%E9%97%AE%E3%80%8D"><span class="toc-text">核心引擎：「然后向我提问」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E9%97%A8%E7%A6%81%EF%BC%9A%E3%80%8C%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%BE%97%E5%88%B0%E6%88%91%E6%98%8E%E7%A1%AE%E7%9A%84%E3%80%8E%E5%8F%AF%E4%BB%A5%E5%BC%80%E5%A7%8B%E3%80%8F%E4%B9%8B%E5%89%8D%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%86%99%E4%BB%BB%E4%BD%95%E4%BB%A3%E7%A0%81%E3%80%8D"><span class="toc-text">硬门禁：「在没有得到我明确的『可以开始』之前，不要写任何代码」</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%9C%BA%E6%99%AF"><span class="toc-text">更多场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9A%E4%BF%AE-Bug"><span class="toc-text">场景一：修 Bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9A%E9%87%8D%E6%9E%84"><span class="toc-text">场景二：重构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%A4%B1%E6%95%88%E7%9A%84%E6%97%B6%E5%80%99"><span class="toc-text">模板失效的时候</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%BD%90%E4%B9%8B%E5%90%8E%E4%BE%9D%E7%84%B6%E7%BF%BB%E8%BD%A6"><span class="toc-text">对齐之后依然翻车</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E9%97%AE%E4%BA%86%E6%AD%A3%E7%A1%AE%E7%9A%84%E9%97%AE%E9%A2%98%E4%BD%86%E4%BD%A0%E7%BB%99%E4%BA%86%E9%94%99%E8%AF%AF%E7%9A%84%E7%AD%94%E6%A1%88"><span class="toc-text">AI 问了正确的问题但你给了错误的答案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E6%9C%AC%E8%BA%AB%E5%B0%B1%E6%98%AF%E6%A8%A1%E7%B3%8A%E7%9A%84"><span class="toc-text">需求本身就是模糊的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E8%B0%83%E6%8C%87%E5%8D%97"><span class="toc-text">微调指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%BB%E5%8A%A1%EF%BC%9A%E7%A0%8D%E5%88%B0%E5%8F%AA%E5%89%A9%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="toc-text">简单任务：砍到只剩一句话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%9E%B6%E6%9E%84%E4%BB%BB%E5%8A%A1%EF%BC%9A%E5%8A%A0%E6%96%99"><span class="toc-text">复杂架构任务：加料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E5%B7%A5%E5%85%B7%E9%80%82%E9%85%8D"><span class="toc-text">按工具适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%9C%BA%E6%99%AF"><span class="toc-text">团队协作场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%83%E5%88%B0%E5%BA%95%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-text">它到底解决了什么问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">缺上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%BA%A6%E6%9D%9F"><span class="toc-text">缺约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E9%AA%8C%E8%AF%81"><span class="toc-text">缺验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%B8%8D%E9%80%82%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-text">模板不适用的场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E8%AE%BA%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">和其他方法论的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%84%9A%E8%AF%80%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">焚诀的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%EF%BC%9APrompt-%E7%84%9A%E8%AF%80%E9%80%9F%E6%9F%A5%E5%8D%A1"><span class="toc-text">附：Prompt 焚诀速查卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
