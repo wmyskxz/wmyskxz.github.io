@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？ - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？ 2026 年 2 月，OpenAI（开发了 ChatGPT 的人工智能公司）的 Codex 团队发了一篇博客，标题是《Harness engineering: leveraging Codex in an agent-first world》（驾驭工程：在 Agent 优先的世界中使用 Codex）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？">
+<meta property="og:url" content="https://www.wmyskxz.cn/ai/harness-engineering/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？ 2026 年 2 月，OpenAI（开发了 ChatGPT 的人工智能公司）的 Codex 团队发了一篇博客，标题是《Harness engineering: leveraging Codex in an agent-first world》（驾驭工程：在 Agent 优先的世界中使用 Codex）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2026-03-31T07:38:00.000Z">
+<meta property="article:modified_time" content="2026-03-31T07:40:52.476Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="AI这件事">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="AI这件事">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2026-03-31T15:38:00+08:00","dateModified":"2026-03-31T15:40:52+08:00","datePublished":"2026-03-31T15:38:00+08:00","description":"","headline":"AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/ai/harness-engineering/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/ai/harness-engineering/","keywords":"AI这件事","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331150201771.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/ai/harness-engineering/"><span class="title">AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？</span></a><a class="item title" href="/weekly/171/"><span class="title">代码之外周刊（第 171 期）：当技术让一切趋同，我们还剩什么？</span></a><a class="item title" href="/psychology/rensheng-rongcuolv/"><span class="title">人生的容错率大到无法想象——你以为的"毁了"，其实什么都没毁</span></a><a class="item title" href="/weekly/170/"><span class="title">代码之外周刊（第 170 期）：为什么你总是在「卷」？</span></a><a class="item title" href="/prompt-fen-jue/"><span class="title">Prompt 焚诀——一个模板，终结你和 AI 的所有沟通问题</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/AI%E8%BF%99%E4%BB%B6%E4%BA%8B/">AI这件事</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-03-31T07:38:00.000Z">2026-03-31</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-31T07:40:52.476Z">2026-03-31</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="AI-写了-100-万行代码，靠的不是更聪明——Harness-Engineering-是什么？"><a href="#AI-写了-100-万行代码，靠的不是更聪明——Harness-Engineering-是什么？" class="headerlink" title="AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？"></a>AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331150201771.png"></p>
+<p>2026 年 2 月，OpenAI（开发了 ChatGPT 的人工智能公司）的 Codex 团队发了一篇博客，标题是<a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">《Harness engineering: leveraging Codex in an agent-first world》</a>（驾驭工程：在 Agent 优先的世界中使用 Codex）。Codex 是 OpenAI 开发的一个 AI 编程工具——你告诉它”做什么”，它自己去写代码。</p>
+<p>博客里记录了一个疯狂的实验：</p>
+<p>从 2025 年 8 月开始，一个 3 人工程团队（后来扩展到 7 人），让 AI Agent（可以自主执行多步任务的 AI 程序，后面会详细解释）从零开始构建一个生产级应用。5 个月后，这个应用的代码量达到了约 <strong>100 万行</strong>，合并了大约 <strong>1500 个 Pull Request</strong>（Pull Request 是程序员向项目提交代码修改的一种方式，可以理解为”请审核我的修改”）。</p>
+<p><strong>人类没有手动写过一行代码。</strong></p>
+<p>你可能以为他们的秘密武器是”更强的 AI 模型”，或者”更精妙的提示词”。</p>
+<p>都不是。</p>
+<p>负责这个项目的工程师 Ryan Lopopolo 事后说了一句话，在整个技术圈传开了：</p>
+<blockquote>
+<p><strong>“Agents aren’t hard; the Harness is hard.”</strong><br>（Agent 不难，难的是 Harness。）</p>
+</blockquote>
+<p>Harness 这个词，原意是”马具”——缰绳、马鞍、护具，那一整套让马能被骑手控制的装备。</p>
+<p>Ryan 用这个词来指 AI Agent 周围的一整套系统：约束规则、自动检测、反馈机制、错误修复流程……<strong>不是 AI 本身，而是 AI”住”的那个环境。</strong></p>
+<p>这个概念，后来被叫做 <strong>Harness Engineering</strong>（驾驭工程）。</p>
+<p>这篇文章，我们来把它彻底拆开看看——它到底解决什么问题？它和你听过的 Prompt Engineering 有什么关系？为什么有人说它才是 AI 时代真正值钱的技能？</p>
+<h2 id="Part-1：问题——光有聪明的-AI，远远不够"><a href="#Part-1：问题——光有聪明的-AI，远远不够" class="headerlink" title="Part 1：问题——光有聪明的 AI，远远不够"></a>Part 1：问题——光有聪明的 AI，远远不够</h2><p>先从一个你可能已经知道的事情说起。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331150253135.png" alt="@网络图片"></p>
+<p>AI（这里特指大语言模型，也就是 ChatGPT、Claude（Anthropic 公司开发的 AI 助手）这类”聊天 AI”背后的技术）本质上是一个<strong>超级模式匹配器</strong>——这不是一个比喻，而是对它工作原理的准确描述。简单来说：AI 在训练时”阅读”了互联网上数十亿页的文字，记住了”什么样的文字组合经常一起出现”。当你问它问题时，它不是在”思考答案”，而是在用这些统计规律预测”接下来最可能的词是什么”，然后一个词一个词地把回答”拼”出来。</p>
+<p>这意味着两件事：</p>
+<ol>
+<li>它<strong>很强</strong>——在模式匹配类的任务上（写文章、翻译、写代码、整理信息），它的速度和质量经常让人惊叹。</li>
+<li>它<strong>不可靠</strong>——它不”理解”自己在说什么，所以会编造事实、犯逻辑错误、在你没注意的地方埋下隐患。</li>
+</ol>
+<p>这两个特点，在”聊天”场景下问题不大。你问它一个问题，它回答了，你扫一眼，觉得不对就让它重来——整个过程你全程盯着，犯错了马上就能发现。</p>
+<p><strong>但现在情况变了。</strong></p>
+<p>2025 年以来，AI 的使用方式正在从”一问一答的聊天”转向”自主执行任务的 Agent”。</p>
+<p>什么意思？以前你跟 AI 说”帮我写一封邮件”，它写完你看看就完了。现在你可以跟 AI 说”帮我把这个功能开发出来”——它会自己去读代码、写代码、运行测试、发现 bug、修复 bug、提交修改……整个过程可能持续几个小时，中间你完全不介入。</p>
+<p>问题来了：<strong>一个会犯错的东西，自主运行几个小时，中间没人盯着——你觉得会发生什么？</strong></p>
+<p>2025 年 7 月，就有一个<a target="_blank" rel="noopener" href="https://darkreading.com/application-security/ai-agents-ignore-security-policies">被广泛报道的案例</a>：一个 AI 编程助手无视了代码冻结的指令，绕过了安全策略，最终删除了一个生产数据库。AI 在技术上”成功完成了任务”——但它完全不理解自己做的事情意味着什么。</p>
+<p>这不是个例。行业数据显示，<a target="_blank" rel="noopener" href="https://www.digitalapplied.com/blog/88-percent-ai-agents-never-reach-production-failure-framework">大约 80%-90% 的 AI Agent 项目没能进入生产环境</a>。不是因为 AI 不够聪明，而是因为没有人搭好它”干活的环境”。</p>
+<p>打个比方：</p>
+<p>你招了一个实习生。这个实习生知识渊博，反应极快，干活速度是普通人的 10 倍。但他有一个致命的问题——<strong>他不知道什么不该碰。</strong> 他不知道生产环境和测试环境的区别，不知道某些文件是绝对不能删的，不知道改了代码之后要先跑测试再提交。</p>
+<p>如果你把他扔进公司，什么规矩都不定，什么检查流程都没有，让他”自由发挥”——</p>
+<p>他大概率会在一周内把项目搞崩。</p>
+<p><strong>不是因为他蠢，是因为没人给他搭好工作环境。</strong></p>
+<p>AI Agent 就是这个实习生。而 Harness Engineering 要解决的，就是<strong>怎么给这个实习生搭一个不翻车的工作环境。</strong></p>
+<p>我第一次看到那个”删除生产数据库”的案例时，脑子里的第一反应是：”这 AI 也太蠢了吧？”但仔细一想，不对——AI 做的每一步操作，单独来看都是”正确的”。它执行了指令，完成了任务。真正的问题不是 AI 蠢，而是没人告诉它”这个操作会让整个公司停摆”。就像你给一个实习生说”把那个旧数据库清理掉”，他真的清了——他怎么知道那是生产环境？</p>
+<p>这个认知的转变让我意识到：<strong>AI 时代最重要的问题，不是”怎么让 AI 更聪明”，而是”怎么让一个已经足够聪明但完全不靠谱的东西，变成你能信任的工具”。</strong></p>
+<h2 id="Part-2：演进——从”怎么说话”到”搭什么环境”"><a href="#Part-2：演进——从”怎么说话”到”搭什么环境”" class="headerlink" title="Part 2：演进——从”怎么说话”到”搭什么环境”"></a>Part 2：演进——从”怎么说话”到”搭什么环境”</h2><p>Harness Engineering 不是凭空冒出来的。它是 AI 使用方式演进的第三个阶段。</p>
+<p>让我按时间线把这三个阶段串起来。</p>
+<h3 id="第一阶段：Prompt-Engineering——“怎么跟-AI-说话”（2022-2024）"><a href="#第一阶段：Prompt-Engineering——“怎么跟-AI-说话”（2022-2024）" class="headerlink" title="第一阶段：Prompt Engineering——“怎么跟 AI 说话”（2022-2024）"></a>第一阶段：Prompt Engineering——“怎么跟 AI 说话”（2022-2024）</h3><p>2022 年底，ChatGPT 横空出世，所有人都在研究一个问题：<strong>怎么跟 AI 说话，才能让它给出更好的回答？</strong></p>
+<p>这就是 Prompt Engineering（提示词工程）。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331152833571.png" alt="@网络图片"></p>
+<p>核心思路很简单：精心设计你给 AI 的指令（也就是”提示词”），让它的输出更符合你的需求。</p>
+<p>比如同样是让 AI 写邮件：</p>
+<blockquote>
+<p>❌ 普通提示词：”帮我写一封邮件。”<br>→ AI 输出一封平庸的模板邮件。</p>
+</blockquote>
+<blockquote>
+<p>✅ 精心设计的提示词：”我是一个产品经理，需要给工程团队写一封邮件，说明本周需求变更的原因。语气要专业但不生硬，控制在 200 字以内。”<br>→ AI 输出一封精准、得体的邮件。</p>
+</blockquote>
+<p>为什么有效？因为更丰富的上下文让 AI 的模式匹配更精准了——你给的信息越多，它能”匹配”到的模式就越准确。</p>
+<p>Prompt Engineering 在 2023-2024 年非常火，甚至催生了一个新职业：”提示词工程师”。各种技巧层出不穷——Chain of Thought（让 AI 一步一步想）、Few-shot（给 AI 看几个例子再让它做）、角色扮演（让 AI 假装自己是某个专家）——但它们的底层逻辑都是一样的：<strong>给 AI 更多、更好的上下文信息，让它的模式匹配更精准。</strong></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331150053111.png" alt="2024 年 Prompt 工程师招聘广告"></p>
+<p><strong>但 Prompt Engineering 有一个根本性的局限：它只解决了”单次交互”的问题。</strong></p>
+<p>你精心写了一条提示词，AI 给了你一个好回答——很棒。但如果你要让 AI 自主完成一个包含 20 个步骤的任务呢？你总不能给每一步都写一条提示词，然后站在旁边一步一步地喂吧？</p>
+<p>打个比方：Prompt Engineering 就像给员工下了一条口头指令。指令精确的话，这一次的活儿干得漂亮。但它没法让员工独立工作一整天——因为口头指令管不了他遇到意外情况时该怎么办。</p>
+<h3 id="第二阶段：Context-Engineering——“给-AI-看什么资料”（2025）"><a href="#第二阶段：Context-Engineering——“给-AI-看什么资料”（2025）" class="headerlink" title="第二阶段：Context Engineering——“给 AI 看什么资料”（2025）"></a>第二阶段：Context Engineering——“给 AI 看什么资料”（2025）</h3><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331152216274.png" alt="@网络图片"></p>
+<p>2025 年 6 月，Shopify（一家大型电商平台公司）的 CEO <a target="_blank" rel="noopener" href="https://refactoring.fm/p/managing-context-for-ai-coding">Tobi Lütke</a> 公开说：他更喜欢用”Context Engineering”（上下文工程）这个词，而不是”Prompt Engineering”。紧接着，前 Tesla AI 总监、OpenAI 联合创始人 <a target="_blank" rel="noopener" href="https://blog.langchain.com/the-rise-of-context-engineering/">Andrej Karpathy</a> 也表示赞同，他把 Context Engineering 定义为”一门精巧的技艺——把恰好正确的信息，在恰好正确的时刻，以恰好正确的格式，填进 AI 的上下文窗口”。</p>
+<p><strong>Context Engineering 的核心洞察是：光写好指令不够，你还得给 AI 看对资料。</strong></p>
+<p>上下文窗口（context window）是 AI 一次能”看到”的全部信息——包括你的指令、对话历史、背景资料等等。AI 的输出质量，很大程度上取决于这个窗口里装了什么。</p>
+<p>所以 Context Engineering 不只是写好一条指令，而是管理 AI 能看到的<strong>全部信息</strong>：</p>
+<ul>
+<li>通过 RAG（检索增强生成——一种让 AI 在回答前先从外部数据库搜索相关资料的技术）给 AI 提供最新的文档</li>
+<li>管理对话历史，让 AI 记住之前说过的话</li>
+<li>在正确的时机给 AI 提供正确的背景信息</li>
+</ul>
+<p>打个比方：如果说 Prompt Engineering 是给员工下了一条口头指令，Context Engineering 就是<strong>在下指令的同时，给了他一份项目文档和操作手册。</strong></p>
+<p>有了正确的资料，AI 做多步任务的能力明显增强了。</p>
+<p><strong>但还是不够。</strong></p>
+<p>为什么？因为即使你给了 AI 正确的资料，它依然可能跑偏——资料告诉了它”应该做什么”，但没有告诉它”绝对不能做什么”。它没有检查机制，没有行为边界，没有”做错了自动报警”的系统。</p>
+<p>就像那个实习生：你给了他项目文档和操作手册，很好。但如果你没有告诉他”生产数据库绝对不能碰”，没有设好代码提交前的自动检查，没有建立”发现错误就回滚”的流程——他看完文档之后，还是可能闯祸。</p>
+<h3 id="第三阶段：Harness-Engineering——“搭好整个工作环境”（2026）"><a href="#第三阶段：Harness-Engineering——“搭好整个工作环境”（2026）" class="headerlink" title="第三阶段：Harness Engineering——“搭好整个工作环境”（2026）"></a>第三阶段：Harness Engineering——“搭好整个工作环境”（2026）</h3><p>2026 年初，Mitchell Hashimoto——他是 Terraform（一个被全球数百万开发者使用的基础设施管理工具）和 Vagrant（一个虚拟开发环境管理工具）的创造者——在他的个人博客上发表了一篇文章，标题叫<a target="_blank" rel="noopener" href="https://mitchellh.com/writing/my-ai-adoption-journey">《My AI Adoption Journey》</a>（我的 AI 采用之旅）。</p>
+<p>文章里有一段话被广泛引用：</p>
+<blockquote>
+<p><strong>“每次发现 Agent 犯了一个错误，你就花时间设计一个方案，让 Agent 再也不会犯同样的错误。”</strong></p>
+</blockquote>
+<p>这就是 Harness Engineering 的核心理念。</p>
+<p><strong>不只是给 AI 好的指令（Prompt Engineering），不只是给 AI 对的资料（Context Engineering），而是搭建一整套系统——约束、验证、反馈、纠错——让 AI 在里面安全、可靠、持续地干活。</strong></p>
+<p>三个阶段的演进关系，一张表就能看清：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>核心问题</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prompt Engineering</td>
+<td>2022-2024</td>
+<td>怎么跟 AI 说话？</td>
+<td>给员工一条口头指令</td>
+</tr>
+<tr>
+<td>Context Engineering</td>
+<td>2025</td>
+<td>给 AI 看什么资料？</td>
+<td>给员工项目文档和操作手册</td>
+</tr>
+<tr>
+<td>Harness Engineering</td>
+<td>2026</td>
+<td>给 AI 搭什么工作环境？</td>
+<td>给员工完整的工作环境：权限管理、质检流程、错误报警、行为红线</td>
+</tr>
+</tbody></table>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331152329902.png"></p>
+<p><strong>注意：这三者是嵌套关系，不是替代关系。</strong> Harness Engineering 包含了 Context Engineering，Context Engineering 包含了 Prompt Engineering。你还是要写好提示词，还是要管好上下文——但仅仅做到这两点，在 Agent 时代已经不够了。</p>
+<h2 id="Part-3：拆解——Harness-到底长什么样？"><a href="#Part-3：拆解——Harness-到底长什么样？" class="headerlink" title="Part 3：拆解——Harness 到底长什么样？"></a>Part 3：拆解——Harness 到底长什么样？</h2><p>说了半天”搭工作环境”，这个”环境”到底包含什么？</p>
+<p>根据 <a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">OpenAI Codex 团队的实践</a>和业界的总结，一个 Harness 通常由四根支柱组成：</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260331152402623.png"></p>
+<h3 id="支柱一：约束（Constrain）——给-AI-画红线"><a href="#支柱一：约束（Constrain）——给-AI-画红线" class="headerlink" title="支柱一：约束（Constrain）——给 AI 画红线"></a>支柱一：约束（Constrain）——给 AI 画红线</h3><p><strong>核心问题：AI 哪些事绝对不能做？</strong></p>
+<p>AI Agent 能做的事情越多，它能闯的祸也越大。约束的作用，就是在 AI 开始工作之前，先画好红线。</p>
+<p>具体怎么做？</p>
+<ul>
+<li><strong>权限控制</strong>：AI 只能读写特定的文件和目录，不能碰核心配置</li>
+<li><strong>操作限制</strong>：AI 不能执行删除操作，不能直接操作生产环境的数据库</li>
+<li><strong>架构边界</strong>：AI 生成的代码必须遵守项目的分层结构——比如 OpenAI 的 Codex 团队规定，代码依赖只能按固定方向流动：<code>类型定义 → 配置 → 数据层 → 业务逻辑 → 运行时 → 界面</code>，不能反向依赖</li>
+</ul>
+<p>这些规则不是写在文档里”建议遵守”，而是<strong>硬编码在系统里强制执行</strong>。AI 试图违反这些规则时，操作会被直接拒绝。</p>
+<p>打个比方：新员工入职时的权限管理。他可以编辑自己负责的文档，但不能进入财务系统；他可以提交代码，但不能直接部署到线上。<strong>不是靠他”自觉”，是系统层面不允许。</strong></p>
+<h3 id="支柱二：告知（Inform）——给-AI-递正确的资料"><a href="#支柱二：告知（Inform）——给-AI-递正确的资料" class="headerlink" title="支柱二：告知（Inform）——给 AI 递正确的资料"></a>支柱二：告知（Inform）——给 AI 递正确的资料</h3><p><strong>核心问题：AI 需要知道什么才能正确地干活？</strong></p>
+<p>这一层和 Context Engineering 有很大的重叠。但在 Harness Engineering 里，”告知”更加系统化和结构化。</p>
+<p>最典型的实践是 <strong>AGENTS.md 文件</strong>。</p>
+<p>AGENTS.md 是一份用 Markdown（一种简单的文本格式语言，用 <code>#</code> 表示标题、用 <code>-</code> 表示列表，程序员和写作者都很喜欢用）写的文档，放在项目根目录下，专门给 AI Agent 读的”项目须知”。AI 在开始工作之前，会先读这个文件，了解项目的规则和约定。</p>
+<p>一个简化的 AGENTS.md 大概长这样：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 项目概述</span></span><br><span class="line"><span class="bullet">-</span> 这是一个用 TypeScript 写的 Web 应用</span><br><span class="line"><span class="bullet">-</span> 包管理器用 pnpm</span><br><span class="line"></span><br><span class="line"><span class="section">## 常用命令</span></span><br><span class="line"><span class="bullet">-</span> 安装依赖：pnpm install</span><br><span class="line"><span class="bullet">-</span> 运行测试：pnpm test</span><br><span class="line"><span class="bullet">-</span> 构建项目：pnpm build</span><br><span class="line"></span><br><span class="line"><span class="section">## 代码规范</span></span><br><span class="line"><span class="bullet">-</span> 使用 TypeScript 严格模式</span><br><span class="line"><span class="bullet">-</span> 用 interface 而不是 type 定义公共接口</span><br><span class="line"><span class="bullet">-</span> 单引号，不加分号</span><br><span class="line"></span><br><span class="line"><span class="section">## 绝对禁止</span></span><br><span class="line"><span class="bullet">-</span> 不允许提交 API 密钥或任何凭证信息</span><br><span class="line"><span class="bullet">-</span> 不允许使用 var，只能用 const 或 let</span><br></pre></td></tr></table></figure>
+
+<p>OpenAI 的 Codex 团队在实践中特别提到一个原则：<strong>AGENTS.md 要保持精简。</strong> 他们发现，如果把所有规则塞进一个巨大的文档里，AI 反而会被信息淹没，重要的规则被埋在大量细节中，效果适得其反。</p>
+<p>他们的做法是分层：项目根目录放一份基础的 AGENTS.md 覆盖通用规则，各个子目录可以放自己的 AGENTS.md 覆盖特定领域的规则。AI 在某个目录工作时，会从当前目录向上查找，把所有层级的规则叠加起来。</p>
+<p>打个比方：公司的新员工手册。不需要一本百科全书——需要一份精炼的”入职须知”，告诉你最重要的规则、最常用的流程、最容易踩的坑。<strong>具体到某个团队，还有团队自己的补充说明。</strong></p>
+<h3 id="支柱三：验证（Verify）——自动检查-AI-的产出"><a href="#支柱三：验证（Verify）——自动检查-AI-的产出" class="headerlink" title="支柱三：验证（Verify）——自动检查 AI 的产出"></a>支柱三：验证（Verify）——自动检查 AI 的产出</h3><p><strong>核心问题：AI 做完了，结果对不对？</strong></p>
+<p>这是 Harness 中最关键的一环。AI 生成了代码，你怎么知道代码是对的？</p>
+<p><strong>你不知道。所以你让机器来检查。</strong></p>
+<p>具体怎么做？</p>
+<ul>
+<li><strong>代码检查器（Linter）</strong>：自动扫描代码是否符合格式规范、命名约定——比如变量名必须用驼峰式，文件大小不能超过 500 行</li>
+<li><strong>类型检查</strong>：确认代码里的数据类型是否匹配——比如你定义一个函数接收数字参数，AI 不能传一个字符串进去</li>
+<li><strong>单元测试</strong>：针对每个功能模块运行预设的测试用例，确认功能是否正常</li>
+<li><strong>构建验证</strong>：把整个项目编译一遍，确认没有语法错误、没有缺失依赖</li>
+<li><strong>结构测试</strong>：这是 OpenAI Codex 团队的创新——他们编写了专门的测试来验证<strong>代码的架构是否合规</strong>，比如”业务逻辑层不能直接调用界面层的代码”</li>
+</ul>
+<p>这些检查全部是自动化的。AI 每提交一次修改，这些检查就自动跑一遍。<strong>通过了才能合并，没通过就打回去。</strong></p>
+<p>打个比方：工厂流水线上的质检环节。不管工人（AI）觉得自己做得多好，产品必须通过 X 光检测、尺寸测量、功能测试——<strong>任何一项不合格，产品就回炉重做。</strong> 质检员不关心你”觉得”做得怎么样，只看客观数据。</p>
+<h3 id="支柱四：纠正（Correct）——错了就自动修"><a href="#支柱四：纠正（Correct）——错了就自动修" class="headerlink" title="支柱四：纠正（Correct）——错了就自动修"></a>支柱四：纠正（Correct）——错了就自动修</h3><p><strong>核心问题：检查出了错误，然后呢？</strong></p>
+<p>仅仅检查出错误是不够的。Harness Engineering 的关键创新在于：<strong>把错误信息自动反馈给 AI，让它自行修复。</strong></p>
+<p>这构成了一个闭环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AI 生成代码 → 自动检查 → 发现错误 → 错误信息传回给 AI → AI 修复 → 再次检查 → 通过 → 合并</span><br></pre></td></tr></table></figure>
+
+<p>OpenAI 的 Codex 团队在这一点上做了一个聪明的设计：他们的代码检查器（Linter）在报告错误时，不只是说”这行有错”，而是<strong>在错误信息里直接嵌入修复指引</strong>。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误：文件超过 500 行限制。</span><br><span class="line">修复方法：将此文件拆分为多个模块，每个模块负责一个独立功能。</span><br><span class="line">参考现有模式：查看 src/services/ 目录下的文件组织方式。</span><br></pre></td></tr></table></figure>
+
+<p>这段文字会被自动注入 AI 的上下文，AI 读到后就知道该怎么修——不需要人类介入。</p>
+<p>但这只是”纠正”的一半。另一半更重要：<strong>纠正 Harness 本身。</strong></p>
+<p>这就回到了 Mitchell Hashimoto 说的那句话：**”每次发现 Agent 犯了一个错误，你就花时间设计一个方案，让 Agent 再也不会犯同样的错误。”**</p>
+<p>AI 犯了一个新类型的错误？不是批评 AI，而是更新 AGENTS.md、增加一条 Linter 规则、或者写一个新的结构测试——<strong>让这个错误在系统层面不可能再次发生。</strong></p>
+<p>OpenAI 的 Codex 团队甚至专门跑了一批”垃圾清理 Agent”——这些 Agent 定期扫描整个代码库，检查文档是否和实际代码一致，检查是否有架构约束被遗漏，确保 Harness 本身不会”腐化”。</p>
+<p>打个比方：这不只是老师批改作业、让学生重做。而是每次学生犯了一种新错，老师就在课本里加一条规则、在考卷里加一道相关题目——<strong>确保这一届以后的所有学生都不会再犯同样的错。</strong></p>
+<p>理解到这里，我突然意识到 Harness Engineering 的本质其实不新——它就是软件工程里”持续改进”的老思想，只不过管理的对象从”人类程序员”变成了”AI Agent”。以前你用 Code Review（代码审查）、CI/CD（持续集成/持续部署——一套自动化测试和发布的流程）来保证人写的代码质量；现在你用同样的思路，加上约束和反馈闭环，来保证 AI 写的代码质量。<strong>底层逻辑一模一样，只是”工人”换了。</strong></p>
+<h2 id="Part-4：为什么这很重要？"><a href="#Part-4：为什么这很重要？" class="headerlink" title="Part 4：为什么这很重要？"></a>Part 4：为什么这很重要？</h2><p>让我们回到开头的数字。</p>
+<p>OpenAI 的 Codex 团队——最多 7 个人，5 个月，100 万行生产级代码，1500 个 Pull Request，每个工程师每天完成 <a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">3.5 个 Pull Request</a>。</p>
+<p>而且他们发现了一个反常识的现象：<strong>团队从 3 人扩展到 7 人时，人均效率不降反升。</strong> 这在传统软件开发中几乎不可能——通常人越多，沟通成本越高，效率越低。但在 Harness Engineering 模式下，新加入的工程师不需要”学代码”，他们需要学的是”怎么设计 Harness”——而 Harness 的规则是显式的、可共享的、可复用的。</p>
+<p><strong>这 7 个工程师的日常工作已经不是”写代码”了。</strong></p>
+<p>他们每天做的事情是：</p>
+<ul>
+<li>设计架构约束，确保 AI 生成的代码不会乱长</li>
+<li>编写和维护 Linter 规则，自动拦截常见错误</li>
+<li>更新 AGENTS.md，把新发现的”坑”记录下来</li>
+<li>审查 AI 提交的 Pull Request，确认方向正确</li>
+<li>处理 AI 搞不定的边界情况</li>
+</ul>
+<p>换句话说：<strong>他们从”代码的作者”变成了”AI 工作环境的设计师”。</strong></p>
+<p>这背后有一个更大的趋势。</p>
+<p>AI 模型正在快速同质化——今天的 GPT（OpenAI）、Claude（Anthropic）、Gemini（Google），核心能力越来越接近。当模型本身不再是差异化的因素，<strong>真正的竞争力在于：谁能让 AI 更稳定、更安全、更高效地工作。</strong></p>
+<p>而这，就是 Harness 的价值。</p>
+<p>Martin Fowler（他是软件工程领域最有影响力的思想家之一，著有《重构》等多部经典著作）的网站上也发表了一篇<a target="_blank" rel="noopener" href="https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html">关于 Harness Engineering 的文章</a>，讨论这种新范式对软件工程的影响。这不是一个小圈子的概念——它正在成为整个行业的共识。</p>
+<p><strong>但值得保持清醒的是：</strong> Harness Engineering 不是万能药。目前的成功案例大多集中在编程这个特定领域——因为代码有明确的对错标准（能编译、能通过测试、不破坏架构），天然适合自动化验证。在更模糊的领域（比如写市场文案、做战略决策），什么算”对”什么算”错”本身就不好定义，Harness 的验证环节就很难设计。</p>
+<p>而且，随着 AI 模型推理能力的持续提升，今天某些需要靠 Harness 强制约束的问题，未来可能模型自己就能处理好了。</p>
+<p>但有一件事不会变：<strong>只要你用的 AI 不是 100% 可靠的（目前没有任何 AI 是 100% 可靠的），你就需要某种”环境”来兜底。</strong> 这个”环境”的具体形态可能会演化，但”给 AI 搭工作环境”这个核心思路，会一直存在。</p>
+<h2 id="这跟你有什么关系？"><a href="#这跟你有什么关系？" class="headerlink" title="这跟你有什么关系？"></a>这跟你有什么关系？</h2><p>你可能在想：这些听起来都是程序员的事，跟我有什么关系？</p>
+<p>其实你已经在做 Harness Engineering 了——只是你可能没意识到。</p>
+<p>如果你用过 Claude Code（Anthropic 推出的 AI 编程工具，在命令行里运行），你可能写过一个 CLAUDE.md 文件（和 AGENTS.md 类似，是专门给 Claude 读的项目指引），告诉 Claude”我的项目用什么技术栈””代码风格是什么””哪些文件不要动”。</p>
+<p>如果你用过 Cursor（一个内置了 AI 能力的代码编辑器）或 GitHub Copilot（GitHub 推出的 AI 编程助手），你可能在设置里定义过一些规则，告诉 AI”用中文注释””不要引入新的依赖”。</p>
+<p>即使你完全不写代码——如果你用过 ChatGPT 的”自定义指令”功能，给它设定了角色、语气和输出格式——你也已经在做最基础的 Harness Engineering 了。</p>
+<p><strong>这些，就是 Harness 的雏形。</strong></p>
+<p>而 Harness Engineering 告诉你的是：这不仅仅是”设置一些偏好”。这是一种系统性的方法论——你可以通过约束、告知、验证、纠正这四个支柱，把一个”时好时坏的 AI 助手”，变成一个”稳定可依赖的工具”。</p>
+<p>回到那句话——</p>
+<blockquote>
+<p><strong>“Agent 不难，难的是 Harness。”</strong></p>
+</blockquote>
+<p>翻译成日常语言就是：<strong>AI 已经够聪明了。现在的问题不是让它更聪明，而是怎么让它”稳定地聪明”。</strong></p>
+<p>Prompt Engineering 教你怎么跟 AI 说话。<br>Context Engineering 教你给 AI 看什么资料。<br>Harness Engineering 教你搭什么样的环境，让 AI 在里面安全、可靠、持续地干活。</p>
+<p>AI 时代，最值钱的能力可能不是”会用 AI”——而是<strong>会给 AI 搭脚手架</strong>。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">Harness engineering: leveraging Codex in an agent-first world - OpenAI</a></li>
+<li><a target="_blank" rel="noopener" href="https://mitchellh.com/writing/my-ai-adoption-journey">My AI Adoption Journey - Mitchell Hashimoto</a></li>
+<li><a target="_blank" rel="noopener" href="https://cobusgreyling.medium.com/the-rise-of-ai-harness-engineering-5f5220de393e">The Rise of AI Harness Engineering - Cobus Greyling</a></li>
+<li><a target="_blank" rel="noopener" href="https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html">Harness Engineering - Martin Fowler</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.infoq.com/news/2026/02/openai-harness-engineering-codex/">OpenAI ‘Harness Engineering’ and Codex - InfoQ</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.langchain.com/the-rise-of-context-engineering/">The Rise of Context Engineering - LangChain Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://darkreading.com/application-security/ai-agents-ignore-security-policies">AI Agents Ignore Security Policies - Dark Reading</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.digitalapplied.com/blog/88-percent-ai-agents-never-reach-production-failure-framework">88% of AI Agents Never Reach Production - Digital Applied</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents">Skill Issue: Harness Engineering for Coding Agents - HumanLayer</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@server_62309/prompt-engineering-vs-context-engineering-vs-harness-engineering-whats-the-difference-in-2026-2883670f78f1">Prompt Engineering vs Context Engineering vs Harness Engineering - Medium</a></li>
+</ol>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/171/">代码之外周刊（第 171 期）：当技术让一切趋同，我们还剩什么？</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AI-%E5%86%99%E4%BA%86-100-%E4%B8%87%E8%A1%8C%E4%BB%A3%E7%A0%81%EF%BC%8C%E9%9D%A0%E7%9A%84%E4%B8%8D%E6%98%AF%E6%9B%B4%E8%81%AA%E6%98%8E%E2%80%94%E2%80%94Harness-Engineering-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">AI 写了 100 万行代码，靠的不是更聪明——Harness Engineering 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1%EF%BC%9A%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E5%85%89%E6%9C%89%E8%81%AA%E6%98%8E%E7%9A%84-AI%EF%BC%8C%E8%BF%9C%E8%BF%9C%E4%B8%8D%E5%A4%9F"><span class="toc-text">Part 1：问题——光有聪明的 AI，远远不够</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2%EF%BC%9A%E6%BC%94%E8%BF%9B%E2%80%94%E2%80%94%E4%BB%8E%E2%80%9D%E6%80%8E%E4%B9%88%E8%AF%B4%E8%AF%9D%E2%80%9D%E5%88%B0%E2%80%9D%E6%90%AD%E4%BB%80%E4%B9%88%E7%8E%AF%E5%A2%83%E2%80%9D"><span class="toc-text">Part 2：演进——从”怎么说话”到”搭什么环境”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9APrompt-Engineering%E2%80%94%E2%80%94%E2%80%9C%E6%80%8E%E4%B9%88%E8%B7%9F-AI-%E8%AF%B4%E8%AF%9D%E2%80%9D%EF%BC%882022-2024%EF%BC%89"><span class="toc-text">第一阶段：Prompt Engineering——“怎么跟 AI 说话”（2022-2024）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9AContext-Engineering%E2%80%94%E2%80%94%E2%80%9C%E7%BB%99-AI-%E7%9C%8B%E4%BB%80%E4%B9%88%E8%B5%84%E6%96%99%E2%80%9D%EF%BC%882025%EF%BC%89"><span class="toc-text">第二阶段：Context Engineering——“给 AI 看什么资料”（2025）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9AHarness-Engineering%E2%80%94%E2%80%94%E2%80%9C%E6%90%AD%E5%A5%BD%E6%95%B4%E4%B8%AA%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E2%80%9D%EF%BC%882026%EF%BC%89"><span class="toc-text">第三阶段：Harness Engineering——“搭好整个工作环境”（2026）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-3%EF%BC%9A%E6%8B%86%E8%A7%A3%E2%80%94%E2%80%94Harness-%E5%88%B0%E5%BA%95%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-text">Part 3：拆解——Harness 到底长什么样？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%9F%B1%E4%B8%80%EF%BC%9A%E7%BA%A6%E6%9D%9F%EF%BC%88Constrain%EF%BC%89%E2%80%94%E2%80%94%E7%BB%99-AI-%E7%94%BB%E7%BA%A2%E7%BA%BF"><span class="toc-text">支柱一：约束（Constrain）——给 AI 画红线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%9F%B1%E4%BA%8C%EF%BC%9A%E5%91%8A%E7%9F%A5%EF%BC%88Inform%EF%BC%89%E2%80%94%E2%80%94%E7%BB%99-AI-%E9%80%92%E6%AD%A3%E7%A1%AE%E7%9A%84%E8%B5%84%E6%96%99"><span class="toc-text">支柱二：告知（Inform）——给 AI 递正确的资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%9F%B1%E4%B8%89%EF%BC%9A%E9%AA%8C%E8%AF%81%EF%BC%88Verify%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%8A%A8%E6%A3%80%E6%9F%A5-AI-%E7%9A%84%E4%BA%A7%E5%87%BA"><span class="toc-text">支柱三：验证（Verify）——自动检查 AI 的产出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%9F%B1%E5%9B%9B%EF%BC%9A%E7%BA%A0%E6%AD%A3%EF%BC%88Correct%EF%BC%89%E2%80%94%E2%80%94%E9%94%99%E4%BA%86%E5%B0%B1%E8%87%AA%E5%8A%A8%E4%BF%AE"><span class="toc-text">支柱四：纠正（Correct）——错了就自动修</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-4%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-text">Part 4：为什么这很重要？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E8%B7%9F%E4%BD%A0%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-text">这跟你有什么关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
