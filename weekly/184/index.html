@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  
+  
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>代码之外周刊（第 184 期）：东野圭吾：灵感不重要，做起来才重要 - 我没有三颗心脏的博客</title>
+
+  
+    <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 为庆祝建馆百年，洛杉矶公共图书馆做出了一本刷新吉尼斯纪录的立体书：展开约 31 × 20 英尺、高逾 11 英尺、重近一吨，用的却全是普通书的材料——布、纸和胶水。书页上是洛杉矶天际线与图书馆立面，用双语写着「每个人都是一座图书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码之外周刊（第 184 期）：东野圭吾：灵感不重要，做起来才重要">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/184/">
+<meta property="og:site_name" content="我没有三颗心脏的博客">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 为庆祝建馆百年，洛杉矶公共图书馆做出了一本刷新吉尼斯纪录的立体书：展开约 31 × 20 英尺、高逾 11 英尺、重近一吨，用的却全是普通书的材料——布、纸和胶水。书页上是洛杉矶天际线与图书馆立面，用双语写着「每个人都是一座图书">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+<meta property="article:published_time" content="2026-08-02T23:30:00.000Z">
+<meta property="article:modified_time" content="2026-08-03T01:28:12.205Z">
+<meta property="article:author" content="我没有三颗心脏">
+<meta property="article:tag" content="代码之外周刊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
+  
+  
+  
+  <meta name="keywords" content="代码之外周刊">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2026-08-03T07:30:00+08:00","dateModified":"2026-08-03T09:28:12+08:00","datePublished":"2026-08-03T07:30:00+08:00","description":"","headline":"代码之外周刊（第 184 期）：东野圭吾：灵感不重要，做起来才重要","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/184/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/184/","keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260726185108934.png","image":1}</script>
+  
+</head>
+<body>
+
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/184/"><span class="title">代码之外周刊（第 184 期）：东野圭吾：灵感不重要，做起来才重要</span></a><a class="item title" href="/weekly/183/"><span class="title">代码之外周刊（第 183 期）：Anthropic 到底是一家怎样的公司？</span></a><a class="item title" href="/weekly/182/"><span class="title">代码之外周刊（第 182 期）：竞争是给失败者准备的</span></a><a class="item title" href="/weekly/181/"><span class="title">代码之外周刊（第 181 期）：纳瓦尔：别再学怎么用 AI 了</span></a><a class="item title" href="/weekly/180/"><span class="title">代码之外周刊（第 180 期）：成年，正在变成一段需要试错的旅程</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-08-02T23:30:00.000Z">2026-08-03</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-08-03T01:28:12.205Z">2026-08-03</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>代码之外周刊（第 184 期）：东野圭吾：灵感不重要，做起来才重要</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图"></a>题图</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260726185108934.png"></p>
+<p>为庆祝建馆百年，洛杉矶公共图书馆做出了一本刷新<a target="_blank" rel="noopener" href="https://www.thisiscolossal.com/2026/07/daniel-gonzalez-matthew-reinhart-popup-book-los-anglees-library-world-record/" title="每个人都是一座图书馆：世界最大立体书亮相洛杉矶">吉尼斯纪录的立体书</a>：展开约 31 × 20 英尺、高逾 11 英尺、重近一吨，用的却全是普通书的材料——布、纸和胶水。书页上是洛杉矶天际线与图书馆立面，用双语写着「每个人都是一座图书馆」。展览持续到 2026 年 11 月，同场还有馆藏的两千多本立体书。</p>
+<h1 id="本周讨论：东野圭吾：灵感不重要，做起来才重要"><a href="#本周讨论：东野圭吾：灵感不重要，做起来才重要" class="headerlink" title="本周讨论：东野圭吾：灵感不重要，做起来才重要"></a>本周讨论：东野圭吾：灵感不重要，做起来才重要</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://www.dedao.cn/course/article?id=byrmnqGdwxkXW6om6ZJelBz2D5ZO8a" title="960｜东野圭吾：灵感不重要，做起来才重要">960｜东野圭吾：灵感不重要，做起来才重要</a>）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260803085622482.png"></p>
+<p>7 月 27 日，日本讲谈社公布消息：著名作家东野圭吾于 7 月 23 日凌晨因结肠癌在东京去世，享年 68 岁。</p>
+<p>68 岁，对一个作家来说并不算老。阿加莎·克里斯蒂 85 岁去世，晚年仍然写作；松本清张写到 82 岁去世，临终前还有新作；西村京太郎更是一直写到 90 岁高龄，曾经保持一年出版十本左右的速度。</p>
+<p>东野圭吾也一样。他去世时，手上还有一部新作等待上市。</p>
+<p>这个消息令人遗憾，但它也让人重新想起东野圭吾在《变身》里写过的一句话：</p>
+<blockquote>
+<p>所谓活着，并不是单纯的呼吸、心脏跳动，也不是有脑电波，而是在这个世界上留下痕迹。要能看见自己一路走过来的脚印，并确信那些都是自己留下的印记，这才叫活着。</p>
+</blockquote>
+<p>东野圭吾留下的痕迹，首先是一组很大的数字。</p>
+<p>根据 2023 年 4 月日本共同社的报道，东野圭吾的作品在日本累计销量已经超过 <strong>1 亿本</strong>。他出版了不到 110 部小说，平均每本接近 100 万册。放在任何一个出版市场，这都是超级畅销书的成绩。</p>
+<p>2018 年，国内媒体报道他的作品在中国累计销量达到 800 万册，版税收入 4200 万元，位列当年外国作家富豪榜第一名。按当时的报道，他的收入超过村上春树，甚至超过 J.K. 罗琳。凤凰网评价他：「让推理小说成为日本大众文学的主流。」</p>
+<p>但是，东野圭吾并不是一开始就站在主流里面。</p>
+<h2 id="先被看见，再被理解"><a href="#先被看见，再被理解" class="headerlink" title="先被看见，再被理解"></a>先被看见，再被理解</h2><p>东野圭吾 1958 年出生于日本大阪。父亲是工厂里的普通工人，家里没有文学传统，甚至没有多少藏书。他在大学读电气工学，1981 年毕业后进入日本电装，也就是丰田系的一家汽车零部件公司，成为一名工程师。</p>
+<p>白天，他在生产线上和机器打交道。晚上回家，他写小说、投奖项。</p>
+<p>他连续 3 年参加江户川乱步奖评选，连续 3 年落选。这个奖是日本推理小说界重要的新人奖，能拿到它，意味着作者正式获得文坛认可。</p>
+<p>东野圭吾直到 1985 年才凭借《放学后》拿下第 31 届江户川乱步奖。那一年，他 27 岁。拿奖以后，他辞掉工程师的工作，成为职业作家。</p>
+<p>事情本来应该从这里变得顺利。但是，职业写作的前 <strong>14 年，他一直没有真正走红</strong>。</p>
+<p>根本原因是，他和当时的主流推理小说不太合拍。</p>
+<p>那几年，日本推理文坛流行「新本格派」。读者喜欢精巧的诡计、封闭的密室和严密的逻辑，期待的是解谜带来的智力快感。</p>
+<p>东野圭吾却更关心另一件事：一个人为什么会犯罪？一桩案件背后，这个人经历了什么？</p>
+<p>换句话说，他不只想写「案件是怎么发生的」，还想写「人为什么会变成这样」。</p>
+<p>这让他显得格格不入。销量上不去，稿费上不去，评论界也很少提到他。直到 1999 年，《白夜行》出版，情况才开始改变。</p>
+<p>《白夜行》在日本卖出 250 万册，在中国卖出 500 万册。中日韩三个国家都拍过影视剧版本，豆瓣评分长期维持在 9.2 左右。2005 年，《嫌疑人 X 的献身》出版，并获得第 134 届直木奖，这是日本大众文学的重要奖项之一。</p>
+<p>东野圭吾用了很长时间，才让读者理解自己真正想写的东西。</p>
+<h2 id="把话留在字面之外"><a href="#把话留在字面之外" class="headerlink" title="把话留在字面之外"></a>把话留在字面之外</h2><p>东野圭吾后来形成了鲜明的写作方法。其中最重要的一点，是留白。</p>
+<p>说白了，就是作者不把所有事情都解释清楚。读者合上书以后，故事还会继续在脑子里发酵。</p>
+<p>《白夜行》是一个很典型的例子。</p>
+<p>小说写了两个主人公，时间跨度接近 20 年，讲的是两个人一生的命运。但是，这两个人几乎没有正面对话。作者也很少直接写他们的内心，不告诉读者他们正在想什么、感受什么。</p>
+<p>他们的情感，藏在别人的视角里，藏在某个动作里，藏在一句没有说完的话里。</p>
+<p>读者于是会不断追问：他们到底在想什么？他们对彼此是什么感受？他们为什么要这样做？</p>
+<p>这不是「挖坑不填」。东野圭吾的高明之处在于，读者顺着不同的猜想，都能在故事中找到合理的解释。作者没有替你把答案钉死，但也没有把问题丢在半路上。</p>
+<p>所以，《白夜行》的结尾并没有随着最后一页结束。读者还会继续补全人物的动机，继续判断那些没有被说出口的情感。</p>
+<p>这也成了东野圭吾后来很多作品的共同特征：<strong>不把话说满，把最重的东西留在字面之外</strong>。</p>
+<h2 id="把两种推理放在一起"><a href="#把两种推理放在一起" class="headerlink" title="把两种推理放在一起"></a>把两种推理放在一起</h2><p>东野圭吾还有一个重要贡献：把本格派和社会派放进了同一个故事。</p>
+<p>本格派讲诡计、逻辑和密室，追求智力游戏的快感。社会派讲人物、动机和时代背景，关注案件背后的社会问题。</p>
+<p>过去，这两种写法各有自己的读者。东野圭吾做的事情，是把它们接起来：一边设计严密的谜题，一边追问人心为什么会走到这一步。</p>
+<p>《嫌疑人 X 的献身》就是一个例子。</p>
+<p>从推理结构看，小说设计了一个接近完美的不在场证明，具有本格推理的特点。从人物动机看，故事又明显属于社会派。它写的不只是犯罪如何实现，还写了犯罪者为什么愿意这样做。</p>
+<p>这两部分缺一不可。只有诡计，故事容易变成一道题；只有动机，故事又可能失去推理小说的张力。</p>
+<p>东野圭吾的作品之所以能被更广泛的读者接受，正是因为它同时满足了这两种阅读需求：读者可以猜答案，也可以理解人。</p>
+<h2 id="每一本书都换一个领域"><a href="#每一本书都换一个领域" class="headerlink" title="每一本书都换一个领域"></a>每一本书都换一个领域</h2><p>前面的技法需要积累，也需要天赋。普通人未必学得来。</p>
+<p>但是，东野圭吾还有一个习惯，几乎所有人都可以借鉴：<strong>每一本代表作，都绑定一个陌生的知识领域</strong>。</p>
+<p>《嫌疑人 X 的献身》的主角是一名高中数学老师。为了写好这个人物，东野圭吾去了解拓扑学、四色问题和数论，反复思考数学家看世界的方式。</p>
+<p>他的目标不是把数学知识塞进小说，而是让读者相信：只有这样一个人，才会设计出这样的犯罪计划。</p>
+<p>《拉普拉斯的魔女》涉及气象学。于是，他去读气象学教材，研究气团、气压、锋面和对流层。</p>
+<p>《沉睡的人鱼之家》涉及脑死亡判定和器官移植伦理。他去读神经科学论文，了解脑死亡者体内还存在什么活动，也去梳理器官移植伦理中的争议。</p>
+<p>这时，他面对的就不只是医学事实，还包括围绕医学事实展开的社会冲突。</p>
+<p>为了写《沉睡的森林》，他还专门研究芭蕾舞的动作、术语、训练体系和剧团生态。他去看排练，也去看演出。因为芭蕾圈有自己的语言和心理逻辑，不先弄懂这些，故事就很容易只剩下外行人的想象。</p>
+<p>在这一点上，东野圭吾不像一个只靠想象力写作的作家。他更像记者，也像一个每隔几年就要换一份副业的人。</p>
+<p>问题在于，很多人谈到创作时，只谈灵感，却不谈调查、学习和修改。可是，真正决定作品可信度的，往往正是这些不浪漫的工作。</p>
+<h2 id="用动作代替灵感"><a href="#用动作代替灵感" class="headerlink" title="用动作代替灵感"></a>用动作代替灵感</h2><p>东野圭吾还有一个细节很有意思。</p>
+<p>根据媒体报道，他会把读者对自己的差评收集起来，放在每天都能看到的地方。</p>
+<p>很多作家会回避差评，因为差评确实会伤人。东野圭吾却选择盯着它们看。它们提醒他，读者在哪里失望，哪里没有被说服，哪里觉得故事不够好。</p>
+<p>走进陌生领域，盯着差评看，这两个习惯表面上没有关系，实际上指向同一件事：它们都不依赖状态，而依赖动作。</p>
+<p>灵感来的时候，人当然可以写。灵感不来的时候，也要坐到桌前，打开文档，继续写。</p>
+<p>这种工作方式不浪漫。没有灵光乍现，也没有一气呵成。它更像一种固定的生活安排：到时间就开始，到时间就结束。</p>
+<p>东野圭吾后来总结自己的写作习惯：每天准时坐下来，写 4 个小时，然后起身，继续过普通人的生活。</p>
+<p>这句话很重要。它把写作从一种神秘能力，变成了一组可以重复的动作。</p>
+<h2 id="灵感不重要，做起来才重要"><a href="#灵感不重要，做起来才重要" class="headerlink" title="灵感不重要，做起来才重要"></a>灵感不重要，做起来才重要</h2><p>回头看，东野圭吾为什么要写作？</p>
+<p>一方面，是为了留下印记。那些小说记录了他走过的路，也让读者看见了他对案件、人物和人心的理解。</p>
+<p>另一方面，写作也在反过来塑造他。为了完成一本书，他必须进入一个陌生领域；为了让故事成立，他必须面对具体的知识；为了改进作品，他还要把差评留在眼前。</p>
+<p>写作于是变成了一种自我训练。它不要求一个人永远有灵感，只要求一个人在没有灵感的时候，也能完成当天的动作。</p>
+<p>据说，东野圭吾经常被问到：怎样才能成为作家？怎样才能写出畅销书？怎样才能获得灵感？</p>
+<p>他的回答始终很简单：<strong>灵感不重要，做起来才重要。</strong></p>
+<p>我的看法是，这句话不只适用于写作。</p>
+<p>很多事情开始时都需要兴趣，真正做下去却需要安排、重复和反馈。兴趣决定你愿不愿意开始，动作决定你能不能走远。</p>
+<p>说白了，<strong>灵感只能决定你偶尔写出什么，持续的动作才决定你最终留下什么</strong>。</p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://newatlas.com/wearables/nike-hyperslide-hyperice-footwear/" title="Nike&#39;s tech-loaded recovery slides are a sauna &amp; spa for aching feet">把加热和按摩装进一双拖鞋</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260803085746900.png"></p>
+<p>Nike 与 Hyperice 合作推出 Air Zoom Hyperslide，把恢复设备做成日常拖鞋：鞋带上的磁吸模块可以为脚背提供三档加热和三档震动，单次使用 15 分钟，最高温度达到 47 °C。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260803085809450.png" alt="还有黑色款"></p>
+<p>它比售价 800 美元的 Hyperboot 更轻便、更适合旅行，但 249 美元的价格仍然意味着，消费者最好先试穿再决定。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://newatlas.com/drones/tornyol-mosquito-hunting-drone/" title="Sonar-guided drone seeks and destroys mosquitoes autonomously">用声呐在空中猎杀蚊子的无人机</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260803090027926.png"></p>
+<p>法国初创公司 Tornyol 正在开发一款 40 克的自主无人机，用超声波声呐识别空中昆虫，再用螺旋桨将蚊子拦截击落。LeSonar2 配备 32 个超声波发射器、380 个智能手机麦克风，可实时绘制周围环境的 3D 地图并在夜间工作。不过，它目前只能飞行 3 分钟、充电需要 30 分钟，1,100 美元或每月 50 美元的价格，也让它距离大规模防治蚊媒疾病还有明显距离。</p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="http://hintjens.com/blog:99" title="通往幸福的十步">通往幸福的十步</a>（英文）</p>
+<p>ZeroMQ 作者 Pieter Hintjens 在 2015 年写下的非技术文章：<strong>通往幸福的十个具体步骤</strong>，不花钱、不需要魔法，只是换一种看待世界、自己和他人的方式。</p>
+<p>清单里有寻常的建议（自己做饭、学杂耍、完成手头的项目），也有他独有的锋利：把「识别并清除生活中的坏演员」当作一个项目来完成，以及「重新给你的时间定价」。</p>
+<p>值得一提的是，这位以《The Psychopath Code》闻名的程序员在写下这篇文章一年后离世——这让第 8 条「别太当真，我们都会死」读起来格外不同。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://www.myzaker.com/article/6a60252f8e9f094b4d106689" title="姚期智万字长文演讲！解析“AI研究的下一个层次”">姚期智：AI 有解决不了的难题，这是好事</a></p>
+<p>姚期智在 WAIC 思想者论坛的演讲《AI 的第一性原理》。</p>
+<p>他没有谈大模型竞赛，而是从理论视角回答两个问题：什么是 AI 绝对做不到的——能抵御一切攻击的加密、基于物理定律的量子密钥分发，而这些局限恰恰是 AI 安全的基础；以及下一个层次在哪里——不是 AI 赋能科学，而是科学赋能 AI，量子 AI 将在未来五到十年接棒。</p>
+<p>问答环节他对青年研究者的建议也很直接：</p>
+<blockquote>
+<p>找出你所在领域里 AI 做不到的部分，然后往那里去。</p>
+</blockquote>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://addyo.substack.com/p/software-factories-light-and-dark" title="Software Factories, Light and Dark">软件工厂：哪些环节可以熄灯，哪些必须亮着</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260726192702881.png"></p>
+<p>Addy Osmani 把当下热议的「软件工厂」拆成三层：循环、脚手架、工厂，然后追问一个关键问题——<strong>灯该关在哪里</strong>。他的核心判断是：瓶颈从来不是代码生成，而是验证；无人审查的「熄灯工厂」会以测试全绿的方式飞速积累「理解债务」，代价在四个月后安静爆发。</p>
+<p>「亮灯工厂」不是在末尾补一道审查，而是把人的判断上移到产品、设计和架构。</p>
+<p>每个环节该开灯还是关灯，取决于验证是否足够便宜且无法被伪造——这才是工程师现在最难的工作。</p>
+<hr>
+<p>4、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU3NDgwOTEzOQ==&mid=2247485025&idx=1&sn=35f8d783a6141d0b17c9b109f5561435" title="人生的塞尔达时期：日均 40 亿 Token 的那一周">人生的塞尔达时期：日均 40 亿 Token 的那一周</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260726193511325.png"></p>
+<p>作者用两个 200 美元订阅跑出了等效 2.7 万美元的月消耗，<strong>日均 40 亿 Token</strong>。</p>
+<p>这篇文章记录他对「红利期怎么花 Token 才不算浪费」的一套判断：低价套餐是平台抢地盘的早鸟票，撑不久，所以要趁现在把 Token 沉淀成可复用的资产——高频场景写成程序，低频留给 Skill，人只负责定方向和放行。</p>
+<p>他还给了一个行业判断：Coding 是「高价值数据开放」和「行为逻辑闭环」同时成立的偶然场景，其他行业的 Agent 化会慢得多，但竞争拼的只是相对领先。</p>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/sqliteai/waste" title="WASTE — Weight-Aware Streaming Tensor Engine">WASTE：让 2.78 万亿参数 Kimi 模型跑在 64GB 笔记本上</a>（英文）</p>
+<p>WASTE 是一个纯 C 编写的推理引擎，没有任何第三方依赖。它的核心思路很简单：MoE 模型每次只激活约 4% 的参数，那其余 96% 为什么一定要放在内存里？WASTE 将 982 GB 的 Kimi K3 模型放在 NVMe 硬盘上，每次推理只从磁盘读取当前 token 需要的专家权重，其余 RAM 全部用作专家缓存。</p>
+<p>在 <strong>64 GB 的 MacBook Pro</strong> 上，它能以 0.45–0.62 token/秒的速度跑完整个 2.78T 模型——没有蒸馏、没有剪枝、没有降精度。项目还附带了一个 OpenAI 兼容的 HTTP 服务端，支持工具调用、多模态图像和流式输出。</p>
+<hr>
+<p>6、<a target="_blank" rel="noopener" href="https://paulgraham.com/greatwork.html" title="How to Do Great Work">做出伟大工作的配方</a>（英文）</p>
+<p>Paul Graham 在 2023 年写了一份跨领域的「伟大工作」指南。他试图回答一个核心问题：<strong>如果收集不同领域做出伟大工作的方法，它们的交集是什么</strong>？答案不是简单的「努力工作」——虽然努力工作确实是前提。</p>
+<p>文章给出了一个四步框架：选择领域、学到前沿、发现缝隙、探索有前景的缝隙。但真正的难点在于如何选对方向，以及如何保持那种「过度的好奇心」。</p>
+<p>Graham 认为，伟大工作的驱动力是好奇心、愉悦感和做出令人印象深刻之事的欲望，三者交汇时力量最强。他还讨论了如何应对拖延、如何培养品味、为什么「诚恳」比「聪明」更重要，以及为什么好的新想法在出现时往往看起来是错的。</p>
+<hr>
+<p>7、<a target="_blank" rel="noopener" href="https://thedecisionlab.com/biases/the-illusion-of-explanatory-depth" title="The Illusion of Explanatory Depth">你以为懂了，其实只是会讲几句</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260802084931148.png"></p>
+<p>「<strong>解释深度错觉</strong>」指的是：我们以为自己理解了一个概念，真正尝试解释它时，才发现掌握的只是几个熟悉的词和零散事实。它会让人过早形成强烈的政治立场、做出冲动决定，也让我们高估自己对 AI 等复杂系统的理解。一个简单的自检方法是，在争论或决策前，先把事情完整地解释出来，主动寻找解释中的空白。</p>
+<hr>
+<p>8、<a target="_blank" rel="noopener" href="https://www.theguardian.com/science/2026/jul/25/four-types-of-thinker-which-one-are-you" title="Four types of thinker have been identified. Which one are you?">你的脑子，可能属于这四类之一</a>（英文）</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260802105137387.png"></p>
+<p>研究人员让 258 名志愿者连续两周、每天 8 次记录当下的想法，收集了超过 23,000 条实时回答，发现人的思绪大致聚成四类：「担忧者」「家庭事务者」「身体思考者」和「工作与娱乐兼顾者」。这不是固定人格分类，人会在不同类型之间移动，但研究显示，随机捕捉日常想法，可能比单纯询问一个人的背景更能解释他的幸福感。</p>
+<hr>
+<p>9、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/dTlDm89uPuU_iCAX3QIxCw" title="进入一个拼尽所有努力却无效的世界">当一切都有用时，世界反而失去了意义</a></p>
+<p>阿伦特在《人的境况》中指出，现代人习惯用制造的功利逻辑丈量一切：椅子是为了休息，休息是为了工作，工作是为了赚钱，这条链条无限延伸，导致没有任何事物能因其自身而值得存在。即便康德提出“人是目的”，也只是把人从工具中解救出来，却默许了自然与世界沦为服务于人的手段。当“有用”彻底取代“有意义”，我们便进入了一个什么都有用、却没有意义的世界。</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxMTQ1ODE1NQ==&mid=2247554745&idx=1&sn=c7141ac47efe50a7f4183c63ef4cf3f9&chksm=9afd21425bd7f074d83d20210dce847739bef0a0b931016ea2440dad5aa44b3ab444e7692f58&scene=0&xtrack=1&subscene=90#rd" title="见到可爱的东西就想咬一口？真不是你有病">想咬可爱萌物不是变态，是大脑的「情绪稳压器」</a></p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4245741f33f5b41e1978d5912745cc90.jpg"></p>
+<p>看到圆滚滚的海豹、眨眼睛的小奶猫想“一口吃掉”，甚至想捏爆鼓腮帮子的仓鼠，这种冲动有个学名——<strong>可爱侵略症</strong>。</p>
+<p>它不是暴力倾向，而是大脑的自我保护机制：当萌物触发的愉悦感过载时，大脑会自动生成反向情绪来“降温”。</p>
+<p>这种反应高度依赖“婴儿图式”（圆脸、大眼睛、小鼻子等特征），且女性因演化中的合作繁殖需求，对这种特征的敏感度普遍高于男性。</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<blockquote>
+<p>我们正处在一场 AI 引发的集体狂热之中。人们真的在把自己「token 最大化」到进医院，抢着在一切被自动化之前分一杯羹。</p>
+<p>我们已经到了这样一个地步：macOS 的更新——或者任何我依赖的应用的更新——带来的不是期待，而是恐惧。我现在默认新版本会更差。</p>
+<p>那些嗡嗡作响的 GPU 集群给了我们超能力，但我们仍然没有用它来造更好的软件。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://ptrchm.com/posts/nothing-works-and-everyone-is-euphoric/" title="Nothing Works and Everyone Is Euphoric">编程被「解决」了，软件为什么反而更烂</a>（英文）</p>
+<p>2、</p>
+<blockquote>
+<p>过度工程就是解决了错误的问题。这就是全部定义。不是「太在乎」，也不是「做得太好」。</p>
+<p>当一个系统被过度工程化时，原因几乎总是需求——而且是产品意义上的需求，不只是技术意义上的。</p>
+<p>完美从来不是敌人，含混的需求才是。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://var0.xyz/posts/perfection-is-not-over-engineering.html" title="Perfection is not over-engineering">过度工程不是追求完美，而是解错了题</a>（英文）</p>
+<p>3、</p>
+<blockquote>
+<p>AI 极大地加速了抵达第一个可用版本的路径。但它没有缩短第一个可用版本与生产级产品之间的距离。</p>
+<p>计算机科学教育的价值从来不只是产出代码的能力，而是建立对系统如何运转、如何失效、以及为什么失效的心智模型。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://weeraman.com/the-prototype-isnt-the-product/" title="The Prototype Isn&#39;t the Product">原型不等于产品：AI 时代的基础知识更重要了</a>（英文）</p>
+<p>4、</p>
+<blockquote>
+<p>在商品市场中，通往盈利的道路不是收取更高价格，而是拥有更优越的成本结构。</p>
+<p>中国的策略很明显：让互补品商品化。</p>
+<p>停止蒸馏几乎是不可能的——蒸馏本质上只是调用 API。美国应该反过来，拥抱一种新的版权政策，既保护模型实验室，也确保它们学到的东西能够推动所有人的进一步创新。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://stratechery.com/2026/whos-afraid-of-chinese-models/" title="Who’s Afraid of Chinese Models?">中国模型，真正该担心什么？</a>（英文）</p>
+<p>5、</p>
+<blockquote>
+<p>被动乐观和悲观之所以同样无效，是因为它们都不会行动：面对卡住的车轮，悲观者因为觉得无望而什么都不做，被动乐观者则因为觉得自己不必做什么而停在原地。</p>
+<p>永远假设事情会顺利，然后<strong>付出努力让它成为现实</strong>。这种组合会创造一种安静的自信，让你比其他任何方式都更能忍受不确定性。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.sahilbloom.com/newsletter/the-life-changing-magic-of-active-optimism" title="The Life-Changing Magic of Active Optimism">真正有效的乐观，是把肩膀顶上去</a>（英文）</p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/183/">代码之外周刊（第 183 期）：Anthropic 到底是一家怎样的公司？</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE"><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E4%B8%9C%E9%87%8E%E5%9C%AD%E5%90%BE%EF%BC%9A%E7%81%B5%E6%84%9F%E4%B8%8D%E9%87%8D%E8%A6%81%EF%BC%8C%E5%81%9A%E8%B5%B7%E6%9D%A5%E6%89%8D%E9%87%8D%E8%A6%81"><span class="toc-text">本周讨论：东野圭吾：灵感不重要，做起来才重要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%A2%AB%E7%9C%8B%E8%A7%81%EF%BC%8C%E5%86%8D%E8%A2%AB%E7%90%86%E8%A7%A3"><span class="toc-text">先被看见，再被理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E8%AF%9D%E7%95%99%E5%9C%A8%E5%AD%97%E9%9D%A2%E4%B9%8B%E5%A4%96"><span class="toc-text">把话留在字面之外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%B8%A4%E7%A7%8D%E6%8E%A8%E7%90%86%E6%94%BE%E5%9C%A8%E4%B8%80%E8%B5%B7"><span class="toc-text">把两种推理放在一起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E4%B8%80%E6%9C%AC%E4%B9%A6%E9%83%BD%E6%8D%A2%E4%B8%80%E4%B8%AA%E9%A2%86%E5%9F%9F"><span class="toc-text">每一本书都换一个领域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E5%8A%A8%E4%BD%9C%E4%BB%A3%E6%9B%BF%E7%81%B5%E6%84%9F"><span class="toc-text">用动作代替灵感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B5%E6%84%9F%E4%B8%8D%E9%87%8D%E8%A6%81%EF%BC%8C%E5%81%9A%E8%B5%B7%E6%9D%A5%E6%89%8D%E9%87%8D%E8%A6%81"><span class="toc-text">灵感不重要，做起来才重要</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
