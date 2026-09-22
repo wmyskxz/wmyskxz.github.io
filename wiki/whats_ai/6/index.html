@@ -1,49 +1,63 @@
-
-<!DOCTYPE html><html lang="zh-CN">
-
-<head>
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6" theme-name="Stellar" theme-version="2.0.0-rc.6">
   
   
-  <meta name="generator" content="Hexo 5.4.2">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>AI是怎么回事：ChatGPT为什么能对话——一篇引用17万次的论文 - 我没有三颗心脏的博客</title>
+  <title data-stellar-page-meta="">AI是怎么回事：ChatGPT为什么能对话——一篇引用17万次的论文 - 我没有三颗心脏的博客</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
 
-  
-    <meta name="description" content="这是 「AI是怎么回事」 系列的第 6 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。   2017 年，Google 的一个团队发表了一篇论文。 标题很">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChatGPT为什么能对话——一篇引用17万次的论文">
-<meta property="og:url" content="https://www.wmyskxz.cn/wiki/whats_ai/6/">
-<meta property="og:site_name" content="我没有三颗心脏的博客">
-<meta property="og:description" content="这是 「AI是怎么回事」 系列的第 6 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。   2017 年，Google 的一个团队发表了一篇论文。 标题很">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-<meta property="article:published_time" content="2026-02-12T22:41:03.224Z">
-<meta property="article:modified_time" content="2026-02-12T22:41:03.224Z">
-<meta property="article:author" content="我没有三颗心脏">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-  
+  <meta name="description" content="我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。" data-stellar-page-meta="">
+<meta property="og:type" content="website" data-stellar-page-meta="">
+<meta property="og:title" content="ChatGPT为什么能对话——一篇引用17万次的论文" data-stellar-page-meta="">
+<meta property="og:url" content="https://www.wmyskxz.cn/wiki/whats_ai/6/" data-stellar-page-meta="">
+<meta property="og:site_name" content="我没有三颗心脏的博客" data-stellar-page-meta="">
+<meta property="og:description" content="我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213054430.png" data-stellar-page-meta="">
+<meta property="article:author" content="我没有三颗心脏" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213054430.png" data-stellar-page-meta=""><meta name="twitter:title" content="ChatGPT为什么能对话——一篇引用17万次的论文" data-stellar-page-meta="">
   
   
   
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=2.0.0-rc.6" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-rc.6">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
 
 
   
@@ -52,40 +66,417 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://www.wmyskxz.cn/wiki/whats_ai/6/","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"name":"ChatGPT为什么能对话——一篇引用17万次的论文","description":"\n这是 「AI是怎么回事」 系列的第 6 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。\n\n\n2017 年，Google 的一个团队发表了一篇论文。\n...","url":"https://www.wmyskxz.cn/wiki/whats_ai/6/"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.wmyskxz.cn/wiki/whats_ai/6/","name":"ChatGPT为什么能对话——一篇引用17万次的论文","description":"我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。","url":"https://www.wmyskxz.cn/wiki/whats_ai/6/","isPartOf":{"@type":"WebSite","name":"我没有三颗心脏的博客","url":"https://www.wmyskxz.cn"}}</script>
+  
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
   
 </head>
-<body>
+<body data-page-type="content" data-page-layout="page" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular"><div class="brand-navigation"><a class="brand-navigation__back cap" href="/wiki/"><span class="ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span><span>所有项目</span></a></div><div class="brand-navigation-rail">
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" href="/wiki/" title="所有项目" aria-label="所有项目">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span>
+  
+  
+  
+  
+</a>
 
-
-
-<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
-
-
-<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/whats_ai/"><div class="main">AI是怎么回事</div><div class="sub normal cap">和我一起，理解 AI 是如何改变世界的</div><div class="sub hover cap" style="opacity:0"> by 我没有三颗心脏</div></a></div></header>
-
-<div class="nav-area">
-
-<nav class="menu dis-select"><a class="nav-item" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item active" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/whats_ai/" placeholder="在「AI是怎么回事」中搜索..."></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
+</nav>
+</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/whats_ai/" data-stellar-navigation=""><img no-lazy="" src="/img/logo.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="640" height="640" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.3767,31.6886,58.5082,1]}" data-stellar-image-source="/img/logo.jpg"></a><a class="brand-title" href="/wiki/whats_ai/" data-stellar-navigation=""><div class="brand-name">AI是怎么回事</div><div class="brand-tagline cap">和我一起，理解 AI 是如何改变世界的 | by 我没有三颗心脏</div></a></div><div class="brand-search">
 
-<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/#start"><span class="toc-text">开场白&目录</span></a></div><div class="widget-header dis-select"><span class="name">第一章：拆开黑箱</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/1/"><span class="toc-text">AI到底聪明在哪——从手机人脸识别说起</span></a><a class="link" href="/wiki/whats_ai/2/"><span class="toc-text">AI怎么读懂文字——国王减去男人等于什么</span></a><a class="link" href="/wiki/whats_ai/3/"><span class="toc-text">AI是怎么突然变厉害的——2012所有人以为他们作弊了</span></a><a class="link" href="/wiki/whats_ai/4/"><span class="toc-text">神经网络到底是什么——6000万个旋钮的真相</span></a><a class="link" href="/wiki/whats_ai/5/"><span class="toc-text">AI是怎么学会的——从做错一道题说起</span></a><a class="link active" href="/wiki/whats_ai/6/"><span class="toc-text">ChatGPT为什么能对话——一篇引用17万次的论文</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/whats_ai/7/"><span class="toc-text">AI为什么会撒谎——一个律师被ChatGPT骗了</span></a><a class="link" href="/wiki/whats_ai/8/"><span class="toc-text">ChatGPT回答你的三秒钟里，发生了什么？</span></a></div><div class="widget-header dis-select"><span class="name">第二章：AI能做什么，不能做什么</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/9/"><span class="toc-text">AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单</span></a><a class="link" href="/wiki/whats_ai/10/"><span class="toc-text">AI 能"创造"吗？——从一团噪声到一幅画</span></a><a class="link" href="/wiki/whats_ai/11/"><span class="toc-text">为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线</span></a><a class="link" href="/wiki/whats_ai/12/"><span class="toc-text">这个框架会过时吗？——AI 的天花板和你的判断力</span></a></div><div class="widget-header dis-select"><span class="name">第三章：和AI一起工作</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/13/"><span class="toc-text">怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍</span></a><a class="link" href="/wiki/whats_ai/14/"><span class="toc-text">怎么跟AI协作不翻车——AI说的话你该信几分</span></a><a class="link" href="/wiki/whats_ai/15/"><span class="toc-text">AI 写代码有多厉害？——快了 55%，但错多了 75%</span></a><a class="link" href="/wiki/whats_ai/16/"><span class="toc-text">AI会取代我们吗——它不懂孤独是什么意思</span></a></div></widget>
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="wiki:whats_ai" data-search-domain-label="AI是怎么回事" data-search-domain-blog="false">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
+
+  
+</button>
+
+  
 </div>
 
-</div></aside><div class="l_main" id="main">
+
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--tree" data-widget-id="leftbar:0:tree" data-presentation="leftbar" data-leftbar-rail="">
 
 
+<widget class="widget-wrapper doc-tree-widget" data-wiki="whats_ai">
+  
+  <div class="widget-body"><section class="widget-section"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/" title="开场白&amp;目录" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">开</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">开场白&amp;目录</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第一章：拆开黑箱</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/1/" title="AI到底聪明在哪——从手机人脸识别说起" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI到底聪明在哪——从手机人脸识别说起</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/2/" title="AI怎么读懂文字——国王减去男人等于什么" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI怎么读懂文字——国王减去男人等于什么</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/3/" title="AI是怎么突然变厉害的——2012所有人以为他们作弊了" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI是怎么突然变厉害的——2012所有人以为他们作弊了</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/4/" title="神经网络到底是什么——6000万个旋钮的真相" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">神</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">神经网络到底是什么——6000万个旋钮的真相</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/5/" title="AI是怎么学会的——从做错一道题说起" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI是怎么学会的——从做错一道题说起</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/whats_ai/6/" title="ChatGPT为什么能对话——一篇引用17万次的论文" aria-current="page" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ChatGPT为什么能对话——一篇引用17万次的论文</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/7/" title="AI为什么会撒谎——一个律师被ChatGPT骗了" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI为什么会撒谎——一个律师被ChatGPT骗了</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/8/" title="ChatGPT回答你的三秒钟里，发生了什么？" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ChatGPT回答你的三秒钟里，发生了什么？</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第二章：AI能做什么，不能做什么</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/9/" title="AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/10/" title="AI 能&quot;创造&quot;吗？——从一团噪声到一幅画" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 能"创造"吗？——从一团噪声到一幅画</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/11/" title="为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">为</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/12/" title="这个框架会过时吗？——AI 的天花板和你的判断力" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">这</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">这个框架会过时吗？——AI 的天花板和你的判断力</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第三章：和AI一起工作</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/13/" title="怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">怎</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/14/" title="怎么跟AI协作不翻车——AI说的话你该信几分" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">怎</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">怎么跟AI协作不翻车——AI说的话你该信几分</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/15/" title="AI 写代码有多厉害？——快了 55%，但错多了 75%" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 写代码有多厉害？——快了 55%，但错多了 75%</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/16/" title="AI会取代我们吗——它不懂孤独是什么意思" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI会取代我们吗——它不懂孤独是什么意思</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section></div>
+  
+</widget>
 
 
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
 
-<div class="article banner top">
+
+<div class="article-banner-wrap slide-up"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/whats_ai/">AI是怎么回事</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-02-12T22:41:03.224Z">2026-02-13</time></span></div></div></div>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/whats_ai/" data-stellar-navigation="">AI是怎么回事</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-09-22T15:02:03.000Z">2026-09-22</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -96,18 +487,19 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><blockquote>
+  </div></div>
+<article class="md-text content slide-up"><blockquote>
 <p>这是 <strong>「AI是怎么回事」</strong> 系列的第 <code>6</code> 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。</p>
 </blockquote>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213054430.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213054430.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1030" height="590" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[47.0264,3.1739,93.0864,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213054430.png"></p>
 <p>2017 年，Google 的一个团队发表了一篇论文。</p>
 <p>标题很朴素：<em>Attention Is All You Need</em>（你只需要注意力）。</p>
-<p>八个作者，<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">名字的排列顺序是随机的</a>——因为他们认为每个人的贡献同样重要。论文发表在机器学习领域最顶级的会议 NeurIPS 上。</p>
+<p>八个作者，<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>名字的排列顺序是随机的</a>——因为他们认为每个人的贡献同样重要。论文发表在机器学习领域最顶级的会议 NeurIPS 上。</p>
 <p>当时没有太多人注意到。</p>
 <p>但后来发生的事情，让所有人始料未及。</p>
-<p>这篇论文的被引用次数，截至 2025 年，<a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Attention-is-All-you-Need-Vaswani-Shazeer/204e3073870fae3d05bcbc2f6a8e263d9b72e776">超过了 17 万次</a>——排进了 21 世纪被引用最多的论文前十名。ChatGPT、GPT-4、Claude、Gemini、Midjourney——今天你能叫得上名字的 AI，几乎全部建立在这篇论文的基础上。</p>
+<p>这篇论文的被引用次数，截至 2025 年，<a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Attention-is-All-you-Need-Vaswani-Shazeer/204e3073870fae3d05bcbc2f6a8e263d9b72e776" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>超过了 17 万次</a>——排进了 21 世纪被引用最多的论文前十名。ChatGPT、GPT-4、Claude、Gemini、Midjourney——今天你能叫得上名字的 AI，几乎全部建立在这篇论文的基础上。</p>
 <p><strong>它到底讲了什么？</strong></p>
-<h1 id="在这篇论文之前，AI-是怎么读文字的？"><a href="#在这篇论文之前，AI-是怎么读文字的？" class="headerlink" title="在这篇论文之前，AI 是怎么读文字的？"></a>在这篇论文之前，AI 是怎么读文字的？</h1><p>要理解这篇论文为什么重要，我们得先看看在它出现之前，AI 处理语言的方式有什么问题。</p>
+<h1 id="在这篇论文之前，AI-是怎么读文字的？"><a href="#在这篇论文之前，AI-是怎么读文字的？" class="headerlink" title="在这篇论文之前，AI 是怎么读文字的？" data-stellar-navigation=""></a>在这篇论文之前，AI 是怎么读文字的？</h1><p>要理解这篇论文为什么重要，我们得先看看在它出现之前，AI 处理语言的方式有什么问题。</p>
 <p>前面几篇文章里，我们知道了：文字在 AI 眼里就是一串数字（第 2 篇讲的 Token 和词向量），AI 的”学习”就是调整神经网络里几百万、几千万个参数（第 4 篇和第 5 篇）。</p>
 <p>但有一个关键的问题我们还没聊过：<strong>AI 是按什么顺序读这些词的？</strong></p>
 <p>在 2017 年之前，AI 处理语言最主要的方法叫 <strong>RNN</strong>——全名是 Recurrent Neural Network，翻译过来叫”循环神经网络”。”循环”这个名字来自它的工作方式：它把处理上一个词的结果”循环”传给下一个词，一个接一个地读。</p>
@@ -115,41 +507,41 @@
 <p>让我用一个具体的例子来展示它的工作过程。</p>
 <p>假设 AI 要理解这句话：”小明喜欢吃苹果”。</p>
 <p>RNN 会这样处理：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第 1 步：读&quot;小明&quot; → 记住&quot;小明&quot;</span><br><span class="line">第 2 步：读&quot;喜欢&quot; → 记住&quot;小明 + 喜欢&quot;</span><br><span class="line">第 3 步：读&quot;吃&quot;   → 记住&quot;小明 + 喜欢 + 吃&quot;</span><br><span class="line">第 4 步：读&quot;苹果&quot; → 记住&quot;小明 + 喜欢 + 吃 + 苹果&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第 1 步：读"小明" → 记住"小明"</span><br><span class="line">第 2 步：读"喜欢" → 记住"小明 + 喜欢"</span><br><span class="line">第 3 步：读"吃"   → 记住"小明 + 喜欢 + 吃"</span><br><span class="line">第 4 步：读"苹果" → 记住"小明 + 喜欢 + 吃 + 苹果"</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img1-rnn-reading.gif"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img1-rnn-reading.gif" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="936" height="516" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[247.9309,5.9956,92.9862,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img1-rnn-reading.gif"></p>
 <p>看起来挺合理的，对吧？</p>
 <p>但这里有一个致命的问题。</p>
-<h1 id="RNN-的致命弱点：读到后面，忘了前面"><a href="#RNN-的致命弱点：读到后面，忘了前面" class="headerlink" title="RNN 的致命弱点：读到后面，忘了前面"></a>RNN 的致命弱点：读到后面，忘了前面</h1><p>想象一下，如果句子变长了：</p>
+<h1 id="RNN-的致命弱点：读到后面，忘了前面"><a href="#RNN-的致命弱点：读到后面，忘了前面" class="headerlink" title="RNN 的致命弱点：读到后面，忘了前面" data-stellar-navigation=""></a>RNN 的致命弱点：读到后面，忘了前面</h1><p>想象一下，如果句子变长了：</p>
 <blockquote>
 <p>“小明，就是那个住在北京朝阳区、去年刚从清华大学计算机系毕业的、特别喜欢打篮球的高个子男生，他最喜欢吃的水果是苹果。”</p>
 </blockquote>
 <p>RNN 还是一个字一个字地读。读到”苹果”的时候，它需要知道这个”苹果”跟”小明”有关——但中间隔了一大堆信息。</p>
 <p>问题是：<strong>RNN 的”记忆”是有限的。</strong></p>
 <p>它把每一步的信息压缩成一组固定长度的数字（比如 256 个数字），然后传给下一步。每到下一步，新的信息会覆盖一部分旧的信息。读了几十个词之后，最前面的信息就被冲淡了——就像你往一杯墨水里不断加清水，最后颜色越来越淡。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063436.png"></p>
-<p>这个问题在 AI 领域有一个专门的名字，叫<strong>长期依赖问题</strong>（long-term dependency problem）。1991 年，德国科学家 Sepp Hochreiter 在他的论文中首次系统地描述了这个问题，并指出了背后的数学原因：<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/220355039_The_Vanishing_Gradient_Problem_During_Learning_Recurrent_Neural_Nets_and_Problem_Solutions">梯度在反向传播时会指数级地衰减</a>——也就是说，离得越远的词，对当前词的影响越来越接近于零。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063436.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="520" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[223.9868,11.1843,93.1408,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063436.png"></p>
+<p>这个问题在 AI 领域有一个专门的名字，叫<strong>长期依赖问题</strong>（long-term dependency problem）。1991 年，德国科学家 Sepp Hochreiter 在他的论文中首次系统地描述了这个问题，并指出了背后的数学原因：<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/220355039_The_Vanishing_Gradient_Problem_During_Learning_Recurrent_Neural_Nets_and_Problem_Solutions" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>梯度在反向传播时会指数级地衰减</a>——也就是说，离得越远的词，对当前词的影响越来越接近于零。</p>
 <p>用我们第 5 篇学过的反向传播来理解：训练时，AI 需要从后往前传递”调整信号”。但 RNN 的信号每传一步就会衰减一点，传了几十步之后，信号就几乎消失了。这意味着 AI 根本学不到”远处的词”和”当前词”之间的关系。</p>
 <p><strong>这就是为什么 2017 年之前的机器翻译和聊天机器人总是”前言不搭后语”。</strong> 不是 AI”笨”，是它的”眼睛”只能看到最近几十个词——前面说了什么，它真的记不住了。</p>
 <p>你可能会说：那就想办法增强记忆力呗？</p>
-<p>确实有人这么做了。1997 年，还是那位 Hochreiter，和他的导师 Jurgen Schmidhuber 一起发明了一种改进版的 RNN，叫 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_short-term_memory">LSTM（Long Short-Term Memory，长短期记忆网络）</a>。LSTM 在 RNN 的基础上加了一个”记忆门”的机制——就像给那杯墨水加了一个阀门，让 AI 可以选择性地记住重要信息、忘掉不重要的信息。</p>
+<p>确实有人这么做了。1997 年，还是那位 Hochreiter，和他的导师 Jurgen Schmidhuber 一起发明了一种改进版的 RNN，叫 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_short-term_memory" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>LSTM（Long Short-Term Memory，长短期记忆网络）</a>。LSTM 在 RNN 的基础上加了一个”记忆门”的机制——就像给那杯墨水加了一个阀门，让 AI 可以选择性地记住重要信息、忘掉不重要的信息。</p>
 <p>LSTM 确实比原始 RNN 好了很多，它在 2010 年代的机器翻译、语音识别等任务中被广泛使用。但它依然有一个根本限制：<strong>还是一个词一个词地读。</strong></p>
 <p>不管记忆力多好，如果你只能一个字一个字地读，读一篇一万字的文章，总需要一万步。你无法”跳着读”、无法”先看结尾再回头看开头”。</p>
 <p>更要命的是——因为必须一步一步地算，<strong>RNN 没办法并行计算</strong>。第 2 步必须等第 1 步算完才能开始，第 3 步必须等第 2 步算完……这意味着训练速度极慢。处理一个 1000 词的句子，需要 1000 个计算步骤，一步一步串行执行。</p>
 <p>就像一条工厂的流水线，只有一个工位——不管你买多少台机器，同一时刻只能有一个人在干活。</p>
 <p><strong>2017 年的那篇论文，用一个全新的想法，把这两个问题一起解决了。</strong></p>
-<h1 id="一个全新的想法：不要一个字一个字地读了"><a href="#一个全新的想法：不要一个字一个字地读了" class="headerlink" title="一个全新的想法：不要一个字一个字地读了"></a>一个全新的想法：不要一个字一个字地读了</h1><p>2017 年的那篇论文提出了一种全新的架构，叫做 <strong>Transformer</strong>。</p>
-<p>这个名字的来历很有趣：据论文作者之一 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">Jakob Uszkoreit 回忆</a>，他只是觉得”Transformer”这个词听起来很酷。团队的早期设计文档标题是”Transformers: Iterative Self-Attention and Processing for Various Tasks”，文档里甚至画了几个《变形金刚》的角色。</p>
+<h1 id="一个全新的想法：不要一个字一个字地读了"><a href="#一个全新的想法：不要一个字一个字地读了" class="headerlink" title="一个全新的想法：不要一个字一个字地读了" data-stellar-navigation=""></a>一个全新的想法：不要一个字一个字地读了</h1><p>2017 年的那篇论文提出了一种全新的架构，叫做 <strong>Transformer</strong>。</p>
+<p>这个名字的来历很有趣：据论文作者之一 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Jakob Uszkoreit 回忆</a>，他只是觉得”Transformer”这个词听起来很酷。团队的早期设计文档标题是”Transformers: Iterative Self-Attention and Processing for Various Tasks”，文档里甚至画了几个《变形金刚》的角色。</p>
 <p>Transformer 的核心想法可以用一句话概括：</p>
 <p><strong>不要一个字一个字地读了。让 AI 同时看到所有的字，然后自己决定哪些字和哪些字相关。</strong></p>
 <p>这就像阅读方式的一次革命。</p>
 <p>RNN 读文字像什么？像用手指一个字一个字地指着读——指到哪算哪，前面读过的只能靠记忆。</p>
 <p>Transformer 读文字像什么？像你把整篇文章铺开在桌上，一眼看到全部文字，然后目光自动在相关的词之间跳来跳去。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062056.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062056.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[225.3314,14.3207,93.7744,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062056.png"></p>
 <p>这个”目光自动在相关的词之间跳来跳去”的能力，就是这篇论文的核心发明——<strong>注意力机制</strong>（Attention Mechanism）。</p>
 <p>论文的标题 “Attention Is All You Need”（你只需要注意力）正是在说这件事：只要有了注意力机制，不需要 RNN 的那种”一步一步循环读”的结构了。</p>
 <p>让我来详细解释注意力机制是怎么工作的。</p>
-<h1 id="注意力机制：AI-学会了”抓重点”"><a href="#注意力机制：AI-学会了”抓重点”" class="headerlink" title="注意力机制：AI 学会了”抓重点”"></a>注意力机制：AI 学会了”抓重点”</h1><p>先从一个你每天都在做的事情说起。</p>
+<h1 id="注意力机制：AI-学会了”抓重点”"><a href="#注意力机制：AI-学会了”抓重点”" class="headerlink" title="注意力机制：AI 学会了”抓重点”" data-stellar-navigation=""></a>注意力机制：AI 学会了”抓重点”</h1><p>先从一个你每天都在做的事情说起。</p>
 <p>你读一本小说，读到这么一句话：</p>
 <blockquote>
 <p>“小明把球传给了小红，<strong>她</strong>接住了球，非常开心。”</p>
@@ -160,7 +552,7 @@
 <p>这就是”注意力”——<strong>你在处理当前这个词的时候，自动关注到了句子中与它最相关的那些词。</strong></p>
 <p>Transformer 的注意力机制，做的就是同样的事情。</p>
 <p>让我用一个更具体的例子来展示。</p>
-<h1 id="两个”苹果”的故事"><a href="#两个”苹果”的故事" class="headerlink" title="两个”苹果”的故事"></a>两个”苹果”的故事</h1><p>看这两个句子：</p>
+<h1 id="两个”苹果”的故事"><a href="#两个”苹果”的故事" class="headerlink" title="两个”苹果”的故事" data-stellar-navigation=""></a>两个”苹果”的故事</h1><p>看这两个句子：</p>
 <blockquote>
 <p>句子 A：”我饿了，吃了一个红色的<strong>苹果</strong>。”</p>
 <p>句子 B：”我买了一部新的<strong>苹果</strong>手机。”</p>
@@ -173,21 +565,21 @@
 </ul>
 <p><strong>注意力机制让 AI 做到了同样的事。</strong></p>
 <p>当 AI 处理句子 A 中的”苹果”时，注意力机制会计算”苹果”和句子中每个其他词的”相关程度”。计算的结果大概是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">句子 A：&quot;我 饿了 吃了 一个 红色的 苹果&quot;</span><br><span class="line"></span><br><span class="line">&quot;苹果&quot;对每个词的注意力：</span><br><span class="line">  我     → 0.02  （不太相关）</span><br><span class="line">  饿了   → 0.08  （有点相关——暗示食物）</span><br><span class="line">  吃了   → 0.35  （非常相关——&quot;吃&quot;说明是食物）</span><br><span class="line">  一个   → 0.05  （不太相关）</span><br><span class="line">  红色的 → 0.45  （非常相关——水果的颜色）</span><br><span class="line">  苹果   → 0.05  （自己和自己）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">句子 A："我 饿了 吃了 一个 红色的 苹果"</span><br><span class="line"></span><br><span class="line">"苹果"对每个词的注意力：</span><br><span class="line">  我     → 0.02  （不太相关）</span><br><span class="line">  饿了   → 0.08  （有点相关——暗示食物）</span><br><span class="line">  吃了   → 0.35  （非常相关——"吃"说明是食物）</span><br><span class="line">  一个   → 0.05  （不太相关）</span><br><span class="line">  红色的 → 0.45  （非常相关——水果的颜色）</span><br><span class="line">  苹果   → 0.05  （自己和自己）</span><br></pre></td></tr></tbody></table></figure>
 
 <p>注意这些数字加起来等于 1.00——它们代表的是”注意力的分配比例”。AI 把最多的注意力（0.45 和 0.35）分给了”红色的”和”吃了”——这两个词最能帮助它理解这个”苹果”是水果。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055424.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055424.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[219.0364,14.9268,93.7194,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055424.png"></p>
 <p>现在看句子 B：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">句子 B：&quot;我 买了 一部 新的 苹果 手机&quot;</span><br><span class="line"></span><br><span class="line">&quot;苹果&quot;对每个词的注意力：</span><br><span class="line">  我     → 0.02  （不太相关）</span><br><span class="line">  买了   → 0.20  （相关——买的是产品）</span><br><span class="line">  一部   → 0.08  （有点相关——&quot;一部&quot;暗示电子产品）</span><br><span class="line">  新的   → 0.10  （有点相关）</span><br><span class="line">  苹果   → 0.05  （自己和自己）</span><br><span class="line">  手机   → 0.55  （非常相关——&quot;手机&quot;直接说明了苹果是品牌）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">句子 B："我 买了 一部 新的 苹果 手机"</span><br><span class="line"></span><br><span class="line">"苹果"对每个词的注意力：</span><br><span class="line">  我     → 0.02  （不太相关）</span><br><span class="line">  买了   → 0.20  （相关——买的是产品）</span><br><span class="line">  一部   → 0.08  （有点相关——"一部"暗示电子产品）</span><br><span class="line">  新的   → 0.10  （有点相关）</span><br><span class="line">  苹果   → 0.05  （自己和自己）</span><br><span class="line">  手机   → 0.55  （非常相关——"手机"直接说明了苹果是品牌）</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这次，AI 把最多的注意力（0.55）分给了”手机”——这个词直接告诉了 AI，这个”苹果”是品牌，不是水果。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055437.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055437.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[247.013,9.8806,93.7923,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055437.png"></p>
 <p><strong>同一个词”苹果”，因为上下文不同，AI 分配的注意力完全不同，最终理解的含义也完全不同。</strong></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055139.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055139.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[240.1543,7.9441,93.5716,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213055139.png"></p>
 <p>这就是注意力机制的力量。在第 2 篇里我们学过，一个词会被转化成一串数字（词向量）。在 RNN 的时代，”苹果”这个词不管出现在哪里，对应的词向量都是一样的——AI 没法区分水果苹果和品牌苹果。</p>
 <p>但有了注意力机制，AI 在处理每个词的时候，会根据上下文重新计算这个词的表示。句子 A 中的”苹果”，经过注意力机制之后，它的数字表示会包含”吃”和”红色”的信息——变成一个带有”水果味”的苹果。句子 B 中的”苹果”，经过注意力机制之后，它的数字表示会包含”手机”和”买”的信息——变成一个带有”科技味”的苹果。</p>
 <p><strong>注意力机制不是改变了词本身的意思，而是让词的意思随上下文而变化。</strong></p>
-<h1 id="注意力是怎么算出来的？"><a href="#注意力是怎么算出来的？" class="headerlink" title="注意力是怎么算出来的？"></a>注意力是怎么算出来的？</h1><p>你可能好奇：AI 怎么算出 0.35、0.55 这些注意力数字的？</p>
+<h1 id="注意力是怎么算出来的？"><a href="#注意力是怎么算出来的？" class="headerlink" title="注意力是怎么算出来的？" data-stellar-navigation=""></a>注意力是怎么算出来的？</h1><p>你可能好奇：AI 怎么算出 0.35、0.55 这些注意力数字的？</p>
 <p>这里我尽量解释得直观，不跳步骤。</p>
 <p>想象一个图书馆的场景。</p>
 <p>你走进图书馆，手里有一个<strong>问题</strong>（”我想找关于水果的书”）。书架上每本书都有一个<strong>标签</strong>（”这本书讲烹饪”、”这本书讲手机”、”这本书讲农业”）。你会把自己的问题和每本书的标签做比较——越匹配的书，你越想拿来看。最后，你从匹配度最高的那几本书里提取出你要的<strong>信息</strong>。</p>
@@ -205,7 +597,7 @@
 <p><strong>第 2 步：计算注意力分数</strong></p>
 <p>拿”苹果”的 Query，和句子中每个词的 Key 做”点积”运算。</p>
 <p>什么是点积？就是两组数字对应位置相乘、然后全部加起来——和第 1 篇里 Sobel 算子的计算方式完全一样。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">注意力分数 = 苹果的 Query · 每个词的 Key</span><br><span class="line"></span><br><span class="line">苹果 Q · &quot;吃了&quot;K = 112  （高分——很相关）</span><br><span class="line">苹果 Q · &quot;红色的&quot;K = 98  （高分——很相关）</span><br><span class="line">苹果 Q · &quot;一个&quot;K = 23    （低分——不太相关）</span><br><span class="line">苹果 Q · &quot;我&quot;K = 15      （低分——不太相关）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">注意力分数 = 苹果的 Query · 每个词的 Key</span><br><span class="line"></span><br><span class="line">苹果 Q · "吃了"K = 112  （高分——很相关）</span><br><span class="line">苹果 Q · "红色的"K = 98  （高分——很相关）</span><br><span class="line">苹果 Q · "一个"K = 23    （低分——不太相关）</span><br><span class="line">苹果 Q · "我"K = 15      （低分——不太相关）</span><br></pre></td></tr></tbody></table></figure>
 
 <p>点积的值越大，说明这两个向量”方向”越一致——也就是说这两个词越相关。点积的值越小，说明越不相关。</p>
 <p><strong>第 3 步：转化为概率</strong></p>
@@ -213,14 +605,14 @@
 <p>这一步的结果，就是我们前面看到的那些注意力数字：0.35、0.45 等等。</p>
 <p><strong>第 4 步：加权求和</strong></p>
 <p>用这些注意力比例，对每个词的 Value 向量做加权平均。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;苹果&quot;的新表示 = 0.02×&quot;我&quot;的 V +0.08×&quot;饿了&quot;的 V +0.35×&quot;吃了&quot;的 V</span><br><span class="line">                +0.05×&quot;一个&quot;的 V +0.45×&quot;红色的&quot;的 V +0.05×&quot;苹果&quot;的 V</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"苹果"的新表示 = 0.02×"我"的 V +0.08×"饿了"的 V +0.35×"吃了"的 V</span><br><span class="line">                +0.05×"一个"的 V +0.45×"红色的"的 V +0.05×"苹果"的 V</span><br></pre></td></tr></tbody></table></figure>
 
 <p>因为”吃了”和”红色的”的权重最大，所以最终”苹果”的新表示里，主要包含了”吃了”和”红色的”的信息。</p>
 <p><strong>这就是注意力机制的全部计算过程。</strong></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img3-qkv-process.gif"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img3-qkv-process.gif" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="936" height="516" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[257.254,7.438,92.92,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img3-qkv-process.gif"></p>
 <p>把四步串起来：每个词都会”提一个问题”（Query），去和所有词的”标签”（Key）做比较，找到最相关的词，然后把那些最相关的词的”信息”（Value）融合到自己身上。</p>
 <p>整个过程只有乘法和加法——和第 4 篇讲的神经网络一模一样。</p>
-<h1 id="自注意力：每个词都在看所有词"><a href="#自注意力：每个词都在看所有词" class="headerlink" title="自注意力：每个词都在看所有词"></a>自注意力：每个词都在看所有词</h1><p>上面描述的过程有一个重要的特点：<strong>每个词的 Query、Key、Value，都来自同一个句子。</strong></p>
+<h1 id="自注意力：每个词都在看所有词"><a href="#自注意力：每个词都在看所有词" class="headerlink" title="自注意力：每个词都在看所有词" data-stellar-navigation=""></a>自注意力：每个词都在看所有词</h1><p>上面描述的过程有一个重要的特点：<strong>每个词的 Query、Key、Value，都来自同一个句子。</strong></p>
 <p>“苹果”在提问，”吃了”和”手机”在回答——它们都是同一个句子里的词。AI 在让句子”自己看自己”。</p>
 <p>这就是为什么这个机制被叫做<strong>自注意力</strong>（Self-Attention）——“自”的意思就是”自己跟自己做注意力计算”。</p>
 <p>这跟 RNN 有什么根本的不同？</p>
@@ -231,8 +623,8 @@
 <li>RNN：蒙着眼睛，别人一个字一个字地念给你听。你只能靠记忆把前面的内容串起来。</li>
 <li>Transformer：睁着眼睛，整篇文章摊开在面前。你可以自由地在任意两个词之间跳来跳去。</li>
 </ul>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062147.png"></p>
-<h1 id="还有一个”多头”的设计"><a href="#还有一个”多头”的设计" class="headerlink" title="还有一个”多头”的设计"></a>还有一个”多头”的设计</h1><p>研究到这里，我产生了一个疑问：一个词可能和其他词有好几种不同的关系。比如”她”这个词，可能需要同时知道：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062147.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[215.7593,14.5348,93.6349,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062147.png"></p>
+<h1 id="还有一个”多头”的设计"><a href="#还有一个”多头”的设计" class="headerlink" title="还有一个”多头”的设计" data-stellar-navigation=""></a>还有一个”多头”的设计</h1><p>研究到这里，我产生了一个疑问：一个词可能和其他词有好几种不同的关系。比如”她”这个词，可能需要同时知道：</p>
 <ul>
 <li>“她”指的是<strong>谁</strong>？（语义关系——指向”小红”）</li>
 <li>“她”在句子里的<strong>角色</strong>是什么？（语法关系——主语）</li>
@@ -241,24 +633,24 @@
 <p>一组 Query/Key/Value 只能捕捉一种关系。怎么办？</p>
 <p>Transformer 论文的作者想了一个巧妙的办法：<strong>同时用好几组不同的 Query/Key/Value，让每一组关注不同的关系。</strong></p>
 <p>这就叫<strong>多头注意力</strong>（Multi-Head Attention）。”多头”的意思就是有好几个”注意力头”，每个头用自己独立的一组 Q/K/V 矩阵去做注意力计算。</p>
-<p>原始的 Transformer 论文用了 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">8 个头</a>。就像让 8 个人同时阅读同一个句子，每个人关注不同的方面——有人关注”谁是谁”，有人关注”谁做了什么”，有人关注”感情色彩”。最后把 8 个人的理解综合起来。</p>
+<p>原始的 Transformer 论文用了 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>8 个头</a>。就像让 8 个人同时阅读同一个句子，每个人关注不同的方面——有人关注”谁是谁”，有人关注”谁做了什么”，有人关注”感情色彩”。最后把 8 个人的理解综合起来。</p>
 <p>这样，AI 对每个词的理解就不再是单一的，而是多维度的。</p>
-<h1 id="为什么这是一场革命？"><a href="#为什么这是一场革命？" class="headerlink" title="为什么这是一场革命？"></a>为什么这是一场革命？</h1><p>现在让我来解释为什么 Transformer 不只是”又一个新模型”，而是一场真正的革命。</p>
+<h1 id="为什么这是一场革命？"><a href="#为什么这是一场革命？" class="headerlink" title="为什么这是一场革命？" data-stellar-navigation=""></a>为什么这是一场革命？</h1><p>现在让我来解释为什么 Transformer 不只是”又一个新模型”，而是一场真正的革命。</p>
 <p><strong>革命一：训练速度的飞跃</strong></p>
 <p>还记得 RNN 的问题吗？必须一个词一个词地算，第 2 步等第 1 步，第 3 步等第 2 步——像一条只有一个工位的流水线。</p>
 <p>Transformer 完全不同。因为每个词在做自注意力计算的时候，是同时看所有词——不需要等别的词先算完。<strong>所有词的注意力可以并行计算。</strong></p>
 <p>这意味着什么？</p>
 <p>打个比方：RNN 处理一个 1000 词的句子，需要 1000 个计算步骤（串行）。Transformer 处理同一个句子，在理论上只需要 1 个计算步骤——因为所有词同时在算。</p>
-<p>实际效果有多夸张？Transformer 论文中报告了一组数据：他们在 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">8 块 NVIDIA P100 GPU 上训练了 3.5 天</a>，就在英语翻译到法语的任务上达到了当时最好的成绩（WMT 2014 英法翻译 BLEU 分数 41.8 分），而之前最好的模型需要用更多的计算资源训练更长的时间。论文的原话是：”仅花了当时最好模型训练成本的四分之一。”</p>
+<p>实际效果有多夸张？Transformer 论文中报告了一组数据：他们在 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>8 块 NVIDIA P100 GPU 上训练了 3.5 天</a>，就在英语翻译到法语的任务上达到了当时最好的成绩（WMT 2014 英法翻译 BLEU 分数 41.8 分），而之前最好的模型需要用更多的计算资源训练更长的时间。论文的原话是：”仅花了当时最好模型训练成本的四分之一。”</p>
 <p><strong>GPU（我们在第 5 篇聊过的”并行计算神器”）和 Transformer 简直是天作之合。</strong> GPU 擅长同时做大量简单计算，而 Transformer 的自注意力机制恰好就是大量的并行计算。</p>
 <p><strong>革命二：终于能”看到”远处的词了</strong></p>
 <p>RNN 的长期依赖问题——“读到后面忘了前面”——被彻底解决了。</p>
 <p>在 Transformer 里，第 1 个词和第 1000 个词之间的”距离”是一样的——它们直接通过注意力机制相连，不需要经过中间 999 个词的接力传递。信号不会衰减。</p>
-<p>这就是为什么今天的 AI 能处理超长的文本。GPT-4 的上下文窗口（context window，就是 AI 一次能”看到”的文字量）是 <a target="_blank" rel="noopener" href="https://openai.com/index/gpt-4/">128,000 个 Token</a>，大约相当于一本 10 万字的中篇小说。Claude 的上下文窗口甚至更长。</p>
+<p>这就是为什么今天的 AI 能处理超长的文本。GPT-4 的上下文窗口（context window，就是 AI 一次能”看到”的文字量）是 <a target="_blank" rel="noopener" href="https://openai.com/index/gpt-4/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>128,000 个 Token</a>，大约相当于一本 10 万字的中篇小说。Claude 的上下文窗口甚至更长。</p>
 <p>这在 RNN 时代是不可想象的。当时的模型能”记住”几十到几百个词就不错了。</p>
 <p><strong>革命三：一个意想不到的发现——规模定律</strong></p>
 <p>这可能是 Transformer 带来的最深远的影响。</p>
-<p>2020 年，OpenAI 的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.08361">Jared Kaplan 等人发表了一篇论文</a>，发现了一个惊人的规律：基于 Transformer 架构的语言模型，其性能和三个因素之间存在简洁的数学关系——</p>
+<p>2020 年，OpenAI 的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.08361" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Jared Kaplan 等人发表了一篇论文</a>，发现了一个惊人的规律：基于 Transformer 架构的语言模型，其性能和三个因素之间存在简洁的数学关系——</p>
 <ul>
 <li><strong>模型参数量</strong>（模型有多大）</li>
 <li><strong>训练数据量</strong>（喂了多少数据）</li>
@@ -269,31 +661,31 @@
 <p>这意味着什么？意味着你只需要做一件事：<strong>把模型做大，把数据加多，把算力堆上去——效果就会变好。</strong></p>
 <p>这在 RNN 时代是不成立的。RNN 的模型再大，也会被长期依赖问题卡住——性能到一定程度就上不去了。但 Transformer 打破了这个天花板。</p>
 <p>这个发现后来被称为<strong>规模定律</strong>（Scaling Laws），它直接指导了后来 GPT-3、GPT-4 等大模型的开发策略：不需要发明全新的算法，只需要在 Transformer 的基础上不断放大。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063928.png"></p>
-<h1 id="从-Transformer-到-ChatGPT：一条不断放大的路"><a href="#从-Transformer-到-ChatGPT：一条不断放大的路" class="headerlink" title="从 Transformer 到 ChatGPT：一条不断放大的路"></a>从 Transformer 到 ChatGPT：一条不断放大的路</h1><p>有了 Transformer 架构和规模定律，后面发生的事情就像一列加速前进的火车。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063928.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="520" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[216.8968,11.4505,93.8216,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213063928.png"></p>
+<h1 id="从-Transformer-到-ChatGPT：一条不断放大的路"><a href="#从-Transformer-到-ChatGPT：一条不断放大的路" class="headerlink" title="从 Transformer 到 ChatGPT：一条不断放大的路" data-stellar-navigation=""></a>从 Transformer 到 ChatGPT：一条不断放大的路</h1><p>有了 Transformer 架构和规模定律，后面发生的事情就像一列加速前进的火车。</p>
 <p>让我们按时间线来看这条路。</p>
 <p><strong>2017 年 6 月：Transformer 论文发表</strong></p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">8 位作者</a>——Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan Gomez、Lukasz Kaiser、Illia Polosukhin——发表了”Attention Is All You Need”。论文的原始目的是做机器翻译（把英语翻译成其他语言）。他们当时可能不知道，这个架构会在 5 年后催生出 ChatGPT。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>8 位作者</a>——Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan Gomez、Lukasz Kaiser、Illia Polosukhin——发表了”Attention Is All You Need”。论文的原始目的是做机器翻译（把英语翻译成其他语言）。他们当时可能不知道，这个架构会在 5 年后催生出 ChatGPT。</p>
 <p><strong>2018 年 6 月：GPT-1 —— 1.17 亿参数</strong></p>
-<p>OpenAI 基于 Transformer 架构做了一个语言模型，叫 GPT——全名 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1">Generative Pre-trained Transformer</a>，翻译过来是”生成式预训练 Transformer”。</p>
+<p>OpenAI 基于 Transformer 架构做了一个语言模型，叫 GPT——全名 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Generative Pre-trained Transformer</a>，翻译过来是”生成式预训练 Transformer”。</p>
 <p>名字拆开来看：</p>
 <ul>
 <li><strong>Generative（生成式）</strong>：它的任务是”生成”文字——给一段开头，续写下去</li>
 <li><strong>Pre-trained（预训练）</strong>：先用海量文本训练出一个”通用”模型，然后再针对具体任务微调</li>
 <li><strong>Transformer</strong>：就是我们前面讲的那个架构</li>
 </ul>
-<p>GPT-1 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1">1.17 亿个参数</a>，12 层 Transformer。用了约 5GB 的书籍文本进行训练。</p>
+<p>GPT-1 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>1.17 亿个参数</a>，12 层 Transformer。用了约 5GB 的书籍文本进行训练。</p>
 <p>1.17 亿参数是什么概念？跟第 3 篇里的 AlexNet（6000 万参数）比，大了差不多一倍。但跟后面的模型比，它还只是个婴儿。</p>
 <p>GPT-1 能做什么？能读懂一些文本、做简单的分类和问答。但它的回答还很粗糙，远远到不了”对话”的水平。</p>
 <p><strong>2019 年 2 月：GPT-2 —— 15 亿参数</strong></p>
-<p>GPT-2 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-2">15 亿个参数</a>——是 GPT-1 的 12.8 倍。</p>
+<p>GPT-2 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-2" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>15 亿个参数</a>——是 GPT-1 的 12.8 倍。</p>
 <p>它能写出令人惊讶地流畅的文章。给它一段开头，它能续写出连贯的、有上下文逻辑的长篇文字。</p>
 <p>GPT-2 引发了一个轰动事件：<strong>OpenAI 一度拒绝公开完整模型。</strong></p>
-<p>他们在 <a target="_blank" rel="noopener" href="https://slate.com/technology/2019/02/openai-gpt2-text-generating-algorithm-ai-dangerous.html">2019 年 2 月的声明中说</a>，GPT-2”太危险了，不能发布”——担心它会被用来制造假新闻、假评论、网络诈骗。这在 AI 界引发了激烈争论——有人批评 OpenAI”搞噱头”，有人认为这是”负责任的做法”。</p>
-<p>最终，经过几个月的观察，OpenAI 在 <a target="_blank" rel="noopener" href="https://www.theregister.com/2019/11/06/openai_gpt2_released/">2019 年 11 月公开了完整的 15 亿参数模型</a>，并表示”没有看到被严重滥用的证据”。</p>
+<p>他们在 <a target="_blank" rel="noopener" href="https://slate.com/technology/2019/02/openai-gpt2-text-generating-algorithm-ai-dangerous.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2019 年 2 月的声明中说</a>，GPT-2”太危险了，不能发布”——担心它会被用来制造假新闻、假评论、网络诈骗。这在 AI 界引发了激烈争论——有人批评 OpenAI”搞噱头”，有人认为这是”负责任的做法”。</p>
+<p>最终，经过几个月的观察，OpenAI 在 <a target="_blank" rel="noopener" href="https://www.theregister.com/2019/11/06/openai_gpt2_released/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2019 年 11 月公开了完整的 15 亿参数模型</a>，并表示”没有看到被严重滥用的证据”。</p>
 <p><strong>2020 年 6 月：GPT-3 —— 1750 亿参数</strong></p>
-<p>GPT-3 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-3">1750 亿个参数</a>——是 GPT-2 的 116 倍，是 GPT-1 的 1500 倍。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213060610.png"></p>
+<p>GPT-3 有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-3" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>1750 亿个参数</a>——是 GPT-2 的 116 倍，是 GPT-1 的 1500 倍。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213060610.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[346.5453,12.6687,91.7638,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213060610.png"></p>
 <p>让这些数字变得有实感：如果每个参数是一粒沙子，GPT-1 是一小堆沙（1.17 亿粒），GPT-2 是一大桶沙（15 亿粒），GPT-3 是一整片沙滩（1750 亿粒）。</p>
 <p>GPT-3 让整个 AI 界震惊了。不是因为它做了什么新的事情——它用的还是同样的 Transformer 架构——而是因为<strong>规模放大后，涌现出了没人预料到的能力</strong>。</p>
 <p>什么叫”涌现”？就是小模型完全做不到的事情，大模型突然就能做了。比如：</p>
@@ -305,24 +697,24 @@
 <p>这些能力不是被”教”出来的，是从海量文本中”长”出来的。模型大到一定程度，量变引发了质变。</p>
 <p><strong>2022 年 11 月 30 日：ChatGPT 发布</strong></p>
 <p>然后就到了改变一切的那一天。</p>
-<p><a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/">2022 年 11 月 30 日，OpenAI 发布了 ChatGPT。</a>5 天之内，用户突破 100 万。两个月之内，月活跃用户达到 1 亿——成为<a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/">历史上增长最快的消费级应用</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2022 年 11 月 30 日，OpenAI 发布了 ChatGPT。</a>5 天之内，用户突破 100 万。两个月之内，月活跃用户达到 1 亿——成为<a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>历史上增长最快的消费级应用</a>。</p>
 <p>ChatGPT 和 GPT-3 有什么区别？</p>
 <p>底层架构是一样的——还是 Transformer。但 ChatGPT 多做了一件关键的事：<strong>RLHF——基于人类反馈的强化学习</strong>（Reinforcement Learning from Human Feedback）。</p>
 <p>RLHF 是什么？用一个类比来解释。</p>
 <p>GPT-3 就像一个读过整个互联网的天才——他知道海量的知识，但说话没有章法。你问他一个问题，他可能给你一段维基百科式的文章，也可能给你一段 Reddit 上的粗话，也可能给你一段胡编乱造的”新闻”——因为他在训练数据里见过所有这些风格。</p>
 <p>RLHF 做的事情就是给这个天才<strong>上了一门”说话课”。</strong></p>
-<p>具体怎么做的？OpenAI 在 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155">2022 年 3 月发表了一篇论文</a>（叫 InstructGPT 论文）详细描述了这个过程：</p>
+<p>具体怎么做的？OpenAI 在 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2022 年 3 月发表了一篇论文</a>（叫 InstructGPT 论文）详细描述了这个过程：</p>
 <ol>
 <li><strong>请人类示范</strong>：让人类标注员写出”好的回答”的样板——比如，面对”什么是黑洞？”这个问题，标注员写出一个准确、友好、条理清晰的回答</li>
 <li><strong>训练一个“评分模型”</strong>：给 AI 的多个回答让人类标注员排序（哪个回答更好），用这些排序数据训练一个”评分模型”（reward model），让它学会像人类一样判断”哪个回答更好”</li>
 <li><strong>用评分模型训练 AI</strong>：让 AI 尝试回答问题，评分模型打分，AI 根据分数调整自己的行为——得分高的回答风格，以后多用；得分低的，以后少用</li>
 </ol>
 <p>这个过程重复很多轮之后，AI 就学会了”好好说话”——回答变得更有条理、更友好、更有用、更安全。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062438.png"></p>
-<p>一个让人印象深刻的发现是：OpenAI 发现，经过 RLHF 训练的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155">13 亿参数的小模型</a>，在人类评估中竟然比没有经过 RLHF 训练的 1750 亿参数的 GPT-3 还要受欢迎。这说明 RLHF 不是在让 AI”更聪明”，而是在让 AI”更会沟通”——就像一个学生考试能力没变，但学会了把答案写得更清楚、更有条理。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062438.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[262.1264,7.0393,93.4852,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213062438.png"></p>
+<p>一个让人印象深刻的发现是：OpenAI 发现，经过 RLHF 训练的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>13 亿参数的小模型</a>，在人类评估中竟然比没有经过 RLHF 训练的 1750 亿参数的 GPT-3 还要受欢迎。这说明 RLHF 不是在让 AI”更聪明”，而是在让 AI”更会沟通”——就像一个学生考试能力没变，但学会了把答案写得更清楚、更有条理。</p>
 <p><strong>ChatGPT 的成功秘诀不是一个单一的突破，而是一连串因素的累积：</strong> Transformer 架构（2017）+ 规模放大（2018-2020）+ RLHF 对齐（2022）。</p>
-<h1 id="让数字说话：从-1-亿到-1750-亿"><a href="#让数字说话：从-1-亿到-1750-亿" class="headerlink" title="让数字说话：从 1 亿到 1750 亿"></a>让数字说话：从 1 亿到 1750 亿</h1><p>让我把这条路上的关键数字整理成一张表：</p>
-<table>
+<h1 id="让数字说话：从-1-亿到-1750-亿"><a href="#让数字说话：从-1-亿到-1750-亿" class="headerlink" title="让数字说话：从 1 亿到 1750 亿" data-stellar-navigation=""></a>让数字说话：从 1 亿到 1750 亿</h1><p>让我把这条路上的关键数字整理成一张表：</p>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>时间</th>
@@ -367,20 +759,20 @@
 <td>未公开</td>
 <td>5 天 100 万用户，2 个月 1 亿用户</td>
 </tr>
-</tbody></table>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213061209.png"></p>
+</tbody></table></div>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213061209.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[218.5493,13.5727,93.5004,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260213061209.png"></p>
 <p>看这张表，一个规律非常清晰：</p>
 <p><strong>从 GPT-1 到 GPT-3，算法架构没有本质变化——都是 Transformer。变化的只有规模：参数从 1 亿到 15 亿到 1750 亿，训练数据从几个 GB 到几百个 GB 到几百 TB。</strong></p>
 <p>这正是规模定律预测的：同一个架构，放大 1500 倍，效果从”勉强能读”变成了”震惊世界”。</p>
 <p>不是算法突然变了，是同一个想法——注意力机制——被不断放大，量变引发了质变。</p>
-<h1 id="个人锚点"><a href="#个人锚点" class="headerlink" title="个人锚点"></a>个人锚点</h1><p>研究到这里，我想分享一个我学习过程中的感受。</p>
+<h1 id="个人锚点"><a href="#个人锚点" class="headerlink" title="个人锚点" data-stellar-navigation=""></a>个人锚点</h1><p>研究到这里，我想分享一个我学习过程中的感受。</p>
 <p>最初看到 Transformer 论文的标题”Attention Is All You Need”时，我以为这只是一个夸张的论文名——学术界经常这样取标题来吸引眼球。</p>
 <p>但当我真正理解了注意力机制之后，我觉得这个标题是 AI 领域最名副其实的命名。它真的只用了一个核心想法——让每个词同时看到所有其他词，自己决定该关注谁——就解决了 RNN 几十年没解决的问题。</p>
 <p>更让我感慨的是后来发生的事。这 8 位作者发表论文的时候，目标只是做好机器翻译。他们不知道 5 年后，这个架构会催生出 ChatGPT、会改变整个科技行业、会让”AI”从一个技术术语变成全球话题。</p>
 <p>有时候，改变世界的，不是一个多么复杂的发明——而是一个恰好在对的时间出现的、足够简洁优雅的想法。</p>
 <p>还有一件让我印象很深的事：这篇论文的 8 位作者后来全部离开了 Google，分别创办或加入了不同的 AI 公司。他们亲手写下了一篇论文，催生了一个时代，然后各自走向了不同的方向。技术的发展不是一条直线，而是一个人的种子撒出去，在无数地方开花。</p>
-<h1 id="一句话回顾"><a href="#一句话回顾" class="headerlink" title="一句话回顾"></a>一句话回顾</h1><p>Transformer 给了 AI 一种全新的”阅读”方式——不再一个字一个字地读，而是同时看全文、自动抓重点。注意力机制是它唯一的核心想法。ChatGPT 就是这个想法放大 1500 倍、再加上”说话课”（RLHF）的产物。</p>
-<h1 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告"></a>下一篇预告</h1><p>到这里，你已经理解了 ChatGPT 的全部核心原理：</p>
+<h1 id="一句话回顾"><a href="#一句话回顾" class="headerlink" title="一句话回顾" data-stellar-navigation=""></a>一句话回顾</h1><p>Transformer 给了 AI 一种全新的”阅读”方式——不再一个字一个字地读，而是同时看全文、自动抓重点。注意力机制是它唯一的核心想法。ChatGPT 就是这个想法放大 1500 倍、再加上”说话课”（RLHF）的产物。</p>
+<h1 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告" data-stellar-navigation=""></a>下一篇预告</h1><p>到这里，你已经理解了 ChatGPT 的全部核心原理：</p>
 <ul>
 <li>文字变成数字（第 2 篇的 Token 和词向量）</li>
 <li>数字经过层层计算（第 4 篇的神经网络）</li>
@@ -392,791 +784,153 @@
 <p>2023 年，一个执业 30 年的纽约律师，向法庭提交了 6 个法律判例——全部是 ChatGPT 编造的。他问 ChatGPT”这些判例是真的吗？”，ChatGPT 回答：”是的。”</p>
 <p>一个能通过律师考试的 AI，为什么会编造不存在的判例？它知道自己在”撒谎”吗？</p>
 <p>下一篇，我们来回答这个问题。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention Is All You Need - Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin (2017)</a> — Transformer 论文原文，发表于 NeurIPS 2017，8 位作者均来自 Google</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">Attention Is All You Need - Wikipedia</a> — 论文背景、作者信息、命名由来、引用次数等</li>
-<li><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/220355039_The_Vanishing_Gradient_Problem_During_Learning_Recurrent_Neural_Nets_and_Problem_Solutions">The Vanishing Gradient Problem During Learning Recurrent Neural Nets and Problem Solutions - Hochreiter (1991)</a> — 首次系统描述 RNN 的梯度消失问题</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_short-term_memory">Long Short-Term Memory - Wikipedia</a> — LSTM 由 Hochreiter 和 Schmidhuber 于 1997 年提出，解决 RNN 的长期依赖问题</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.08361">Scaling Laws for Neural Language Models - Kaplan et al. (2020)</a> — OpenAI 发现的规模定律，揭示了模型性能和参数量、数据量、计算量之间的幂律关系</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1">GPT-1- Wikipedia</a> — GPT-1 的架构细节，1.17 亿参数，12 层 Transformer</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-2">GPT-2- Wikipedia</a> — GPT-2 的架构细节，15 亿参数，OpenAI 一度拒绝公开</li>
-<li><a target="_blank" rel="noopener" href="https://slate.com/technology/2019/02/openai-gpt2-text-generating-algorithm-ai-dangerous.html">OpenAI says its text-generating algorithm GPT-2 is too dangerous to release - Slate (2019)</a> — GPT-2”太危险不能发布”事件的报道</li>
-<li><a target="_blank" rel="noopener" href="https://www.theregister.com/2019/11/06/openai_gpt2_released/">GPT-2 full model released - The Register (2019)</a> — GPT-2 完整模型最终公开发布的报道</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-3">GPT-3- Wikipedia</a> — GPT-3 的架构细节，1750 亿参数</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback - Ouyang et al. (2022)</a> — InstructGPT 论文，描述了 RLHF 训练方法，13 亿参数 RLHF 模型优于 1750 亿参数 GPT-3</li>
-<li><a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/">ChatGPT Release Date and Timeline</a> — ChatGPT 发布时间线，5 天 100 万用户，2 个月 1 亿月活</li>
-<li><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Attention-is-All-you-Need-Vaswani-Shazeer/204e3073870fae3d05bcbc2f6a8e263d9b72e776">Attention Is All You Need - Semantic Scholar</a> — 论文引用次数统计</li>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料" data-stellar-navigation=""></a>参考资料</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Attention Is All You Need - Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin (2017)</a> — Transformer 论文原文，发表于 NeurIPS 2017，8 位作者均来自 Google</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Attention Is All You Need - Wikipedia</a> — 论文背景、作者信息、命名由来、引用次数等</li>
+<li><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/220355039_The_Vanishing_Gradient_Problem_During_Learning_Recurrent_Neural_Nets_and_Problem_Solutions" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>The Vanishing Gradient Problem During Learning Recurrent Neural Nets and Problem Solutions - Hochreiter (1991)</a> — 首次系统描述 RNN 的梯度消失问题</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_short-term_memory" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Long Short-Term Memory - Wikipedia</a> — LSTM 由 Hochreiter 和 Schmidhuber 于 1997 年提出，解决 RNN 的长期依赖问题</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.08361" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Scaling Laws for Neural Language Models - Kaplan et al. (2020)</a> — OpenAI 发现的规模定律，揭示了模型性能和参数量、数据量、计算量之间的幂律关系</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-1" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>GPT-1- Wikipedia</a> — GPT-1 的架构细节，1.17 亿参数，12 层 Transformer</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-2" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>GPT-2- Wikipedia</a> — GPT-2 的架构细节，15 亿参数，OpenAI 一度拒绝公开</li>
+<li><a target="_blank" rel="noopener" href="https://slate.com/technology/2019/02/openai-gpt2-text-generating-algorithm-ai-dangerous.html" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>OpenAI says its text-generating algorithm GPT-2 is too dangerous to release - Slate (2019)</a> — GPT-2”太危险不能发布”事件的报道</li>
+<li><a target="_blank" rel="noopener" href="https://www.theregister.com/2019/11/06/openai_gpt2_released/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>GPT-2 full model released - The Register (2019)</a> — GPT-2 完整模型最终公开发布的报道</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GPT-3" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>GPT-3- Wikipedia</a> — GPT-3 的架构细节，1750 亿参数</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.02155" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Training language models to follow instructions with human feedback - Ouyang et al. (2022)</a> — InstructGPT 论文，描述了 RLHF 训练方法，13 亿参数 RLHF 模型优于 1750 亿参数 GPT-3</li>
+<li><a target="_blank" rel="noopener" href="https://www.ofzenandcomputing.com/chatgpt-release-date/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>ChatGPT Release Date and Timeline</a> — ChatGPT 发布时间线，5 天 100 万用户，2 个月 1 亿月活</li>
+<li><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Attention-is-All-you-Need-Vaswani-Shazeer/204e3073870fae3d05bcbc2f6a8e263d9b72e776" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Attention Is All You Need - Semantic Scholar</a> — 论文引用次数统计</li>
 </ol>
-<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>如果觉得有意思，欢迎关注我，后续文章也会持续更新。同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅" data-stellar-navigation=""></a>订阅</h1><p>如果觉得有意思，欢迎关注我，后续文章也会持续更新。同步更新在<a href="https://www.wmyskxz.cn/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&amp;s_from=input&amp;query=wmyskxz&amp;ie=utf8&amp;_sug_=n&amp;_sug_type_=&amp;w=01019900&amp;sut=1861&amp;sst0=1612590375262&amp;lkt=8,1612590373961,1612590375161" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>微信公众号</a></p>
 <p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="258" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.6232,1.4053,61.8842,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
 </article>
-<div class="article-footer">
 
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="分享文章: QR Code" title="分享文章: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F&amp;title=ChatGPT%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AF%B9%E8%AF%9D%E2%80%94%E2%80%94%E4%B8%80%E7%AF%87%E5%BC%95%E7%94%A817%E4%B8%87%E6%AC%A1%E7%9A%84%E8%AE%BA%E6%96%87%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;summary=%E6%88%91%E4%B8%80%E7%9B%B4%E5%BE%88%E5%A5%BD%E5%A5%87%20AI%20%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF%E6%88%91%E7%9A%84%E6%8E%A2%E7%B4%A2%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%88%86%E4%BA%AB%E7%BB%99%E4%BD%A0%E3%80%82" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Weibo" title="分享文章: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=ChatGPT%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AF%B9%E8%AF%9D%E2%80%94%E2%80%94%E4%B8%80%E7%AF%87%E5%BC%95%E7%94%A817%E4%B8%87%E6%AC%A1%E7%9A%84%E8%AE%BA%E6%96%87%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: X" title="分享文章: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F&amp;text=ChatGPT%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AF%B9%E8%AF%9D%E2%80%94%E2%80%94%E4%B8%80%E7%AF%87%E5%BC%95%E7%94%A817%E4%B8%87%E6%AC%A1%E7%9A%84%E8%AE%BA%E6%96%87%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Telegram" title="分享文章: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=ChatGPT%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AF%B9%E8%AF%9D%E2%80%94%E2%80%94%E4%B8%80%E7%AF%87%E5%BC%95%E7%94%A817%E4%B8%87%E6%AC%A1%E7%9A%84%E8%AE%BA%E6%96%87%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2%0Ahttps%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: WhatsApp" title="分享文章: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=ChatGPT%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%AF%B9%E8%AF%9D%E2%80%94%E2%80%94%E4%B8%80%E7%AF%87%E5%BC%95%E7%94%A817%E4%B8%87%E6%AC%A1%E7%9A%84%E8%AE%BA%E6%96%87%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;body=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F" aria-label="分享文章: Email" title="分享文章: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="256" height="256" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[0,0,49.7383,1]}" data-stellar-image-source="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F6%2F"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
+    </section></div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/whats_ai/5/">AI是怎么学会的——从做错一道题说起</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/whats_ai/7/">AI为什么会撒谎——一个律师被ChatGPT骗了</a></div></section></div>
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/whats_ai/5/" data-stellar-navigation="">AI是怎么学会的——从做错一道题说起</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/whats_ai/7/" data-stellar-navigation="">AI为什么会撒谎——一个律师被ChatGPT骗了</a></div></section></div>
 
 
-  <div class="related-wrap md-text" id="comments">
-    <section class='header cmt-title cap theme'>
+  <div class="related-wrap md-text slide-up" id="comments">
+    
+    
+    <section class="header cmt-title cap theme">
       <p>欢迎在评论区交流讨论，也可以到<a target="_blank" rel="noopener" href="https://wmyskxz.cn/more/">关于我</a>页面找到更多联系方式。</p>
 
     </section>
-    <section class='body cmt-body giscus'>
+    
+    <section class="body cmt-body giscus">
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
-<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+<div id="giscus" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6">Stellar 2.0.0-rc.6</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
 
 
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%9C%A8%E8%BF%99%E7%AF%87%E8%AE%BA%E6%96%87%E4%B9%8B%E5%89%8D%EF%BC%8CAI-%E6%98%AF%E6%80%8E%E4%B9%88%E8%AF%BB%E6%96%87%E5%AD%97%E7%9A%84%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">在这篇论文之前，AI 是怎么读文字的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#RNN-%E7%9A%84%E8%87%B4%E5%91%BD%E5%BC%B1%E7%82%B9%EF%BC%9A%E8%AF%BB%E5%88%B0%E5%90%8E%E9%9D%A2%EF%BC%8C%E5%BF%98%E4%BA%86%E5%89%8D%E9%9D%A2" data-stellar-navigation=""><span class="toc-text">RNN 的致命弱点：读到后面，忘了前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E6%83%B3%E6%B3%95%EF%BC%9A%E4%B8%8D%E8%A6%81%E4%B8%80%E4%B8%AA%E5%AD%97%E4%B8%80%E4%B8%AA%E5%AD%97%E5%9C%B0%E8%AF%BB%E4%BA%86" data-stellar-navigation=""><span class="toc-text">一个全新的想法：不要一个字一个字地读了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%9AAI-%E5%AD%A6%E4%BC%9A%E4%BA%86%E2%80%9D%E6%8A%93%E9%87%8D%E7%82%B9%E2%80%9D" data-stellar-navigation=""><span class="toc-text">注意力机制：AI 学会了”抓重点”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%A4%E4%B8%AA%E2%80%9D%E8%8B%B9%E6%9E%9C%E2%80%9D%E7%9A%84%E6%95%85%E4%BA%8B" data-stellar-navigation=""><span class="toc-text">两个”苹果”的故事</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%98%AF%E6%80%8E%E4%B9%88%E7%AE%97%E5%87%BA%E6%9D%A5%E7%9A%84%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">注意力是怎么算出来的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%EF%BC%9A%E6%AF%8F%E4%B8%AA%E8%AF%8D%E9%83%BD%E5%9C%A8%E7%9C%8B%E6%89%80%E6%9C%89%E8%AF%8D" data-stellar-navigation=""><span class="toc-text">自注意力：每个词都在看所有词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%BF%98%E6%9C%89%E4%B8%80%E4%B8%AA%E2%80%9D%E5%A4%9A%E5%A4%B4%E2%80%9D%E7%9A%84%E8%AE%BE%E8%AE%A1" data-stellar-navigation=""><span class="toc-text">还有一个”多头”的设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%98%AF%E4%B8%80%E5%9C%BA%E9%9D%A9%E5%91%BD%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">为什么这是一场革命？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%BB%8E-Transformer-%E5%88%B0-ChatGPT%EF%BC%9A%E4%B8%80%E6%9D%A1%E4%B8%8D%E6%96%AD%E6%94%BE%E5%A4%A7%E7%9A%84%E8%B7%AF" data-stellar-navigation=""><span class="toc-text">从 Transformer 到 ChatGPT：一条不断放大的路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%AE%A9%E6%95%B0%E5%AD%97%E8%AF%B4%E8%AF%9D%EF%BC%9A%E4%BB%8E-1-%E4%BA%BF%E5%88%B0-1750-%E4%BA%BF" data-stellar-navigation=""><span class="toc-text">让数字说话：从 1 亿到 1750 亿</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%AA%E4%BA%BA%E9%94%9A%E7%82%B9" data-stellar-navigation=""><span class="toc-text">个人锚点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%9B%9E%E9%A1%BE" data-stellar-navigation=""><span class="toc-text">一句话回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%8B%E4%B8%80%E7%AF%87%E9%A2%84%E5%91%8A" data-stellar-navigation=""><span class="toc-text">下一篇预告</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" data-stellar-navigation=""><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%AE%A2%E9%98%85" data-stellar-navigation=""><span class="toc-text">订阅</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
+</widget>
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E8%BF%99%E7%AF%87%E8%AE%BA%E6%96%87%E4%B9%8B%E5%89%8D%EF%BC%8CAI-%E6%98%AF%E6%80%8E%E4%B9%88%E8%AF%BB%E6%96%87%E5%AD%97%E7%9A%84%EF%BC%9F"><span class="toc-text">在这篇论文之前，AI 是怎么读文字的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RNN-%E7%9A%84%E8%87%B4%E5%91%BD%E5%BC%B1%E7%82%B9%EF%BC%9A%E8%AF%BB%E5%88%B0%E5%90%8E%E9%9D%A2%EF%BC%8C%E5%BF%98%E4%BA%86%E5%89%8D%E9%9D%A2"><span class="toc-text">RNN 的致命弱点：读到后面，忘了前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%E6%83%B3%E6%B3%95%EF%BC%9A%E4%B8%8D%E8%A6%81%E4%B8%80%E4%B8%AA%E5%AD%97%E4%B8%80%E4%B8%AA%E5%AD%97%E5%9C%B0%E8%AF%BB%E4%BA%86"><span class="toc-text">一个全新的想法：不要一个字一个字地读了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%9AAI-%E5%AD%A6%E4%BC%9A%E4%BA%86%E2%80%9D%E6%8A%93%E9%87%8D%E7%82%B9%E2%80%9D"><span class="toc-text">注意力机制：AI 学会了”抓重点”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E2%80%9D%E8%8B%B9%E6%9E%9C%E2%80%9D%E7%9A%84%E6%95%85%E4%BA%8B"><span class="toc-text">两个”苹果”的故事</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%98%AF%E6%80%8E%E4%B9%88%E7%AE%97%E5%87%BA%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="toc-text">注意力是怎么算出来的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%EF%BC%9A%E6%AF%8F%E4%B8%AA%E8%AF%8D%E9%83%BD%E5%9C%A8%E7%9C%8B%E6%89%80%E6%9C%89%E8%AF%8D"><span class="toc-text">自注意力：每个词都在看所有词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%98%E6%9C%89%E4%B8%80%E4%B8%AA%E2%80%9D%E5%A4%9A%E5%A4%B4%E2%80%9D%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">还有一个”多头”的设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%98%AF%E4%B8%80%E5%9C%BA%E9%9D%A9%E5%91%BD%EF%BC%9F"><span class="toc-text">为什么这是一场革命？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E-Transformer-%E5%88%B0-ChatGPT%EF%BC%9A%E4%B8%80%E6%9D%A1%E4%B8%8D%E6%96%AD%E6%94%BE%E5%A4%A7%E7%9A%84%E8%B7%AF"><span class="toc-text">从 Transformer 到 ChatGPT：一条不断放大的路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A9%E6%95%B0%E5%AD%97%E8%AF%B4%E8%AF%9D%EF%BC%9A%E4%BB%8E-1-%E4%BA%BF%E5%88%B0-1750-%E4%BA%BF"><span class="toc-text">让数字说话：从 1 亿到 1750 亿</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E9%94%9A%E7%82%B9"><span class="toc-text">个人锚点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%9B%9E%E9%A1%BE"><span class="toc-text">一句话回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E7%AF%87%E9%A2%84%E5%91%8A"><span class="toc-text">下一篇预告</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel'>
-  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
   </button>
-  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
   </button>
 </div>
-</div><div class="scripts">
 
-
-<script type="text/javascript">
-  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  const ctx = {
-    date_suffix: {
-      just: `刚刚`,
-      min: `分钟前`,
-      hour: `小时前`,
-      day: `天前`,
-    },
-    root : `/`,
-    tag_plugins: {
-      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
-  };
-
-  // required plugins (only load if needs)
-  if (`local_search`) {
-    ctx.search = {};
-    ctx.search.service = `local_search`;
-    if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
-      ctx.search[ctx.search.service] = service_obj;
-    }
-  }
-  const def = {
-    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
-    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
-  };
-  const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
-    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
-  }
-  
-
-</script>
-
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
-      }
-    }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
-  };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
-  });
-</script>
-<script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
-  }
-</script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
-
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
-
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazy",
-    callback_loaded: (el) => {
-      el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
-      const icon = wrapper?.querySelector('.lazy-icon');
-      if (icon) icon.remove();
-    }
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    window.lazyLoadInstance?.update();
-  });
-
-  window.wrapLazyloadImages = (container) => {
-    if (typeof container === 'string') {
-      container = document.querySelector(container);
-    }
-    if (!container) return;
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
     
-    const images = container.querySelectorAll('img');
-    images.forEach((img) => {
-      if (img.classList.contains('lazy')) return;
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
 
-      const src = img.getAttribute('src');
-      if (!src) return;
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'lazy-box';
-
-      const newImg = img.cloneNode();
-      newImg.removeAttribute('src');
-      newImg.setAttribute('data-src', src);
-      newImg.classList.add('lazy');
-
-      const icon = document.createElement('div');
-      icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
-
-      wrapper.appendChild(newImg);
-      wrapper.appendChild(icon);
-
-      img.replaceWith(wrapper);
-    });
-
-    // 通知 LazyLoad 更新
-    if (window.lazyLoadInstance?.update) {
-      window.lazyLoadInstance.update();
-    }
-  }
-  
-</script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://www.wmyskxz.cn/wiki/whats_ai/6/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
 </script>
 
 
-<!-- optional -->
-
-  <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
-      }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
-        }
-      }
-      el.appendChild(script);
-  }
-</script>
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-rc.6"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-rc.6" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-rc.6"></script>
 
 
 
 
-<script defer>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
 
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
-      path: `/search.json`,
-    }
-    utils.js('/js/search/local-search.js', { defer: true });
-  });
-</script><script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
-  ctx.fancybox = {
-    selector: `.timenode p>img`,
-    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
-    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
-  };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
-  if (ctx.fancybox.selector) {
-    selector += `, ${ctx.fancybox.selector}`
-  }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
-  if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
-    }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
-    }
-  }
-  if (needFancybox) {
-    utils.css(ctx.fancybox.css);
-    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
-      Fancybox.bind(selector, {
-        hideScrollbar: false,
-        Thumbs: {
-          autoStart: false,
-        },
-        caption: (fancybox, slide) => {
-          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
-        }
-      });
-    })
-  }
-</script>
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const swiper_api = document.getElementById('swiper-api');
-    if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
-        const effect = swiper_api.getAttribute('effect') || '';
-        var swiper = new Swiper('.swiper#swiper-api', {
-          slidesPerView: 'auto',
-          spaceBetween: 8,
-          centeredSlides: true,
-          effect: effect,
-          rewind: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
-      })
-    }
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
-      ctx.copycode = {
-        default_text: `Copy`,
-        success_text: `Copied`,
-        toast: `复制成功`,
-      };
-      utils.js('/js/plugins/copycode.js');
-    }
-  });
-</script>
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"wmyskxz/blog-comments","data-repo-id":"R_kgDOH7eiFA","data-category":"Announcements","data-category-id":"DIC_kwDOH7eiFM4C0qpW","data-mapping":"title","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"ChatGPT为什么能对话——一篇引用17万次的论文","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0-rc.6&amp;runtime=1"></script>
 
 
 <!-- inject -->
 
-</div></body></html>
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-rc.6"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"whats_ai\"]","url":"https://www.wmyskxz.cn/wiki/whats_ai/6/","signature":"4786c2370b830d46d2c7b49abc338882a04a84cbfbf5eac6d5f1f66ab3f3570a"}</script></body></html>

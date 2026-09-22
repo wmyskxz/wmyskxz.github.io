@@ -1,3 +1,7 @@
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+  const listen = (node, type, handler) => node?.addEventListener(type, handler, { signal: context.signal });
+  const fetch = (url, options = {}) => window.fetch(url, { ...options, ...(options.method === 'POST' ? {} : { signal: context.signal }) });
 function getRatingKey(id) {
   return `rating-${id}`;
 }
@@ -12,6 +16,10 @@ function getRatedValue(id) {
 
 function storeRating(id, value) {
   localStorage.setItem(getRatingKey(id), value);
+}
+
+function removeRating(id) {
+  localStorage.removeItem(getRatingKey(id));
 }
 
 function clearHover(el) {
@@ -33,7 +41,7 @@ function setupHoverEffect(el) {
   stars.forEach(star => {
     const value = parseInt(star.dataset.value);
 
-    star.addEventListener('mouseenter', () => {
+    listen(star, 'mouseenter', () => {
       stars.forEach(s => {
         s.classList.remove('preview');
         const v = parseInt(s.dataset.value);
@@ -41,7 +49,7 @@ function setupHoverEffect(el) {
       });
     });
 
-    star.addEventListener('mouseleave', () => {
+    listen(star, 'mouseleave', () => {
       clearHover(el);
       // 恢复平均分预览
       const avg = parseFloat(el.querySelector('.avg')?.textContent.replace(/[()]/g, '') || '0');
@@ -64,7 +72,9 @@ async function loadRating(el) {
 
   try {
     const res = await fetch(`${api}/info?id=${encodeURIComponent(id)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    context.signal.throwIfAborted();
     const rating = data.rating || {};
     const avg = calculateAverage(rating);
 
@@ -91,8 +101,8 @@ async function loadRating(el) {
     countEl.textContent = `${totalVotes}`;
 
     updatePreview(el, avg);
-  } catch (e) {
-    console.warn(`[rating] 加载失败: id=${id}`, e);
+  } catch (error) {
+    void error;
   }
 }
 
@@ -105,17 +115,20 @@ async function submitRating(el, value) {
   el.classList.add('rated');
 
   try {
-    await fetch(`${api}/update?id=${encodeURIComponent(id)}&value=${value}`, {
+    const res = await fetch(`${api}/update?id=${encodeURIComponent(id)}&value=${value}`, {
       method: 'POST'
     });
-    loadRating(el);
-  } catch (e) {
-    console.warn(`[rating] 提交失败: id=${id}`, e);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!context.signal.aborted) loadRating(el);
+  } catch (error) {
+    void error;
+    removeRating(id);
+    el.classList.remove('rated');
   }
 }
 
 function initRatings() {
-  document.querySelectorAll('.ds-rating').forEach(el => {
+  root.querySelectorAll('.ds-rating').forEach(el => {
     const { id, api } = el.dataset;
     if (!id || !api) return;
 
@@ -128,15 +141,13 @@ function initRatings() {
 
     el.querySelectorAll('.star').forEach(star => {
       const value = star.dataset.value;
-      star.addEventListener('click', () => {
+      listen(star, 'click', () => {
         if (!hasRated(id)) submitRating(el, value);
       });
     });
   });
 }
 
-if (document.readyState === 'loading') {
-  window.addEventListener('DOMContentLoaded', initRatings);
-} else {
-  initRatings();
-}
+initRatings();
+
+};

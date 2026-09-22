@@ -1,50 +1,66 @@
-
-<!DOCTYPE html><html lang="zh-CN">
-
-<head>
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6" theme-name="Stellar" theme-version="2.0.0-rc.6">
   
   
-  <meta name="generator" content="Hexo 5.4.2">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>代码之外周刊（第 159 期）：硅谷富豪的&quot;超级婴儿&quot;实验 - 我没有三颗心脏的博客</title>
+  <title data-stellar-page-meta="">代码之外周刊（第 159 期）：硅谷富豪的"超级婴儿"实验 - 我没有三颗心脏的博客</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
 
-  
-    <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。 听到这句话的人叫 Hans">
-<meta property="og:type" content="article">
-<meta property="og:title" content="代码之外周刊（第 159 期）：硅谷富豪的&quot;超级婴儿&quot;实验">
-<meta property="og:url" content="https://www.wmyskxz.cn/weekly/159/">
-<meta property="og:site_name" content="我没有三颗心脏的博客">
-<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz&#x2F;weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。 听到这句话的人叫 Hans">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-<meta property="article:published_time" content="2025-12-20T23:30:00.000Z">
-<meta property="article:modified_time" content="2026-01-12T01:18:42.638Z">
-<meta property="article:author" content="我没有三颗心脏">
-<meta property="article:tag" content="代码之外周刊">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-  
+  <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。 听到这句话的人叫 Hans" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="代码之外周刊（第 159 期）：硅谷富豪的&amp;quot;超级婴儿&amp;quot;实验" data-stellar-page-meta="">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/159/" data-stellar-page-meta="">
+<meta property="og:site_name" content="我没有三颗心脏的博客" data-stellar-page-meta="">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。 听到这句话的人叫 Hans" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png" data-stellar-page-meta="">
+<meta property="article:author" content="我没有三颗心脏" data-stellar-page-meta="">
+<meta property="article:published_time" content="2025-12-20T23:30:00.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-09-22T15:10:39.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="代码之外周刊" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary_large_image" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png" data-stellar-page-meta=""><meta name="twitter:title" content="代码之外周刊（第 159 期）：硅谷富豪的&amp;quot;超级婴儿&amp;quot;实验" data-stellar-page-meta="">
   
   
-  <meta name="keywords" content="代码之外周刊">
+  <meta name="keywords" content="代码之外周刊" data-stellar-page-meta="">
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=2.0.0-rc.6" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-rc.6">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
 
 
   
@@ -53,71 +69,278 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"dateCreated":"2025-12-21T07:30:00+08:00","dateModified":"2026-01-12T09:18:42+08:00","datePublished":"2025-12-21T07:30:00+08:00","description":"","headline":"代码之外周刊（第 159 期）：硅谷富豪的&quot;超级婴儿&quot;实验","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/159/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg","logo":{"@type":"ImageObject","url":"/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/159/","keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png","image":1}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"https://www.wmyskxz.cn/img/logo.jpg"},"dateCreated":"2025-12-21T07:30:00+08:00","dateModified":"2026-09-22T23:10:39+08:00","datePublished":"2025-12-21T07:30:00+08:00","description":"代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。\n周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。\n题图\n七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。\n听到这句话的人叫 H...","headline":"代码之外周刊（第 159 期）：硅谷富豪的\u0026quot;超级婴儿\u0026quot;实验","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/159/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"https://www.wmyskxz.cn/img/logo.jpg","logo":{"@type":"ImageObject","url":"https://www.wmyskxz.cn/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/159/","image":["https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png"],"keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png"}</script>
+  
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
   
 </head>
-<body>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular brand-header--site"><div class="brand-wrap"><a class="brand-image brand-image--avatar" href="/"><img no-lazy="" src="/img/logo.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="640" height="640" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.3767,31.6886,58.5082,1]}" data-stellar-image-source="/img/logo.jpg"></a><a class="brand-title" href="/"><div class="brand-name">我没有三颗心脏的博客</div><div class="brand-tagline cap">与您一起 Be Better~ | 自由、坚定</div></a></div><div class="brand-search">
 
-<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="blog" data-search-domain-label="博客" data-search-domain-blog="true">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
 
+  
+</button>
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">我没有三颗心脏的博客</div><div class="sub normal cap">与您一起 Be Better~</div><div class="sub hover cap" style="opacity:0"> 自由、坚定</div></a></div></header>
-
-<div class="nav-area">
-
-<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
 
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/weekly/189/"><span class="title">代码之外周刊（第 189 期）：你不必马上成功，但得尽快被看见</span></a><a class="item title" href="/weekly/188/"><span class="title">代码之外周刊（第 188 期）：别在状态最差的时候，给自己下结论</span></a><a class="item title" href="/weekly/187/"><span class="title">代码之外周刊（第 187 期）：更少，但更好</span></a><a class="item title" href="/weekly/186/"><span class="title">代码之外周刊（第 186 期）：《牛来》爆火，“烂片朝圣”是怎么发生的？</span></a><a class="item title" href="/weekly/185/"><span class="title">代码之外周刊（第 185 期）：未来五年，你家门口的医院会有哪些变化？</span></a></div></widget>
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="grid" data-variant="nav" data-density="auto" style="--ui-columns:2">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active is-themed" href="/" title="博客" aria-current="page" style="--item-theme:#1BCDFC;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M5.87868 2.87868C5 3.75736 5 5.17157 5 8V16C5 18.8284 5 20.2426 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2426 22 18.1213 21.1213C19 20.2426 19 18.8284 19 16V8C19 5.17157 19 3.75736 18.1213 2.87868C17.2426 2 15.8284 2 13 2H11C8.17157 2 6.75736 2 5.87868 2.87868ZM8.25 17C8.25 16.5858 8.58579 16.25 9 16.25H12C12.4142 16.25 12.75 16.5858 12.75 17C12.75 17.4142 12.4142 17.75 12 17.75H9C8.58579 17.75 8.25 17.4142 8.25 17ZM9 12.25C8.58579 12.25 8.25 12.5858 8.25 13C8.25 13.4142 8.58579 13.75 9 13.75H15C15.4142 13.75 15.75 13.4142 15.75 13C15.75 12.5858 15.4142 12.25 15 12.25H9ZM8.25 9C8.25 8.58579 8.58579 8.25 9 8.25H15C15.4142 8.25 15.75 8.58579 15.75 9C15.75 9.41421 15.4142 9.75 15 9.75H9C8.58579 9.75 8.25 9.41421 8.25 9Z" clip-rule="evenodd"></path><g fill="currentColor" opacity=".5"><path d="M5.23535 4.05811C5.00012 4.94134 5 6.17674 5 7.99951V15.9995C5 17.8225 5.00008 19.0586 5.23535 19.9419L5 19.9233C4.02513 19.8274 3.36875 19.6113 2.87891 19.1216C2.00023 18.2429 2 16.8279 2 13.9995V9.99951C2 7.17135 2.00027 5.75706 2.87891 4.87842C3.36877 4.38867 4.02505 4.17158 5 4.07568L5.23535 4.05811Z"></path><path d="M19 4.07568C19.975 4.17159 20.6312 4.38865 21.1211 4.87842C21.9997 5.75706 22 7.17135 22 9.99951V13.9995C22 16.8279 21.9998 18.2429 21.1211 19.1216C20.6313 19.6113 19.9749 19.8274 19 19.9233L18.7646 19.9419C18.9999 19.0586 19 17.8225 19 15.9995V7.99951C19 6.17674 18.9999 4.94134 18.7646 4.05811L19 4.07568Z"></path></g></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-themed" href="/wiki/" title="项目" style="--item-theme:#3DC550;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M20.0821 3.01774C21.1538 2.98054 22.0001 3.86139 22.0001 4.93375V16.1437C22.0001 17.2546 21.0941 18.1533 19.9854 18.2228C19.016 18.2834 17.8768 18.4026 17.0001 18.6339C15.9186 18.9193 15.0102 19.7011 13.627 20.0695C13.001 20.2362 12.3029 20.326 12.0001 20.3927V5.17399C12.3208 5.09543 13.3825 4.97156 13.6739 4.80289C13.8581 4.69626 14.0513 4.5874 14.2501 4.47965V7.53727C14.2499 7.64849 14.2493 7.8074 14.2706 7.94352C14.2966 8.10994 14.3826 8.43087 14.7149 8.62614C15.0353 8.81425 15.3492 8.7447 15.4981 8.6984C15.6279 8.65804 15.7699 8.58977 15.876 8.53922L17.0001 8.00602L18.1241 8.53922C18.2302 8.58977 18.3723 8.65804 18.502 8.6984C18.651 8.7447 18.9649 8.81425 19.2852 8.62614C19.6175 8.43088 19.7035 8.10994 19.7296 7.94352C19.7508 7.80741 19.7502 7.64849 19.7501 7.53727V3.03141C19.8629 3.02611 19.9739 3.02151 20.0821 3.01774ZM19.7276 12.8185C19.6272 12.4168 19.2202 12.1723 18.8184 12.2726L14.8184 13.2726C14.4167 13.3731 14.1722 13.78 14.2725 14.1818C14.373 14.5836 14.7799 14.828 15.1817 14.7277L19.1817 13.7277C19.5835 13.6273 19.8279 13.2203 19.7276 12.8185Z" clip-rule="evenodd"></path><path d="M4.27253 12.8185C4.37296 12.4168 4.78001 12.1724 5.18171 12.2726L9.18171 13.2726C9.58344 13.3731 9.82784 13.7801 9.72761 14.1818C9.62715 14.5836 9.22027 14.8281 8.81843 14.7277L4.81843 13.7277C4.41662 13.6272 4.17214 13.2203 4.27253 12.8185Z"></path><path d="M4.27253 8.81852C4.37296 8.41682 4.78001 8.17245 5.18171 8.27262L9.18171 9.27262C9.58344 9.37305 9.82784 9.78007 9.72761 10.1818C9.62715 10.5836 9.22027 10.8281 8.81843 10.7277L4.81843 9.7277C4.41662 9.62725 4.17214 9.22033 4.27253 8.81852Z"></path><path d="M18.2501 6.93864L17.501 6.58317L17.4923 6.57828C17.4531 6.55827 17.3129 6.48706 17.1378 6.45914C17.0938 6.45214 17.0475 6.44743 17.0001 6.44743C16.7637 6.44743 16.5569 6.55323 16.5079 6.57828L16.4991 6.58317L15.7501 6.93864V3.757C16.0063 3.65201 16.2585 3.55977 16.5001 3.48746C17.0206 3.33165 17.6301 3.22482 18.2501 3.15153V6.93864Z"></path><path d="M12 5.21395C11.6658 5.15047 10.9426 5.05264 10.2823 4.87544C8.9381 4.51475 8.04921 3.76429 7 3.48742C6.11349 3.25349 4.95877 3.13488 3.9824 3.07487C2.8863 3.0075 2 3.89961 2 4.99778V16.1436C2 17.2545 2.90605 18.1534 4.01486 18.2228C4.98428 18.2834 6.12329 18.402 7 18.6333C7.48596 18.7616 8.21615 19.0645 8.87295 19.3592C9.87752 19.81 10.9247 20.1556 12 20.3926V5.21395Z" opacity=".5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-themed" href="/more/" title="关于我" style="--item-theme:#F44336;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path d="M13.6288 20.4718L13.0867 21.3877C12.6035 22.204 11.3965 22.204 10.9133 21.3877L10.3712 20.4718C9.95073 19.7614 9.74049 19.4063 9.40279 19.2098C9.06509 19.0134 8.63992 19.0061 7.78958 18.9915C6.53422 18.9698 5.74689 18.8929 5.08658 18.6194C3.86144 18.1119 2.88807 17.1386 2.3806 15.9134C2 14.9946 2 13.8297 2 11.5V10.5C2 7.22657 2 5.58985 2.7368 4.38751C3.14908 3.71473 3.71473 3.14908 4.38751 2.7368C5.58985 2 7.22657 2 10.5 2H13.5C16.7734 2 18.4101 2 19.6125 2.7368C20.2853 3.14908 20.8509 3.71473 21.2632 4.38751C22 5.58985 22 7.22657 22 10.5V11.5C22 13.8297 22 14.9946 21.6194 15.9134C21.1119 17.1386 20.1386 18.1119 18.9134 18.6194C18.2531 18.8929 17.4658 18.9698 16.2104 18.9915C15.36 19.0061 14.9349 19.0134 14.5972 19.2098C14.2595 19.4062 14.0492 19.7614 13.6288 20.4718Z" opacity=".5"></path><path d="M10.9901 14.3082C9.6633 13.3304 7.5 11.4674 7.5 9.71476C7.5 7.03759 9.97507 6.03807 12 8.10615C14.0249 6.03807 16.5 7.03759 16.5 9.71475C16.5 11.4674 14.3367 13.3304 13.0099 14.3082C12.5558 14.643 12.3287 14.8103 12 14.8103C11.6713 14.8103 11.4442 14.643 10.9901 14.3082Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">关于我</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
 </div>
 
-</div></aside><div class="l_main" id="main">
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper slide-up recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      <a class="cap-action ui-interactive card-hover card-hover--spotlight" id="rss" title="Subscribe" href="/atom.xml"><span class="ui-icon"><svg class="icon" viewBox="0 0 1 1" data-icon="default:rss" aria-hidden="true"></svg></span></a>
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/114/" title="代码之外周刊（第 114 期）：把人工智能「别」在身上" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">代</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">代码之外周刊（第 114 期）：把人工智能「别」在身上</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/network/dns/" title="DNS是什么？它是如何运作的？" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">D</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">DNS是什么？它是如何运作的？</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/network/http/" title="关于HTTP后端人员需要了解的20+图片" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">关</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">关于HTTP后端人员需要了解的20+图片</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/network/how-browser-work/" title="浏览器的运行原理" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">浏</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">浏览器的运行原理</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/network/how-to-link/" title="28张图解 | 互联网究竟是「如何连接，如何进行通信」的？" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">2</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">28张图解 | 互联网究竟是「如何连接，如何进行通信」的？</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
 
 
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
 
 
-
-<div class="article banner top">
-  <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-12-20T23:30:00.000Z">2025-12-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-12T01:18:42.638Z">2026-01-12</time></span></div></div></div>
+<div class="article-banner-wrap slide-up"><div class="article banner top" style="--bg-url:url('https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png')"><img class="lazy bg" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1202" height="801" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[222.1683,9.3975,35.2181,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png">
+  <div class="content" data-text-adaptive="split">
+    <div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-12-20T23:30:00.000Z">2025-12-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-09-22T15:10:39.000Z">2026-09-22</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>代码之外周刊（第 159 期）：硅谷富豪的&quot;超级婴儿&quot;实验</span></h1>
+        <h1 class="text title"><span>代码之外周刊（第 159 期）：硅谷富豪的"超级婴儿"实验</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
-<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly">wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
-<h1 id="题图"><a href="#题图" class="headerlink" title="题图"></a>题图</h1><p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png"></p>
+  </div></div>
+<article class="md-text content slide-up"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图" data-stellar-navigation=""></a>题图</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1202" height="801" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[222.1683,9.3975,35.2181,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221092402.png"></p>
 <p>七年前，Michaela Benthaus 在一次山地车事故中脊髓受伤，从此与轮椅为伴。去年在慕尼黑的一场活动上，这位33岁的欧洲航天局工程师对身旁的人感叹了一句：不知道自己这辈子还有没有机会上太空。</p>
-<p>听到这句话的人叫 Hans Koenigsmann，SpaceX 前高管，德国老乡。他没说什么，但开始悄悄行动——联系 Blue Origin，确认技术可行性，筹措资金。上周六，Benthaus 搭乘 New Shepard 飞船升空，飞越 105 公里的卡门线，成为<a target="_blank" rel="noopener" href="https://www.cnn.com/2025/12/20/science/blue-origin-koenigsmann-benthaus-wheelchair" title="她刚刚成为第一个使用轮椅进入太空的人">人类历史上第一位进入太空的轮椅使用者</a>。</p>
-<h1 id="本周讨论：硅谷富豪的”超级婴儿”实验"><a href="#本周讨论：硅谷富豪的”超级婴儿”实验" class="headerlink" title="本周讨论：硅谷富豪的”超级婴儿”实验"></a>本周讨论：硅谷富豪的”超级婴儿”实验</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://www.dedao.cn/course/article?id=RQLYWyjMZoa0J1vp9lXp4wvzDbO26B" title="人生在世，博的就是一个概率 | 得到头条 796 期">人生在世，博的就是一个概率 | 得到头条 796 期</a>）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150201.png" alt="@网络图片"></p>
+<p>听到这句话的人叫 Hans Koenigsmann，SpaceX 前高管，德国老乡。他没说什么，但开始悄悄行动——联系 Blue Origin，确认技术可行性，筹措资金。上周六，Benthaus 搭乘 New Shepard 飞船升空，飞越 105 公里的卡门线，成为<a target="_blank" rel="noopener" href="https://www.cnn.com/2025/12/20/science/blue-origin-koenigsmann-benthaus-wheelchair" title="她刚刚成为第一个使用轮椅进入太空的人" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>人类历史上第一位进入太空的轮椅使用者</a>。</p>
+<h1 id="本周讨论：硅谷富豪的”超级婴儿”实验"><a href="#本周讨论：硅谷富豪的”超级婴儿”实验" class="headerlink" title="本周讨论：硅谷富豪的”超级婴儿”实验" data-stellar-navigation=""></a>本周讨论：硅谷富豪的”超级婴儿”实验</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://www.dedao.cn/course/article?id=RQLYWyjMZoa0J1vp9lXp4wvzDbO26B" title="人生在世，博的就是一个概率 | 得到头条 796 期" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>人生在世，博的就是一个概率 | 得到头条 796 期</a>）</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150201.png" alt="@网络图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="650" height="276" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[219.4188,21.9955,21.2328,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150201.png"><div class="image-meta"><span class="image-caption center">@网络图片</span></div></div>
 <p>今年 10 月，《华盛顿邮报》爆出一条劲爆新闻：马斯克至少有一个孩子是经过基因优化的”超级婴儿”。</p>
 <p>这不是科幻电影，而是正在硅谷发生的现实。</p>
-<h2 id="先把概念说清楚"><a href="#先把概念说清楚" class="headerlink" title="先把概念说清楚"></a>先把概念说清楚</h2><p>所谓”超级婴儿”，你可以把它理解成极端激进版的”优生优育”。但这里要先区分两件事：传统的产前筛查，目标是<strong>避免遗传病</strong>，属于医疗意义上的风险管理；而”超级婴儿”则更进一步——<strong>在降低疾病风险之外，还要提升某些性状的概率</strong>，比如智力、长相，甚至瞳孔颜色。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150128.png" alt="@网络图片"></p>
+<h2 id="先把概念说清楚"><a href="#先把概念说清楚" class="headerlink" title="先把概念说清楚" data-stellar-navigation=""></a>先把概念说清楚</h2><p>所谓”超级婴儿”，你可以把它理解成极端激进版的”优生优育”。但这里要先区分两件事：传统的产前筛查，目标是<strong>避免遗传病</strong>，属于医疗意义上的风险管理；而”超级婴儿”则更进一步——<strong>在降低疾病风险之外，还要提升某些性状的概率</strong>，比如智力、长相，甚至瞳孔颜色。</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150128.png" alt="@网络图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1080" height="607" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[27.1035,37.8722,85.6863,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150128.png"><div class="image-meta"><span class="image-caption center">@网络图片</span></div></div>
 <p>就像玩游戏时创建角色一样，虽然没有游戏里那么大的自由度，但方向正在朝”可选择”靠近。</p>
 <p>这已经不是实验室里的小打小闹。在美国，这已经形成了一条初步的产业链。</p>
-<h2 id="谁在做这门生意"><a href="#谁在做这门生意" class="headerlink" title="谁在做这门生意"></a>谁在做这门生意</h2><p>目前，这个领域有几家代表性的公司。</p>
+<h2 id="谁在做这门生意"><a href="#谁在做这门生意" class="headerlink" title="谁在做这门生意" data-stellar-navigation=""></a>谁在做这门生意</h2><p>目前，这个领域有几家代表性的公司。</p>
 <p><strong>Orchid</strong> 是一家胚胎基因检测公司，号称只需从胚胎中采集 5 个细胞，就能完成全基因组测序——把一本书从头到尾扫描一遍，不是只看某几页，而是尽可能把整本书都读出来。拿到基因信息后，他们不仅筛查遗传病，还用算法预测胚胎未来患癌症、阿尔茨海默病、肥胖症、精神分裂症的风险。更夸张的是，他们还提供智力筛选服务——在胚胎阶段就给出智商预测。</p>
 <p><strong>Genomic Prediction</strong> 是全球最早推出多基因胚胎风险筛查的公司之一，号称可以从众多胚胎中挑选”基因更优秀、疾病风险更低”的那一个。还有 <strong>Bootstrap Bio</strong>，正在用 AI 开发改变胚胎 DNA 的技术，目标是消除遗传疾病、增强理想性状。</p>
 <p>更前沿的技术也在路上。OpenAI 首席执行官山姆·奥特曼投资的 Conception 公司，正在研究将血液细胞转化为卵子。他们的目标是让不孕人群、同性伴侣，甚至单个人也能生育后代——把”谁能成为父母”这件事，也纳入了技术可以重写的清单。</p>
 <p>根据《华盛顿邮报》的预测，2025 年，年龄最大的”超级婴儿”可能已经超过 5 岁，而且预计会有数百名”超级婴儿”出生。</p>
-<h2 id="为什么是硅谷"><a href="#为什么是硅谷" class="headerlink" title="为什么是硅谷"></a>为什么是硅谷</h2><p>你可能会问，为什么这些事偏偏发生在硅谷？</p>
+<h2 id="为什么是硅谷"><a href="#为什么是硅谷" class="headerlink" title="为什么是硅谷" data-stellar-navigation=""></a>为什么是硅谷</h2><p>你可能会问，为什么这些事偏偏发生在硅谷？</p>
 <p>除了技术进步和雄厚的经济实力，还有一个更关键的原因：硅谷聚集了一群”技术乐观主义者”。<strong>这帮人从骨子里相信，技术可以解决一切问题，包括人类的生育和进化。</strong> 对他们来说，胚胎筛选不是越界，而是升级；不是冒犯自然，而是把自然当成可优化的系统。</p>
 <p>马斯克就是典型代表。他不仅自己是”超级婴儿”技术的实践者，还一直公开宣扬技术改造人类的理念。</p>
-<h2 id="争议从哪里来"><a href="#争议从哪里来" class="headerlink" title="争议从哪里来"></a>争议从哪里来</h2><p>当然，这些举动也引发了巨大的争议。</p>
+<h2 id="争议从哪里来"><a href="#争议从哪里来" class="headerlink" title="争议从哪里来" data-stellar-navigation=""></a>争议从哪里来</h2><p>当然，这些举动也引发了巨大的争议。</p>
 <p><strong>第一个争议是人权问题。</strong> 批评者会问：如果技术允许挑选”更优秀”的胚胎，那么”不够优秀”的是不是就不配出生？</p>
 <p>早在 2023 年，国际精神病基因组学联合会就公开谴责 Orchid 等公司滥用研究数据。联合会创始人帕特里克·沙利文说得很直白：</p>
 <blockquote>
@@ -125,8 +348,8 @@
 </blockquote>
 <p><strong>第二个争议是社会不平等。</strong> 目前，这些生育技术的费用都很高，单次测试就在数万到数十万美元，只有极少数富裕精英能承担。这就可能形成一个熟悉的结构：富人更容易把优势叠加到下一代，然后在教育与职场继续扩大优势，最终让社会阶层更难流动。</p>
 <p>但最容易被忽略的一点是：<strong>它到底准不准</strong>。如果技术不可靠，那么所有讨论都会变形——人权与不平等的担忧依然成立，但”选择”本身会变成一种昂贵的心理安慰。</p>
-<h2 id="技术到底靠不靠谱"><a href="#技术到底靠不靠谱" class="headerlink" title="技术到底靠不靠谱"></a>技术到底靠不靠谱</h2><p>要回答这个问题，就必须回到它的核心工具：PRS。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150346.png" alt="@网络图片"></p>
+<h2 id="技术到底靠不靠谱"><a href="#技术到底靠不靠谱" class="headerlink" title="技术到底靠不靠谱" data-stellar-navigation=""></a>技术到底靠不靠谱</h2><p>要回答这个问题，就必须回到它的核心工具：PRS。</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150346.png" alt="@网络图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1080" height="1202" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[27.5129,25.9304,69.6284,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150346.png"><div class="image-meta"><span class="image-caption center">@网络图片</span></div></div>
 <p>这些公司使用的核心技术叫做 <strong>“多基因风险评分”</strong> （Polygenic Risk Score，简称 PRS）。原理是这样的：通过分析成千上万人的基因数据和他们的智商、身高等性状，找出哪些基因位点和这些性状相关，然后用这些相关性来预测一个胚胎未来的性状。</p>
 <p>说白了，就是<strong>用群体的相关性，推测个体的可能性</strong>。</p>
 <p>那么，这些推测准吗？</p>
@@ -135,73 +358,73 @@
 <p>而且，即使这 10% 预测准了，能带来多大提升呢？根据现有研究，筛选胚胎平均只能带来 3 到 4 个智商点的提升。注意，是 3 到 4 个点，不是 30 到 40 个点。这是什么概念？就是从 100 分提高到 103 分，几乎感觉不出区别。</p>
 <p>更麻烦的是，这些公司使用的基因数据库普遍偏向西欧血统，对其他族裔的预测准确性会大打折扣。</p>
 <p>换句话说，<strong>它更像概率游戏，而不是确定性工程</strong>。你付钱买到的不是”更聪明的孩子”，而是一张写着”也许更接近某个区间”的统计纸条。</p>
-<h2 id="选择一个基因，可能同时选择另一个"><a href="#选择一个基因，可能同时选择另一个" class="headerlink" title="选择一个基因，可能同时选择另一个"></a>选择一个基因，可能同时选择另一个</h2><p>有人可能会说，即使预测不那么准，总比什么都不做好吧？</p>
+<h2 id="选择一个基因，可能同时选择另一个"><a href="#选择一个基因，可能同时选择另一个" class="headerlink" title="选择一个基因，可能同时选择另一个" data-stellar-navigation=""></a>选择一个基因，可能同时选择另一个</h2><p>有人可能会说，即使预测不那么准，总比什么都不做好吧？</p>
 <p>问题是，这里面还有一个更大的风险：<strong>基因不是独立开关，当你选择一个基因时，可能同时选择了另一个基因。</strong> 这在遗传学上叫做”基因连锁”。</p>
 <p>最典型的例子是高智商和自闭症的关系。目前已经有很多研究发现，高学历家庭的自闭症发病率明显高于普通人群。这个现象甚至有个专门的名字，叫”硅谷现象”。</p>
 <p>换句话说，当一个人筛选高智商胚胎时，可能同时增加了患自闭症的风险。技术在这里没有道德立场，但选择必须承担连带后果。</p>
-<h2 id="什么是”好基因”"><a href="#什么是”好基因”" class="headerlink" title="什么是”好基因”"></a>什么是”好基因”</h2><p>那么，万一未来技术成熟了，是不是就可以给胚胎定制”最好的基因”了呢？</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150553.png"></p>
+<h2 id="什么是”好基因”"><a href="#什么是”好基因”" class="headerlink" title="什么是”好基因”" data-stellar-navigation=""></a>什么是”好基因”</h2><p>那么，万一未来技术成熟了，是不是就可以给胚胎定制”最好的基因”了呢？</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150553.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="540" height="771" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[279.9421,8.8539,14.8708,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150553.png"></p>
 <p>哈佛大学政府学系教授迈克尔·桑德尔写过一本书，叫《反对完美》。他的核心观点是：<strong>人类可能根本不知道什么是”好基因”，因为大自然选择的智慧在于保持多样性，而非追求单一的”最优”。</strong></p>
 <p>桑德尔提出了两个值得深思的问题。</p>
-<h3 id="现在的好等于未来的好吗？"><a href="#现在的好等于未来的好吗？" class="headerlink" title="现在的好等于未来的好吗？"></a>现在的好等于未来的好吗？</h3><p>以体操运动员的身高为例。从 1960 年到 2016 年，几乎所有奥运项目的运动员都变得更高更重，唯独体操运动员反其道而行——女子体操选手的平均身高呈现下降趋势。</p>
+<h3 id="现在的好等于未来的好吗？"><a href="#现在的好等于未来的好吗？" class="headerlink" title="现在的好等于未来的好吗？" data-stellar-navigation=""></a>现在的好等于未来的好吗？</h3><p>以体操运动员的身高为例。从 1960 年到 2016 年，几乎所有奥运项目的运动员都变得更高更重，唯独体操运动员反其道而行——女子体操选手的平均身高呈现下降趋势。</p>
 <p>美国体操巨星西蒙·拜尔斯的身高只有 142 厘米，这个身高反而成为她完成超高难度动作的优势。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150630.png" alt="美国体操巨星西蒙·拜尔斯"></p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150630.png" alt="美国体操巨星西蒙·拜尔斯" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1280" height="853" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[214.8269,29.6624,38.1819,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150630.png"><div class="image-meta"><span class="image-caption center">美国体操巨星西蒙·拜尔斯</span></div></div>
 <p>为什么会这样？原因并不神秘：规则变了。1970 年代，体操评分更青睐力量型、高大的选手；到了 1990 年代以后，评分体系开始偏爱小巧灵活、能完成高难度空中动作的选手。那些在 1970 年代被认为”完美”的体操基因，到了现代反而成了劣势。</p>
 <p>同样的道理也发生在”智力”上。工业时代需要的是记忆力、计算能力；数字时代需要的是创造力、批判性思维。<strong>环境会变，评价体系会变，社会需求会变。你今天花钱选出的”优势”，可能只是在押注某一种未来，而未来从来不按剧本来。</strong></p>
-<h3 id="强者胜出还是适者生存"><a href="#强者胜出还是适者生存" class="headerlink" title="强者胜出还是适者生存"></a>强者胜出还是适者生存</h3><p>桑德尔在书中还提到，生物界的优胜劣汰从来就不是”强者胜出”，而是”适者生存”。</p>
+<h3 id="强者胜出还是适者生存"><a href="#强者胜出还是适者生存" class="headerlink" title="强者胜出还是适者生存" data-stellar-navigation=""></a>强者胜出还是适者生存</h3><p>桑德尔在书中还提到，生物界的优胜劣汰从来就不是”强者胜出”，而是”适者生存”。</p>
 <p>以镰刀型贫血症为例。如果一个人从父母那里各遗传了一个镰刀型基因，会得严重的贫血。但如果只从一方遗传了一个镰刀型基因，不仅不会得病，在疟疾高发区反而有巨大的生存优势。研究显示，携带一个镰刀型基因的人，重症疟疾的风险可以降低 60% 到 80%。</p>
 <p>在非疟疾地区，镰刀型基因是”劣势基因”；但在疟疾流行区，这却是”优势基因”。</p>
 <p>再比如，色盲人士的夜视能力可能超过常人；ADHD 儿童可能在发散思维、艺术创作方面优于普通儿童；读写障碍患者如维珍集团创始人理查德·布兰森、爱因斯坦，反而发展出了创造性思维，成为各自领域的顶尖人物。</p>
 <p><strong>没有绝对的好基因，只有适应环境的基因。</strong></p>
-<h2 id="技术之外的那部分"><a href="#技术之外的那部分" class="headerlink" title="技术之外的那部分"></a>技术之外的那部分</h2><p>理解了这些限制，就能看清硅谷富豪的真实心态：他们并不一定相信”基因决定论”，但愿意为概率下注。花几万美元做基因筛选，像买彩票一样，买的是”也许更好”的可能性。</p>
+<h2 id="技术之外的那部分"><a href="#技术之外的那部分" class="headerlink" title="技术之外的那部分" data-stellar-navigation=""></a>技术之外的那部分</h2><p>理解了这些限制，就能看清硅谷富豪的真实心态：他们并不一定相信”基因决定论”，但愿意为概率下注。花几万美元做基因筛选，像买彩票一样，买的是”也许更好”的可能性。</p>
 <p>问题在于，当我们把人生理解成概率游戏时，技术并不是唯一筹码。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150750.png" alt="@网络图片"></p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150750.png" alt="@网络图片" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="869" height="650" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[358.9712,2.3957,13.0522,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221150750.png"><div class="image-meta"><span class="image-caption center">@网络图片</span></div></div>
 <p>作家史铁生曾写过一篇散文《好运设计》。我们知道，史铁生 21 岁时双腿瘫痪，在轮椅上度过了大半生。在这篇文章里，他设想：假如来世可以重新设计人生，要拥有什么样的先天设定？</p>
 <p>他最初的设想是聪明、漂亮、健康，再加上好家庭、好教育、好爱情。但写到后来，他发现一个更难的事实：假如一切都完美顺利，没有挫折、没有企盼、没有追求，人生也许只剩下舒适与平庸。价值感、意义感、获得感，常常来自把劣势变成转机的过程。</p>
 <p>史铁生的答案是：<strong>从不屈获得骄傲，从苦难提取幸福，从虚无中创造意义。</strong></p>
 <p>所以，这个话题最后落到一个朴素的结论：<strong>技术可以改变概率，但不能替你决定人生。</strong> 如果你把”超级婴儿”当成确定性的捷径，多半会失望；如果把它当成风险管理，它至少需要更严格的证据、更清晰的边界、更公开的社会讨论。</p>
 <p>更重要的是，不要忘记那 90% 的未知：教育、家庭、公共资源与社会制度，仍然在塑造每个人的命运曲线。</p>
 <p><strong>而事实是，在概率面前，人人都有机会。</strong></p>
-<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻"></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.cpr.org/2025/12/17/largest-wildlife-overpass-in-north-america-douglas-county/" title="北美最大野生动物天桥在科罗拉多州完工，保障动物安全迁徙">北美最大野生动物天桥在科罗拉多州完工，保障动物安全迁徙</a>（英文）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102854.png"></p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻" data-stellar-navigation=""></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.cpr.org/2025/12/17/largest-wildlife-overpass-in-north-america-douglas-county/" title="北美最大野生动物天桥在科罗拉多州完工，保障动物安全迁徙" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>北美最大野生动物天桥在科罗拉多州完工，保障动物安全迁徙</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102854.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1080" height="808" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[208.8537,3.6269,55.1854,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102854.png"></p>
 <p>科罗拉多州的 Greenland Wildlife Overpass 近日正式启用，成为 <strong>北美最大规模的野生动物天桥</strong>。这座天桥跨越 <strong>I-25</strong> 公路，连接了两侧的 <strong>39,000 英亩栖息地</strong>，为野生动物提供安全的迁徙通道。</p>
 <p>预计天桥将大幅减少动物与车辆的碰撞事故，<strong>降低约90%的交通事故</strong>，提升公路安全性。项目总投资 1500 万美元，由多个机构合作完成，象征着生态保护与交通基础设施的创新结合。这不仅是一个地方性的工程，更是未来生态交通一体化发展的方向标。</p>
 <hr>
-<p>2、<a target="_blank" rel="noopener" href="https://news.cctv.com/2025/12/20/ARTIYhbkZ0RA831S3sh0vEx9251220.shtml?spm=C94212.PGZDd8bkBJCZ.E850fz1ryIUd.120" title="“会飞的足球”火爆校园：无人机足球成为青少年新潮竞技与科技赛道">“会飞的足球”火爆校园：无人机足球成为青少年新潮竞技与科技赛道</a></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132001.png"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://news.cctv.com/2025/12/20/ARTIYhbkZ0RA831S3sh0vEx9251220.shtml?spm=C94212.PGZDd8bkBJCZ.E850fz1ryIUd.120" title="“会飞的足球”火爆校园：无人机足球成为青少年新潮竞技与科技赛道" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>“会飞的足球”火爆校园：无人机足球成为青少年新潮竞技与科技赛道</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132001.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1920" height="1080" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[118.2557,5.0847,39.3222,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132001.png"></p>
 <p>这条来自央视的报道讲了一个好玩又有意味的现象：<strong>无人机足球运动</strong>正在中国校园迅速兴起——从苏州到杭州，不少学校开始 <strong>把遥控无人机当成半空中的足球来踢</strong>。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132157.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132157.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1920" height="1080" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[233.7093,4.0765,58.2047,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221132157.png"></p>
 <p>参与者可以在低空场景中，操控装有球形保护框的无人机，将无人机足球射入对方球门就可以得分。这项新兴运动不仅像传统足球那样讲战术与配合，还要求选手掌握飞行控制、可靠通讯与团队协作。</p>
 <p>孩子们在操纵无人机穿梭、射门的过程中，还学习了空气动力学、飞控逻辑甚至简单维护技能，科技素养与竞技精神在游戏里被同时激活。</p>
 <p>这样的跨界体育与科技融合，不仅丰富了校园生活，也可能为中国<strong>低空经济与无人机产业培育未来人才</strong>。</p>
 <p><em>PS：不得不感慨，咱小时候哪有这样的条件。</em></p>
 <hr>
-<p>3、<a target="_blank" rel="noopener" href="https://www.topys.cn/article/34660" title="凌晨五点，洛杉矶街头出现了一个只能看一小时的广告">凌晨五点，洛杉矶街头出现了一个只能看一小时的广告</a></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133438.png"></p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.topys.cn/article/34660" title="凌晨五点，洛杉矶街头出现了一个只能看一小时的广告" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>凌晨五点，洛杉矶街头出现了一个只能看一小时的广告</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133438.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="761" height="428" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[133.9645,1.6093,16.7004,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133438.png"></p>
 <p>为了宣传自传《一投制胜》，库里团队在洛杉矶街头做了一个”反常识”的户外广告：一块巨型广告牌，上面是库里标志性的投篮姿势——但篮球呢？是月亮。</p>
 <p>团队专门请来天体物理学家，精确计算月亮升起的轨迹、时间和角度，再测量广告牌的高度和位置，让月亮在凌晨五点刚好从库里的指尖”投出”。整个视觉奇观只持续一个多小时，之月亮就会偏离轨道。</p>
 <p>这种”限时观赏”的设定让它更像一件艺术装置，而非传统广告。它不追求曝光量最大化，而是制造一个”值得专程早起去看”的稀缺体验。创意的本质是什么？不是砸钱买流量，而是让心甘情愿地把注意力交给你。</p>
 <p>库里的书名叫《一投制胜》，而这个广告本身就是一记漂亮的三分球。</p>
-<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://terriblesoftware.org/2025/11/25/what-actually-makes-you-senior/" title="什么才算是资深">什么才算是资深</a>（英文）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221091419.png"></p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章" data-stellar-navigation=""></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://terriblesoftware.org/2025/11/25/what-actually-makes-you-senior/" title="什么才算是资深" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>什么才算是资深</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221091419.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="621" height="416" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[28.8082,21.3973,56.3901,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221091419.png"></p>
 <p>很多人以为高级工程师的标志是懂架构、会沟通、有ownership。但这篇文章说：这些都是表象，底层只有一件事——<strong>消除模糊性</strong>。</p>
 <p>中级工程师拿到清晰的需求能干得很漂亮，但高级工程师的战场是那些没人说得清的任务：”提升一下性能”、”用户觉得上手太难”。他们的价值在于——在写第一行代码之前，先问对问题真正的问题是什么？谁在受影响？我们有什么隐藏假设？如果判断错了会怎样？</p>
 <p>这里有个残酷的悖论：<strong>当你把模糊性消除得足够干净，项目就会显得顺风顺水，好像本来就该这样</strong>。你的贡献变得隐形。这也是为什么面试时很难识别这种能力——刷题和系统设计都测不出来。</p>
 <p>作者给了一个自测题：当你拿到一个模糊任务，你会等别人来澄清、直接开写、还是先花时间和团队厘清边界？最后一种，才是高级工程师的操作方式。</p>
 <hr>
-<p>2、<a target="_blank" rel="noopener" href="https://yaschamounk.substack.com/p/the-world-happiness-report-is-a-sham" title="世界幸福报告是个骗局">世界幸福报告是个骗局</a>（英文）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221093750.png"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://yaschamounk.substack.com/p/the-world-happiness-report-is-a-sham" title="世界幸福报告是个骗局" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>世界幸福报告是个骗局</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221093750.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1024" height="683" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[29.009,2.2703,63.9933,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221093750.png"></p>
 <p>每年三月，媒体都会兴奋地报道：芬兰又是全球最幸福国家！美国跌出前20了！但政治学者 Yascha Mounk 决定深挖一下这份报告的方法论，结论是——“说得客气点，方法论漏洞百出； <strong>说得直白点，就是一场骗局</strong>。”</p>
 <p>问题出在哪？首先，那道核心问题（Cantril阶梯量表）根本不是在问”你幸福吗”，而是让人在0-10的”阶梯”上给生活打分。研究发现，受访者普遍把这理解成在问”财富”和”成功”——阶梯的隐喻本身就在暗示社会等级。</p>
 <p>其次，样本量小得可怜：每个国家约1000人，对中国和印度来说只占总人口的0.00014%。电话调查排除了没手机的穷人，城市过度采样让农村声音消失。</p>
 <p>最讽刺的是：如果北欧真的那么幸福，为什么抗抑郁药使用率全球领先？Mounk走在哥本哈根街头，发现人们几乎不笑——这真的是”地球上最幸福的地方”？</p>
 <p>媒体每年不加质疑地转发这些排名，本身就是一种”精英阶层的虚假信息”。</p>
 <hr>
-<p>3、<a target="_blank" rel="noopener" href="https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub" title="LLM面试问答中心">LLM面试问答中心</a>（英文、Github仓库）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221094111.png"></p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub" title="LLM面试问答中心" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>LLM面试问答中心</a>（英文、Github仓库）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221094111.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1024" height="335" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[41.3276,21.472,69.0891,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221094111.png"></p>
 <p>里面涵盖了 115 道 LLM 面试题以及对应的答案。</p>
 <hr>
-<p>4、<a target="_blank" rel="noopener" href="https://msanroman.io/blog/ai-consumption-paradigm" title="人工智能真正的超能力：消耗，而非创造">人工智能真正的超能力：消耗，而非创造</a>（英文）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://msanroman.io/blog/ai-consumption-paradigm" title="人工智能真正的超能力：消耗，而非创造" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>人工智能真正的超能力：消耗，而非创造</a>（英文）</p>
 <p>作者说我们一直在错误地使用AI。</p>
 <p>大多数人让AI干嘛？写邮件、生成报告、产出内容。Mike San Román说这叫 <strong>“用超级计算机当打字机”</strong> ——大材小用到离谱。</p>
 <p>他做了个实验：把自己多年的Obsidian笔记库接入AI，然后换一种问法——不是”帮我写点新东西”，而是”我过去发现了什么？”</p>
@@ -210,50 +433,50 @@
 <p>作者说得好：你的经验是你最大的竞争优势，但前提是你能调用它。大多数人一辈子积累的洞察，都沉没在笔记、邮件、文档里，从未被真正激活。</p>
 <p>AI 不是你的写手，而是你的第二大脑检索员。这是一种挺好的思路。</p>
 <hr>
-<p>5、<a target="_blank" rel="noopener" href="https://www.sherryning.com/p/youre-overspending-because-you-lack-values" title="你花钱过多是因为你缺乏价值观">你花钱过多是因为你缺乏价值观</a>（英文）</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102327.png" alt="饿的时候你就不是你自己"></p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.sherryning.com/p/youre-overspending-because-you-lack-values" title="你花钱过多是因为你缺乏价值观" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>你花钱过多是因为你缺乏价值观</a>（英文）</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102327.png" alt="饿的时候你就不是你自己" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1200" height="630" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[27.5068,27.415,43.4534,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221102327.png"><div class="image-meta"><span class="image-caption center">饿的时候你就不是你自己</span></div></div>
 <p>作者从一次清理房间的体验切入——站在堆满潮流单品却没有真实喜爱的物件前，她意识到这些“东西”其实是 <strong>把时间和生命变成了垃圾</strong> 的产物。文章借用《千与千寻》中父母变成猪的场景，指出过度消费不是“金钱管理”问题，而是<strong>灵性与欲望的困境</strong>：我们追逐的不是物品本身，而是它们所承诺的身份、归属感和更丰满的自己。欲望像咒语，把我们带入一个被广告、焦虑和比较操控的幻象世界。唯有<strong>明确自己的价值观</strong>，才能让消费回到“服务你的生活”而不是吞噬你的时间。</p>
 <hr>
-<p>6、<a target="_blank" rel="noopener" href="https://www.ifanr.com/1649203" title="AI 大神 Karpathy 2025 年度总结刷屏：AI 既是天才也是智障，这 6 个转折最关键">AI 大神 Karpathy 2025 年度总结刷屏：AI 既是天才也是智障，这 6 个转折最关键</a></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133739.png"></p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.ifanr.com/1649203" title="AI 大神 Karpathy 2025 年度总结刷屏：AI 既是天才也是智障，这 6 个转折最关键" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 大神 Karpathy 2025 年度总结刷屏：AI 既是天才也是智障，这 6 个转折最关键</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133739.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="720" height="385" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[210.7724,23.157,19.3609,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221133739.png"></p>
 <p>前特斯拉 AI 负责人、OpenAI 联合创始人 Andrej Karpathy 发布了他的 2025 年度 AI 总结，核心判断是：LLM 正在作为一种新型智能涌现，它”比预期聪明得多，也比预期笨得多”，而行业”连 10% 的潜力都没挖出来”。</p>
 <p>他列出了六个关键转折点：RLVR 强化学习让 AI 学会自我验证推理，像奥数训练一样自我进化；参差不齐的智能——AI 呈现”海胆状”能力分布，数学编程天才级，但简单逻辑上可能被<br>；Cursor 证明应用层大有可为，代码编辑器成了 LLM 的”包工头”；Claude Code 走向本地，AI 从云端下凡成为”赛博幽灵”；Vibe Coding 革命让编程从写语法变成描述意图，代码变得廉价一次性；多模态交互让 AI 输出从纯文字走向图表和网页。</p>
 <p>Karpathy 的比喻很传神：”我们不是在养宠物，我们是在召唤幽灵。”这是一篇值得所有 AI 从业者收藏的年度地图。</p>
 <hr>
-<p>7、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Vy0qqPWNsQld_2kP_uToEw" title="确诊了，AI 让我们都感染上「不是/而是」综合症">确诊了，AI 让我们都感染上「不是/而是」综合症</a></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img9e1041daae1c43130dc0bfecc6a6042d.png"></p>
+<p>7、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Vy0qqPWNsQld_2kP_uToEw" title="确诊了，AI 让我们都感染上「不是/而是」综合症" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>确诊了，AI 让我们都感染上「不是/而是」综合症</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img9e1041daae1c43130dc0bfecc6a6042d.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="879" height="440" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[121.4573,88.7922,18.3969,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img9e1041daae1c43130dc0bfecc6a6042d.png"></p>
 <p>你有没有发现，自己或身边的人写东西时，越来越爱用“不是……而是……”这种结构？比如“我们的目标不是要赢，而是要学到东西”。</p>
 <p>这篇文章就像一面镜子，指出这可能是AI语言模型对我们表达习惯的一次“悄无声息的入侵”。</p>
 <p>作者将这种现象称为“AI感染”或“不是/而是综合症”，认为AI在提升我们效率的同时，也在用一种特定的、近乎“正确”的句式模板重塑我们的思维和表达路径。</p>
-<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人"></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vQI-fiuEPE-vTQD7D6Hx0A" title="穿外裤坐床上，到底脏不脏 | 答案如下">穿外裤坐床上，到底脏不脏 | 答案如下</a></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221143642.png"></p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人" data-stellar-navigation=""></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vQI-fiuEPE-vTQD7D6Hx0A" title="穿外裤坐床上，到底脏不脏 | 答案如下" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>穿外裤坐床上，到底脏不脏 | 答案如下</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221143642.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1080" height="720" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[17.8633,26.7682,31.2768,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20251221143642.png"></p>
 <p>你回家后会不会习惯性地穿着外裤往床上一坐？这个看似不起眼的小动作，背后其实是一场关于微生物的隐形战争。</p>
 <p>文章用多项研究数据告诉我们，外裤确实会携带细菌和真菌——它们可能来自环境摩擦，在不同面料上存活数天甚至数月。但别急着恐慌，关键点在于：这些微生物大多是无害的皮肤常驻菌，要想致病需要满足“足量致病菌+有效传播途径+人体易感”三重条件，而日常坐床行为几乎不可能同时满足。</p>
 <p>文章最后点出真正该警惕的是垃圾处理员、医护人员等特殊职业的工作服，以及我们贴身的袜子和内衣。</p>
 <p>所以，如果你今天只是通勤上班，大可放松点；但要是刚在马路牙子上坐过……还是换条裤子吧。</p>
-<h1 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h1><p>1、</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论" data-stellar-navigation=""></a>言论</h1><p>1、</p>
 <blockquote>
 <p>每家公司都说’我们重视你的隐私’，但这只是表演艺术。</p>
 <p>如果一项服务要求你的邮箱，它就已经在匿名性上妥协了。</p>
 </blockquote>
-<p>–<a target="_blank" rel="noopener" href="https://servury.com/blog/privacy-is-marketing-anonymity-is-architecture/" title="隐私是营销话术，匿名才是技术架构">隐私是营销话术，匿名才是技术架构</a>（英文）</p>
+<p>–<a target="_blank" rel="noopener" href="https://servury.com/blog/privacy-is-marketing-anonymity-is-architecture/" title="隐私是营销话术，匿名才是技术架构" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>隐私是营销话术，匿名才是技术架构</a>（英文）</p>
 <p>2、</p>
 <blockquote>
 <p>用AI就像从步行改成开卡车：能运更多，但你得管理机器。</p>
 </blockquote>
-<p>–<a target="_blank" rel="noopener" href="https://davidbau.com/archives/2025/12/16/vibe_coding.html" title="两种vibe coding">两种vibe coding</a>（英文）</p>
+<p>–<a target="_blank" rel="noopener" href="https://davidbau.com/archives/2025/12/16/vibe_coding.html" title="两种vibe coding" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>两种vibe coding</a>（英文）</p>
 <p>3、</p>
 <blockquote>
 <p>一个世纪前，14岁的孩子是家庭经济支柱——这很糟；如今，他们连独自在家都不被信任——同样糟糕。</p>
 <p>青少年失去了物理世界的自主权，却获得了数字世界的无限通行证——他们的世界观由算法塑造，却没有真实经验来校准。</p>
 </blockquote>
-<p>–<a target="_blank" rel="noopener" href="https://www.theargumentmag.com/p/how-getting-richer-made-teenagers" title="从童工到巨婴：经济繁荣如何让青少年失去自由">从童工到巨婴：经济繁荣如何让青少年失去自由</a>（英文）</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.theargumentmag.com/p/how-getting-richer-made-teenagers" title="从童工到巨婴：经济繁荣如何让青少年失去自由" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>从童工到巨婴：经济繁荣如何让青少年失去自由</a>（英文）</p>
 <p>4、</p>
 <blockquote>
 <p>如果你轻率地把工作的核心和灵魂交给 AI，就别惊讶有人决定让 AI 取代你。</p>
 <p>跳过基础步骤的年轻人，永远无法培养出行业直觉和判断力。</p>
 </blockquote>
-<p>–<a target="_blank" rel="noopener" href="https://read.technically.dev/p/ai-will-replace-you-at-your-job-if" title="AI 不会取代你，除非你主动让它取代你。">AI 不会取代你，除非你主动让它取代你。</a>（英文） </p>
+<p>–<a target="_blank" rel="noopener" href="https://read.technically.dev/p/ai-will-replace-you-at-your-job-if" title="AI 不会取代你，除非你主动让它取代你。" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 不会取代你，除非你主动让它取代你。</a>（英文） </p>
 <p>5、</p>
 <blockquote>
 <p>核心原理是把早上、下午、晚上当成3天来过：</p>
@@ -262,785 +485,138 @@
 <p>18:00-23:00（第三天）</p>
 <p>在这之中，你可以给每个时段设定主题，并沉浸专注地度过它。</p>
 </blockquote>
-<p>–<a target="_blank" rel="noopener" href="https://www.douban.com/group/topic/345269261/?_spm_id=NDQ1NzUxNzQ" title="邪修生活｜我发现了让1天的时间变3天的小技巧！">邪修生活｜我发现了让1天的时间变3天的小技巧！</a></p>
-<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<p>–<a target="_blank" rel="noopener" href="https://www.douban.com/group/topic/345269261/?_spm_id=NDQ1NzUxNzQ" title="邪修生活｜我发现了让1天的时间变3天的小技巧！" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>邪修生活｜我发现了让1天的时间变3天的小技巧！</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅" data-stellar-navigation=""></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.cn/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&amp;s_from=input&amp;query=wmyskxz&amp;ie=utf8&amp;_sug_=n&amp;_sug_type_=&amp;w=01019900&amp;sut=1861&amp;sst0=1612590375262&amp;lkt=8,1612590373961,1612590375161" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>微信公众号</a></p>
 <p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="258" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.6232,1.4053,61.8842,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
 </article>
-<div class="article-footer">
+<div class="article-tags slide-up"><a class="tag" href="/tags/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>代码之外周刊</a></div>
+
+
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="分享文章: QR Code" title="分享文章: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F&amp;title=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20159%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%26quot%3B%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%26quot%3B%E5%AE%9E%E9%AA%8C%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;pics=https%3A%2F%2Fwmyskxz-blog.oss-cn-chengdu.aliyuncs.com%2Fimg20251221092402.png&amp;summary=%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E6%9E%84%E5%BB%BA%E4%B8%96%E7%95%8C%EF%BC%8C%E4%BD%86%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E4%B9%90%E8%B6%A3%E8%BF%9C%E4%B8%8D%E6%AD%A2%E4%BA%8E%E6%AD%A4%E3%80%82%E8%BF%99%E9%87%8C%E6%98%AF%E6%88%91%E4%B8%80%E5%91%A8%E7%9A%84%E7%B2%BE%E9%80%89%E3%80%82%0A%E5%91%A8%E5%88%8A%E5%BC%80%E6%BA%90%EF%BC%88Github%EF%BC%9Awmyskxz%2Fweekly%EF%BC%89%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8F%90%E4%BA%A4%20issue%EF%BC%8C%E6%8A%95%E7%A8%BF%E6%88%96%E6%8E%A8%E8%8D%90%E7%B2%BE%E5%BD%A9%E5%86%85%E5%AE%B9%E3%80%82%0A%E9%A2%98%E5%9B%BE%0A%E4%B8%83%E5%B9%B4%E5%89%8D%EF%BC%8CMichaela%20Benthaus%20%E5%9C%A8%E4%B8%80%E6%AC%A1%E5%B1%B1%E5%9C%B0%E8%BD%A6%E4%BA%8B%E6%95%85%E4%B8%AD..." target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Weibo" title="分享文章: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20159%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%26quot%3B%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%26quot%3B%E5%AE%9E%E9%AA%8C%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: X" title="分享文章: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F&amp;text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20159%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%26quot%3B%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%26quot%3B%E5%AE%9E%E9%AA%8C%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Telegram" title="分享文章: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20159%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%26quot%3B%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%26quot%3B%E5%AE%9E%E9%AA%8C%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2%0Ahttps%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: WhatsApp" title="分享文章: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20159%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%26quot%3B%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%26quot%3B%E5%AE%9E%E9%AA%8C%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;body=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F" aria-label="分享文章: Email" title="分享文章: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="256" height="256" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[0,0,49.7271,1]}" data-stellar-image-source="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F159%2F"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
       <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
-    </section>
+    </section></div>
+
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 较新文章</div><a href="/weekly/160/" data-stellar-navigation="">代码之外周刊（第 160 期）：就让所有不开心，都留在 2025 年吧</a></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/weekly/158/" data-stellar-navigation="">代码之外周刊（第 158 期）：赢得越多，选择越少——成功为何会变成枷锁</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text slide-up" id="comments">
     
-
-</div>
-
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/weekly/160/">代码之外周刊（第 160 期）：就让所有不开心，都留在 2025 年吧</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/weekly/158/">代码之外周刊（第 158 期）：赢得越多，选择越少——成功为何会变成枷锁</a></div></section></div>
-
-
-
-
-  <div class="related-wrap md-text" id="comments">
-    <section class='header cmt-title cap theme'>
-      <p>快来参与讨论吧~</p>
-
-    </section>
-    <section class='body cmt-body giscus'>
+    
+    <section class="body cmt-body giscus">
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
-<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+<div id="giscus" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6">Stellar 2.0.0-rc.6</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
 
 
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E9%A2%98%E5%9B%BE" data-stellar-navigation=""><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%E2%80%9D%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%E2%80%9D%E5%AE%9E%E9%AA%8C" data-stellar-navigation=""><span class="toc-text">本周讨论：硅谷富豪的”超级婴儿”实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%85%88%E6%8A%8A%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%B8%85%E6%A5%9A" data-stellar-navigation=""><span class="toc-text">先把概念说清楚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E8%B0%81%E5%9C%A8%E5%81%9A%E8%BF%99%E9%97%A8%E7%94%9F%E6%84%8F" data-stellar-navigation=""><span class="toc-text">谁在做这门生意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E7%A1%85%E8%B0%B7" data-stellar-navigation=""><span class="toc-text">为什么是硅谷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%89%E8%AE%AE%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5" data-stellar-navigation=""><span class="toc-text">争议从哪里来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%8A%80%E6%9C%AF%E5%88%B0%E5%BA%95%E9%9D%A0%E4%B8%8D%E9%9D%A0%E8%B0%B1" data-stellar-navigation=""><span class="toc-text">技术到底靠不靠谱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%9F%BA%E5%9B%A0%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%90%8C%E6%97%B6%E9%80%89%E6%8B%A9%E5%8F%A6%E4%B8%80%E4%B8%AA" data-stellar-navigation=""><span class="toc-text">选择一个基因，可能同时选择另一个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9D%E5%A5%BD%E5%9F%BA%E5%9B%A0%E2%80%9D" data-stellar-navigation=""><span class="toc-text">什么是”好基因”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84%E5%A5%BD%E7%AD%89%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%A5%BD%E5%90%97%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">现在的好等于未来的好吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%BC%BA%E8%80%85%E8%83%9C%E5%87%BA%E8%BF%98%E6%98%AF%E9%80%82%E8%80%85%E7%94%9F%E5%AD%98" data-stellar-navigation=""><span class="toc-text">强者胜出还是适者生存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%A4%96%E7%9A%84%E9%82%A3%E9%83%A8%E5%88%86" data-stellar-navigation=""><span class="toc-text">技术之外的那部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB" data-stellar-navigation=""><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%96%87%E7%AB%A0" data-stellar-navigation=""><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA" data-stellar-navigation=""><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%A8%80%E8%AE%BA" data-stellar-navigation=""><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%AE%A2%E9%98%85" data-stellar-navigation=""><span class="toc-text">订阅</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
+</widget>
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%9B%BE"><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E7%A1%85%E8%B0%B7%E5%AF%8C%E8%B1%AA%E7%9A%84%E2%80%9D%E8%B6%85%E7%BA%A7%E5%A9%B4%E5%84%BF%E2%80%9D%E5%AE%9E%E9%AA%8C"><span class="toc-text">本周讨论：硅谷富豪的”超级婴儿”实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%8A%8A%E6%A6%82%E5%BF%B5%E8%AF%B4%E6%B8%85%E6%A5%9A"><span class="toc-text">先把概念说清楚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%81%E5%9C%A8%E5%81%9A%E8%BF%99%E9%97%A8%E7%94%9F%E6%84%8F"><span class="toc-text">谁在做这门生意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E7%A1%85%E8%B0%B7"><span class="toc-text">为什么是硅谷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%89%E8%AE%AE%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5"><span class="toc-text">争议从哪里来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%B0%E5%BA%95%E9%9D%A0%E4%B8%8D%E9%9D%A0%E8%B0%B1"><span class="toc-text">技术到底靠不靠谱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%9F%BA%E5%9B%A0%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%90%8C%E6%97%B6%E9%80%89%E6%8B%A9%E5%8F%A6%E4%B8%80%E4%B8%AA"><span class="toc-text">选择一个基因，可能同时选择另一个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9D%E5%A5%BD%E5%9F%BA%E5%9B%A0%E2%80%9D"><span class="toc-text">什么是”好基因”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84%E5%A5%BD%E7%AD%89%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%A5%BD%E5%90%97%EF%BC%9F"><span class="toc-text">现在的好等于未来的好吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E8%80%85%E8%83%9C%E5%87%BA%E8%BF%98%E6%98%AF%E9%80%82%E8%80%85%E7%94%9F%E5%AD%98"><span class="toc-text">强者胜出还是适者生存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%A4%96%E7%9A%84%E9%82%A3%E9%83%A8%E5%88%86"><span class="toc-text">技术之外的那部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB"><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA"><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%80%E8%AE%BA"><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel'>
-  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
   </button>
-  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
   </button>
 </div>
-</div><div class="scripts">
 
-
-<script type="text/javascript">
-  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  const ctx = {
-    date_suffix: {
-      just: `刚刚`,
-      min: `分钟前`,
-      hour: `小时前`,
-      day: `天前`,
-    },
-    root : `/`,
-    tag_plugins: {
-      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
-  };
-
-  // required plugins (only load if needs)
-  if (`local_search`) {
-    ctx.search = {};
-    ctx.search.service = `local_search`;
-    if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
-      ctx.search[ctx.search.service] = service_obj;
-    }
-  }
-  const def = {
-    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
-    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
-  };
-  const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
-    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
-  }
-  
-
-</script>
-
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
-      }
-    }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
-  };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
-  });
-</script>
-<script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
-  }
-</script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
-
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
-
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazy",
-    callback_loaded: (el) => {
-      el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
-      const icon = wrapper?.querySelector('.lazy-icon');
-      if (icon) icon.remove();
-    }
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    window.lazyLoadInstance?.update();
-  });
-
-  window.wrapLazyloadImages = (container) => {
-    if (typeof container === 'string') {
-      container = document.querySelector(container);
-    }
-    if (!container) return;
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
     
-    const images = container.querySelectorAll('img');
-    images.forEach((img) => {
-      if (img.classList.contains('lazy')) return;
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
 
-      const src = img.getAttribute('src');
-      if (!src) return;
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'lazy-box';
-
-      const newImg = img.cloneNode();
-      newImg.removeAttribute('src');
-      newImg.setAttribute('data-src', src);
-      newImg.classList.add('lazy');
-
-      const icon = document.createElement('div');
-      icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
-
-      wrapper.appendChild(newImg);
-      wrapper.appendChild(icon);
-
-      img.replaceWith(wrapper);
-    });
-
-    // 通知 LazyLoad 更新
-    if (window.lazyLoadInstance?.update) {
-      window.lazyLoadInstance.update();
-    }
-  }
-  
-</script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://www.wmyskxz.cn/weekly/159/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
 </script>
 
 
-<!-- optional -->
-
-  <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
-      }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
-        }
-      }
-      el.appendChild(script);
-  }
-</script>
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-rc.6"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-rc.6" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-rc.6"></script>
 
 
 
 
-<script defer>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
 
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
-      path: `/search.json`,
-    }
-    utils.js('/js/search/local-search.js', { defer: true });
-  });
-</script><script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
-  ctx.fancybox = {
-    selector: `.timenode p>img`,
-    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
-    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
-  };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
-  if (ctx.fancybox.selector) {
-    selector += `, ${ctx.fancybox.selector}`
-  }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
-  if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
-    }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
-    }
-  }
-  if (needFancybox) {
-    utils.css(ctx.fancybox.css);
-    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
-      Fancybox.bind(selector, {
-        hideScrollbar: false,
-        Thumbs: {
-          autoStart: false,
-        },
-        caption: (fancybox, slide) => {
-          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
-        }
-      });
-    })
-  }
-</script>
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const swiper_api = document.getElementById('swiper-api');
-    if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
-        const effect = swiper_api.getAttribute('effect') || '';
-        var swiper = new Swiper('.swiper#swiper-api', {
-          slidesPerView: 'auto',
-          spaceBetween: 8,
-          centeredSlides: true,
-          effect: effect,
-          rewind: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
-      })
-    }
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
-      ctx.copycode = {
-        default_text: `Copy`,
-        success_text: `Copied`,
-        toast: `复制成功`,
-      };
-      utils.js('/js/plugins/copycode.js');
-    }
-  });
-</script>
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"wmyskxz/blog-comments","data-repo-id":"R_kgDOH7eiFA","data-category":"Announcements","data-category-id":"DIC_kwDOH7eiFM4C0qpW","data-mapping":"title","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"代码之外周刊（第 159 期）：硅谷富豪的\u0026quot;超级婴儿\u0026quot;实验","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0-rc.6&amp;runtime=1"></script>
 
 
 <!-- inject -->
 
-</div></body></html>
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-rc.6"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://www.wmyskxz.cn/weekly/159/","signature":"61576b03bd49c79e953b51b2bcb82b2d6b215411b9c663e7eedfa4361a935035"}</script></body></html>

@@ -1,49 +1,63 @@
-
-<!DOCTYPE html><html lang="zh-CN">
-
-<head>
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6" theme-name="Stellar" theme-version="2.0.0-rc.6">
   
   
-  <meta name="generator" content="Hexo 5.4.2">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>AI是怎么回事：神经网络到底是什么——6000万个旋钮的真相 - 我没有三颗心脏的博客</title>
+  <title data-stellar-page-meta="">AI是怎么回事：神经网络到底是什么——6000万个旋钮的真相 - 我没有三颗心脏的博客</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
 
-  
-    <meta name="description" content="这是 「AI是怎么回事」 系列的第 4 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。   “神经网络”可能是 AI 领域最吓人的一个词。 听起来像科幻片">
-<meta property="og:type" content="website">
-<meta property="og:title" content="神经网络到底是什么——6000万个旋钮的真相">
-<meta property="og:url" content="https://www.wmyskxz.cn/wiki/whats_ai/4/">
-<meta property="og:site_name" content="我没有三颗心脏的博客">
-<meta property="og:description" content="这是 「AI是怎么回事」 系列的第 4 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。   “神经网络”可能是 AI 领域最吓人的一个词。 听起来像科幻片">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-<meta property="article:published_time" content="2026-02-12T08:58:44.866Z">
-<meta property="article:modified_time" content="2026-02-12T08:58:44.866Z">
-<meta property="article:author" content="我没有三颗心脏">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.wmyskxz.cn/img/logo.jpg">
-  
+  <meta name="description" content="我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。" data-stellar-page-meta="">
+<meta property="og:type" content="website" data-stellar-page-meta="">
+<meta property="og:title" content="神经网络到底是什么——6000万个旋钮的真相" data-stellar-page-meta="">
+<meta property="og:url" content="https://www.wmyskxz.cn/wiki/whats_ai/4/" data-stellar-page-meta="">
+<meta property="og:site_name" content="我没有三颗心脏的博客" data-stellar-page-meta="">
+<meta property="og:description" content="我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212161744.png" data-stellar-page-meta="">
+<meta property="article:author" content="我没有三颗心脏" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212161744.png" data-stellar-page-meta=""><meta name="twitter:title" content="神经网络到底是什么——6000万个旋钮的真相" data-stellar-page-meta="">
   
   
   
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+      
+    
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+  <link rel="preload" href="/css/main.css?v=2.0.0-rc.6" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0-rc.6">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
 
 
   
@@ -52,40 +66,417 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://www.wmyskxz.cn/wiki/whats_ai/4/","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"/img/logo.jpg"},"name":"神经网络到底是什么——6000万个旋钮的真相","description":"\n这是 「AI是怎么回事」 系列的第 4 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。\n\n\n“神经网络”可能是 AI 领域最吓人的一个词。\n听起来像...","url":"https://www.wmyskxz.cn/wiki/whats_ai/4/"}</script>
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.wmyskxz.cn/wiki/whats_ai/4/","name":"神经网络到底是什么——6000万个旋钮的真相","description":"我一直很好奇 AI 到底是怎么工作的，这里是我的探索笔记，分享给你。","url":"https://www.wmyskxz.cn/wiki/whats_ai/4/","isPartOf":{"@type":"WebSite","name":"我没有三颗心脏的博客","url":"https://www.wmyskxz.cn"}}</script>
+  
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
   
 </head>
-<body>
+<body data-page-type="content" data-page-layout="page" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular"><div class="brand-navigation"><a class="brand-navigation__back cap" href="/wiki/"><span class="ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span><span>所有项目</span></a></div><div class="brand-navigation-rail">
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" href="/wiki/" title="所有项目" aria-label="所有项目">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 4-8 8 8 8"></path></svg></span>
+  
+  
+  
+  
+</a>
 
-
-
-<div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
-
-
-<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/img/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/whats_ai/"><div class="main">AI是怎么回事</div><div class="sub normal cap">和我一起，理解 AI 是如何改变世界的</div><div class="sub hover cap" style="opacity:0"> by 我没有三颗心脏</div></a></div></header>
-
-<div class="nav-area">
-
-<nav class="menu dis-select"><a class="nav-item" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item active" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于我" href="/more/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+  
 </div>
-<div class="widgets">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/whats_ai/" placeholder="在「AI是怎么回事」中搜索..."></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
+</nav>
+</div><div class="brand-wrap"><a class="brand-image brand-image--icon" href="/wiki/whats_ai/" data-stellar-navigation=""><img no-lazy="" src="/img/logo.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="640" height="640" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.3767,31.6886,58.5082,1]}" data-stellar-image-source="/img/logo.jpg"></a><a class="brand-title" href="/wiki/whats_ai/" data-stellar-navigation=""><div class="brand-name">AI是怎么回事</div><div class="brand-tagline cap">和我一起，理解 AI 是如何改变世界的 | by 我没有三颗心脏</div></a></div><div class="brand-search">
 
-<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/#start"><span class="toc-text">开场白&目录</span></a></div><div class="widget-header dis-select"><span class="name">第一章：拆开黑箱</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/1/"><span class="toc-text">AI到底聪明在哪——从手机人脸识别说起</span></a><a class="link" href="/wiki/whats_ai/2/"><span class="toc-text">AI怎么读懂文字——国王减去男人等于什么</span></a><a class="link" href="/wiki/whats_ai/3/"><span class="toc-text">AI是怎么突然变厉害的——2012所有人以为他们作弊了</span></a><a class="link active" href="/wiki/whats_ai/4/"><span class="toc-text">神经网络到底是什么——6000万个旋钮的真相</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/whats_ai/5/"><span class="toc-text">AI是怎么学会的——从做错一道题说起</span></a><a class="link" href="/wiki/whats_ai/6/"><span class="toc-text">ChatGPT为什么能对话——一篇引用17万次的论文</span></a><a class="link" href="/wiki/whats_ai/7/"><span class="toc-text">AI为什么会撒谎——一个律师被ChatGPT骗了</span></a><a class="link" href="/wiki/whats_ai/8/"><span class="toc-text">ChatGPT回答你的三秒钟里，发生了什么？</span></a></div><div class="widget-header dis-select"><span class="name">第二章：AI能做什么，不能做什么</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/9/"><span class="toc-text">AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单</span></a><a class="link" href="/wiki/whats_ai/10/"><span class="toc-text">AI 能"创造"吗？——从一团噪声到一幅画</span></a><a class="link" href="/wiki/whats_ai/11/"><span class="toc-text">为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线</span></a><a class="link" href="/wiki/whats_ai/12/"><span class="toc-text">这个框架会过时吗？——AI 的天花板和你的判断力</span></a></div><div class="widget-header dis-select"><span class="name">第三章：和AI一起工作</span></div><div class="widget-body fs14"><a class="link" href="/wiki/whats_ai/13/"><span class="toc-text">怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍</span></a><a class="link" href="/wiki/whats_ai/14/"><span class="toc-text">怎么跟AI协作不翻车——AI说的话你该信几分</span></a><a class="link" href="/wiki/whats_ai/15/"><span class="toc-text">AI 写代码有多厉害？——快了 55%，但错多了 75%</span></a><a class="link" href="/wiki/whats_ai/16/"><span class="toc-text">AI会取代我们吗——它不懂孤独是什么意思</span></a></div></widget>
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="wiki:whats_ai" data-search-domain-label="AI是怎么回事" data-search-domain-blog="false">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
+
+  
+</button>
+
+  
 </div>
 
-</div></aside><div class="l_main" id="main">
+
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--tree" data-widget-id="leftbar:0:tree" data-presentation="leftbar" data-leftbar-rail="">
 
 
+<widget class="widget-wrapper doc-tree-widget" data-wiki="whats_ai">
+  
+  <div class="widget-body"><section class="widget-section"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/" title="开场白&amp;目录" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">开</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">开场白&amp;目录</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第一章：拆开黑箱</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/1/" title="AI到底聪明在哪——从手机人脸识别说起" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI到底聪明在哪——从手机人脸识别说起</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/2/" title="AI怎么读懂文字——国王减去男人等于什么" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI怎么读懂文字——国王减去男人等于什么</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/3/" title="AI是怎么突然变厉害的——2012所有人以为他们作弊了" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI是怎么突然变厉害的——2012所有人以为他们作弊了</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active" href="/wiki/whats_ai/4/" title="神经网络到底是什么——6000万个旋钮的真相" aria-current="page" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">神</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">神经网络到底是什么——6000万个旋钮的真相</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/5/" title="AI是怎么学会的——从做错一道题说起" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI是怎么学会的——从做错一道题说起</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/6/" title="ChatGPT为什么能对话——一篇引用17万次的论文" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ChatGPT为什么能对话——一篇引用17万次的论文</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/7/" title="AI为什么会撒谎——一个律师被ChatGPT骗了" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI为什么会撒谎——一个律师被ChatGPT骗了</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/8/" title="ChatGPT回答你的三秒钟里，发生了什么？" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">ChatGPT回答你的三秒钟里，发生了什么？</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第二章：AI能做什么，不能做什么</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/9/" title="AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 到底有多聪明？——一份让 AI 研究者也困惑的成绩单</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/10/" title="AI 能&quot;创造&quot;吗？——从一团噪声到一幅画" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 能"创造"吗？——从一团噪声到一幅画</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/11/" title="为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">为</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">为什么 AI 能赢世界冠军，却开不好车？——一条藏在所有 AI 背后的分界线</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/12/" title="这个框架会过时吗？——AI 的天花板和你的判断力" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">这</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">这个框架会过时吗？——AI 的天花板和你的判断力</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section><section class="widget-section"><div class="widget-header dis-select"><span class="name">第三章：和AI一起工作</span></div><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/13/" title="怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">怎</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">怎么让AI听懂你的话——同一个AI为什么他用得比你好10倍</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/14/" title="怎么跟AI协作不翻车——AI说的话你该信几分" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">怎</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">怎么跟AI协作不翻车——AI说的话你该信几分</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/15/" title="AI 写代码有多厉害？——快了 55%，但错多了 75%" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI 写代码有多厉害？——快了 55%，但错多了 75%</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/wiki/whats_ai/16/" title="AI会取代我们吗——它不懂孤独是什么意思" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">A</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">AI会取代我们吗——它不懂孤独是什么意思</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></section></div>
+  
+</widget>
 
 
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
 
-<div class="article banner top">
+
+<div class="article-banner-wrap slide-up"><div class="article banner top">
   <div class="content">
-    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/whats_ai/">AI是怎么回事</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-02-12T08:58:44.866Z">2026-02-12</time></span></div></div></div>
+    
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/whats_ai/" data-stellar-navigation="">AI是怎么回事</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-09-22T15:02:03.000Z">2026-09-22</time></span></div>
+</div></div>
     
     <div class="bottom only-title">
       
@@ -96,10 +487,11 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><blockquote>
+  </div></div>
+<article class="md-text content slide-up"><blockquote>
 <p>这是 <strong>「AI是怎么回事」</strong> 系列的第 <code>4</code> 篇。我一直很好奇 AI 到底是怎么工作的，于是花了很长时间去拆这个东西——手机为什么换了发型还能认出你，ChatGPT 回答你的那三秒钟里究竟在算什么，AI 为什么能通过律师考试却会一本正经地撒谎。这个系列就是我的探索笔记，发现了很多有意思的东西，想分享给你。觉得不错的话，欢迎分享+关注。</p>
 </blockquote>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212161744.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212161744.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="600" height="387" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[0,0,83.1597,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212161744.png"></p>
 <p>“神经网络”可能是 AI 领域最吓人的一个词。</p>
 <p>听起来像科幻片——机器有了神经？在思考？</p>
 <p>别慌。看完这篇你会发现，它就是一堆乘法和加法。真的，就这么简单。</p>
@@ -108,7 +500,7 @@
 <p>6000 万个参数——是 6000 万个什么？</p>
 <p>神经网络——是什么样的”网络”？</p>
 <p>这一篇，我要把这个概念彻底拆开。拆到你能拿计算器跟着算。</p>
-<h1 id="从一个最简单的问题开始"><a href="#从一个最简单的问题开始" class="headerlink" title="从一个最简单的问题开始"></a>从一个最简单的问题开始</h1><p>假设你是一个气象站的工作人员。</p>
+<h1 id="从一个最简单的问题开始"><a href="#从一个最简单的问题开始" class="headerlink" title="从一个最简单的问题开始" data-stellar-navigation=""></a>从一个最简单的问题开始</h1><p>假设你是一个气象站的工作人员。</p>
 <p>你的任务很简单：根据今天的<strong>温度</strong>、<strong>湿度</strong>和<strong>风速</strong>，判断明天会不会下雨。</p>
 <p>你有多年的经验。你知道：</p>
 <ul>
@@ -123,7 +515,7 @@
 </blockquote>
 <p>温度对下雨的影响小，你给它一个小的权重。湿度影响大，你给它一个大的权重。风速介于两者之间。</p>
 <p><strong>这就是一个”神经元”做的事情。</strong></p>
-<h1 id="一个”神经元”就是一道算术题"><a href="#一个”神经元”就是一道算术题" class="headerlink" title="一个”神经元”就是一道算术题"></a>一个”神经元”就是一道算术题</h1><p>让我用具体的数字来演示。</p>
+<h1 id="一个”神经元”就是一道算术题"><a href="#一个”神经元”就是一道算术题" class="headerlink" title="一个”神经元”就是一道算术题" data-stellar-navigation=""></a>一个”神经元”就是一道算术题</h1><p>让我用具体的数字来演示。</p>
 <p>假设今天的气象数据是：</p>
 <ul>
 <li>温度：30（摄氏度）</li>
@@ -140,23 +532,23 @@
 <li>风速的权重：0.03（正数，比湿度小——风速有影响，但没那么大）</li>
 </ul>
 <p>把每个输入乘以对应的权重：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">温度的贡献 = 30 × (-0.02) = -0.6</span><br><span class="line">湿度的贡献 = 85 × 0.08   =  6.8</span><br><span class="line">风速的贡献 = 12 × 0.03   =  0.36</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">温度的贡献 = 30 × (-0.02) = -0.6</span><br><span class="line">湿度的贡献 = 85 × 0.08   =  6.8</span><br><span class="line">风速的贡献 = 12 × 0.03   =  0.36</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>第二步：全部加起来</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总和 = -0.6+6.8+0.36 = 6.56</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总和 = -0.6+6.8+0.36 = 6.56</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>第三步：加上偏置</strong></p>
 <p>这里还有一个数字叫<strong>偏置</strong>（bias）。你可以把它理解为”基准线”——在所有输入都为零的时候，这个神经元的默认输出是多少。</p>
 <p>为什么需要偏置？想象一下：如果某个地区本身就多雨（比如热带雨林），即使今天温度、湿度、风速都是”平均水平”，下雨的概率也应该比沙漠地区高。偏置就是用来调整这个”底线”的。</p>
 <p>假设偏置是 -3.0：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加上偏置 = 6.56+ (-3.0) = 3.56</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加上偏置 = 6.56+ (-3.0) = 3.56</span><br></pre></td></tr></tbody></table></figure>
 
 <p>到这里为止，就是一道普通的乘法加法题。</p>
 <p><strong>第四步：通过激活函数</strong></p>
 <p>最后一步，3.56 这个数字要通过一个叫”激活函数”的东西。</p>
 <p>这是什么？为什么需要它？</p>
 <p>别急，这个问题很重要，我要专门用一整节来讲。</p>
-<h1 id="为什么需要激活函数？"><a href="#为什么需要激活函数？" class="headerlink" title="为什么需要激活函数？"></a>为什么需要激活函数？</h1><p>先说结论：<strong>如果没有激活函数，不管你叠多少层神经元，整个网络做的事情本质上都只是一次乘法加法——和一个神经元没有区别。</strong></p>
+<h1 id="为什么需要激活函数？"><a href="#为什么需要激活函数？" class="headerlink" title="为什么需要激活函数？" data-stellar-navigation=""></a>为什么需要激活函数？</h1><p>先说结论：<strong>如果没有激活函数，不管你叠多少层神经元，整个网络做的事情本质上都只是一次乘法加法——和一个神经元没有区别。</strong></p>
 <p>这句话可能听起来不太直观。让我解释一下。</p>
 <p>假设你有两层神经元，每层只做”乘以权重再相加”的操作。</p>
 <p>第一层：输入 x，乘以权重 a，得到 a × x</p>
@@ -165,20 +557,20 @@
 <p>三层？同样的道理。十层？一百层？还是一样。</p>
 <p><strong>纯粹的乘法和加法，不管叠多少层，都只能表达”线性关系”——也就是”输入变大，输出等比例变大（或变小）”这种简单的、直线型的关系。</strong></p>
 <p>但现实世界不是这样的。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162456.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162456.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[225.4565,12.7113,93.6872,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162456.png"></p>
 <p>温度和下雨的关系不是一条直线。不是”温度每高 1 度，下雨概率就少 2%”这么简单。可能温度在 15-25 度时下雨概率最高，太冷或太热反而不容易下雨。这是一条曲线，不是一条直线。</p>
 <p><strong>激活函数的作用，就是在每一层的计算之后，给结果”掰弯”——把直线变成曲线。</strong></p>
 <p>有了这个”弯曲”，多层叠加才能表达复杂的、弯弯曲曲的关系。没有它，你叠再多层也没用。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162409.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162409.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[260.0349,6.3907,92.9446,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162409.png"></p>
 <p>所以激活函数虽然名字听起来学术，但它做的事情很直觉：<strong>让神经网络能够处理”非直线”的现实问题。</strong></p>
-<h1 id="最常用的激活函数：ReLU"><a href="#最常用的激活函数：ReLU" class="headerlink" title="最常用的激活函数：ReLU"></a>最常用的激活函数：ReLU</h1><p>激活函数有很多种。AlexNet 使用的那一种，也是目前最常用的一种，叫 <strong>ReLU</strong>。</p>
+<h1 id="最常用的激活函数：ReLU"><a href="#最常用的激活函数：ReLU" class="headerlink" title="最常用的激活函数：ReLU" data-stellar-navigation=""></a>最常用的激活函数：ReLU</h1><p>激活函数有很多种。AlexNet 使用的那一种，也是目前最常用的一种，叫 <strong>ReLU</strong>。</p>
 <p>ReLU 的全称是 Rectified Linear Unit，翻译过来是”修正线性单元”。名字很吓人，但它做的事情极其简单：</p>
 <blockquote>
 <p><strong>如果输入大于 0，就原样输出；如果输入小于等于 0，就输出 0。</strong></p>
 </blockquote>
 <p>就这样。没了。</p>
 <p>用数学写出来是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReLU(x) = max(0,x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReLU(x) = max(0,x)</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>max(0,x)</code> 的意思是：0 和 x 比大小，谁大取谁。</p>
 <p>几个例子：</p>
@@ -191,10 +583,10 @@
 <p>你可能会觉得：这也太简单了吧？把负数变成 0，正数不变——这能有什么用？</p>
 <p>用处大了。</p>
 <p><strong>ReLU 做的”掰弯”是这样的：在 0 的位置，它把函数”折”了一下。</strong> 左半边（负数区域）被拍平成 0，右半边（正数区域）保持不变。这个”折”的动作，就是从直线到曲线的关键。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162633.png"></p>
-<p>你可能还会问：有没有其他的激活函数？有的。在 ReLU 之前，常用的是一个叫 <strong>Sigmoid</strong>（S 形函数）的激活函数，它把任何数字都压缩到 0 到 1 之间，画出来像一个 S 形的曲线。但 Sigmoid 有一个问题：当输入的数字很大或很小的时候，函数的变化非常缓慢（曲线变得几乎平坦），这会让训练过程中的调整信号变得非常微弱，导致深层网络难以学习——这个问题叫”<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">梯度消失</a>“。AlexNet 在 2012 年改用 ReLU，一个重要原因就是 ReLU 不存在这个问题——<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">正数区域的变化率始终是 1，调整信号不会衰减</a>。这是 AlexNet 能训练 8 层深度网络的关键技术之一。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162633.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[224.5093,16.0371,93.8267,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212162633.png"></p>
+<p>你可能还会问：有没有其他的激活函数？有的。在 ReLU 之前，常用的是一个叫 <strong>Sigmoid</strong>（S 形函数）的激活函数，它把任何数字都压缩到 0 到 1 之间，画出来像一个 S 形的曲线。但 Sigmoid 有一个问题：当输入的数字很大或很小的时候，函数的变化非常缓慢（曲线变得几乎平坦），这会让训练过程中的调整信号变得非常微弱，导致深层网络难以学习——这个问题叫”<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>梯度消失</a>“。AlexNet 在 2012 年改用 ReLU，一个重要原因就是 ReLU 不存在这个问题——<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>正数区域的变化率始终是 1，调整信号不会衰减</a>。这是 AlexNet 能训练 8 层深度网络的关键技术之一。</p>
 <p>现在，回到我们的气象神经元。</p>
-<h1 id="完整的一个神经元"><a href="#完整的一个神经元" class="headerlink" title="完整的一个神经元"></a>完整的一个神经元</h1><p>让我把刚才的四步完整写出来：</p>
+<h1 id="完整的一个神经元"><a href="#完整的一个神经元" class="headerlink" title="完整的一个神经元" data-stellar-navigation=""></a>完整的一个神经元</h1><p>让我把刚才的四步完整写出来：</p>
 <p><strong>输入：</strong></p>
 <ul>
 <li>温度 = 30- 湿度 = 85- 风速 = 12</li>
@@ -204,7 +596,7 @@
 <li>权重：-0.02,0.08,0.03- 偏置：-3.0</li>
 </ul>
 <p><strong>计算过程：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">第一步：乘以权重</span><br><span class="line">  30 × (-0.02) = -0.685 × 0.08    =  6.812 × 0.03    =  0.36</span><br><span class="line"></span><br><span class="line">第二步：全部加起来</span><br><span class="line">  -0.6+6.8+0.36 = 6.56</span><br><span class="line"></span><br><span class="line">第三步：加上偏置</span><br><span class="line">  6.56+ (-3.0) = 3.56</span><br><span class="line"></span><br><span class="line">第四步：通过激活函数（ReLU）</span><br><span class="line">  ReLU(3.56) = max(0,3.56) = 3.56</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">第一步：乘以权重</span><br><span class="line">  30 × (-0.02) = -0.685 × 0.08    =  6.812 × 0.03    =  0.36</span><br><span class="line"></span><br><span class="line">第二步：全部加起来</span><br><span class="line">  -0.6+6.8+0.36 = 6.56</span><br><span class="line"></span><br><span class="line">第三步：加上偏置</span><br><span class="line">  6.56+ (-3.0) = 3.56</span><br><span class="line"></span><br><span class="line">第四步：通过激活函数（ReLU）</span><br><span class="line">  ReLU(3.56) = max(0,3.56) = 3.56</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>输出：3.56</strong></p>
 <p>就这样。一个神经元，做完了。</p>
@@ -213,7 +605,7 @@
 <p>这个 3.56 的输出意味着什么？如果这是一个用来判断”下不下雨”的模型，3.56 是一个比较高的正数——可以理解为”比较可能下雨”的信号。如果输出是 0（比如湿度很低的情况），则表示”不太可能下雨”。</p>
 <p>但一个神经元只能给出一个很粗糙的判断。真实的天气预报远比这复杂——光靠一个乘法加法的公式，怎么可能捕捉天气的复杂变化？</p>
 <p>这就是为什么我们需要<strong>很多个</strong>神经元。</p>
-<h1 id="一层神经元：一个班级同时做题"><a href="#一层神经元：一个班级同时做题" class="headerlink" title="一层神经元：一个班级同时做题"></a>一层神经元：一个班级同时做题</h1><p>一个神经元只能从输入中提取一种信号。</p>
+<h1 id="一层神经元：一个班级同时做题"><a href="#一层神经元：一个班级同时做题" class="headerlink" title="一层神经元：一个班级同时做题" data-stellar-navigation=""></a>一层神经元：一个班级同时做题</h1><p>一个神经元只能从输入中提取一种信号。</p>
 <p>比如前面那个神经元，它学到的是”湿度高 → 输出大”这个规律。但天气还有很多其他规律：</p>
 <ul>
 <li>“温度和湿度同时高 → 容易有雷阵雨”</li>
@@ -234,13 +626,13 @@
 <li>权重：0.05,0.02,0.06- 偏置：-2.0</li>
 </ul>
 <p>同样的输入（温度 30, 湿度 85, 风速 12），两个神经元的计算：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  30×(-0.02) +85×0.08+12×0.03+ (-3.0)</span><br><span class="line">  = -0.6+6.8+0.36+ (-3.0)</span><br><span class="line">  = 3.56</span><br><span class="line">  ReLU(3.56) = 3.56</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  30×0.05+85×0.02+12×0.06+ (-2.0)</span><br><span class="line">  = 1.5+1.7+0.72+ (-2.0)</span><br><span class="line">  = 1.92</span><br><span class="line">  ReLU(1.92) = 1.92</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  30×(-0.02) +85×0.08+12×0.03+ (-3.0)</span><br><span class="line">  = -0.6+6.8+0.36+ (-3.0)</span><br><span class="line">  = 3.56</span><br><span class="line">  ReLU(3.56) = 3.56</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  30×0.05+85×0.02+12×0.06+ (-2.0)</span><br><span class="line">  = 1.5+1.7+0.72+ (-2.0)</span><br><span class="line">  = 1.92</span><br><span class="line">  ReLU(1.92) = 1.92</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>这一层的输出是两个数字：[3.56,1.92]。</strong></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212163252.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212163252.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[225.9834,8.9662,92.4944,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212163252.png"></p>
 <p>注意一件很重要的事：<strong>两个神经元的输入完全相同，但因为权重和偏置不同，它们提取了不同的信号。</strong> 这就好比同一篇文章，一个人关注情节，另一个人关注文笔——看的是同一个东西，但各自注意到了不同的方面。</p>
-<p>在实际的神经网络中，一层通常有几十、几百、甚至几千个神经元。AlexNet 的第一个全连接层有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AlexNet">4096 个神经元</a>——相当于 4096 个学生同时做题，每个人从输入中提取一种不同的信号。</p>
-<h1 id="多层叠加：流水线"><a href="#多层叠加：流水线" class="headerlink" title="多层叠加：流水线"></a>多层叠加：流水线</h1><p>到目前为止，我们有 3 个输入、1 层（2 个神经元）、输出 2 个数字。</p>
+<p>在实际的神经网络中，一层通常有几十、几百、甚至几千个神经元。AlexNet 的第一个全连接层有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AlexNet" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>4096 个神经元</a>——相当于 4096 个学生同时做题，每个人从输入中提取一种不同的信号。</p>
+<h1 id="多层叠加：流水线"><a href="#多层叠加：流水线" class="headerlink" title="多层叠加：流水线" data-stellar-navigation=""></a>多层叠加：流水线</h1><p>到目前为止，我们有 3 个输入、1 层（2 个神经元）、输出 2 个数字。</p>
 <p>但真正的力量来自<strong>叠加多层</strong>。</p>
 <p>上一层的输出，变成下一层的输入。</p>
 <p>就像工厂的流水线：</p>
@@ -256,7 +648,7 @@
 <ul>
 <li>权重：0.4,0.6- 偏置：-2.5</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第二层（输出层）：</span><br><span class="line">  输入：[3.56,1.92]（来自上一层）</span><br><span class="line"></span><br><span class="line">  3.56 × 0.4+1.92 × 0.6+ (-2.5)</span><br><span class="line">  = 1.424+1.152+ (-2.5)</span><br><span class="line">  = 0.076</span><br><span class="line"></span><br><span class="line">  ReLU(0.076) = 0.076</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第二层（输出层）：</span><br><span class="line">  输入：[3.56,1.92]（来自上一层）</span><br><span class="line"></span><br><span class="line">  3.56 × 0.4+1.92 × 0.6+ (-2.5)</span><br><span class="line">  = 1.424+1.152+ (-2.5)</span><br><span class="line">  = 0.076</span><br><span class="line"></span><br><span class="line">  ReLU(0.076) = 0.076</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>最终输出：0.076</strong></p>
 <p>这个数字很小，接近 0——可以解读为”可能性不高”。如果这个模型是用来预测下雨概率的，0.076 表示”不太会下雨”。</p>
@@ -264,13 +656,13 @@
 <p>这就是多层网络有趣的地方。<strong>输出层的神经元 C 学到了一个更精细的判断：虽然湿度信号（3.56）很强，但温度和风速的综合信号（1.92）不够高——它”综合考虑”了多个因素后，给出了一个不同的判断。</strong></p>
 <p>这就像专家组讨论：每个专家发表意见，最后由一个负责人综合所有意见做出决策。负责人可能会推翻某个专家的强烈建议，因为他看到了其他专家提供的相反证据。</p>
 <p><strong>层数越多，网络能做出的判断就越精细。</strong> 第一层提取简单信号，第二层组合这些信号，第三层再组合，层层递进——就像第一篇里讲的”像素 → 边缘 → 形状 → 部件 → 整体”。</p>
-<h1 id="一个完整的小型网络：你来算"><a href="#一个完整的小型网络：你来算" class="headerlink" title="一个完整的小型网络：你来算"></a>一个完整的小型网络：你来算</h1><p>现在让我把前面的所有计算整理成一个完整的网络。这是一个 2 层网络：3 个输入，第一层 2 个神经元，第二层 1 个神经元。</p>
+<h1 id="一个完整的小型网络：你来算"><a href="#一个完整的小型网络：你来算" class="headerlink" title="一个完整的小型网络：你来算" data-stellar-navigation=""></a>一个完整的小型网络：你来算</h1><p>现在让我把前面的所有计算整理成一个完整的网络。这是一个 2 层网络：3 个输入，第一层 2 个神经元，第二层 1 个神经元。</p>
 <p>我把所有数字都列出来，你也可以拿计算器跟着验算。</p>
 <p><strong>网络结构：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入层（3 个输入）</span><br><span class="line">  ↓</span><br><span class="line">第一层（2 个神经元：A 和 B）</span><br><span class="line">  ↓</span><br><span class="line">第二层/输出层（1 个神经元：C）</span><br><span class="line">  ↓</span><br><span class="line">输出（1 个数字）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入层（3 个输入）</span><br><span class="line">  ↓</span><br><span class="line">第一层（2 个神经元：A 和 B）</span><br><span class="line">  ↓</span><br><span class="line">第二层/输出层（1 个神经元：C）</span><br><span class="line">  ↓</span><br><span class="line">输出（1 个数字）</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>所有的权重和偏置：</strong></p>
-<table>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>参数</th>
@@ -301,29 +693,29 @@
 <td>C 的偏置</td>
 <td>-2.5</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>数一数：权重有 3+3+2 = 8 个，偏置有 3 个，总共 <strong>11 个参数</strong>。</p>
 <p>这就是这个小网络的全部。11 个数字，决定了它的一切行为。</p>
 <p><strong>输入：</strong> 温度 = 30，湿度 = 85，风速 = 12</p>
 <p><strong>逐步计算：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">═══════════════════════════════════════</span><br><span class="line">第一层</span><br><span class="line">═══════════════════════════════════════</span><br><span class="line"></span><br><span class="line">神经元 A：</span><br><span class="line">  加权求和 = 30×(-0.02) +85×0.08+12×0.03</span><br><span class="line">           = -0.6+6.8+0.36</span><br><span class="line">           = 6.56</span><br><span class="line">  加偏置   = 6.56+ (-3.0) = 3.56</span><br><span class="line">  激活     = ReLU(3.56) = 3.56  ✓</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  加权求和 = 30×0.05+85×0.02+12×0.06</span><br><span class="line">           = 1.5+1.7+0.72</span><br><span class="line">           = 3.92</span><br><span class="line">  加偏置   = 3.92+ (-2.0) = 1.92</span><br><span class="line">  激活     = ReLU(1.92) = 1.92  ✓</span><br><span class="line"></span><br><span class="line">第一层输出 → [3.56,1.92]</span><br><span class="line"></span><br><span class="line">═══════════════════════════════════════</span><br><span class="line">第二层（输出层）</span><br><span class="line">═══════════════════════════════════════</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  加权求和 = 3.56×0.4+1.92×0.6</span><br><span class="line">           = 1.424+1.152</span><br><span class="line">           = 2.576</span><br><span class="line">  加偏置   = 2.576+ (-2.5) = 0.076</span><br><span class="line">  激活     = ReLU(0.076) = 0.076  ✓</span><br><span class="line"></span><br><span class="line">═══════════════════════════════════════</span><br><span class="line">最终输出 = 0.076</span><br><span class="line">═══════════════════════════════════════</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">═══════════════════════════════════════</span><br><span class="line">第一层</span><br><span class="line">═══════════════════════════════════════</span><br><span class="line"></span><br><span class="line">神经元 A：</span><br><span class="line">  加权求和 = 30×(-0.02) +85×0.08+12×0.03</span><br><span class="line">           = -0.6+6.8+0.36</span><br><span class="line">           = 6.56</span><br><span class="line">  加偏置   = 6.56+ (-3.0) = 3.56</span><br><span class="line">  激活     = ReLU(3.56) = 3.56  ✓</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  加权求和 = 30×0.05+85×0.02+12×0.06</span><br><span class="line">           = 1.5+1.7+0.72</span><br><span class="line">           = 3.92</span><br><span class="line">  加偏置   = 3.92+ (-2.0) = 1.92</span><br><span class="line">  激活     = ReLU(1.92) = 1.92  ✓</span><br><span class="line"></span><br><span class="line">第一层输出 → [3.56,1.92]</span><br><span class="line"></span><br><span class="line">═══════════════════════════════════════</span><br><span class="line">第二层（输出层）</span><br><span class="line">═══════════════════════════════════════</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  加权求和 = 3.56×0.4+1.92×0.6</span><br><span class="line">           = 1.424+1.152</span><br><span class="line">           = 2.576</span><br><span class="line">  加偏置   = 2.576+ (-2.5) = 0.076</span><br><span class="line">  激活     = ReLU(0.076) = 0.076  ✓</span><br><span class="line"></span><br><span class="line">═══════════════════════════════════════</span><br><span class="line">最终输出 = 0.076</span><br><span class="line">═══════════════════════════════════════</span><br></pre></td></tr></tbody></table></figure>
 
 
 
 <p><strong>你刚才看到的，就是一个神经网络的完整工作过程。</strong></p>
 <p>从头到尾，只有乘法、加法、和一次”负数变 0”的操作。没有任何神秘的东西。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4-full-network.gif"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4-full-network.gif" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="936" height="516" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[238.5753,7.9686,93.5233,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4-full-network.gif"></p>
 <p>你可以试着换一组输入来验证：</p>
 <p><strong>换一组数据：</strong> 温度 = 15，湿度 = 95，风速 = 20</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  15×(-0.02) +95×0.08+20×0.03+ (-3.0)</span><br><span class="line">  = -0.3+7.6+0.6+ (-3.0)</span><br><span class="line">  = 4.9</span><br><span class="line">  ReLU(4.9) = 4.9</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  15×0.05+95×0.02+20×0.06+ (-2.0)</span><br><span class="line">  = 0.75+1.9+1.2+ (-2.0)</span><br><span class="line">  = 1.85</span><br><span class="line">  ReLU(1.85) = 1.85</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  4.9×0.4+1.85×0.6+ (-2.5)</span><br><span class="line">  = 1.96+1.11+ (-2.5)</span><br><span class="line">  = 0.57</span><br><span class="line">  ReLU(0.57) = 0.57</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  15×(-0.02) +95×0.08+20×0.03+ (-3.0)</span><br><span class="line">  = -0.3+7.6+0.6+ (-3.0)</span><br><span class="line">  = 4.9</span><br><span class="line">  ReLU(4.9) = 4.9</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  15×0.05+95×0.02+20×0.06+ (-2.0)</span><br><span class="line">  = 0.75+1.9+1.2+ (-2.0)</span><br><span class="line">  = 1.85</span><br><span class="line">  ReLU(1.85) = 1.85</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  4.9×0.4+1.85×0.6+ (-2.5)</span><br><span class="line">  = 1.96+1.11+ (-2.5)</span><br><span class="line">  = 0.57</span><br><span class="line">  ReLU(0.57) = 0.57</span><br></pre></td></tr></tbody></table></figure>
 
 <p>输出从 0.076 变成了 0.57——高了很多。低温、高湿、大风的组合，模型判断更可能下雨。直觉上说得通。</p>
 <p>你再试一组：温度 = 35，湿度 = 20，风速 = 5（高温、低湿、小风——典型的晴天）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  35×(-0.02) +20×0.08+5×0.03+ (-3.0)</span><br><span class="line">  = -0.7+1.6+0.15+ (-3.0)</span><br><span class="line">  = -1.95</span><br><span class="line">  ReLU(-1.95) = 0        ← 注意！负数被 ReLU 变成了 0</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  35×0.05+20×0.02+5×0.06+ (-2.0)</span><br><span class="line">  = 1.75+0.4+0.3+ (-2.0)</span><br><span class="line">  = 0.45</span><br><span class="line">  ReLU(0.45) = 0.45</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  0×0.4+0.45×0.6+ (-2.5)</span><br><span class="line">  = 0+0.27+ (-2.5)</span><br><span class="line">  = -2.23</span><br><span class="line">  ReLU(-2.23) = 0         ← 又被 ReLU 变成了 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">神经元 A：</span><br><span class="line">  35×(-0.02) +20×0.08+5×0.03+ (-3.0)</span><br><span class="line">  = -0.7+1.6+0.15+ (-3.0)</span><br><span class="line">  = -1.95</span><br><span class="line">  ReLU(-1.95) = 0        ← 注意！负数被 ReLU 变成了 0</span><br><span class="line"></span><br><span class="line">神经元 B：</span><br><span class="line">  35×0.05+20×0.02+5×0.06+ (-2.0)</span><br><span class="line">  = 1.75+0.4+0.3+ (-2.0)</span><br><span class="line">  = 0.45</span><br><span class="line">  ReLU(0.45) = 0.45</span><br><span class="line"></span><br><span class="line">神经元 C：</span><br><span class="line">  0×0.4+0.45×0.6+ (-2.5)</span><br><span class="line">  = 0+0.27+ (-2.5)</span><br><span class="line">  = -2.23</span><br><span class="line">  ReLU(-2.23) = 0         ← 又被 ReLU 变成了 0</span><br></pre></td></tr></tbody></table></figure>
 
 <p>输出是 0——完全不可能下雨。</p>
 <p>注意这个例子里 ReLU 发挥的作用：神经元 A 的计算结果是 -1.95，被 ReLU “关掉”了（输出 0），等于说”湿度信号不够强，这个神经元就不发言了”。最终结果也被 ReLU 拍成了 0。<strong>ReLU 就像一个门：信号够强就通过，不够强就关掉。</strong> 这种”要么激活、要么沉默”的特性，正是它能让网络表达复杂关系的原因。</p>
-<h1 id="这些数字从哪里来？"><a href="#这些数字从哪里来？" class="headerlink" title="这些数字从哪里来？"></a>这些数字从哪里来？</h1><p>你可能已经注意到了：整个网络的行为完全取决于那 11 个参数的值。</p>
+<h1 id="这些数字从哪里来？"><a href="#这些数字从哪里来？" class="headerlink" title="这些数字从哪里来？" data-stellar-navigation=""></a>这些数字从哪里来？</h1><p>你可能已经注意到了：整个网络的行为完全取决于那 11 个参数的值。</p>
 <p>权重 -0.02 如果变成 +0.02，意思就从”温度越高越不容易下雨”变成了”温度越高越容易下雨”——判断完全反过来。</p>
 <p>偏置 -3.0 如果变成 -1.0，那神经元会更容易被激活，更倾向于输出正数。</p>
 <p><strong>这些数字是怎么确定的？</strong></p>
@@ -338,10 +730,10 @@
 </ol>
 <p>这个过程叫”训练”，用到的方法叫”反向传播”。下一篇我会完整拆解这个过程。</p>
 <p>现在你只需要知道一件事：<strong>那些看起来精心设计的数字（-0.02,0.08,0.03…），不是人选的，而是电脑通过反复试错，自己”调”出来的。</strong></p>
-<h1 id="为什么叫”神经”网络？"><a href="#为什么叫”神经”网络？" class="headerlink" title="为什么叫”神经”网络？"></a>为什么叫”神经”网络？</h1><p>说到这里，你可能一直在疑惑：这就是一堆乘法和加法，为什么叫”神经网络”？跟神经有什么关系？</p>
+<h1 id="为什么叫”神经”网络？"><a href="#为什么叫”神经”网络？" class="headerlink" title="为什么叫”神经”网络？" data-stellar-navigation=""></a>为什么叫”神经”网络？</h1><p>说到这里，你可能一直在疑惑：这就是一堆乘法和加法，为什么叫”神经网络”？跟神经有什么关系？</p>
 <p>这个名字来自对生物神经元的类比。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212164411.png"></p>
-<p>1943 年，神经科学家 Warren McCulloch 和数学家 Walter Pitts 发表了一篇论文《<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artificial_neuron">A Logical Calculus of the Ideas Immanent in Nervous Activity</a>》，第一次尝试用数学描述生物神经元的工作方式。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212164411.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="600" height="343" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[200.7567,49.3989,25.0417,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212164411.png"></p>
+<p>1943 年，神经科学家 Warren McCulloch 和数学家 Walter Pitts 发表了一篇论文《<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artificial_neuron" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>A Logical Calculus of the Ideas Immanent in Nervous Activity</a>》，第一次尝试用数学描述生物神经元的工作方式。</p>
 <p>他们观察到，一个生物神经元大致做这么几件事：</p>
 <ol>
 <li><strong>接收信号</strong>：从其他神经元通过”突触”接收电信号</li>
@@ -356,19 +748,19 @@
 <li>通过激活函数决定输出 → 超过阈值就激活</li>
 </ul>
 <p><strong>但我必须说清楚一件事：这个类比非常粗糙，几乎可以说是误导性的。</strong></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165259.png"></p>
-<p>人脑有大约 <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/19226510/">860 亿个神经元</a>，每个神经元平均与 7000 个其他神经元相连。生物神经元的工作方式远比”乘法加法”复杂得多——它们涉及化学信号传递、时序编码、可塑性变化、甚至还有我们尚未完全理解的机制。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165259.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="520" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[255.6386,5.64,92.8187,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165259.png"></p>
+<p>人脑有大约 <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/19226510/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>860 亿个神经元</a>，每个神经元平均与 7000 个其他神经元相连。生物神经元的工作方式远比”乘法加法”复杂得多——它们涉及化学信号传递、时序编码、可塑性变化、甚至还有我们尚未完全理解的机制。</p>
 <p>人工神经元只借用了最表面的那层类比：接收、加权、激活。仅此而已。</p>
 <p>说实话，”神经网络”这个名字在今天看来有点”过度营销”了。一个更准确的名字可能是”多层参数化函数”或者”可训练的分层计算器”——但你可以想象，这样的名字不可能火起来。</p>
-<p>研究者 Michael Jordan（不是篮球明星，是机器学习领域的大牛）曾经说过，如果这个领域重新命名，<a target="_blank" rel="noopener" href="https://spectrum.ieee.org/stop-calling-everything-ai-machinelearning-pioneer-says">他宁愿叫它”统计计算”而不是”人工智能”</a>——因为”人工智能”这个词让人们产生了太多不切实际的幻想。</p>
+<p>研究者 Michael Jordan（不是篮球明星，是机器学习领域的大牛）曾经说过，如果这个领域重新命名，<a target="_blank" rel="noopener" href="https://spectrum.ieee.org/stop-calling-everything-ai-machinelearning-pioneer-says" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>他宁愿叫它”统计计算”而不是”人工智能”</a>——因为”人工智能”这个词让人们产生了太多不切实际的幻想。</p>
 <p><strong>所以请记住：神经网络不是”人工大脑”。它是一种受大脑启发、但和大脑的实际工作方式几乎完全不同的数学计算结构。</strong></p>
 <p>叫它”神经网络”，就像叫飞机”机械鸟”——灵感确实来自鸟，但飞行原理完全不同。</p>
-<h1 id="AlexNet：6000-万个旋钮"><a href="#AlexNet：6000-万个旋钮" class="headerlink" title="AlexNet：6000 万个旋钮"></a>AlexNet：6000 万个旋钮</h1><p>现在回到上一篇提到的 AlexNet。</p>
+<h1 id="AlexNet：6000-万个旋钮"><a href="#AlexNet：6000-万个旋钮" class="headerlink" title="AlexNet：6000 万个旋钮" data-stellar-navigation=""></a>AlexNet：6000 万个旋钮</h1><p>现在回到上一篇提到的 AlexNet。</p>
 <p>我们前面那个小例子有 3 个输入、2 个隐藏神经元、1 个输出，总共 11 个参数。</p>
 <p>AlexNet 有多大？</p>
-<p>根据 <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">2012 年的原始论文</a>，AlexNet 的结构是：</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165426.png"></p>
-<table>
+<p>根据 <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2012 年的原始论文</a>，AlexNet 的结构是：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165426.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1156" height="486" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[16.348,48.9238,84.3474,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165426.png"></p>
+<div class="md-table-scroll"><table>
 <thead>
 <tr>
 <th>层</th>
@@ -416,7 +808,7 @@
 <td>全连接层（输出层）</td>
 <td>1000 个神经元（对应 1000 个分类）</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>前 5 层是<strong>卷积层</strong>——就是第一篇讲的那种”检测器在图片上滑动”的操作。第 1 层有 96 个不同的检测器，每个检测器是 11×11 = 121 个数字。这些数字不是 Sobel 算子那样人类设计的，而是从数据中学出来的。有的学成了边缘检测器，有的学成了颜色检测器，有的学成了纹理检测器。</p>
 <p>后 3 层是<strong>全连接层</strong>——就是我们前面演示的那种”每个神经元接收上一层所有输出”的结构。第 6 层有 4096 个神经元，每个都接收第 5 层的全部输出。</p>
 <p>最后一层有 1000 个神经元——对应 ImageNet 数据集的 1000 个分类（如”猫”、”狗”、”汽车”、”钢琴”等）。哪个神经元的输出最大，就代表网络认为图片属于哪个类别。</p>
@@ -428,806 +820,168 @@
 <li>如果把这些参数按顺序排列打印在纸上，每个数字占 1 厘米，总长度大约 <strong>600 公里</strong>——从北京到上海的直线距离</li>
 <li>我们前面那个 11 参数的小网络，相对于 AlexNet 的 6000 万参数，就像一粒沙子相对于一片沙滩</li>
 </ul>
-<p><strong>而今天的大型语言模型，参数量更是惊人。</strong> GPT-3 有 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165">1750 亿个参数</a>——是 AlexNet 的将近 3000 倍。但核心原理和我们前面算的那 11 个参数的小网络完全一样：<strong>乘法、加法、激活函数。</strong></p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165057.png"></p>
-<h1 id="学到这里，我的一个感受"><a href="#学到这里，我的一个感受" class="headerlink" title="学到这里，我的一个感受"></a>学到这里，我的一个感受</h1><p>学到这里，我有一个强烈的感受。</p>
+<p><strong>而今天的大型语言模型，参数量更是惊人。</strong> GPT-3 有 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>1750 亿个参数</a>——是 AlexNet 的将近 3000 倍。但核心原理和我们前面算的那 11 个参数的小网络完全一样：<strong>乘法、加法、激活函数。</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165057.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="521" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[196.0759,17.188,91.0036,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20260212165057.png"></p>
+<h1 id="学到这里，我的一个感受"><a href="#学到这里，我的一个感受" class="headerlink" title="学到这里，我的一个感受" data-stellar-navigation=""></a>学到这里，我的一个感受</h1><p>学到这里，我有一个强烈的感受。</p>
 <p>之前看到”人工智能”四个字，我脑海里浮现的是某种神秘的、接近意识的东西。看到”神经网络”，我会不自觉地联想到大脑、思维、甚至灵魂。</p>
 <p>但当我亲手算完一个神经元的计算过程——30 × (-0.02) = -0.6,85 × 0.08 = 6.8, 加起来, 和 0 比大小——所有的神秘感都消失了。</p>
 <p><strong>所谓”人工智能”，本质就是一大堆精心安排的乘法和加法。没有魔法，没有意识，只有数字。</strong></p>
 <p>但这恰恰是最令人惊叹的部分——如此简单的操作，通过大规模的叠加和精巧的调整，竟然能做出”认出人脸””理解语言”这样复杂的事情。</p>
 <p>但惊叹归惊叹，清醒也很重要：<strong>它不是在”思考”。它是在算数。</strong></p>
-<h1 id="一句话回顾"><a href="#一句话回顾" class="headerlink" title="一句话回顾"></a>一句话回顾</h1><p>神经网络不是”大脑模仿”，是一堆精心设计的数字运算——乘法、加法，仅此而已。</p>
+<h1 id="一句话回顾"><a href="#一句话回顾" class="headerlink" title="一句话回顾" data-stellar-navigation=""></a>一句话回顾</h1><p>神经网络不是”大脑模仿”，是一堆精心设计的数字运算——乘法、加法，仅此而已。</p>
 <p>一个神经元 = 输入 × 权重 + 偏置 → 激活函数 → 输出。</p>
 <p>一层 = 很多神经元并行处理。</p>
 <p>多层 = 上一层的输出是下一层的输入。</p>
 <p>所有的”智能”都藏在那些参数里——而那些参数，是从数据中”学”出来的。</p>
-<h1 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告"></a>下一篇预告</h1><p>神经网络的结构我们知道了。</p>
+<h1 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告" data-stellar-navigation=""></a>下一篇预告</h1><p>神经网络的结构我们知道了。</p>
 <p>但有一个关键问题我们还没回答：</p>
 <p>那 6000 万个参数，一开始都是随机数。它们是怎么被一步步调到”刚好能认出猫”的？</p>
 <p><strong>这个”调”的过程，就是所谓的”训练”。</strong></p>
 <p>想象你面前有 6000 万个旋钮。每个旋钮可以从 -10 转到 +10。你的任务是调整这些旋钮，让一台机器能认出猫和狗的区别。没有说明书。唯一的反馈是：每次调完，机器告诉你”猜对了”或”猜错了”。</p>
 <p>这听起来几乎不可能，但有人找到了方法。</p>
 <p>下一篇，我们来拆解”训练”。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">ImageNet Classification with Deep Convolutional Neural Networks - Krizhevsky, Sutskever, Hinton (2012)</a> — AlexNet 论文原文，8 层网络，约 6000 万参数，top-5 错误率 15.3%</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AlexNet">AlexNet - Wikipedia</a> — AlexNet 架构细节，包含卷积层和全连接层参数</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artificial_neuron">A Logical Calculus of the Ideas Immanent in Nervous Activity - McCulloch &amp; Pitts (1943)</a> — 第一个人工神经元的数学模型，”神经网络”名称的起源</li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">Vanishing gradient problem - Wikipedia</a> — 梯度消失问题的解释，以及为什么 ReLU 有助于缓解该问题</li>
-<li><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/19226510/">Equal numbers of neuronal and nonneuronal cells make the human brain - Azevedo et al. (2009)</a> — 人脑约有 860 亿个神经元</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners - Brown et al. (2020)</a> — GPT-3 论文，1750 亿参数</li>
-<li><a target="_blank" rel="noopener" href="https://spectrum.ieee.org/stop-calling-everything-ai-machinelearning-pioneer-says">Stop Calling Everything AI - IEEE Spectrum</a> — Michael Jordan 关于”人工智能”一词被过度使用的观点</li>
-<li><a target="_blank" rel="noopener" href="https://www.deeplearningbook.org/">Deep Learning (Adaptive Computation and Machine Learning) - Goodfellow, Bengio, Courville (2016)</a> — 深度学习经典教材，第 6 章详细讲解了前馈神经网络、激活函数和网络结构</li>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料" data-stellar-navigation=""></a>参考资料</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>ImageNet Classification with Deep Convolutional Neural Networks - Krizhevsky, Sutskever, Hinton (2012)</a> — AlexNet 论文原文，8 层网络，约 6000 万参数，top-5 错误率 15.3%</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AlexNet" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AlexNet - Wikipedia</a> — AlexNet 架构细节，包含卷积层和全连接层参数</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artificial_neuron" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>A Logical Calculus of the Ideas Immanent in Nervous Activity - McCulloch &amp; Pitts (1943)</a> — 第一个人工神经元的数学模型，”神经网络”名称的起源</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Vanishing gradient problem - Wikipedia</a> — 梯度消失问题的解释，以及为什么 ReLU 有助于缓解该问题</li>
+<li><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/19226510/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Equal numbers of neuronal and nonneuronal cells make the human brain - Azevedo et al. (2009)</a> — 人脑约有 860 亿个神经元</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Language Models are Few-Shot Learners - Brown et al. (2020)</a> — GPT-3 论文，1750 亿参数</li>
+<li><a target="_blank" rel="noopener" href="https://spectrum.ieee.org/stop-calling-everything-ai-machinelearning-pioneer-says" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Stop Calling Everything AI - IEEE Spectrum</a> — Michael Jordan 关于”人工智能”一词被过度使用的观点</li>
+<li><a target="_blank" rel="noopener" href="https://www.deeplearningbook.org/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Deep Learning (Adaptive Computation and Machine Learning) - Goodfellow, Bengio, Courville (2016)</a> — 深度学习经典教材，第 6 章详细讲解了前馈神经网络、激活函数和网络结构</li>
 </ol>
-<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h1><p>如果觉得有意思，欢迎关注我，后续文章也会持续更新。同步更新在<a href="https://www.wmyskxz.cn/">个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&s_from=input&query=wmyskxz&ie=utf8&_sug_=n&_sug_type_=&w=01019900&sut=1861&sst0=1612590375262&lkt=8,1612590373961,1612590375161">微信公众号</a></p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅" data-stellar-navigation=""></a>订阅</h1><p>如果觉得有意思，欢迎关注我，后续文章也会持续更新。同步更新在<a href="https://www.wmyskxz.cn/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&amp;s_from=input&amp;query=wmyskxz&amp;ie=utf8&amp;_sug_=n&amp;_sug_type_=&amp;w=01019900&amp;sut=1861&amp;sst0=1612590375262&amp;lkt=8,1612590373961,1612590375161" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>微信公众号</a></p>
 <p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
-<p><img src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="258" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.6232,1.4053,61.8842,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
 </article>
-<div class="article-footer">
 
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="分享文章: QR Code" title="分享文章: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F&amp;title=%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E2%80%94%E2%80%946000%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE%E7%9A%84%E7%9C%9F%E7%9B%B8%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;summary=%E6%88%91%E4%B8%80%E7%9B%B4%E5%BE%88%E5%A5%BD%E5%A5%87%20AI%20%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF%E6%88%91%E7%9A%84%E6%8E%A2%E7%B4%A2%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%88%86%E4%BA%AB%E7%BB%99%E4%BD%A0%E3%80%82" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Weibo" title="分享文章: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E2%80%94%E2%80%946000%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE%E7%9A%84%E7%9C%9F%E7%9B%B8%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: X" title="分享文章: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F&amp;text=%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E2%80%94%E2%80%946000%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE%E7%9A%84%E7%9C%9F%E7%9B%B8%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Telegram" title="分享文章: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E2%80%94%E2%80%946000%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE%E7%9A%84%E7%9C%9F%E7%9B%B8%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2%0Ahttps%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: WhatsApp" title="分享文章: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E2%80%94%E2%80%946000%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE%E7%9A%84%E7%9C%9F%E7%9B%B8%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;body=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F" aria-label="分享文章: Email" title="分享文章: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="256" height="256" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[0,0,49.9187,1]}" data-stellar-image-source="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fwiki%2Fwhats_ai%2F4%2F"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
+    </section></div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/whats_ai/3/">AI是怎么突然变厉害的——2012所有人以为他们作弊了</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/whats_ai/5/">AI是怎么学会的——从做错一道题说起</a></div></section></div>
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"><div class="note"><svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-left" aria-hidden="true"></svg> 回顾上一篇</div><a href="/wiki/whats_ai/3/" data-stellar-navigation="">AI是怎么突然变厉害的——2012所有人以为他们作弊了</a></div><div class="item" id="next"><div class="note">接下来阅读 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/wiki/whats_ai/5/" data-stellar-navigation="">AI是怎么学会的——从做错一道题说起</a></div></section></div>
 
 
-  <div class="related-wrap md-text" id="comments">
-    <section class='header cmt-title cap theme'>
+  <div class="related-wrap md-text slide-up" id="comments">
+    
+    
+    <section class="header cmt-title cap theme">
       <p>欢迎在评论区交流讨论，也可以到<a target="_blank" rel="noopener" href="https://wmyskxz.cn/more/">关于我</a>页面找到更多联系方式。</p>
 
     </section>
-    <section class='body cmt-body giscus'>
+    
+    <section class="body cmt-body giscus">
       
 
-<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+<div class="lazy-icon"></div>
 
-<div id="giscus" src="https://giscus.app/client.js" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+<div id="giscus" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
 
     </section>
   </div>
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0-rc.6">Stellar 2.0.0-rc.6</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
-<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
 
 
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%BC%80%E5%A7%8B" data-stellar-navigation=""><span class="toc-text">从一个最简单的问题开始</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E4%B8%AA%E2%80%9D%E7%A5%9E%E7%BB%8F%E5%85%83%E2%80%9D%E5%B0%B1%E6%98%AF%E4%B8%80%E9%81%93%E7%AE%97%E6%9C%AF%E9%A2%98" data-stellar-navigation=""><span class="toc-text">一个”神经元”就是一道算术题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">为什么需要激活函数？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%9AReLU" data-stellar-navigation=""><span class="toc-text">最常用的激活函数：ReLU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83" data-stellar-navigation=""><span class="toc-text">完整的一个神经元</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E5%85%83%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%8F%AD%E7%BA%A7%E5%90%8C%E6%97%B6%E5%81%9A%E9%A2%98" data-stellar-navigation=""><span class="toc-text">一层神经元：一个班级同时做题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%A4%9A%E5%B1%82%E5%8F%A0%E5%8A%A0%EF%BC%9A%E6%B5%81%E6%B0%B4%E7%BA%BF" data-stellar-navigation=""><span class="toc-text">多层叠加：流水线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%BB%9C%EF%BC%9A%E4%BD%A0%E6%9D%A5%E7%AE%97" data-stellar-navigation=""><span class="toc-text">一个完整的小型网络：你来算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%BF%99%E4%BA%9B%E6%95%B0%E5%AD%97%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">这些数字从哪里来？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AB%E2%80%9D%E7%A5%9E%E7%BB%8F%E2%80%9D%E7%BD%91%E7%BB%9C%EF%BC%9F" data-stellar-navigation=""><span class="toc-text">为什么叫”神经”网络？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#AlexNet%EF%BC%9A6000-%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE" data-stellar-navigation=""><span class="toc-text">AlexNet：6000 万个旋钮</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%AD%A6%E5%88%B0%E8%BF%99%E9%87%8C%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%80%E4%B8%AA%E6%84%9F%E5%8F%97" data-stellar-navigation=""><span class="toc-text">学到这里，我的一个感受</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%9B%9E%E9%A1%BE" data-stellar-navigation=""><span class="toc-text">一句话回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E4%B8%8B%E4%B8%80%E7%AF%87%E9%A2%84%E5%91%8A" data-stellar-navigation=""><span class="toc-text">下一篇预告</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" data-stellar-navigation=""><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%AE%A2%E9%98%85" data-stellar-navigation=""><span class="toc-text">订阅</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
+</widget>
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%BC%80%E5%A7%8B"><span class="toc-text">从一个最简单的问题开始</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E2%80%9D%E7%A5%9E%E7%BB%8F%E5%85%83%E2%80%9D%E5%B0%B1%E6%98%AF%E4%B8%80%E9%81%93%E7%AE%97%E6%9C%AF%E9%A2%98"><span class="toc-text">一个”神经元”就是一道算术题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-text">为什么需要激活函数？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%9AReLU"><span class="toc-text">最常用的激活函数：ReLU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="toc-text">完整的一个神经元</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E5%85%83%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%8F%AD%E7%BA%A7%E5%90%8C%E6%97%B6%E5%81%9A%E9%A2%98"><span class="toc-text">一层神经元：一个班级同时做题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E5%8F%A0%E5%8A%A0%EF%BC%9A%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-text">多层叠加：流水线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%BB%9C%EF%BC%9A%E4%BD%A0%E6%9D%A5%E7%AE%97"><span class="toc-text">一个完整的小型网络：你来算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E6%95%B0%E5%AD%97%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5%EF%BC%9F"><span class="toc-text">这些数字从哪里来？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AB%E2%80%9D%E7%A5%9E%E7%BB%8F%E2%80%9D%E7%BD%91%E7%BB%9C%EF%BC%9F"><span class="toc-text">为什么叫”神经”网络？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AlexNet%EF%BC%9A6000-%E4%B8%87%E4%B8%AA%E6%97%8B%E9%92%AE"><span class="toc-text">AlexNet：6000 万个旋钮</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E5%88%B0%E8%BF%99%E9%87%8C%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%80%E4%B8%AA%E6%84%9F%E5%8F%97"><span class="toc-text">学到这里，我的一个感受</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%9B%9E%E9%A1%BE"><span class="toc-text">一句话回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E7%AF%87%E9%A2%84%E5%91%8A"><span class="toc-text">下一篇预告</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A2%E9%98%85"><span class="toc-text">订阅</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel'>
-  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
   </button>
-  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
   </button>
 </div>
-</div><div class="scripts">
 
-
-<script type="text/javascript">
-  window.canonical = {"originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  const ctx = {
-    date_suffix: {
-      just: `刚刚`,
-      min: `分钟前`,
-      hour: `小时前`,
-      day: `天前`,
-    },
-    root : `/`,
-    tag_plugins: {
-      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
-    }
-  };
-
-  // required plugins (only load if needs)
-  if (`local_search`) {
-    ctx.search = {};
-    ctx.search.service = `local_search`;
-    if (ctx.search.service == 'local_search') {
-      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"skip_search":null,"codeblock":true,"sort":"-date"}`);
-      ctx.search[ctx.search.service] = service_obj;
-    }
-  }
-  const def = {
-    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
-    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
-    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
-  };
-  const deps = {
-    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
-    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
-    lazyload: `/%5Bobject%20Object%5D`
-  }
-  
-
-</script>
-
-<script type="text/javascript">
-  
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = () => {
-          utils.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    this.remove = (name) => {
-      for (let index = 0; index < this.list.length; index++) {
-        const e = this.list[index];
-        if (e.name == name) {
-          this.list.splice(index, 1);
-        }
-      }
-    }
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-
-  const utils = {
-    // 懒加载 css https://github.com/filamentgroup/loadCSS
-    css: (href, before, media, attributes) => {
-      var doc = window.document;
-      var ss = doc.createElement("link");
-      var ref;
-      if (before) {
-        ref = before;
-      } else {
-        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-        ref = refs[refs.length - 1];
-      }
-      var sheets = doc.styleSheets;
-      if (attributes) {
-        for (var attributeName in attributes) {
-          if (attributes.hasOwnProperty(attributeName)) {
-            ss.setAttribute(attributeName, attributes[attributeName]);
-          }
-        }
-      }
-      ss.rel = "stylesheet";
-      ss.href = href;
-      ss.media = "only x";
-      function ready(cb) {
-        if (doc.body) {
-          return cb();
-        }
-        setTimeout(function () {
-          ready(cb);
-        });
-      }
-      ready(function () {
-        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-      });
-      var onloadcssdefined = function (cb) {
-        var resolvedHref = ss.href;
-        var i = sheets.length;
-        while (i--) {
-          if (sheets[i].href === resolvedHref) {
-            return cb();
-          }
-        }
-        setTimeout(function () {
-          onloadcssdefined(cb);
-        });
-      };
-      function loadCB() {
-        if (ss.addEventListener) {
-          ss.removeEventListener("load", loadCB);
-        }
-        ss.media = media || "all";
-      }
-      if (ss.addEventListener) {
-        ss.addEventListener("load", loadCB);
-      }
-      ss.onloadcssdefined = onloadcssdefined;
-      onloadcssdefined(loadCB);
-      return ss;
-    },
-
-    js: (src, opt) => new Promise((resolve, reject) => {
-      var script = document.createElement('script');
-      if (src.startsWith('/')) {
-        src = ctx.root + src.substring(1);
-      }
-      script.src = src;
-      if (opt) {
-        for (let key of Object.keys(opt)) {
-          script[key] = opt[key]
-        }
-      } else {
-        // 默认异步，如果需要同步，第二个参数传入 {} 即可
-        script.async = true
-      }
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function () {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    }),
-
-    jq: (fn) => {
-      if (typeof jQuery === 'undefined') {
-        utils.js(deps.jquery).then(fn)
-      } else {
-        fn()
-      }
-    },
-
-    onLoading: (el) => {
-      if (el) {
-        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
-      }
-    },
-    onLoadSuccess: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap').remove();
-      }
-    },
-    onLoadFailure: (el) => {
-      if (el) {
-        $(el).find('.loading-wrap svg').remove();
-        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
-        $(el).find('.loading-wrap').addClass('error');
-      }
-    },
-    request: (el, url, callback, onFailure) => {
-      const maxRetry = 3;
-      let retryCount = 0;
-
-      return new Promise((resolve, reject) => {
-        const load = () => {
-          utils.onLoading?.(el);
-
-          let timedOut = false;
-          const timeout = setTimeout(() => {
-            timedOut = true;
-            console.warn('[request] 超时:', url);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject('请求超时');
-            } else {
-              setTimeout(load, 1000);
-            }
-          }, 5000);
-
-          fetch(url).then(resp => {
-            if (timedOut) return;
-            clearTimeout(timeout);
-
-            if (!resp.ok) throw new Error('响应失败');
-            return resp;
-          }).then(data => {
-            if (timedOut) return;
-            utils.onLoadSuccess?.(el);
-            callback(data);
-            resolve(data);
-          }).catch(err => {
-            clearTimeout(timeout);
-            console.warn('[request] 错误:', err);
-
-            if (++retryCount >= maxRetry) {
-              utils.onLoadFailure?.(el);
-              onFailure?.();
-              reject(err);
-            } else {
-              setTimeout(load, 1000);
-            }
-          });
-        };
-
-        load();
-      });
-    },
-    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
-      return new Promise((resolve, reject) => {
-        let retryCount = 0;
-
-        const tryRequest = () => {
-          let timedOut = false;
-          const timer = setTimeout(() => {
-            timedOut = true;
-            if (++retryCount > maxRetry) reject('timeout');
-            else tryRequest();
-          }, timeout);
-
-          fetch(url, options)
-            .then(resp => {
-              clearTimeout(timer);
-              if (!resp.ok) throw new Error('bad response');
-              resolve(resp);
-            })
-            .catch(err => {
-              clearTimeout(timer);
-              if (++retryCount > maxRetry) reject(err);
-              else setTimeout(tryRequest, 500);
-            });
-        };
-
-        tryRequest();
-      });
-    },
-    /********************** requestAnimationFrame ********************************/
-    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-    requestAnimationFrame: (fn) => {
-      if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-      }
-      window.requestAnimationFrame(fn)
-    },
-    dark: {},
-  };
-
-  // utils.dark.mode 当前模式 dark or light
-  // utils.dark.toggle() 暗黑模式触发器
-  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  utils.dark.method = {
-    toggle: new RunItem(),
-  };
-  utils.dark = Object.assign(utils.dark, {
-    push: utils.dark.method.toggle.push,
-  });
-</script>
-<script>
-  const sidebar = {
-    leftbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    rightbar: () => {
-      if (l_body) {
-        l_body.toggleAttribute('rightbar');
-        l_body.removeAttribute('leftbar');
-      }
-    },
-    dismiss: () => {
-      if (l_body) {
-        l_body.removeAttribute('leftbar');
-        l_body.removeAttribute('rightbar');
-      }
-    },
-    toggleTOC: () => {
-      document.querySelector('#data-toc').classList.toggle('collapse');
-    }
-  }
-</script>
-<script type="text/javascript">
-  (() => {
-    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
-    for (const tagSwitcher of tagSwitchers) {
-      tagSwitcher.addEventListener('click', (e) => {
-        const parent = e.target.closest('.tag-subtree.parent-tag')
-        parent.classList.toggle('expanded')
-        e.preventDefault()
-      })
-    }
-
-    // Get active tag from query string, then activate it.
-    const urlParams = new URLSearchParams(window.location.search)
-    const activeTag = urlParams.get('tag')
-    if (activeTag) {
-      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
-      if (tag) {
-        tag.querySelector('a').classList.add('active')
-        
-        while (tag) {
-          tag.classList.add('expanded')
-          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
-        }
-      }
-    }
-  })()
-</script>
-
-<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazy",
-    callback_loaded: (el) => {
-      el.classList.add('loaded');
-      const wrapper = el.closest('.lazy-box');
-      const icon = wrapper?.querySelector('.lazy-icon');
-      if (icon) icon.remove();
-    }
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    window.lazyLoadInstance?.update();
-  });
-
-  window.wrapLazyloadImages = (container) => {
-    if (typeof container === 'string') {
-      container = document.querySelector(container);
-    }
-    if (!container) return;
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
     
-    const images = container.querySelectorAll('img');
-    images.forEach((img) => {
-      if (img.classList.contains('lazy')) return;
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
 
-      const src = img.getAttribute('src');
-      if (!src) return;
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'lazy-box';
-
-      const newImg = img.cloneNode();
-      newImg.removeAttribute('src');
-      newImg.setAttribute('data-src', src);
-      newImg.classList.add('lazy');
-
-      const icon = document.createElement('div');
-      icon.className = 'lazy-icon';
-      if (def.loading) {
-        icon.style.backgroundImage = `url("${def.loading}")`;
-      }
-
-      wrapper.appendChild(newImg);
-      wrapper.appendChild(icon);
-
-      img.replaceWith(wrapper);
-    });
-
-    // 通知 LazyLoad 更新
-    if (window.lazyLoadInstance?.update) {
-      window.lazyLoadInstance.update();
-    }
-  }
-  
-</script>
-
-<!-- required -->
-<script src="/js/main.js?v=1.33.1" defer></script>
-
-<script type="text/javascript">
-  const applyTheme = (theme) => {
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme')
-    } else {
-      document.documentElement.setAttribute('data-theme', theme)
-    }
-
-    // applyThemeToGiscus(theme)
-  }
-
-  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
-  const applyThemeToGiscus = (theme) => {
-    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
-    const cmt = document.getElementById('giscus')
-    if (cmt) {
-      // This works before giscus load.
-      cmt.setAttribute('data-theme', theme)
-    }
-
-    const iframe = document.querySelector('#comments > section.giscus > iframe')
-    if (iframe) {
-      // This works after giscus loaded.
-      const src = iframe.src
-      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
-      iframe.src = newSrc
-    }
-  }
-
-  const switchTheme = () => {
-    // light -> dark -> auto -> light -> ...
-    const currentTheme = document.documentElement.getAttribute('data-theme')
-    let newTheme;
-    switch (currentTheme) {
-      case 'light':
-        newTheme = 'dark'
-        break
-      case 'dark':
-        newTheme = 'auto'
-        break
-      default:
-        newTheme = 'light'
-    }
-    applyTheme(newTheme)
-    window.localStorage.setItem('Stellar.theme', newTheme)
-    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-    utils.dark.method.toggle.start();
-
-    const messages = {
-      light: `切换到浅色模式`,
-      dark: `切换到深色模式`,
-      auto: `切换到跟随系统配色`,
-    }
-    hud?.toast?.(messages[newTheme])
-  }
-
-  (() => {
-    // Apply user's preferred theme, if any.
-    const theme = window.localStorage.getItem('Stellar.theme')
-    if (theme !== null) {
-      applyTheme(theme)
-    } else {
-      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    utils.dark.method.toggle.start();
-  })()
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://www.wmyskxz.cn/wiki/whats_ai/4/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
 </script>
 
 
-<!-- optional -->
-
-  <script type="module">
-  const el = document.querySelector('#comments #giscus');
-  util.viewportLazyload(el, load_discus, false);
-
-  function load_discus() {
-    if (!el) return;
-    try {
-        el.innerHTML = '';
-      } catch (error) {
-        console.error(error);
-      }
-      const script = document.createElement('script');
-      script.async = true;
-      for (const key of Object.keys(el.attributes)) {
-        const attr = el.attributes[key];
-        if (['class', 'id'].includes(attr.name) === false) {
-          script.setAttribute(attr.name, attr.value);
-        }
-      }
-      el.appendChild(script);
-  }
-</script>
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0-rc.6"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0-rc.6" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0-rc.6"></script>
 
 
 
 
-<script defer>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
-    for (let id of Object.keys(ctx.services)) {
-      const js = ctx.services[id].js;
-      if (id == 'siteinfo') {
-        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
-        if (ctx.cardlinks?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            setCardLink(ctx.cardlinks);
-          });
-        }
-      } else if (id == 'voice') {
-        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
-        if (ctx.voiceAudios?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            createVoiceDom(ctx.voiceAudios);
-          });
-        }
-      } else if (id == 'video') {
-        ctx.videos = document.querySelectorAll('.video>video');
-        if (ctx.videos?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            videoEvents(ctx.videos);
-          });
-        }
-      } else if (id == 'download-file') {
-        ctx.files = document.querySelectorAll('.file');
-        if (ctx.files?.length > 0) {
-          utils.js(js, { defer: true }).then(function () {
-            downloadFileEvent(ctx.files);
-          });
-        }
-      } else {
-        const els = document.getElementsByClassName(`ds-${id}`);
-        if (els?.length > 0) {
-          utils.jq(() => {
-            if (id == 'timeline' || 'memos' || 'marked') {
-              utils.js(deps.marked).then(function () {
-                utils.js(js, { defer: true });
-              });
-            } else {
-              utils.js(js, { defer: true });
-            }
-          });
-        }
-      }
-    }
 
-    // chat iphone time
-    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
-
-    if (phoneTimes.length > 0) {
-      NowTime();
-      var date = new Date();
-      var sec = date.getSeconds();
-      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
-    }
-
-    function firstAdjustTime() {
-      NowTime();
-      clearInterval(firstAdjustInterval);
-      setInterval(NowTime, 1000 * 60);
-    }
-
-    function NowTime() {
-      for (let i = 0; i < phoneTimes.length; ++i) {
-        var timeSpan = phoneTimes[i];
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        timeSpan.innerHTML = check(hour) + ":" + check(min);
-      }
-    };
-
-    function check(val) {
-      if (val < 10) {
-        return ("0" + val);
-      }
-      return (val);
-    }
-
-    // chat quote
-    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
-      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
-          observer.unobserve(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('quote-blink');
-            setTimeout(() => {
-              entry.target.classList.remove('quote-blink');
-            }, 1000);
-          }, Math.max(100, 16) * (index + 1));
-        });
-    });
-
-    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
-    chatQuotes.forEach((quote) => {
-      quote.addEventListener('click', function () {
-        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
-        if (chatCellDom) {
-          var chatDiv = chatCellDom.parentElement;
-          var mid = chatDiv.clientHeight / 2;
-          var offsetTop = chatCellDom.offsetTop;
-          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
-            chatDiv.scrollTo({
-              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
-              behavior: "smooth"
-            });
-          } else {
-            chatDiv.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-          }
-          chat_quote_obverser.observe(chatCellDom);
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    ctx.search = {
-      path: `/search.json`,
-    }
-    utils.js('/js/search/local-search.js', { defer: true });
-  });
-</script><script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
-  ctx.fancybox = {
-    selector: `.timenode p>img`,
-    css: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
-    js: `https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
-  };
-  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
-  if (ctx.fancybox.selector) {
-    selector += `, ${ctx.fancybox.selector}`
-  }
-  var needFancybox = document.querySelectorAll(selector).length !== 0;
-  if (!needFancybox) {
-    const memos = document.getElementsByClassName('ds-memos');
-    if (memos != undefined && memos.length > 0) {
-      needFancybox = true;
-    }
-    const fancybox = document.getElementsByClassName('with-fancybox');
-    if (fancybox != undefined && fancybox.length > 0) {
-      needFancybox = true;
-    }
-  }
-  if (needFancybox) {
-    utils.css(ctx.fancybox.css);
-    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
-      Fancybox.bind(selector, {
-        hideScrollbar: false,
-        Thumbs: {
-          autoStart: false,
-        },
-        caption: (fancybox, slide) => {
-          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
-        }
-      });
-    })
-  }
-</script>
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const swiper_api = document.getElementById('swiper-api');
-    if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
-        const effect = swiper_api.getAttribute('effect') || '';
-        var swiper = new Swiper('.swiper#swiper-api', {
-          slidesPerView: 'auto',
-          spaceBetween: 8,
-          centeredSlides: true,
-          effect: effect,
-          rewind: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
-      })
-    }
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.codeElements = document.querySelectorAll('.code');
-    if (window.codeElements.length > 0) {
-      ctx.copycode = {
-        default_text: `Copy`,
-        success_text: `Copied`,
-        toast: `复制成功`,
-      };
-      utils.js('/js/plugins/copycode.js');
-    }
-  });
-</script>
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"wmyskxz/blog-comments","data-repo-id":"R_kgDOH7eiFA","data-category":"Announcements","data-category-id":"DIC_kwDOH7eiFM4C0qpW","data-mapping":"title","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"神经网络到底是什么——6000万个旋钮的真相","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0-rc.6&amp;runtime=1"></script>
 
 
 <!-- inject -->
 
-</div></body></html>
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0-rc.6"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"wiki\",\"whats_ai\"]","url":"https://www.wmyskxz.cn/wiki/whats_ai/4/","signature":"4786c2370b830d46d2c7b49abc338882a04a84cbfbf5eac6d5f1f66ab3f3570a"}</script></body></html>

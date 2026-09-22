@@ -1,6 +1,7 @@
-utils.jq(() => {
-  $(function () {
-    const els = document.getElementsByClassName('ds-friends_and_posts');
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const els = root.getElementsByClassName('ds-friends_and_posts');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
       const api = el.dataset.api;
@@ -11,11 +12,16 @@ utils.jq(() => {
       // layout
       utils.request(el, api, async resp => {
         const data = await resp.json();
-        for (let item of (data.content || data)) {
+        const requestedLimit = Number.parseInt(el.dataset.limit || '', 10);
+        const items = data.content || data;
+        const visibleItems = Number.isInteger(requestedLimit) && requestedLimit > 0
+          ? items.slice(0, requestedLimit)
+          : items;
+        for (let item of visibleItems) {
           var cell = `<div class="grid-cell user-post-card">`;
           cell += `<div class="avatar-box">`;
           cell += `<a class="card-link" target="_blank" rel="external nofollow noopener noreferrer" href="${item.html_url || item.url}">`;;
-          cell += `<img src="${item.avatar_url || item.avatar || item.icon || default_avatar}" onerror="javascript:this.removeAttribute(\'data-src\');this.src=\'${default_avatar}\';"/>`;
+          cell += `<img src="${item.avatar_url || item.avatar || item.appicon || item.icon || default_avatar}" onerror="javascript:this.removeAttribute(\'data-src\');this.src=\'${default_avatar}\';"/>`;
           cell += `<span class="title">${item.title || item.login}</span>`;
           cell += `</a>`;
           cell += `<div class="labels">`;
@@ -30,7 +36,7 @@ utils.jq(() => {
           }
           cell += `</div>`;
           cell += `</div>`;
-          cell += `<div class="previews">`;
+          cell += `<div class="post-panel">`;
           if (item.description) {
             cell += `<div class="desc">${item.description || item.issue_number || ''}</div>`;
           } else {
@@ -50,10 +56,10 @@ utils.jq(() => {
           cell += `</div>`;
           cell += `</div>`;
           cell += `</div>`;
-          $(el).find('.grid-box').append(cell);
+          utils.dom(el).find('.grid-box').append(cell);
         }
         window.wrapLazyloadImages(el);
       });
     }
-  });
-});
+
+};

@@ -1,6 +1,7 @@
-utils.jq(() => {
-  $(function () {
-    function parseGithubFileContributors(data) {
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  function parseGithubFileContributors(data) {
       // 去重贡献者（按 login）
       const contributorsMap = new Map();
 
@@ -26,7 +27,7 @@ utils.jq(() => {
       return sortedContributors;
     }
 
-    const els = document.getElementsByClassName('ds-contributors');
+    const els = root.getElementsByClassName('ds-contributors');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
       const api = el.dataset.api;
@@ -47,10 +48,10 @@ utils.jq(() => {
           cell += `</div>`;
           cell += `</a>`;
           cell += `</div>`;
-          $(el).find('.grid-box').append(cell);
+          utils.dom(el).find('.grid-box').append(cell);
         }
         window.wrapLazyloadImages(el);
       });
     }
-  });
-});
+
+};

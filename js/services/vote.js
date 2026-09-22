@@ -1,3 +1,7 @@
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+  const listen = (node, type, handler) => node?.addEventListener(type, handler, { signal: context.signal });
+  const fetch = (url, options = {}) => window.fetch(url, { ...options, ...(options.method === 'POST' ? {} : { signal: context.signal }) });
 function getVoteKey(id) {
   return `vote-${id}`;
 }
@@ -53,12 +57,14 @@ async function loadVote(el) {
 
   try {
     const res = await fetch(`${api}/info?id=${encodeURIComponent(id)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    context.signal.throwIfAborted();
 
     el.querySelector('.up').textContent = data.votes?.up ?? 0;
     el.querySelector('.down').textContent = data.votes?.down ?? 0;
-  } catch (e) {
-    console.warn(`[vote] 加载失败: id=${id}`, e);
+  } catch (error) {
+    void error;
   }
 }
 
@@ -80,14 +86,15 @@ function submitVote(el, value) {
   // 后台同步
   fetch(`${api}/update?id=${encodeURIComponent(id)}&value=${encodeURIComponent(value)}`, {
     method: 'POST'
-  }).catch(e => {
-    console.warn(`[vote] 后台同步失败，撤销投票: id=${id}`, e);
+  }).then(response => {
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  }).catch(() => {
     revertVote(el, value);
   });
 }
 
 function initVotes() {
-  document.querySelectorAll('.ds-vote').forEach(el => {
+  root.querySelectorAll('.ds-vote').forEach(el => {
     const { id, api } = el.dataset;
     if (!id || !api) return;
 
@@ -96,18 +103,16 @@ function initVotes() {
     const votedValue = getVotedValue(id);
     if (votedValue) markVoted(el, votedValue);
 
-    el.querySelector('.vote-up')?.addEventListener('click', () => {
+    listen(el.querySelector('.vote-up'), 'click', () => {
       if (!el.classList.contains('active')) submitVote(el, 'up');
     });
 
-    el.querySelector('.vote-down')?.addEventListener('click', () => {
+    listen(el.querySelector('.vote-down'), 'click', () => {
       if (!el.classList.contains('active')) submitVote(el, 'down');
     });
   });
 }
 
-if (document.readyState === 'loading') {
-  window.addEventListener('DOMContentLoaded', initVotes);
-} else {
-  initVotes();
-}
+initVotes();
+
+};
