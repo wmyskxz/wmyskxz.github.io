@@ -1,0 +1,17 @@
+/*
+ * 站点级样式覆盖，通过 _config.stellar.yml 的 inject.head_end 注入全站。
+ * 修改本文件后请同步递增注入链接上的 ?v= 版本号以击穿浏览器缓存。
+ */
+
+/*
+ * 修复全站图片被纵向拉伸：
+ * Stellar v2 图片元数据功能(auto_aspect_ratio)会给正文 <img> 写入 width/height 属性，
+ * HTML 属性属于 CSS 表示提示(等价于固定像素宽高)，而主题全局只有 img { max-width: 100% }
+ * 没有配套的 height: auto——图片宽度被栏宽压缩后高度仍取属性值，于是整体变形拉高。
+ * 补 height: auto 后浏览器改用 width/height 属性推导 aspect-ratio，恢复等比缩放，
+ * 同时保留加载前占位(CLS)能力。主题内所有需要固定高度的图片(懒加载失败占位、
+ * 封面、聊天气泡等)均为 class 选择器，优先级更高，不受此条影响。
+ */
+img {
+  height: auto;
+}
