@@ -1,0 +1,717 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0" theme-name="Stellar" theme-version="2.0.0">
+  
+  
+  <meta name="generator" content="Hexo 8.1.2">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title data-stellar-page-meta="">代码之外周刊（第 192 期）：未来几年，人只剩两件事可干 - 我没有三颗心脏的博客</title>
+  <script data-stellar-script="core">
+    (function () {
+      var key = 'stellar:v2:leftbar-state';
+      var fallback = "expanded";
+      try {
+        var value = localStorage.getItem(key);
+        document.documentElement.dataset.leftbarState = value === 'collapsed' || value === 'expanded' ? value : fallback;
+      } catch (error) {
+        document.documentElement.dataset.leftbarState = fallback;
+      }
+    })();
+  </script>
+
+  <meta name="description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 冰川考古团队 Secrets of the Ice 在挪威东部因兰郡山区工作 20 年，往年出土的物件大多不超过 2000 年。今年情况变了：最古老的冰层开始融化，今年一次野外考察就发现了 48 支史前箭，其中包括约 5000-" data-stellar-page-meta="">
+<meta property="og:type" content="article" data-stellar-page-meta="">
+<meta property="og:title" content="代码之外周刊（第 192 期）：未来几年，人只剩两件事可干" data-stellar-page-meta="">
+<meta property="og:url" content="https://www.wmyskxz.cn/weekly/192/" data-stellar-page-meta="">
+<meta property="og:site_name" content="我没有三颗心脏的博客" data-stellar-page-meta="">
+<meta property="og:description" content="代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。 周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。 题图 冰川考古团队 Secrets of the Ice 在挪威东部因兰郡山区工作 20 年，往年出土的物件大多不超过 2000 年。今年情况变了：最古老的冰层开始融化，今年一次野外考察就发现了 48 支史前箭，其中包括约 5000-" data-stellar-page-meta="">
+<meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
+<meta property="og:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png" data-stellar-page-meta="">
+<meta property="article:author" content="我没有三颗心脏" data-stellar-page-meta="">
+<meta property="article:published_time" content="2026-11-01T23:30:00.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-11-01T16:55:04.000Z" data-stellar-page-meta="">
+<meta property="article:tag" content="代码之外周刊" data-stellar-page-meta="">
+<meta name="twitter:card" content="summary_large_image" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png" data-stellar-page-meta=""><meta name="twitter:title" content="代码之外周刊（第 192 期）：未来几年，人只剩两件事可干" data-stellar-page-meta="">
+  
+  
+  <meta name="keywords" content="代码之外周刊" data-stellar-page-meta="">
+
+  <!-- feed -->
+  
+    
+
+    
+      
+        <link rel="alternate" href="/atom.xml" title="我没有三颗心脏的博客" type="application/atom+xml">
+      
+    
+  
+
+  <link rel="preload" href="/css/main.css?v=2.0.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?v=2.0.0">
+  <style>:root{--text-loading:"正在加载";--text-loading-error:"加载失败，请稍后重试。"}</style>
+
+
+  
+    <link rel="shortcut icon" href="/img/logo.jpg">
+  
+
+  
+
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"我没有三颗心脏","sameAs":[],"image":"https://www.wmyskxz.cn/img/logo.jpg"},"dateCreated":"2026-11-02T07:30:00+08:00","dateModified":"2026-11-02T00:55:04+08:00","datePublished":"2026-11-02T07:30:00+08:00","description":"代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。\n周刊开源（Github：wmyskxz/weekly），欢迎提交 issue，投稿或推荐精彩内容。\n题图\n冰川考古团队 Secrets of the Ice 在挪威东部因兰郡山区工作 20 年，往年出土的物件大多不超过 2000 年。今年情况变了：最古老的冰层开始融化，今年一次野外考察就发现了 48 支史前箭，其中包括约 50...","headline":"代码之外周刊（第 192 期）：未来几年，人只剩两件事可干","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wmyskxz.cn/weekly/192/"},"publisher":{"@type":"Organization","name":"我没有三颗心脏","sameAs":[],"image":"https://www.wmyskxz.cn/img/logo.jpg","logo":{"@type":"ImageObject","url":"https://www.wmyskxz.cn/img/logo.jpg"}},"url":"https://www.wmyskxz.cn/weekly/192/","image":["https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png"],"keywords":"代码之外周刊","thumbnailUrl":"https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png"}</script>
+  <link rel="stylesheet" href="/css/site.css?v=1">
+
+  <link rel="stylesheet" href="/css/stellar-icons.css?v=7c185ad1a9a79674">
+  <link rel="preload" as="script" href="/js/stellar-icons.js?v=39c6ac17e854ffe2">
+  
+  
+</head>
+<body data-page-type="content" data-page-layout="post" data-article-style="tech"><div data-stellar-runtime-region="" id="site-cover" class="site-cover"></div><div class="site-shell" id="start" data-regions="leftbar rightbar"><div class="site-workspace">
+<aside data-stellar-runtime-region="" id="leftbar-region" class="site-region site-region--leftbar" data-region="leftbar" aria-label="Leftbar"><div class="site-region__surface ui-surface"><div class="site-region__decoration" aria-hidden="true"></div><div class="site-region__viewport"><header class="site-region__header site-region__zone site-region__zone--top">
+    <div class="widget-instance widget-instance--brand" data-widget-id="leftbar:fixed:brand" data-presentation="leftbar" data-leftbar-rail="">
+<header class="brand-header brand-header--regular brand-header--site"><div class="brand-wrap"><a class="brand-image brand-image--avatar" href="/"><img no-lazy="" src="/img/logo.jpg" alt="" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></a><a class="brand-title" href="/"><div class="brand-name">我没有三颗心脏的博客</div><div class="brand-tagline cap">与您一起 Be Better~ | 自由、坚定</div></a></div><div class="brand-search">
+
+<div class="ui-collection" data-layout="list" data-variant="nav" data-density="auto">
+  
+    
+<button class="ui-collection__item ui-interactive card-hover card-hover--spotlight search-trigger has-hover-surface" type="button" title="搜索" aria-label="搜索" data-shell-action="open-search" data-search-instance="leftbar-brand-search" data-search-domain="blog" data-search-domain-label="博客" data-search-domain-blog="true">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">搜索</span>
+      
+      
+    </span>
+  
+  <kbd class="search-shortcut" aria-hidden="true">⌘K</kbd>
+
+  
+</button>
+
+  
+</div>
+
+
+</div></header>
+</div>
+  </header>
+  <div class="site-region__body site-region__zone site-region__zone--body">
+    <div class="widget-instance widget-instance--menu" data-widget-id="leftbar:fixed:menu" data-presentation="leftbar" data-leftbar-rail="">
+
+
+<nav class="menu dis-select">
+<div class="ui-collection" data-layout="grid" data-variant="nav" data-density="auto" style="--ui-columns:2">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-active is-themed" href="/" title="博客" aria-current="page" style="--item-theme:#1BCDFC;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M5.87868 2.87868C5 3.75736 5 5.17157 5 8V16C5 18.8284 5 20.2426 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2426 22 18.1213 21.1213C19 20.2426 19 18.8284 19 16V8C19 5.17157 19 3.75736 18.1213 2.87868C17.2426 2 15.8284 2 13 2H11C8.17157 2 6.75736 2 5.87868 2.87868ZM8.25 17C8.25 16.5858 8.58579 16.25 9 16.25H12C12.4142 16.25 12.75 16.5858 12.75 17C12.75 17.4142 12.4142 17.75 12 17.75H9C8.58579 17.75 8.25 17.4142 8.25 17ZM9 12.25C8.58579 12.25 8.25 12.5858 8.25 13C8.25 13.4142 8.58579 13.75 9 13.75H15C15.4142 13.75 15.75 13.4142 15.75 13C15.75 12.5858 15.4142 12.25 15 12.25H9ZM8.25 9C8.25 8.58579 8.58579 8.25 9 8.25H15C15.4142 8.25 15.75 8.58579 15.75 9C15.75 9.41421 15.4142 9.75 15 9.75H9C8.58579 9.75 8.25 9.41421 8.25 9Z" clip-rule="evenodd"></path><g fill="currentColor" opacity=".5"><path d="M5.23535 4.05811C5.00012 4.94134 5 6.17674 5 7.99951V15.9995C5 17.8225 5.00008 19.0586 5.23535 19.9419L5 19.9233C4.02513 19.8274 3.36875 19.6113 2.87891 19.1216C2.00023 18.2429 2 16.8279 2 13.9995V9.99951C2 7.17135 2.00027 5.75706 2.87891 4.87842C3.36877 4.38867 4.02505 4.17158 5 4.07568L5.23535 4.05811Z"></path><path d="M19 4.07568C19.975 4.17159 20.6312 4.38865 21.1211 4.87842C21.9997 5.75706 22 7.17135 22 9.99951V13.9995C22 16.8279 21.9998 18.2429 21.1211 19.1216C20.6313 19.6113 19.9749 19.8274 19 19.9233L18.7646 19.9419C18.9999 19.0586 19 17.8225 19 15.9995V7.99951C19 6.17674 18.9999 4.94134 18.7646 4.05811L19 4.07568Z"></path></g></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">博客</span>
+      
+      
+    </span>
+  
+  
+  <span class="ui-collection__indicator"></span>
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-themed" href="/wiki/" title="项目" style="--item-theme:#3DC550;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M20.0821 3.01774C21.1538 2.98054 22.0001 3.86139 22.0001 4.93375V16.1437C22.0001 17.2546 21.0941 18.1533 19.9854 18.2228C19.016 18.2834 17.8768 18.4026 17.0001 18.6339C15.9186 18.9193 15.0102 19.7011 13.627 20.0695C13.001 20.2362 12.3029 20.326 12.0001 20.3927V5.17399C12.3208 5.09543 13.3825 4.97156 13.6739 4.80289C13.8581 4.69626 14.0513 4.5874 14.2501 4.47965V7.53727C14.2499 7.64849 14.2493 7.8074 14.2706 7.94352C14.2966 8.10994 14.3826 8.43087 14.7149 8.62614C15.0353 8.81425 15.3492 8.7447 15.4981 8.6984C15.6279 8.65804 15.7699 8.58977 15.876 8.53922L17.0001 8.00602L18.1241 8.53922C18.2302 8.58977 18.3723 8.65804 18.502 8.6984C18.651 8.7447 18.9649 8.81425 19.2852 8.62614C19.6175 8.43088 19.7035 8.10994 19.7296 7.94352C19.7508 7.80741 19.7502 7.64849 19.7501 7.53727V3.03141C19.8629 3.02611 19.9739 3.02151 20.0821 3.01774ZM19.7276 12.8185C19.6272 12.4168 19.2202 12.1723 18.8184 12.2726L14.8184 13.2726C14.4167 13.3731 14.1722 13.78 14.2725 14.1818C14.373 14.5836 14.7799 14.828 15.1817 14.7277L19.1817 13.7277C19.5835 13.6273 19.8279 13.2203 19.7276 12.8185Z" clip-rule="evenodd"></path><path d="M4.27253 12.8185C4.37296 12.4168 4.78001 12.1724 5.18171 12.2726L9.18171 13.2726C9.58344 13.3731 9.82784 13.7801 9.72761 14.1818C9.62715 14.5836 9.22027 14.8281 8.81843 14.7277L4.81843 13.7277C4.41662 13.6272 4.17214 13.2203 4.27253 12.8185Z"></path><path d="M4.27253 8.81852C4.37296 8.41682 4.78001 8.17245 5.18171 8.27262L9.18171 9.27262C9.58344 9.37305 9.82784 9.78007 9.72761 10.1818C9.62715 10.5836 9.22027 10.8281 8.81843 10.7277L4.81843 9.7277C4.41662 9.62725 4.17214 9.22033 4.27253 8.81852Z"></path><path d="M18.2501 6.93864L17.501 6.58317L17.4923 6.57828C17.4531 6.55827 17.3129 6.48706 17.1378 6.45914C17.0938 6.45214 17.0475 6.44743 17.0001 6.44743C16.7637 6.44743 16.5569 6.55323 16.5079 6.57828L16.4991 6.58317L15.7501 6.93864V3.757C16.0063 3.65201 16.2585 3.55977 16.5001 3.48746C17.0206 3.33165 17.6301 3.22482 18.2501 3.15153V6.93864Z"></path><path d="M12 5.21395C11.6658 5.15047 10.9426 5.05264 10.2823 4.87544C8.9381 4.51475 8.04921 3.76429 7 3.48742C6.11349 3.25349 4.95877 3.13488 3.9824 3.07487C2.8863 3.0075 2 3.89961 2 4.99778V16.1436C2 17.2545 2.90605 18.1534 4.01486 18.2228C4.98428 18.2834 6.12329 18.402 7 18.6333C7.48596 18.7616 8.21615 19.0645 8.87295 19.3592C9.87752 19.81 10.9247 20.1556 12 20.3926V5.21395Z" opacity=".5"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">项目</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight is-themed" href="/more/" title="关于我" style="--item-theme:#F44336;">
+  
+  <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path d="M13.6288 20.4718L13.0867 21.3877C12.6035 22.204 11.3965 22.204 10.9133 21.3877L10.3712 20.4718C9.95073 19.7614 9.74049 19.4063 9.40279 19.2098C9.06509 19.0134 8.63992 19.0061 7.78958 18.9915C6.53422 18.9698 5.74689 18.8929 5.08658 18.6194C3.86144 18.1119 2.88807 17.1386 2.3806 15.9134C2 14.9946 2 13.8297 2 11.5V10.5C2 7.22657 2 5.58985 2.7368 4.38751C3.14908 3.71473 3.71473 3.14908 4.38751 2.7368C5.58985 2 7.22657 2 10.5 2H13.5C16.7734 2 18.4101 2 19.6125 2.7368C20.2853 3.14908 20.8509 3.71473 21.2632 4.38751C22 5.58985 22 7.22657 22 10.5V11.5C22 13.8297 22 14.9946 21.6194 15.9134C21.1119 17.1386 20.1386 18.1119 18.9134 18.6194C18.2531 18.8929 17.4658 18.9698 16.2104 18.9915C15.36 19.0061 14.9349 19.0134 14.5972 19.2098C14.2595 19.4062 14.0492 19.7614 13.6288 20.4718Z" opacity=".5"></path><path d="M10.9901 14.3082C9.6633 13.3304 7.5 11.4674 7.5 9.71476C7.5 7.03759 9.97507 6.03807 12 8.10615C14.0249 6.03807 16.5 7.03759 16.5 9.71475C16.5 11.4674 14.3367 13.3304 13.0099 14.3082C12.5558 14.643 12.3287 14.8103 12 14.8103C11.6713 14.8103 11.4442 14.643 10.9901 14.3082Z"></path></g></svg></span>
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">关于我</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div>
+
+</nav>
+
+</div>
+    <div class="widgets widget-stack widget-stack--leftbar widget-stack--body"><div class="widget-instance widget-instance--recent" data-widget-id="leftbar:1:recent" data-presentation="leftbar">
+
+<widget class="widget-wrapper slide-up recent-widget">
+  
+    <div class="widget-header dis-select">
+      <span class="name">最近更新</span>
+      <a class="cap-action ui-interactive card-hover card-hover--spotlight" id="rss" title="Subscribe" href="/atom.xml"><span class="ui-icon"><svg class="icon" viewBox="0 0 1 1" data-icon="default:rss" aria-hidden="true"></svg></span></a>
+    </div>
+  
+  <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/192/" title="代码之外周刊（第 192 期）：未来几年，人只剩两件事可干" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">代</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">代码之外周刊（第 192 期）：未来几年，人只剩两件事可干</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/191/" title="代码之外周刊（第 191 期）：先别急着给人生下结论" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">代</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">代码之外周刊（第 191 期）：先别急着给人生下结论</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/190/" title="代码之外周刊（第 190 期）：不确定时代，怎样让自己继续向前" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">代</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">代码之外周刊（第 190 期）：不确定时代，怎样让自己继续向前</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/6/" title="一周精彩内容分享（第 6 期）：光努力是没有用的" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">一</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">一周精彩内容分享（第 6 期）：光努力是没有用的</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/weekly/114/" title="代码之外周刊（第 114 期）：把人工智能「别」在身上" data-stellar-navigation="">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">代</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">代码之外周刊（第 114 期）：把人工智能「别」在身上</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+</div></div>
+  
+</widget>
+
+
+</div></div>
+  </div>
+  <footer class="site-region__footer">
+    
+    <div class="site-region__system ui-collection" data-layout="inline" data-variant="nav" data-density="compact">
+      <div class="site-region__settings"><div class="widget-instance widget-instance--settings" data-widget-id="leftbar:fixed:settings" data-presentation="leftbar" data-leftbar-rail="">
+<a class="settings-widget ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/settings/" data-profile-provider="giscus" data-profile-identity-enabled="false" data-profile-fallback-avatar="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg" data-settings-placement="leftbar" data-settings-label="设置" aria-label="设置" title="设置">
+  <span class="settings-widget__avatar" aria-hidden="true">
+    <span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path fill-rule="evenodd" d="M12.4277 2C11.3139 2 10.2995 2.6007 8.27081 3.80211L7.58466 4.20846C5.55594 5.40987 4.54158 6.01057 3.98466 7C3.42773 7.98943 3.42773 9.19084 3.42773 11.5937V12.4063C3.42773 14.8092 3.42773 16.0106 3.98466 17C4.54158 17.9894 5.55594 18.5901 7.58466 19.7915L8.27081 20.1979C10.2995 21.3993 11.3139 22 12.4277 22C13.5416 22 14.5559 21.3993 16.5847 20.1979L17.2708 19.7915C19.2995 18.5901 20.3139 17.9894 20.8708 17C21.4277 16.0106 21.4277 14.8092 21.4277 12.4063V11.5937C21.4277 9.19084 21.4277 7.98943 20.8708 7C20.3139 6.01057 19.2995 5.40987 17.2708 4.20846L16.5847 3.80211C14.5559 2.6007 13.5416 2 12.4277 2Z" clip-rule="evenodd" opacity=".5"></path><path d="M12.4277 8.25C10.3567 8.25 8.67773 9.92893 8.67773 12C8.67773 14.0711 10.3567 15.75 12.4277 15.75C14.4988 15.75 16.1777 14.0711 16.1777 12C16.1777 9.92893 14.4988 8.25 12.4277 8.25Z"></path></g></svg></span>
+  </span>
+  <span class="settings-widget__name ui-collection__title">设置</span>
+</a>
+</div></div>
+      <button type="button" class="leftbar-state-toggle ui-collection__item ui-interactive card-hover card-hover--spotlight is-icon-only" aria-label="Collapse leftbar" aria-expanded="true" data-shell-action="toggle-leftbar"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.172 4.172C2 5.343 2 7.229 2 11v2c0 3.771 0 5.657 1.172 6.828S6.229 21 10 21h5V3h-5C6.229 3 4.343 3 3.172 4.172" clip-rule="evenodd" opacity=".5"></path><path fill="currentColor" d="M5.5 9.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zm1 4a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5zM22 13v-2c0-3.771 0-5.657-1.172-6.828c-.974-.975-3.192-1.139-5.828-1.166v17.988c2.636-.027 4.854-.191 5.828-1.166C22 18.657 22 16.771 22 13"></path></svg></span></button>
+    </div>
+  </footer></div></div></aside>
+<main data-stellar-runtime-region="" class="site-main" id="main">
+
+
+<div class="article-banner-wrap slide-up"><div class="article banner top" style="--bg-url:url('https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png')"><img class="lazy bg" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="2116" height="1208" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[246.8162,4.3951,63.2832,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png">
+  <div class="content" data-text-adaptive="split">
+    <div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>
+    <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/">代码之外周刊</a>
+</div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-11-01T23:30:00.000Z">2026-11-02</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-01T16:55:04.000Z">2026-11-02</time></span></div>
+</div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>代码之外周刊（第 192 期）：未来几年，人只剩两件事可干</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div></div>
+<article class="md-text content slide-up"><p>代码可以构建世界，但生活中的乐趣远不止于此。这里是我一周的精选。</p>
+<p>周刊开源（Github：<a target="_blank" rel="noopener" href="https://github.com/wmyskxz/weekly" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>wmyskxz/weekly</a>），欢迎提交 issue，投稿或推荐精彩内容。</p>
+<h1 id="题图"><a href="#题图" class="headerlink" title="题图" data-stellar-navigation=""></a>题图</h1><div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png" alt="一枚有5000年历史的板岩箭头，连同其箭杆部分在冰边缘被发现。" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="2116" height="1208" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[246.8162,4.3951,63.2832,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101161554681.png"><div class="image-meta"><span class="image-caption center">一枚有5000年历史的板岩箭头，连同其箭杆部分在冰边缘被发现。</span></div></div>
+<p>冰川考古团队 Secrets of the Ice 在挪威东部因兰郡山区工作 <strong>20 年</strong>，往年出土的物件大多不超过 2000 年。今年情况变了：<a target="_blank" rel="noopener" href="https://www.sciencenorway.no/archaeology-climate-culture/the-oldest-ice-is-disappearing-the-stone-age-is-emerging-from-the-melting-ice/2713921" title="挪威最古老的冰正在消失，石器时代的箭矢正在现身" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>最古老的冰层开始融化</a>，今年一次野外考察就发现了 <strong>48 支史前箭</strong>，其中包括约 <strong>5000-6000 年前</strong>的石器时代石制箭头。代价同样清晰——团队估计，藏有文物的冰原大部分将在<strong>未来 20 年内消失</strong>，负责人 Espen Finstad 说：「自然已经警告了我们很多年，现在它放弃了。」</p>
+<h1 id="本周讨论：未来几年，人只剩两件事可干"><a href="#本周讨论：未来几年，人只剩两件事可干" class="headerlink" title="本周讨论：未来几年，人只剩两件事可干" data-stellar-navigation=""></a>本周讨论：未来几年，人只剩两件事可干</h1><p>（本期来源：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/9Yil7TpwbR-Fjo469WQDVA" title="万维钢：未来几年，人只剩两件事可干" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>万维钢：未来几年，人只剩两件事可干</a>）</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4b23333b529a0eddc88e101cebf76921.jpg" alt="内容来源：笔记侠PPE（政经哲）课程26级美国站《创新英雄》现场分享。" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1434" height="1080" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[205.852,13.8618,34.6604,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img4b23333b529a0eddc88e101cebf76921.jpg"><div class="image-meta"><span class="image-caption center">内容来源：笔记侠PPE（政经哲）课程26级美国站《创新英雄》现场分享。</span></div></div>
+<blockquote>
+<p>本文据科学作家万维钢在硅谷的一次分享改写。文中的「我」，均指万维钢。另外本文较长，但我觉得值得分享。</p>
+</blockquote>
+<p>几个月前，世界杯开赛之前，我让 AI 做一份赛程表。</p>
+<p>我的要求很简单：用旧金山湾区的当地时间，标出每场比赛的转播日程。要能打印出来，还要好看。后面的事，我一句都没交代。</p>
+<p>它先上官方网站查赛程，换算成湾区时间，查清每场由哪家电视台转播。还顺手标出了哪几场就在湾区举行，想去看的话可以直接去。</p>
+<p>然后它自己排版，做了几个测试页。为了看效果，它把页面转成 PDF。发现我电脑里没有趁手的合成工具，它自己下载了一个。接着自己截图、自己检查，哪页有问题就改。中间碰到 Chrome（谷歌浏览器）的毛病，我也说不清是什么毛病，它自己解决了。</p>
+<p>这些步骤，没有一步是我让它做的。</p>
+<p>这件事让我意识到：AI 已经不是工具了。过去两三年，我们用 AI 的方式，整整变了四轮。变到现在，一个问题摆在了面前：<strong>未来的公司，到底是由人驱动，还是由智能体驱动？</strong></p>
+<h2 id="一、用-AI-的方式，已经变了四轮"><a href="#一、用-AI-的方式，已经变了四轮" class="headerlink" title="一、用 AI 的方式，已经变了四轮" data-stellar-navigation=""></a>一、用 AI 的方式，已经变了四轮</h2><p>第一轮，AI 只负责生成。一幅画、一篇文章、一段代码。所谓用 AI 编程，就是 AI 给你写一段代码，你复制粘贴进自己的项目。</p>
+<p>第二轮，出现了 Claude Code、Codex 这类工具。它们能直接操作你本地的文件，一次还能改好几个。编完以后，能自己编译、读报错、再改。人从「让 AI 生成内容」，变成了「让 AI 做一个项目」。</p>
+<p>第三轮，到去年，我们做到了让 AI 去完成一项任务。AI 原生公司给 AI 的，往往是一个很抽象的任务。至于用什么手段，AI 自己定。</p>
+<p>第四轮，从今年上半年到现在，出现了全天候在线的个人助手。日常的事归助手管，具体的项目，还是交给专门的智能体（Agent）。</p>
+<p>我的看法是，当前最好的办法，不是只跟一个智能体打交道，而是配几个，每件事一个。你直接跟它们对话，不要通过一个中间人转话。</p>
+<h3 id="现在，你只需要说「要什么」"><a href="#现在，你只需要说「要什么」" class="headerlink" title="现在，你只需要说「要什么」" data-stellar-navigation=""></a>现在，你只需要说「要什么」</h3><p>现在用 AI 工作，不用描述任务该怎么做，只要说清楚你要什么。</p>
+<p>以前那些提示词技巧，现在看基本都被淘汰了。问题在于，你设计的路线，往往不是最好的路线。上面那份赛程表就是例子：那一长串步骤，我一步也没设计过。</p>
+<h3 id="一切知识工作，都是一个-loop"><a href="#一切知识工作，都是一个-loop" class="headerlink" title="一切知识工作，都是一个 loop" data-stellar-navigation=""></a>一切知识工作，都是一个 loop</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img2d7ab0f669b99544e5e5dbb2d8f5c524.jpg" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1434" height="1080" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[237.7568,1.3507,63.9782,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img2d7ab0f669b99544e5e5dbb2d8f5c524.jpg"></p>
+<p>上面这种做法，叫 loop（循环式工作法）。你设定一个目标、一个完成条件，再给它充分的本地上下文，让它了解你的环境和情况。然后放手让它去做。</p>
+<p>每做完一轮，它自己对照目标，或者由你来判断：达标了没有？没达标，就再来一轮。不管多少轮，干完为止。实际操作中，你甚至不用交代这么细。它跟你熟了，根据对你的了解，大概就能把活干成。</p>
+<p>我认为，一切知识工作，不管是写文章、编程、做设计，还是管理，本质上都是一个 loop。</p>
+<p>一个 loop 离不开三样东西。第一，评估标准：这次做得好不好？第二，一个内部模型，也就是负责完成 loop 的智能体，它得对这个世界有自己的理解。第三，数据：它去获取数据，很多时候自己判断、自己决策，然后评估，然后进入下一轮。</p>
+<p>我特别想强调「循环」这个概念。精髓在于：第一轮的结果，你往往不满意。而且你多半是看到第一轮之后，才想清楚自己到底要什么。所以它要做第二轮、第三轮，每一轮都比上一轮好一点。最后做出来的东西，可能你一开始都没想到。</p>
+<p><strong>AI 时代，我们一定要树立 loop 意识。</strong></p>
+<h2 id="二、硅谷的共识：模型已经够用，问题在你身上"><a href="#二、硅谷的共识：模型已经够用，问题在你身上" class="headerlink" title="二、硅谷的共识：模型已经够用，问题在你身上" data-stellar-navigation=""></a>二、硅谷的共识：模型已经够用，问题在你身上</h2><p>现在硅谷有一个共识，而且是极端的共识。</p>
+<p>我私下跟一些工程师聊过。他们的想法是：模型已经够用了。如果你说，这个活 AI 现在做不了，那不是 AI 的问题。是你没有把工作组织好，没有把事情给 AI 说明白，没有把环境搭好。AI 已经很行了，剩下的事是你的。</p>
+<p>在这个共识下，出现了两种工作模式。</p>
+<p>一种叫 human in the loop（人在环中）。人是循环中的一个环节：AI 每做完一步，都要来问你，你再给出下一步指令。</p>
+<p>另一种叫 human on the loop（人在环上）。循环自己转，AI 一直在做，人在圈外，时不时检查一下，把把关。好处是快。你甚至可以去睡觉，不用管它，醒来事已经做完了。</p>
+<p>in 是在里面，on 是在上方，旁观，随时监督。</p>
+<p>如果你今年年初问我，我肯定说应该是 human in the loop。因为人还是应该起主导作用。但现在硅谷工程师的想法是：应该是 human on the loop。</p>
+<p>还有更极端的，叫 human off the loop（人在环外）。这帮人的想法是：干脆不要人了。如果一件事还需要人去推一下，那就是工程师没做好。</p>
+<p>他们甚至认为，图形用户界面（GUI）已经过时了。GUI 对人友好，但对 AI 是浪费算力，直接给文字就行。所以以后全是 CLI（命令行界面，纯文字的人机交互方式）。AI 之间直接用文件交流，最好把人从循环里彻底拿掉。</p>
+<p>我觉得这个看法太极端。但它引出了一个问题：既然 AI 什么都能做，为什么人仍然重要？这是个矛盾，后面我会讲。</p>
+<h2 id="三、重复的事，都该交给智能体"><a href="#三、重复的事，都该交给智能体" class="headerlink" title="三、重复的事，都该交给智能体" data-stellar-navigation=""></a>三、重复的事，都该交给智能体</h2><p>以前有个词叫 AI Native（AI 原生）。现在有个新词，叫 Agent Native（智能体原生）。</p>
+<p>核心就一句话：凡是值得反复做的事，都该变成一个智能体。变成智能体之后，你可以不断给它反馈，它下次就做得更好，你还能定期审计它。</p>
+<h3 id="人是把一年的经验，用上十年"><a href="#人是把一年的经验，用上十年" class="headerlink" title="人是把一年的经验，用上十年" data-stellar-navigation=""></a>人是把一年的经验，用上十年</h3><p>程序员有个习惯：一个动作哪怕只做两次，也要写成程序，因为第二次就能自动跑。比如，我让 AI 去读我 Evernote（一款笔记软件）里的一条笔记。它第一次就想到：干脆做一个永久插件，以后一键访问我的笔记，不用每次笨拙地打开软件。</p>
+<p>人的问题在于，职场里大部分工作是重复的，但人只是把以往的经验重复一遍。把一年的经验用上十年，很少想着把做法再迭代一次。</p>
+<p>智能体不一样。你跟它说，下次改进一下，它真能记住，真改，真学。</p>
+<p>而且这件事，不用等大模型。做模型的人说，AI 的突破点是长期记忆。但你不用等他们。运行在你本地电脑上的智能体，就可以把记忆留在你自己的电脑里。长期记忆这个问题，用智能体的办法就能解决。它会逐渐记住你的所有事情，成为全世界最了解你的存在，持续迭代，功能越来越强。</p>
+<p>所以，以后每个人需要的是若干个智能体，不是一个。</p>
+<h3 id="智能体会比你更像你"><a href="#智能体会比你更像你" class="headerlink" title="智能体会比你更像你" data-stellar-navigation=""></a>智能体会比你更像你</h3><p>8 月，我去巴西访问一家公司。CEO 跟我讲了他用智能体的最大心得：他和他的智能体，是同步进步、一起进步的。</p>
+<p>他对公司的任何决策，都让智能体先出方案，他来评论。有时听它的，有时否掉，并且告诉它为什么不行、为什么应该这么做。这些它都记住了，能迭代。</p>
+<p>一开始，它出的主意，可能都是你不能接受的坏主意。但你给它讲道理，告诉它以后这类问题该怎么处理。我的经验是，大概一个月，它就会越来越像你，60%、70% 的建议你可以直接接受。而且它能瞬间读完全公司的数据，你读不了。所以很快，它的决策能力就会超过你。</p>
+<p>这位 CEO 以前每天工作 10 小时，有了智能体之后，每天 14 小时。而且延长工作时间，是他自己主动的。一到周五他就高兴，因为接下来两天不用跟人开会，只用跟他的 AI 打交道。</p>
+<p>有天下班，他突发奇想：公司给消费者发优惠券的算法，好几年都用同一个，能不能优化一下？</p>
+<p>就这么一句话。智能体跑了一段数据，拿出新算法，还说：用我的算法，每周能给你省 7 万。</p>
+<p>这个例子好在哪？不在于 AI 能做这件事，这是可以预期的。好在这是一个突然冒出来的想法，不是什么多年夙愿。说白了，唯一的瓶颈不再是能力，而是你的想法：你想要什么。</p>
+<h3 id="给智能体交代任务，比给人交代好-100-倍"><a href="#给智能体交代任务，比给人交代好-100-倍" class="headerlink" title="给智能体交代任务，比给人交代好 100 倍" data-stellar-navigation=""></a>给智能体交代任务，比给人交代好 100 倍</h3><p>我跟很多人聊过。他们都有同一个感觉：给智能体交代任务，比给人交代任务，好 100 倍。</p>
+<p>两年前，我们说 AI 有什么毛病？有人说，人善于理解人，能跟人共情，AI 不善于理解人的意思。现在看，恰恰相反。AI 是最善于理解人的意思的。</p>
+<p>为什么？因为它经常跟你一起工作，很了解你的上下文，也非常了解你的需求。你跟它说一句话就行。这件事怎么办，它能自动补齐你没说出口的意思，把活做好。</p>
+<p>人就不是这样。你跟他聊 50 分钟，他能记住 10 分钟就不错了。他执行两个礼拜回来，你发现连那 10 分钟的事都没做好。</p>
+<p>再比如，你要在 Google 做一个项目，需要跨组，借另一个组的人过来合作。怎么办？你得把你的 manager（管理者）、那个人、那个人的 manager，四个人凑到一起开会。开半天，事还不一定能办好。智能体的话，一个上午就干完了。</p>
+<p>这就是为什么，我后面会说应该以智能体为本。</p>
+<h3 id="你的智能体，可以是一个比你更好的存在"><a href="#你的智能体，可以是一个比你更好的存在" class="headerlink" title="你的智能体，可以是一个比你更好的存在" data-stellar-navigation=""></a>你的智能体，可以是一个比你更好的存在</h3><p>让智能体去干事之后，你还多了一个机会：实现你的「二阶意愿」。</p>
+<p>什么叫二阶意愿？就是你关于意愿的意愿。比如，你想熬夜，这是一阶的，是一种欲望。但另一方面，你又想：我不想做一个熬夜的、不健康的人。这就纠结了。你很难对自己编程。你不能说，从明天开始我就不想熬夜了，你做不到。</p>
+<p>智能体不一样。你给它一个命令，说从明天开始，这个活不这么干了。它记住了，就真的改了。长期迭代下来，你的智能体会是一个比你更好的存在。</p>
+<p>人容易偏激，容易不理性。你知道自己有这些毛病，知道自己冲动之下做的决策可能不对。你可以直接跟它说：帮我把把关。它就会帮你把关。说白了，你不能直接改自己的参数，但可以改你下面那个智能体。</p>
+<p>以前有个说法，叫「第二大脑」。其实你不需要把知识存在某个地方。你需要保存的，是你的记忆、你的偏好，还有你的二阶意愿。</p>
+<p>人和智能体，是一个协同进化的过程。你训练的，不只是一个智能体，而是一个能反过来训练你的、未来版本的你。你真的可以设定，自己未来想成为什么样。</p>
+<h3 id="一次采购，四个人都变聪明了"><a href="#一次采购，四个人都变聪明了" class="headerlink" title="一次采购，四个人都变聪明了" data-stellar-navigation=""></a>一次采购，四个人都变聪明了</h3><p>有位 CEO 给我讲过一个故事，我觉得特别好。</p>
+<p>有一天，公司负责采购的经理给 CEO 列了 10 种商品，说计划采购这 10 种。这位经理，就是决定下周网店上架什么的那个人。CEO 自己没看，直接让他的智能体看。智能体说：同意其中 8 个。另外 2 个，根据我独立的调研，不应该上。CEO 把这个意见转给了采购经理。</p>
+<p>采购经理的智能体看了之后说：其中一个，我同意你的意见，不采购。另一个，我知道一个你不知道的数据，我有证据，我认为还是应该采购。CEO 的智能体一看，说：那好，我同意。</p>
+<p>两位人类只是在旁边看着，听了一下智能体的逻辑。但结果是：经理和他的智能体，CEO 和他的智能体，四方都变得比以前更聪明了。</p>
+<p>这只是一次日常互动。每一次这样的互动，大家都往前进步一点。所以有了智能体之后，这位 CEO 要求员工每天问自己两个问题：你有没有让系统变得更聪明？系统有没有让你变得更聪明？</p>
+<p>以前公司里谈组织学习、谈 SOP（标准作业流程），对员工来说很难落实。他们往往几十年如一日，干的还是那一套。有了智能体，情况完全不同。</p>
+<h3 id="反馈是怎么沉淀成默认的"><a href="#反馈是怎么沉淀成默认的" class="headerlink" title="反馈是怎么沉淀成默认的" data-stellar-navigation=""></a>反馈是怎么沉淀成默认的</h3><p>你今天说，这里处理得不好，应该这样处理。AI 不会立刻把这句话变成永久规则。它知道，那样就成了「翻手为云覆手为雨」。</p>
+<p>它会先把这件事记进反馈备忘录。过一两周，自己复盘：这段时间记下的冲突意见，能不能总结出规律，变成规则？然后来问你：这几条，我能不能写成永久规则？你说可以，它才写。你说没必要，那天只是临时起意，以后还按你的做法来，它就照旧。</p>
+<p>整条路径是四步：<strong>反馈变成记忆，记忆沉淀成规则，规则自动化成工具，工具最后变成默认。</strong></p>
+<h3 id="三条心得：信它、教它、分工"><a href="#三条心得：信它、教它、分工" class="headerlink" title="三条心得：信它、教它、分工" data-stellar-navigation=""></a>三条心得：信它、教它、分工</h3><p>关于怎么用智能体，我有三条心得。</p>
+<p>第一，相信迭代的力量。</p>
+<p>第二，给规则，不要只给事例。这很重要。只给案例不行，你得给规则，经常向它解释：这件事为什么这么干，而不是那么干。这样它才能理解，才能举一反三。以前我们以为，智能体旁观你做很多事，就熟悉你了，就知道该怎么做。其实不是这样。</p>
+<p>第三，要分工。多个智能体分工合作，就像秦二世胡亥，不能什么事都听赵高，你得自己有几个大臣。每个智能体，最好只干某一类事，你也不要只依赖一个。只依赖一个，对你不好，也不安全。</p>
+<p>这些智能体之间，可以互相合作。我大概有七八个常用的，它们之间经常说话。比如今天，一个找到了好选题，我说这是好选题，它就把选题交给下一个，让下一个帮我生成一份报告。有时它遇到问题，也会向另一个咨询。这些都是自动的。</p>
+<h3 id="机器人装上智能体，一下子变聪明了"><a href="#机器人装上智能体，一下子变聪明了" class="headerlink" title="机器人装上智能体，一下子变聪明了" data-stellar-navigation=""></a>机器人装上智能体，一下子变聪明了</h3><p>8 月，我去北京参加世界机器人大会，遇到一家机器人公司。他们的机器人干的事很简单：在酒店里给各个客房送货。坐电梯、开门、把东西送到。它没什么沟通功能。</p>
+<p>有意思的是，公司给每个机器人配了一个智能体，用一个高级 AI 模型来统一操控。结果这些机器人一下子都变聪明了。</p>
+<p>以前我们设想，手下有 15 个机器人，应该中央控制：今天安排这个干那个，明天安排那个干这个。但这家公司发现，最好的管理方法不是中央控制，而是给每个机器人自主性，让它们自己认领任务。</p>
+<p>他们建了一个类似微信群的群，有任务就往群里发。哪个机器人说「任务在 3 楼，我正好在 3 楼，这活我去」，就由它认领。它们互相商量，谁干谁干。</p>
+<p>有了自主决策能力，就要给它设定道德和制度。这家公司的 CEO 写了一份 10 条的机器人行为准则，也就是机器人的价值观。他还要求机器人每天向他汇报：今天践行了哪一条。就像小学生做好人好事。有机器人汇报说：我今天在过道里遇到一个行人向我走来，我礼让了行人，践行了价值观。</p>
+<p>而且这些机器人，会慢慢发展出像人一样的个性。</p>
+<p>比如，这位 CEO 和公司里另一个人，都在群里，都有给机器人发命令的权限，权限完全一样。但 CEO 发的命令多，那个人发的少。结果发现，机器人更愿意响应 CEO 的命令。两人同时发命令，机器人会优先完成 CEO 的。没有人教过它这样做。</p>
+<p>他们还给酒店门口和大堂的摄像头也装了智能体，带人脸识别。常来的客人一进大堂，摄像头就认出是谁。它在群里发一句：某某来了，是老客人，要不要派个人去打个招呼？有机器人就说：好，我去。机器人和摄像头就这样聊起来，自发地做事，不需要人干预。</p>
+<p>我还问了他一个问题。机器人坏了、退役了，换个新机器人，把旧的智能体装上去，这不就相当于智能体转世吗？</p>
+<p>他说，没那么简单。因为智能体用久了，会熟悉这个机器人的状况。比如，有个机器人右轮有问题，它的自我认同就是「我是一个右轮有问题的机器人」。它的记忆是：有些任务不适合我，因为我右轮有问题。换上新身体以后，它反而困惑了：不是我右轮有问题吗？怎么现在好了？它的身份认同就出了问题。</p>
+<p>一个只会在酒店里送货的简单机器人，接入智能体之后，就冒出这么多有意思的玩法。我真的觉得，智能体将会重塑我们的生活。你想想，如果这个房间有一个智能体，我们进来跟房间聊几句，它就能告诉你电视怎么接。</p>
+<h2 id="四、组织推不动，是架构问题"><a href="#四、组织推不动，是架构问题" class="headerlink" title="四、组织推不动，是架构问题" data-stellar-navigation=""></a>四、组织推不动，是架构问题</h2><p>上周我遇到一个做 FDE 的人。FDE 是前置部署工程师，进驻客户公司，帮对方落地 AI。他去了广西一家房地产公司，大约 300 人。</p>
+<p>他观察了一段时间，很快找到几个点。这几个流程，如果全交给 AI，而不是让员工做，每年至少能省 2000 万美元。</p>
+<p>CEO 很愿意。但员工全员抵制，没有一个人愿意把自己的工作交出去。为什么？可能是担心：你把我的技能抽走了，我就被切掉了。</p>
+<h3 id="员工不在乎公司效率高不高"><a href="#员工不在乎公司效率高不高" class="headerlink" title="员工不在乎公司效率高不高" data-stellar-navigation=""></a>员工不在乎公司效率高不高</h3><p>过去的组织以人为本，结果就是以流程为本。这样一来，除了 CEO，员工其实不在乎公司的效率高不高。公司盈不盈利，跟他们关系不大。</p>
+<p>人类员工干的大部分工作，只是流程中的一个环节。环节不出错，抓不到把柄，该升职升职，该加薪加薪，为什么要操心全局？所以没有一个员工愿意把自己的工作交给智能体。他们担心技能被「蒸馏」了，自己就被裁掉了。</p>
+<p>美国科技公司 Meta，因为 AI 能编程，裁了一些工程师。高峰时也就少了 10%，再往下就裁不动了。表面原因是，人得为结果背锅，不能裁完之后没人背锅。更深的原因是，流程和工作架构，还是以前的架构。</p>
+<p>以前，一个程序员只负责写一段代码，对软件的全局没有感知。真正智能体原生的组织，是让一个人直接负责一个软件，而不是一千个人写一个软件。</p>
+<p>现在的局面是：智能体完全可以接管一项工作，但每家公司的组织架构，还停在原来的样子。这就是为什么，大多数公司用 AI 减员增效，效果非常有限。</p>
+<h3 id="别改造旧部门，另起炉灶"><a href="#别改造旧部门，另起炉灶" class="headerlink" title="别改造旧部门，另起炉灶" data-stellar-navigation=""></a>别改造旧部门，另起炉灶</h3><p>未来以智能体为本，所以是以业务为本。真正智能体原生的公司，应该让智能体系统全盘考虑。这种情况下，可能只需要很少几个人负责。</p>
+<p>我的建议是，新建一个业务部门。这个部门一上来就是智能体原生，人为智能体服务：它需要什么资源，你去给它搞来。如果这个部门效率更好，它会慢慢替代老部门。</p>
+<p>路径依赖是改不掉的，只能另造一条新路径。</p>
+<h3 id="智能体原生之后，人还剩什么"><a href="#智能体原生之后，人还剩什么" class="headerlink" title="智能体原生之后，人还剩什么" data-stellar-navigation=""></a>智能体原生之后，人还剩什么</h3><p>如果一切都智能体原生了，人到底还剩什么？看最激进的公司就知道，比如 Anthropic（美国人工智能公司），它本身就是做 AI 的。</p>
+<p>我昨天听朋友说，Anthropic 有部分员工，已经开始把 Claude 视为神灵。不但有生命，而且有灵魂，像神一般。那么，你拥有这么强的 AI，又如此相信它，你还有什么活可干？</p>
+<p>我跟他们聊了一下。首先，他们工作的方法，已经不是以前那样了。不是完成一个环节、一个动作，而是直接认领任务。比如在 Slack（一款企业协作工具）里，领导贴出五件要做的事。每个部门说：这件我认领。</p>
+<p>认领之后，他根本不需要告诉 AI 具体怎么做，直接交给它。</p>
+<p>比如，有人看到一篇论文，讲一种更好的训练 AI 的方法。他不会先把论文读完，把方法拆解开，再告诉 AI 怎么做。最好的做法，是直接把论文扔给 AI，只说一句话：「这两天出了一个新的训练方法，你去给我做个测试，看看到底有没有效。」</p>
+<p>AI 自己读论文、抽方法、搭环境、开始跑。人在这个过程中干什么？只是把任务安排给 AI，几乎没有提供任何具体指导。</p>
+<p>我问他：你到底给 AI 输入了什么？他说，就两样东西。</p>
+<p>第一样，是公司的上下文和偏好。凡是形成文字、发在公司群里的，AI 都已经知道，不用再说。但有些东西只发生在会议室里，没有落成文字。还有私下聊天聊出来的偏好、方向，AI 也不知道。这些「默会」的东西，需要他来补上。</p>
+<p>第二样，是经验。他当了这么多年程序员，到某个时刻，还是能判断哪个方向更可能成功，哪个方向不可能。现在所有公司的算力都不够，Anthropic 也不够，研究员想做研究，算力都不够。资源有限，不可能每个方向都去探索。哪个方向值得探索，他觉得自己还是比 AI 强一点。</p>
+<p>他说，我干的就是这两件事，其他所有细节，全交给 AI。</p>
+<p>选方向和配资源，这件事很值钱。什么叫配资源？比如公司要推广一个新产品：是找主流媒体投广告，还是找几个网红来推？这个策略得人来定。不同的产品、不同的公司，答案不一样。</p>
+<p>具体到你家这个产品，该用什么策略？这取决于你对行业的深刻了解，包括对当前市场上消费者的了解：喜欢你们产品的人，会出现在哪里？这些东西，往往一两句话说不明白，是多年积累的一种感觉。</p>
+<p>说白了，就是品味。</p>
+<h2 id="五、人还剩下什么：品味，以及为结果负责"><a href="#五、人还剩下什么：品味，以及为结果负责" class="headerlink" title="五、人还剩下什么：品味，以及为结果负责" data-stellar-navigation=""></a>五、人还剩下什么：品味，以及为结果负责</h2><p>品味，现在是一个特别流行的词。</p>
+<p>7 月，硅谷开了一次亚裔著名科学家大会，陶哲轩去了。我的一个朋友在现场。宴会吃饭的时候，朋友问陶哲轩：你在报告里说，人还可以提供品味。在你看来，AI 的品味有没有可能超过人？有没有哪个时刻，你觉得 AI 也有了好品味？</p>
+<p>陶哲轩说没有。他说，人的品味总是更好。</p>
+<p>这就引出一个问题：品味和智能，好像是两件事。</p>
+<h3 id="品味的三个层次"><a href="#品味的三个层次" class="headerlink" title="品味的三个层次" data-stellar-navigation=""></a>品味的三个层次</h3><p>品味有三个层次。</p>
+<p>第一层，知好坏。两瓶红酒，一瓶 200 美元，一瓶 25 美元，你能不能喝出哪瓶该贵？有人说，红酒就是主观感觉，我觉得好喝就是好喝。不是的。好东西，你能说出它好在哪里。它不完全客观，但有一定的客观成分。</p>
+<p>第二层，判高下。为什么这部电影比那部好？为什么这句话这么说，比那么说好？你得能区分出来。</p>
+<p>第三层，也是最厉害的，是判断方向：哪个方向值得你去投入。</p>
+<p>关键的一点是：如果你向外看，以旁观者的角度判断好坏，那是客观的事，AI 也能学会。比如下围棋，这一步走这里，还是走那里，AI 的感觉远远超过人。胜率就摆在那里，走这里高，走那里低，你没法跟 AI 争论。这种品味，你得听它的。</p>
+<p>但审美，你不能问 AI。因为审美是人向内看，跟人的成长、个人经历有关。同样是油画，有时这幅突然让你产生强烈的共鸣，那幅却没有。可能是因为这幅让你想起了小时候的一段记忆，跟你的身份认同有关。</p>
+<h3 id="为什么人有品味，AI-没有"><a href="#为什么人有品味，AI-没有" class="headerlink" title="为什么人有品味，AI 没有" data-stellar-navigation=""></a>为什么人有品味，AI 没有</h3><p>已故哲学家丹尼尔·丹尼特（Daniel Dennett）有个学生，是企业家，也喜欢写文章。他上周刚发表了一篇哲学论文，论证为什么 AI 不能有品味。</p>
+<p>他的思路是这样的。</p>
+<p>有些问题是智能问题。比如，明天会不会下雨？围棋这时候走哪里好？这类问题，是在给定的限制条件下求解，说白了就是解方程。AI 能学会。</p>
+<p>但有些问题不是求解问题。比如，你既喜欢喝酒，又想长寿，两者之间要取舍。你并不是越长寿越好。有人会说：我虽然只活 60 多岁，但生活质量高，我活爽了。</p>
+<p>问题在于，喝酒的爽度和寿命，是两个变量，没法直接换算。我爽一晚上，等于损失几天寿命？没有固定标准。所以这不是智能问题。</p>
+<p>你是碳基生物。这件事给你的感觉更强烈，还是那件事给你的感觉更强烈，AI 永远不能替你做决定。同样的事，别人觉得可以忍受，你可能忍受不了。比如一份冗长、重复的工作，有人觉得：我每天就干这点活，也不用想，拿一份稳定的工资，挺好。你可能觉得，这种日子一天都过不下去。</p>
+<h3 id="为什么资源分配得由人来做"><a href="#为什么资源分配得由人来做" class="headerlink" title="为什么资源分配得由人来做" data-stellar-navigation=""></a>为什么资源分配得由人来做</h3><p>那为什么资源分配得由我来做？首先，这个资源是我的，而且是有限的。更重要的是，只有人才能体会到生命有限。</p>
+<p>AI 每时每刻都活在当下。你调用一次模型，这句话和你的下一句话，可能运行在不同的服务器上，是同一个模型的不同版本。它没有时间感，不会说「我运行了一段时间，机器有点老化了」，也不会觉得今天的电不一样。对它来说，一切都一样。</p>
+<p>只有人会累，会饿，会衰老，所以人会非常不耐烦。我们之所以这样，是因为有时间感：生命有限，每天都在衰老，面临死亡，只能活这么多年。「我没有时间跟你们玩这种事。」</p>
+<p>这是人和 AI 最主要的区别。</p>
+<h3 id="要为结果负责，不要只为环节负责"><a href="#要为结果负责，不要只为环节负责" class="headerlink" title="要为结果负责，不要只为环节负责" data-stellar-navigation=""></a>要为结果负责，不要只为环节负责</h3><p>归根到底，每个人都该问自己：你到底是在为一个结果负责，还是只是在做一个中间环节？</p>
+<p>只做中间环节的岗位很脆弱。为结果负责的位置是稳定的，因为谁也没法追责一个 AI。我相信，人的这种能力会很值钱。</p>
+<p>心理学家把人的性格分成五类，也就是所谓的「大五人格」，其中一项叫尽责性。尽责性，就是你交给他一件事，他非要把它做好不可。这样的人，在职场里本来就最受欢迎。有了 AI，他会更受欢迎。因为智力上的不足，AI 可以补充；负责到底，AI 补不了。</p>
+<p>所以他会积累声望。比如公司里说：小王这个人特别可靠，交给小王的事，他一定能办好。那么小王的价值会更高。</p>
+<p>那以前的小李呢？小李很聪明，办事快，但有时毛毛躁躁，顾前不顾后。像小李这样的人，价值会下降。</p>
+<h2 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语" data-stellar-navigation=""></a>六、结语</h2><p>每个人都有各自的智能体，每个智能体做各自的事。但它们背后用的，是同一个通用模型。</p>
+<p>说白了，剩给人的，就是三件事：<strong>想清楚要什么，决定把有限的资源押在哪个方向，为最后的结果负责。</strong></p>
+<p>当未来的工作流由智能体驱动，你的公司在不在这个方向上进化？</p>
+<p>回到开头的问题：未来的公司，由人驱动，还是由智能体驱动？我的看法是，干活的会是智能体，决定干什么、为结果负责的，仍然是人。</p>
+<p>那份世界杯赛程表，我只交代了一个目标，剩下的它全办完了。但「我要一份什么样的赛程表」，这一句话，只能由我来说。</p>
+<h1 id="热点新闻"><a href="#热点新闻" class="headerlink" title="热点新闻" data-stellar-navigation=""></a>热点新闻</h1><p>1、<a target="_blank" rel="noopener" href="https://www.pv-magazine.com/2026/09/29/solar-surpasses-nuclear-power-globally-for-first-time/" title="Solar surpasses nuclear power globally for first time" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>2025 年，太阳能发电量首次超过核电</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261019024603510.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1024" height="961" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[21.8941,42.7472,36.8609,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261019024603510.png"></p>
+<p>世界核工业现状报告（WNISR）2026 显示，2025 年全球太阳能发电量<strong>首次超过核电</strong>：太阳能发电猛增 30%，核电仅增长 1.1%，且增量几乎全靠中国。装机差距更悬殊——光伏一年新增 <strong>510 GW</strong>（IEA 口径甚至约 690 GW），核电净增仅 <strong>1.5 GW</strong>。核电占全球发电量的份额降至 8.8%，为 45 年来最低。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://newatlas.com/computers/super-mouse-touchscreen/" title="'Production-boosting' mouse sports its own touchscreen" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>鼠标上装了一块触摸屏：效率神器还是又一个屏幕</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101234811616.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="800" height="533" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[21.8327,11.9322,32.3866,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101234811616.png"></p>
+<p>硬件厂商 Arctic Fox 在 Kickstarter 上众筹 <strong>Super Mouse</strong>：重 95 克，顶面嵌一块 <strong>3.1 英寸</strong>触摸屏，显示日期、时间和可自定义快捷方式，还能识别电脑上当前打开的应用并切换对应快捷键组，双击可变成触控板，支持 <strong>90 多种语言</strong>的离线语音听写。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101234831618.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="800" height="533" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[25.5289,18.6653,14.3813,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101234831618.png"></p>
+<p>代价也明确：<strong>不支持无线</strong>，只能靠 USB-C 连接；众筹价 199 美元，预计 2027 年 2 月发货。至于到底省多少时间，作者的原话是「并不清楚，但听起来挺酷的」。</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://newatlas.com/around-the-home/heatbit-bitwater-water-heater-bitcoin-miner/" title="Bitcoin-mining smart rod makes you money while heating your home water" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>挖矿电热棒：热水器一边烧水一边挖比特币</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235102203.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="800" height="533" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[211.0066,3.8057,10.1548,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235102203.png"></p>
+<p>Heatbit 的新产品 Bitwater 是一根装在你现有电热水器里的加热棒：拧进标准的 <strong>1 英寸</strong>螺纹接口，连上 Wi-Fi 就开始工作——棒内 <strong>20 颗 BM1370</strong> ASIC 芯片（最高 600 W、算力 34 TH/s）一边挖比特币，一边用处理器的热量烧水。</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235125323.png" alt="该元件配合一个应用，用于监控温度和算力、安排挖矿以及接收活动通知" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="800" height="469" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[203.4101,7.4478,76.1725,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235125323.png"><div class="image-meta"><span class="image-caption center">该元件配合一个应用，用于监控温度和算力、安排挖矿以及接收活动通知</span></div></div>
+<p>App 可以监控温度、算力和收益，还能学习你的用热水时间提前备好热水。第一批售价 <strong>899 美元</strong>（后续 1299 美元），2027 年一季度发货；至于收益，官方引用的是每天 <strong>1.35 美元</strong>的 AI 测算——还没扣电费，而普通加热棒在亚马逊上只卖约 180 美元。</p>
+<hr>
+<p>4、<a target="_blank" rel="noopener" href="https://www.bbc.com/zhongwen/articles/cw0k023x733lo/simp" title="币安63亿美元黑客攻击事件" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>币安 63 亿美元黑客案：从一台工程师笔记本开始</a></p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235659714.png" alt="币安（Binance）是全球最大的加密货币交易所。据该公司称，截至2026年年中，其交易量约占整体加密货币市场的35%至36%。" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="800" height="449" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[48.5333,19.273,18.3317,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101235659714.png"><div class="image-meta"><span class="image-caption center">币安（Binance）是全球最大的加密货币交易所。据该公司称，截至2026年年中，其交易量约占整体加密货币市场的35%至36%。</span></div></div>
+<p>币安称 <strong>63 亿美元</strong>数字资产在一次黑客攻击中受影响，可能是史上最大规模的同类事件；约一半已被冻结，公司承诺动用 SAFU 基金承担所有损失、<strong>45 小时后恢复提现</strong>。</p>
+<p>初步调查显示事件可能始于一台被入侵的<strong>工程师笔记本电脑</strong>——攻击者没有破解加密、也没有窃取私钥，而是控制了指示密钥签署的系统，「几分钟内」转移数十亿。</p>
+<p>两家分析公司将矛头指向朝鲜黑客组织 TraderTraitor，但这一关联尚未证实。</p>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/stock/t/2026-10-29/doc-iniwwaxa2909825.shtml" title="微软向6万名员工开放离职买断，预估仅有不到 3000 人会参与" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>微软向 6 万名员工开放买断，预估不到 3000 人会接</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102000543475.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="660" height="283" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[336.9766,8.2632,83.6669,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102000543475.png"></p>
+<p>微软向约 <strong>6 万名</strong>员工推出自愿离职买断补偿方案，覆盖超过四分之一的公司员工，但官方预估最终接受者<strong>不超过 3000 人</strong>（约 5%）。CFO 艾米·胡德在季度财报内部备忘录中解释：方案意在给有离职想法的员工提供自主选择离职方式的渠道，综合考量公司现有职业发展条件，预判接受人数会处于较低水平。对比今年早些时候约<strong>三分之一</strong>符合资格员工接受的自愿退休补偿计划，这次预计参与的人会更少。</p>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章" data-stellar-navigation=""></a>文章</h1><p>1、<a target="_blank" rel="noopener" href="https://github.com/xdash/FDE-the-Guidance-Book-of-Forward-Deployed-Engineer" title="FDE（前沿部署工程师）从零入门指南（基于范冰《增长黑客》原书框架）" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>FDE（前沿部署工程师）从零入门指南（基于范冰《增长黑客》原书框架）</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261025080350282.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1483" height="869" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[135.4745,11.8793,6.9736,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261025080350282.png"></p>
+<p>《增长黑客》作者范冰开源了一本关于「前线部署工程师」（FDE）的新书。</p>
+<p>出发点是一个反差：MIT NANDA 报告称企业生成式 AI 项目 <strong>95%</strong> 没有产生财务价值，而 FDE 岗位发布量<strong>一年涨了七倍多</strong>——OpenAI、Anthropic 都在抢人。全书回答三件事：FDE 是什么、从找对问题到规模化复制的完整交付方法、以及 <strong>165 个</strong>真实可查的国内外案例。全文免费公开，另有持续更新的在线案例库。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://letters.thedankoe.com/p/the-influencer-is-dead-the-age-of" title="The influencer is dead. The Age of Experience is here." data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>网红已死，创作者的出路是「工匠」</a>（英文）</p>
+<p>Dan Koe 在 2026 年 10 月 20 日的文章里，把社交媒体创作者分成三类：为注意力优化的网红、为转化优化的个人品牌，以及<strong>用社交媒体养一套作品的工匠</strong>。他认为，当任何人都能用 AI 在 10 秒内生成 1500 字，<strong>唯一难以复制的护城河是个人观点</strong>，未来属于工匠。</p>
+<hr>
+<p>3、<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iI9uVDF0R4s" title="Chamath：我如何为人工智能革命做准备" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Chamath：我如何为人工智能革命做准备</a>（英文、视频）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261025084437027.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="435" height="303" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[39.2589,3.461,53.0187,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261025084437027.png"></p>
+<p>Chamath Palihapitiya 把 AI 比作一场即将到来的<strong>海啸</strong>，但他反对单纯悲观：长期看 AI 创造的工作会远多于它消灭的，只是岗位类型会彻底改变。他的应对是打造一套个人化的**「生活模型」**——在通用大模型之上持续维护多个微型智能体：谈判用的「纳什均衡智能体」、蒸馏商业与心理学经典的「心理滤镜」、做蒙特卡洛模拟的资产管理智能体。</p>
+<p>核心信仰是<strong>人类的价值在于品味与判断</strong>；他最重要的财务规则是不欠债，因为那等于保住完整的人生选择权。</p>
+<hr>
+<p>4、<a target="_blank" rel="noopener" href="https://thelastsoftwareengineer.substack.com/p/we-probably-cannot-automate-the-software" title="We probably cannot automate the software engineer away" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 写完全部代码，还是得有人处理那些鸭子</a>（英文）</p>
+<p>卡内基梅隆大学软件工程课的助教 Shrey Tiwari，在 2026 年这个学期用 AI 代理做了一个批改手写课堂答题纸的程序，<strong>自己一行代码没写</strong>，却在学生的真实答卷面前（有人画了鸭子替自己作答）一次次发现自己没想到的假设。他的结论：<strong>软件工程剩下的，就是发现并处理「未知的未知」</strong>，而 AI 没法自动化它从未被告知的东西。</p>
+<hr>
+<p>5、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MjM5ODMzMDMyMw==&amp;mid=2654912867&amp;idx=2&amp;sn=ca0eafe6bc4de656ed8518a237007cdd" title="教别人用AI，我赚翻了" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>教别人用 AI 的人：9.9 元的教程到 30 万的企业培训</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101163232707.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1080" height="607" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[176.5747,0.8427,63.0272,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101163232707.png"></p>
+<p>AI 正在让技能变得廉价，「教别人用 AI」却成了一门跨度极大的生意：从闲鱼上 <strong>9.9 元</strong>、半年卖出上万份的教程，到单堂收费 <strong>30 万元</strong>的企业培训。新周刊采访了五位培训者——编导、律师、心理咨询师、AIGC 导演和兼职做教程的行政——他们卖的不只是操作知识，更是<strong>行业经验、接单资源和一两年内的时间窗口</strong>。</p>
+<hr>
+<p>6、<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/full/10.1145/3706598.3713778" title="The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>生成式 AI 正在稀释批判性思维吗？319 名知识工作者的自我报告</a>（英文）</p>
+<p>这篇 CHI 2025 论文调查了 <strong>319 名</strong>知识工作者使用生成式 AI 的 <strong>936 个</strong>真实工作案例，发现一个关键关联：<strong>对 AI 的信心越高，批判性思维越少；对自己的信心越高，批判性思维越多</strong>。</p>
+<p>多数受访者感到 AI 降低了各层级认知活动的费力程度，批判性思维的重心从动手执行转向了<strong>核实信息、整合回应和照管任务</strong>——效率提升了，但研究者警告，只在低风险任务上依赖 AI、缺乏日常练习，判断力可能悄悄萎缩。</p>
+<hr>
+<p>7、<a target="_blank" rel="noopener" href="https://felixrieseberg.com/hunger-beats-tenure-advice-for-junior-engineers/" title="Hunger beats tenure: Advice for junior engineers" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>Anthropic 面试官：编码面试已死，渴望胜过资历</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101165755576.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1000" height="477" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[37.1102,27.2856,59.4859,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101165755576.png"></p>
+<p>Anthropic 招聘经理 Felix Rieseberg 这个月<strong>停掉了传统编码面试</strong>——出 React 小题和考汇编一样没意义了，这两样 Claude 都已经比人强。</p>
+<p>他的观察是：AI 让执行不再昂贵，影响力的上限越来越不由<strong>积累了多少年框架经验</strong>决定，初级工程师反而能凭新人的「无知」优势绕过组织的旧共识。</p>
+<p>他给没有社会资本和地位的工程师的建议只有几步：绑定业务目标，挑一个激进想法，<strong>用一个周末做出原型</strong>。</p>
+<hr>
+<p>8、<a target="_blank" rel="noopener" href="https://x.com/jsnnsa/status/2115623382721126826" title="How I Built the Most AI-Pilled Company in the World" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>10 个人、月烧 310 万美元 token 的公司怎么运转</a>（英文）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101171244233.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="680" height="272" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[154.3496,16.1986,5.0725,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261101171244233.png"></p>
+<p>Spawn 只有 10 个人，上月在 AI token 上花了 <strong>310 万美元</strong>——是工资的 30 倍；30 天向玩家交付 7.7 万个实质改动，平均每小时 108 个，回滚率仅 <strong>0.9%</strong>。常驻智能体「fleet」各自拥有公司的一块，直接改生产代码、每小时发布，连 CEO 的品味也被写成原则交给「AI 评委」——8 天里裁决 1.1 万个问题，只有 <strong>27 个</strong>等本人拍板。前提同样鲜明：这套打法目前只在 Anthropic 的 Fable 上成立。</p>
+<hr>
+<p>9、<a target="_blank" rel="noopener" href="https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/" title="The AI cost of JavaScript frameworks" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 写代码的时代，该用哪个 JS 框架？他跑了 60 次实测</a>（英文）</p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102001022645.png" alt="这个应用相当简单：你会看到一份宝可梦列表，包含它们的属性、招式以及来自各种游戏的数据。你可以搜索、筛选等" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1140" height="1001" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[349.2082,17.5936,88.477,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102001022645.png"><div class="image-meta"><span class="image-caption center">这个应用相当简单：你会看到一份宝可梦列表，包含它们的属性、招式以及来自各种游戏的数据。你可以搜索、筛选等</span></div></div>
+<p>Nolan Lawson 受够了前端界「凭感觉选框架」，写了一个基准测试：让 Claude Opus 5.5 用 <strong>12 个</strong>框架各构建 5 次同一个宝可梦应用，再用规格测试防作弊、Lighthouse 评分验收。结果：Hono+htmx 最便宜（ <strong>$2.67</strong> ）、最快、代码最少（ <strong>1370 行</strong> ）；SvelteKit、Gracile+Lit、Angular 最贵，Angular 有两次没做出能跑的应用。MPA 全面优于 SPA，他还怀疑眼下这批 MCP/skills 插件<strong>可能是帮倒忙的</strong>。</p>
+<h1 id="好奇星人"><a href="#好奇星人" class="headerlink" title="好奇星人" data-stellar-navigation=""></a>好奇星人</h1><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ySsEn56uhTMu4QqNJ5Uqhw" title="喝蟑螂粉，能让我实现薄肌吗 | 答案如下" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>喝蟑螂粉能练出薄肌吗</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/imgc5189a52abc198c395da32e17d01e722.jpg" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1280" height="853" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[32.0477,17.0059,35.1417,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/imgc5189a52abc198c395da32e17d01e722.jpg"></p>
+<p>蟑螂粉被不少健身博主当成「高蛋白神物」，但真相是：<strong>粗蛋白含量高不等于能被吸收</strong>——外骨骼的几丁质人体消化酶很难分解，真正能用于增肌的蛋白质大打折扣。</p>
+<p>更关键的是，美洲大蠊尚未列入国家药食同源目录，市售蟑螂粉多属农副产品，<strong>缺乏常规食品安全监管</strong>。</p>
+<p>真正合规的是提纯制成的康复新液，与直接粉碎的「干粉」完全是两条工艺路径。</p>
+<hr>
+<p>2、<a target="_blank" rel="noopener" href="https://www.ifanr.com/1686650" title="为什么新模型发布，都要先做一个游戏？" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>为什么新模型发布，都要先做一个游戏？</a></p>
+<p>模型发布后的传统节目是跑分，现在越来越多人选择让它<strong>做一款游戏</strong>。它流行的原因在于不需要解释。空间关系是否合理、代码有没有正确变成图像，一眼就能看见。</p>
+<p>爱范儿梳理了这个变化：从 Simon Willison 的「鹈鹕测试」（鹈鹕骑自行车的 SVG，一眼就能看见好坏）到单提示词 FPS、RTS 和城市游戏——游戏同时考察代码生成、空间理解、状态管理、物理规则和交互反馈，还会暴露「零散功能没接起来」的问题。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003652067.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="720" height="360" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[158.174,17.1081,87.8511,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003652067.png"></p>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003752881.png" alt="▲ 由 Claude Chat 制作的 RTS 游戏 Eberwick，左为初代 Fable 5 制作，右边为 Opus 5.5 优化后版本。图片来源：simonwillison.net" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="720" height="235" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[219.4508,8.2169,36.2059,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003752881.png"><div class="image-meta"><span class="image-caption center">▲ 由 Claude Chat 制作的 RTS 游戏 Eberwick，左为初代 Fable 5 制作，右边为 Opus 5.5 优化后版本。图片来源：simonwillison.net</span></div></div>
+<div class="tag-plugin image"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003820515.png" alt="▲ 三维城市游戏 Neon Palms 场景图" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="720" height="405" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[193.6053,16.6409,42.2696,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img20261102003820515.png"><div class="image-meta"><span class="image-caption center">▲ 三维城市游戏 Neon Palms 场景图</span></div></div>
+<p>但演示视频也遮住了真实成本：《Neon Palms》实际跑了 <strong>69 次</strong>、约 35 小时、估算 <strong>1512 美元</strong>；GameCraft-Bench 上最强 Agent 的完成度只有 <strong>41.46%</strong> 。</p>
+<h1 id="言论"><a href="#言论" class="headerlink" title="言论" data-stellar-navigation=""></a>言论</h1><p>1、</p>
+<blockquote>
+<p>好的产品中带着制造者的一部分：他们的经验、在乎的东西，以及他们认为事情该如何运转的判断。</p>
+<p>一个功能单独看运转良好，却仍然会让产品变得更糟。</p>
+<p>我想感受到软件背后的创造者，而不是流水线产品。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://karrisaarinen.com/posts/someone-behind-the-software/" title="Someone behind the software" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>软件背后的人，正在被流水线稀释</a>（英文）</p>
+<p>2、</p>
+<blockquote>
+<p>尽管在人工智能上投入巨大、炒作广泛，但这项技术对科技行业以外的美国企业几乎没有带来任何财务回报。</p>
+<p>AI 不理解责任、信任、文化、不成文的规则、伦理权衡或公平……而这些都会影响声誉风险，最终左右营收增长和利润率。</p>
+<p>结论很明确：AI 的故事将由标普 493 决定，而不是科技七巨头——目前没有任何证据表明科技行业之外的营收增长或利润率在改善。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" title="No Signs of AI Payoff Outside the Tech Sector" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 红利只在科技七巨头，其余企业颗粒无收</a>（英文）</p>
+<p>3、</p>
+<blockquote>
+<p>当 AI 替学生写作业、又替老师打分时，大学就只剩下形式——没有活人，只有机器在空转。</p>
+<p>「思维外包」已经成为新自由主义大学的一个特点，而非一个缺陷。</p>
+<p>从学生的角度看，使用人工智能是对大学空洞现象的审慎且理性的回应。</p>
+<p>大型语言模型的出现就像催化剂一样，逐渐消除了一直存在的不连贯性。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://theconversation.com/friday-essay-ai-is-devastating-higher-education-but-the-system-was-already-broken-292988" title="Friday essay: AI is devastating higher education – but the system was already broken" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>AI 不是大学的病，只是催化剂</a>（英文）</p>
+<p>4、</p>
+<blockquote>
+<p>好开发者对智能体式开发保持谨慎，是因为他们知道：能 build 出来，不等于能在生产环境跑。</p>
+<p>当没有人有用这种方式构建系统的经验时，我们能对一个系统抱有多大信任？</p>
+<p>预发环境不过是一台被美化的笔记本电脑。只有生产环境才是生产环境。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://martinfowler.com/rachels-ramblings/good-devs-wary.html" title="Why are good developers so wary of agentic development?" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>好开发者为何对智能体式开发心存警惕</a>（英文）</p>
+<p>5、</p>
+<blockquote>
+<p>写作是我们拥有的最接近人类思想的东西。写作就是思考。</p>
+<p>现在越来越多的问题是：AI 完美地执行了任务，结果却和我们脑中的不一样。但这是一个沟通问题，一个表达问题。</p>
+<p>代码其实是一种抽象，和绘画一样——它是一次执行，一份摹本，一种再现。</p>
+<p>准确度是射点离靶心有多近，精确度是射点彼此之间有多近。用 AI 构建时我们想要的是准确度，而没有什么比写作更能击中你脑中的靶心。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://danielmiessler.com/blog/writing-is-closer-to-thought-than-code" title="Writing Is Closer to Thought Than Code" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>写作比代码更接近思想</a>（英文）</p>
+<p>6、</p>
+<blockquote>
+<p>FORTRAN 和 COBOL 虽然本意是彻底消除对熟练程序员的需求，却产生了意想不到的效果：提升了他们的地位。</p>
+<p>机器吸收的是那些「做起来昂贵、检查起来便宜」的工作。保留下来的，是检查代价高昂的部分：做什么、对不对、有没有人想要。</p>
+</blockquote>
+<p>–<a target="_blank" rel="noopener" href="https://ethang.dev/blog/programming-is-not-a-skill/" title="Programming Is Not a Skill" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>编程不是技能：一段七十年历史的证词</a>（英文）</p>
+<h1 id="订阅"><a href="#订阅" class="headerlink" title="订阅" data-stellar-navigation=""></a>订阅</h1><p>这个周刊每个礼拜一发布，同步更新在<a href="https://www.wmyskxz.cn/" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>个人博客</a>和<a target="_blank" rel="noopener" href="https://weixin.sogou.com/weixin?type=1&amp;s_from=input&amp;query=wmyskxz&amp;ie=utf8&amp;_sug_=n&amp;_sug_type_=&amp;w=01019900&amp;sut=1861&amp;sst0=1612590375262&amp;lkt=8,1612590373961,1612590375161" data-md-link=""><span class="md-link-icon ui-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><g opacity=".5"><path d="M19.7388 4.26118C17.0572 1.57961 12.7095 1.57961 10.0279 4.26118L9.30707 4.98203C9.01418 5.27492 9.01418 5.7498 9.30707 6.04269C9.59997 6.33558 10.0748 6.33558 10.3677 6.04269L11.0886 5.32184C13.1844 3.22605 16.5823 3.22605 18.6781 5.32184C20.7739 7.41763 20.7739 10.8156 18.6781 12.9114L17.9573 13.6322C17.6644 13.9251 17.6644 14.4 17.9573 14.6929C18.2502 14.9858 18.725 14.9858 19.0179 14.6929L19.7388 13.972C22.4203 11.2905 22.4203 6.94276 19.7388 4.26118Z"></path><path d="M6.04269 9.30707C6.33558 9.59997 6.33558 10.0748 6.04269 10.3677L5.32184 11.0886C3.22605 13.1844 3.22605 16.5823 5.32184 18.6781C7.41763 20.7739 10.8156 20.7739 12.9114 18.6781L13.6322 17.9573C13.9251 17.6644 14.4 17.6644 14.6929 17.9573C14.9858 18.2501 14.9858 18.725 14.6929 19.0179L13.972 19.7388C11.2905 22.4203 6.94276 22.4203 4.26118 19.7388C1.57961 17.0572 1.57961 12.7095 4.26118 10.0279L4.98203 9.30707C5.27492 9.01418 5.7498 9.01418 6.04269 9.30707Z"></path></g><path d="M14.6933 9.30707C14.9862 9.59997 14.9862 10.0748 14.6933 10.3677L10.3682 14.6928C10.0753 14.9857 9.60045 14.9857 9.30756 14.6928C9.01467 14.3999 9.01467 13.9251 9.30756 13.6322L13.6327 9.30707C13.9255 9.01418 14.4004 9.01418 14.6933 9.30707Z"></path></g></svg></span>微信公众号</a></p>
+<p>微信搜索”我没有三颗心脏”或者扫描二维码，即可订阅。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="258" height="258" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[43.6232,1.4053,61.8842,1]}" data-stellar-image-source="https://wmyskxz-blog.oss-cn-chengdu.aliyuncs.com/img202211052051027.png"></p>
+</article>
+<div class="article-tags slide-up"><a class="tag" href="/tags/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A/"><svg class="icon" viewBox="0 0 1 1" data-icon="default:hashtag" aria-hidden="true"></svg>代码之外周刊</a></div>
+
+
+  <div class="article-share slide-up" id="share">
+    <div class="body">
+      <div class="social-wrap dis-select"><a class="social share-item qrcode ui-interactive is-icon-only" onclick="util.toggle(&quot;share-qrcode&quot;)" aria-label="分享文章: QR Code" title="分享文章: QR Code"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M10.553 13.447c-.424-.424-.95-.596-1.535-.675c-.553-.074-1.25-.074-2.086-.074H5.827c-.58 0-1.065 0-1.459.037c-.411.04-.795.124-1.146.34c-.345.21-.634.5-.845.844c-.216.352-.3.735-.34 1.147C2 15.459 2 15.944 2 16.525v.068c0 .884 0 1.597.055 2.17c.056.592.175 1.108.459 1.571c.288.47.682.864 1.152 1.152c.463.284.979.403 1.57.46C5.81 22 6.524 22 7.407 22h.07c.58 0 1.064 0 1.458-.037c.412-.04.795-.124 1.147-.34c.344-.21.633-.5.844-.844c.216-.352.3-.736.34-1.147c.037-.394.037-.879.037-1.46v-1.104c0-.836 0-1.533-.074-2.086c-.079-.584-.251-1.111-.675-1.535m-1.62-11.41c.412.04.795.124 1.147.34c.344.21.633.5.844.845c.216.351.3.735.34 1.146c.037.394.037.879.037 1.46v1.104c0 .836 0 1.533-.074 2.086c-.079.584-.251 1.111-.675 1.535s-.95.596-1.535.675c-.553.074-1.25.074-2.086.074H5.827c-.58 0-1.065 0-1.459-.037c-.411-.04-.795-.124-1.146-.34a2.56 2.56 0 0 1-.845-.844c-.216-.352-.3-.735-.34-1.147C2 8.54 2 8.056 2 7.475v-.068c0-.884 0-1.597.055-2.17c.056-.592.175-1.108.459-1.571c.288-.47.682-.864 1.152-1.152c.463-.284.979-.403 1.57-.46C5.81 2 6.524 2 7.407 2h.07c.58 0 1.064 0 1.458.037M16.593 2h-.068c-.58 0-1.065 0-1.46.037c-.41.04-.794.124-1.146.34c-.344.21-.633.5-.844.845c-.216.351-.3.735-.34 1.146c-.037.394-.037.879-.037 1.46v1.104c0 .836 0 1.533.074 2.086c.079.584.251 1.111.675 1.535s.95.596 1.535.675c.553.074 1.25.074 2.086.074h1.105c.58 0 1.065 0 1.459-.037c.411-.04.795-.124 1.146-.34c.345-.21.634-.5.845-.844c.216-.352.3-.735.34-1.147C22 8.54 22 8.056 22 7.475v-.068c0-.884 0-1.597-.055-2.17c-.056-.592-.175-1.108-.459-1.571a3.5 3.5 0 0 0-1.152-1.152c-.463-.284-.979-.403-1.57-.46C18.19 2 17.477 2 16.594 2" opacity=".5"></path><path fill="currentColor" d="M14.093 21.302a.698.698 0 1 1-1.396 0v-2.79h1.396z" opacity=".4"></path><path fill="currentColor" d="M21.302 12.698a.7.7 0 0 0-.697.697v3.256H22v-3.256a.7.7 0 0 0-.698-.697" opacity=".5"></path><path fill="currentColor" d="M16.076 16.617c-.076.184-.076.417-.076.883s0 .699.076.883a1 1 0 0 0 .541.54c.184.077.417.077.883.077s.699 0 .883-.076a1 1 0 0 0 .54-.541c.077-.184.077-.417.077-.883s0-.699-.076-.883a1 1 0 0 0-.541-.54C18.199 16 17.966 16 17.5 16s-.699 0-.883.076a1 1 0 0 0-.54.541"></path><path fill="currentColor" d="M22 18.535v-.023h-1.396c0 .443 0 .74-.016.97c-.015.224-.043.333-.073.405a1.16 1.16 0 0 1-.629.63c-.072.029-.18.056-.405.072c-.23.015-.527.016-.97.016h-1.86V22h1.883c.414 0 .759 0 1.042-.02a2.6 2.6 0 0 0 .844-.175a2.56 2.56 0 0 0 1.384-1.384c.112-.27.156-.549.176-.844c.02-.283.02-.628.02-1.042" opacity=".7"></path><path fill="currentColor" d="M12.697 16.616v.035h1.396c0-.668 0-1.116.035-1.458c.034-.33.093-.482.16-.583a1.2 1.2 0 0 1 .321-.32c.101-.068.254-.128.584-.161c.342-.035.79-.036 1.458-.036h1.86v-1.395h-1.896c-.623 0-1.142 0-1.563.043c-.44.044-.85.142-1.218.388c-.28.187-.519.426-.706.706c-.246.368-.343.777-.388 1.217c-.043.421-.043.94-.043 1.564" opacity=".6"></path><path fill="currentColor" d="M5.508 18.69c.219.155.528.155 1.146.155c.619 0 .928 0 1.146-.155a.8.8 0 0 0 .2-.199c.154-.218.154-.527.154-1.146s0-.927-.155-1.146A.8.8 0 0 0 7.8 16c-.218-.155-.527-.155-1.146-.155s-.927 0-1.146.155a.8.8 0 0 0-.199.2c-.155.218-.155.527-.155 1.145c0 .619 0 .928.155 1.146a.8.8 0 0 0 .2.2M6.654 8.155c-.618 0-.927 0-1.146-.155a.8.8 0 0 1-.199-.2c-.155-.217-.155-.527-.155-1.145c0-.619 0-.928.155-1.146a.8.8 0 0 1 .2-.2c.218-.154.527-.154 1.145-.154c.619 0 .928 0 1.146.155a.8.8 0 0 1 .2.199c.154.218.154.527.154 1.146s0 .928-.155 1.146A.8.8 0 0 1 7.8 8c-.218.155-.527.155-1.146.155M16.2 8c.218.155.527.155 1.146.155s.927 0 1.146-.155a.8.8 0 0 0 .199-.199c.155-.218.155-.528.155-1.146c0-.619 0-.928-.155-1.146a.8.8 0 0 0-.2-.2c-.218-.154-.527-.154-1.145-.154c-.619 0-.928 0-1.146.155a.8.8 0 0 0-.2.199c-.154.218-.154.527-.154 1.146s0 .928.155 1.146A.8.8 0 0 0 16.2 8"></path></svg></span></a><a class="social share-item weibo ui-interactive is-icon-only" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F&amp;title=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20192%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;pics=https%3A%2F%2Fwmyskxz-blog.oss-cn-chengdu.aliyuncs.com%2Fimg20261101161554681.png&amp;summary=%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E6%9E%84%E5%BB%BA%E4%B8%96%E7%95%8C%EF%BC%8C%E4%BD%86%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E4%B9%90%E8%B6%A3%E8%BF%9C%E4%B8%8D%E6%AD%A2%E4%BA%8E%E6%AD%A4%E3%80%82%E8%BF%99%E9%87%8C%E6%98%AF%E6%88%91%E4%B8%80%E5%91%A8%E7%9A%84%E7%B2%BE%E9%80%89%E3%80%82%0A%E5%91%A8%E5%88%8A%E5%BC%80%E6%BA%90%EF%BC%88Github%EF%BC%9Awmyskxz%2Fweekly%EF%BC%89%EF%BC%8C%E6%AC%A2%E8%BF%8E%E6%8F%90%E4%BA%A4%20issue%EF%BC%8C%E6%8A%95%E7%A8%BF%E6%88%96%E6%8E%A8%E8%8D%90%E7%B2%BE%E5%BD%A9%E5%86%85%E5%AE%B9%E3%80%82%0A%E9%A2%98%E5%9B%BE%0A%E5%86%B0%E5%B7%9D%E8%80%83%E5%8F%A4%E5%9B%A2%E9%98%9F%20Secrets%20of%20the%20Ice%20%E5%9C%A8%E6%8C%AA%E5%A8%81%E4%B8%9C%E9%83%A8..." target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Weibo" title="分享文章: Weibo"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439l-.002.004zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.18.601l.014-.028zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.57-.18-.405-.615.375-.977.42-1.804 0-2.404-.781-1.112-2.915-1.053-5.364-.03 0 0-.766.331-.571-.271.376-1.217.315-2.224-.27-2.809-1.338-1.337-4.869.045-7.888 3.08C1.309 10.87 0 13.273 0 15.348c0 3.981 5.099 6.395 10.086 6.395 6.536 0 10.888-3.801 10.888-6.82 0-1.822-1.547-2.854-2.915-3.284v.01zm1.908-5.092c-.766-.856-1.908-1.187-2.96-.962-.436.09-.706.511-.616.932.09.42.511.691.932.602.511-.105 1.067.044 1.442.465.376.421.466.977.316 1.473-.136.406.089.856.51.992.405.119.857-.105.992-.512.33-1.021.12-2.178-.646-3.035l.03.045zm2.418-2.195c-1.576-1.757-3.905-2.419-6.054-1.968-.496.104-.812.587-.706 1.081.104.496.586.813 1.082.707 1.532-.331 3.185.15 4.296 1.383 1.112 1.246 1.429 2.943.947 4.416-.165.48.106 1.007.586 1.157.479.165.991-.104 1.157-.586.675-2.088.241-4.478-1.338-6.235l.03.045z"></path></svg></span></a><a class="social share-item x ui-interactive is-icon-only" href="https://x.com/intent/tweet?text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20192%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: X" title="分享文章: X"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"></path></svg></span></a><a class="social share-item telegram ui-interactive is-icon-only" href="https://t.me/share/url?url=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F&amp;text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20192%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: Telegram" title="分享文章: Telegram"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"></path></svg></span></a><a class="social share-item whatsapp ui-interactive is-icon-only" href="https://wa.me/?text=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20192%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2%0Ahttps%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F" target="_blank" rel="external nofollow noopener noreferrer" aria-label="分享文章: WhatsApp" title="分享文章: WhatsApp"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Simple Icons - https://creativecommons.org/publicdomain/zero/1.0/ --><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"></path></svg></span></a><a class="social share-item email ui-interactive is-icon-only" href="mailto:?subject=%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC%20192%20%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2%20-%20%E6%88%91%E6%B2%A1%E6%9C%89%E4%B8%89%E9%A2%97%E5%BF%83%E8%84%8F%E7%9A%84%E5%8D%9A%E5%AE%A2&amp;body=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F" aria-label="分享文章: Email" title="分享文章: Email"><span class="share-item__icon ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828C4.343 20 6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172C22 17.657 22 15.771 22 12s0-5.657-1.172-6.828C19.657 4 17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172m15.404 2.348a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.739-1.605 1.338-2.24 1.746-.66.424-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.576a.75.75 0 1 1 .96-1.152l2.159 1.799c.933.777 1.58 1.315 2.128 1.667.529.34.888.455 1.233.455s.704-.115 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd"></path></svg></span></a></div>
+      <div class="share-qrcode" id="share-qrcode" style="opacity:0;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&amp;data=https%3A%2F%2Fwww.wmyskxz.cn%2Fweekly%2F192%2F" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></div>
+    </div>
+  </div>
+
+<div class="article-footer slide-up">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section></div>
+
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章 <svg class="icon" viewBox="0 0 1 1" data-icon="default:arrow-right" aria-hidden="true"></svg></div><a href="/weekly/191/" data-stellar-navigation="">代码之外周刊（第 191 期）：先别急着给人生下结论</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text slide-up" id="comments">
+    
+    
+    <section class="body cmt-body giscus">
+      
+
+<div class="lazy-icon"></div>
+
+<div id="giscus" data-repo="wmyskxz/blog-comments" data-repo-id="R_kgDOH7eiFA" data-category="Announcements" data-category-id="DIC_kwDOH7eiFM4C0qpW" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer slide-up footnote"><hr><div class="text"><p>本站由 <a href="/">我没有三颗心脏</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/2.0.0">Stellar 2.0.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+</main>
+<aside data-stellar-runtime-region="" id="rightbar-region" class="site-region site-region--rightbar" data-region="rightbar" aria-label="Rightbar"><div class="site-region__surface ui-drawer-surface"><div class="site-region__viewport"><div class="widgets widget-stack widget-stack--rightbar widget-stack--rightbar"><div class="widget-instance widget-instance--toc" data-widget-id="rightbar:1:toc" data-presentation="rightbar">
+
+
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false">
+  
+    <div class="widget-header dis-select">
+      <span class="name">本文目录</span>
+      <button type="button" class="cap-action ui-interactive card-hover card-hover--spotlight" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></span></button>
+    </div>
+  
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E9%A2%98%E5%9B%BE" data-stellar-navigation=""><span class="toc-text">题图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%9C%AC%E5%91%A8%E8%AE%A8%E8%AE%BA%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%87%A0%E5%B9%B4%EF%BC%8C%E4%BA%BA%E5%8F%AA%E5%89%A9%E4%B8%A4%E4%BB%B6%E4%BA%8B%E5%8F%AF%E5%B9%B2" data-stellar-navigation=""><span class="toc-text">本周讨论：未来几年，人只剩两件事可干</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%80%E3%80%81%E7%94%A8-AI-%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%B7%B2%E7%BB%8F%E5%8F%98%E4%BA%86%E5%9B%9B%E8%BD%AE" data-stellar-navigation=""><span class="toc-text">一、用 AI 的方式，已经变了四轮</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%8E%B0%E5%9C%A8%EF%BC%8C%E4%BD%A0%E5%8F%AA%E9%9C%80%E8%A6%81%E8%AF%B4%E3%80%8C%E8%A6%81%E4%BB%80%E4%B9%88%E3%80%8D" data-stellar-navigation=""><span class="toc-text">现在，你只需要说「要什么」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E5%88%87%E7%9F%A5%E8%AF%86%E5%B7%A5%E4%BD%9C%EF%BC%8C%E9%83%BD%E6%98%AF%E4%B8%80%E4%B8%AA-loop" data-stellar-navigation=""><span class="toc-text">一切知识工作，都是一个 loop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%8C%E3%80%81%E7%A1%85%E8%B0%B7%E7%9A%84%E5%85%B1%E8%AF%86%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%B7%B2%E7%BB%8F%E5%A4%9F%E7%94%A8%EF%BC%8C%E9%97%AE%E9%A2%98%E5%9C%A8%E4%BD%A0%E8%BA%AB%E4%B8%8A" data-stellar-navigation=""><span class="toc-text">二、硅谷的共识：模型已经够用，问题在你身上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%B8%89%E3%80%81%E9%87%8D%E5%A4%8D%E7%9A%84%E4%BA%8B%EF%BC%8C%E9%83%BD%E8%AF%A5%E4%BA%A4%E7%BB%99%E6%99%BA%E8%83%BD%E4%BD%93" data-stellar-navigation=""><span class="toc-text">三、重复的事，都该交给智能体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BA%BA%E6%98%AF%E6%8A%8A%E4%B8%80%E5%B9%B4%E7%9A%84%E7%BB%8F%E9%AA%8C%EF%BC%8C%E7%94%A8%E4%B8%8A%E5%8D%81%E5%B9%B4" data-stellar-navigation=""><span class="toc-text">人是把一年的经验，用上十年</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E6%99%BA%E8%83%BD%E4%BD%93%E4%BC%9A%E6%AF%94%E4%BD%A0%E6%9B%B4%E5%83%8F%E4%BD%A0" data-stellar-navigation=""><span class="toc-text">智能体会比你更像你</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E7%BB%99%E6%99%BA%E8%83%BD%E4%BD%93%E4%BA%A4%E4%BB%A3%E4%BB%BB%E5%8A%A1%EF%BC%8C%E6%AF%94%E7%BB%99%E4%BA%BA%E4%BA%A4%E4%BB%A3%E5%A5%BD-100-%E5%80%8D" data-stellar-navigation=""><span class="toc-text">给智能体交代任务，比给人交代好 100 倍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%BD%A0%E7%9A%84%E6%99%BA%E8%83%BD%E4%BD%93%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%98%AF%E4%B8%80%E4%B8%AA%E6%AF%94%E4%BD%A0%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%AD%98%E5%9C%A8" data-stellar-navigation=""><span class="toc-text">你的智能体，可以是一个比你更好的存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%80%E6%AC%A1%E9%87%87%E8%B4%AD%EF%BC%8C%E5%9B%9B%E4%B8%AA%E4%BA%BA%E9%83%BD%E5%8F%98%E8%81%AA%E6%98%8E%E4%BA%86" data-stellar-navigation=""><span class="toc-text">一次采购，四个人都变聪明了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%8F%8D%E9%A6%88%E6%98%AF%E6%80%8E%E4%B9%88%E6%B2%89%E6%B7%80%E6%88%90%E9%BB%98%E8%AE%A4%E7%9A%84" data-stellar-navigation=""><span class="toc-text">反馈是怎么沉淀成默认的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%89%E6%9D%A1%E5%BF%83%E5%BE%97%EF%BC%9A%E4%BF%A1%E5%AE%83%E3%80%81%E6%95%99%E5%AE%83%E3%80%81%E5%88%86%E5%B7%A5" data-stellar-navigation=""><span class="toc-text">三条心得：信它、教它、分工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A3%85%E4%B8%8A%E6%99%BA%E8%83%BD%E4%BD%93%EF%BC%8C%E4%B8%80%E4%B8%8B%E5%AD%90%E5%8F%98%E8%81%AA%E6%98%8E%E4%BA%86" data-stellar-navigation=""><span class="toc-text">机器人装上智能体，一下子变聪明了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%9B%9B%E3%80%81%E7%BB%84%E7%BB%87%E6%8E%A8%E4%B8%8D%E5%8A%A8%EF%BC%8C%E6%98%AF%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98" data-stellar-navigation=""><span class="toc-text">四、组织推不动，是架构问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%91%98%E5%B7%A5%E4%B8%8D%E5%9C%A8%E4%B9%8E%E5%85%AC%E5%8F%B8%E6%95%88%E7%8E%87%E9%AB%98%E4%B8%8D%E9%AB%98" data-stellar-navigation=""><span class="toc-text">员工不在乎公司效率高不高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%88%AB%E6%94%B9%E9%80%A0%E6%97%A7%E9%83%A8%E9%97%A8%EF%BC%8C%E5%8F%A6%E8%B5%B7%E7%82%89%E7%81%B6" data-stellar-navigation=""><span class="toc-text">别改造旧部门，另起炉灶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E6%99%BA%E8%83%BD%E4%BD%93%E5%8E%9F%E7%94%9F%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%BA%BA%E8%BF%98%E5%89%A9%E4%BB%80%E4%B9%88" data-stellar-navigation=""><span class="toc-text">智能体原生之后，人还剩什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E4%BA%94%E3%80%81%E4%BA%BA%E8%BF%98%E5%89%A9%E4%B8%8B%E4%BB%80%E4%B9%88%EF%BC%9A%E5%93%81%E5%91%B3%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%BA%E7%BB%93%E6%9E%9C%E8%B4%9F%E8%B4%A3" data-stellar-navigation=""><span class="toc-text">五、人还剩下什么：品味，以及为结果负责</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E5%93%81%E5%91%B3%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1" data-stellar-navigation=""><span class="toc-text">品味的三个层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BA%BA%E6%9C%89%E5%93%81%E5%91%B3%EF%BC%8CAI-%E6%B2%A1%E6%9C%89" data-stellar-navigation=""><span class="toc-text">为什么人有品味，AI 没有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E5%BE%97%E7%94%B1%E4%BA%BA%E6%9D%A5%E5%81%9A" data-stellar-navigation=""><span class="toc-text">为什么资源分配得由人来做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link ui-interactive" href="#%E8%A6%81%E4%B8%BA%E7%BB%93%E6%9E%9C%E8%B4%9F%E8%B4%A3%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%8F%AA%E4%B8%BA%E7%8E%AF%E8%8A%82%E8%B4%9F%E8%B4%A3" data-stellar-navigation=""><span class="toc-text">要为结果负责，不要只为环节负责</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link ui-interactive" href="#%E5%85%AD%E3%80%81%E7%BB%93%E8%AF%AD" data-stellar-navigation=""><span class="toc-text">六、结语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E7%83%AD%E7%82%B9%E6%96%B0%E9%97%BB" data-stellar-navigation=""><span class="toc-text">热点新闻</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E6%96%87%E7%AB%A0" data-stellar-navigation=""><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E5%A5%BD%E5%A5%87%E6%98%9F%E4%BA%BA" data-stellar-navigation=""><span class="toc-text">好奇星人</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%A8%80%E8%AE%BA" data-stellar-navigation=""><span class="toc-text">言论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link ui-interactive" href="#%E8%AE%A2%E9%98%85" data-stellar-navigation=""><span class="toc-text">订阅</span></a></li></ol></div>
+  <div class="widget-footer"><a class="top ui-interactive" onclick="util.scrollTop()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20.536 3.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464" opacity=".5"></path><path fill="currentColor" d="M9.53 12.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 9.56z"></path><path fill="currentColor" d="M9.53 16.03a.75.75 0 0 1-1.06-1.06l3-3a.75.75 0 0 1 1.06 0l3 3a.75.75 0 1 1-1.06 1.06L12 13.56z"></path></svg></span><span>回到顶部</span></a><a class="buttom ui-interactive" onclick="util.scrollComment()"><span class="ui-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"></path><path fill="currentColor" d="M7.25 9A.75.75 0 0 1 8 8.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 9m0 3.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75"></path></svg></span><span>参与讨论</span></a></div>
+</widget>
+
+
+</div></div></div></div></aside>
+</div><button type="button" class="site-scrim" data-shell-action="dismiss-drawer" aria-label="Close navigation" tabindex="-1"></button><div data-stellar-runtime-region="" class="site-dock" role="group" aria-label="Layout panels">
+  <button type="button" class="site-dock__button site-dock__button--rightbar ui-interactive" aria-label="Open rightbar" aria-controls="rightbar-region" aria-expanded="false" data-shell-action="toggle-rightbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
+  </button>
+  <button type="button" class="site-dock__button site-dock__button--leftbar ui-interactive" aria-label="Open leftbar" aria-controls="leftbar-region" aria-expanded="false" data-shell-action="toggle-leftbar-drawer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
+  </button>
+</div>
+
+<dialog data-stellar-runtime-region="" class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+  <div class="search-dialog__panel search-wrapper" id="site-search-wrapper" searching="false">
+    <div class="search-dialog__header">
+      <div class="search-form" role="search">
+        <span class="search-button" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Adapted from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3M3 13h3M3 18h8M16.83 13.83l3.76 3.76"></path><circle cx="14" cy="11" r="4"></circle></g></svg></span>
+        <input type="search" class="search-input" id="site-search-input" aria-labelledby="site-search-title" placeholder="搜索">
+      </div>
+      <button type="button" class="search-dialog__close" data-shell-action="close-search" aria-label="关闭搜索">×</button>
+    </div>
+    
+      <div class="search-dialog__scope" role="radiogroup" aria-labelledby="site-search-title" hidden="">
+        <label class="search-dialog__scope-option" data-search-scope-option="all">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="all">
+          <span>全站</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="blog" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="blog">
+          <span>博客</span>
+        </label>
+        <label class="search-dialog__scope-option" data-search-scope-option="current" hidden="">
+          <input class="ui-radio" type="radio" name="site-search-scope" value="current">
+          <span data-search-scope-current-label=""></span>
+        </label>
+      </div>
+    
+    <h2 class="search-dialog__title" id="site-search-title">站内搜索</h2>
+    <div class="search-result" id="site-search-result"></div>
+    <div class="search-no-result">没有找到内容！</div>
+  </div>
+</dialog>
+</div><div class="site-scripts">
+<script data-stellar-script="core" src="/js/stellar-icons.js?v=39c6ac17e854ffe2"></script>
+
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: "https://www.wmyskxz.cn/weekly/192/", checklink: ctx.services.video.js};
+  ctx.date_suffix = {"just":"刚刚","min":"分钟前","hour":"小时前","day":"天前"};
+  if (ctx.search) Object.assign(ctx.search, {"more":"更多","no_more":"没有更多了"});
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>
+
+
+<!-- core: 迁移期 DOM/资源兼容工具；Extension 注册与生命周期由 ESM runtime 所有 -->
+<script data-stellar-script="core" src="/js/utils.js?v=2.0.0"></script>
+<script data-stellar-script="core" src="/js/main.js?v=2.0.0" defer=""></script>
+<script data-stellar-script="core" defer="" src="/js/profile.js?v=2.0.0"></script>
+
+
+
+
+
+<script data-stellar-script="core" type="application/json" id="stellar-runtime-config">{"version":1,"root":"/","policy":{"cache":{"enabled":true,"defaultTtl":3600,"ttl":{"giscus":600,"waline":600,"artalk":600,"memos":600,"memos-user":86400,"sites":86400,"friends":86400,"friends_and_posts":86400,"siteinfo":86400},"maxEntries":200},"request":{"retries":2,"timeoutMs":5000,"idleTimeoutMs":3000,"maxCacheEntryBytes":204800},"features":{"codeCopyToastMs":2500},"providers":{"linkPrefetch":"flying_pages","lightbox":"fancybox","diagrams":"mermaid"}},"extensions":[{"id":"pin-slider","module":"/js/runtime/extensions/pin-slider.js","scope":"region","when":{"selector":".pin-slider"},"config":{}},{"id":"page-controls","module":"/js/runtime/extensions/page-controls.js","scope":"region","when":{"always":true},"config":{"highlight":"/js/search/highlight.js","tagtree":"/js/tagtree.js"}},{"id":"partial-navigation","module":"/js/runtime/extensions/partial-navigation.js","scope":"document","when":{"always":true},"config":{}},{"id":"search","module":"/js/runtime/extensions/search.js","scope":"document","when":{"selector":".search-input"},"config":{"provider":"local","options":{"scope":"all","includeContent":true,"cacheTtlSeconds":86400},"assets":{"client":null,"provider":"/js/search/local-search.js","shortcut":"/js/search/shortcut.js"}}},{"id":"hero-parallax","module":"/js/runtime/extensions/hero-parallax.js","scope":"region","when":{"selector":".wiki-hero"},"config":{}},{"id":"hero-effect","module":"/js/runtime/extensions/hero-effect.js","scope":"region","when":{"selector":"canvas[data-hero-effect]"},"config":{}},{"id":"lazy-loading","module":"/js/runtime/extensions/lazy-loading.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"}},{"id":"deferred-icons","module":"/js/runtime/extensions/deferred-icons.js","scope":"region","when":{"selector":"svg.icon[data-icon]"},"config":{}},{"id":"dropdown","module":"/js/runtime/extensions/dropdown.js","scope":"region","when":{"selector":"details.dropdown"},"config":{}},{"id":"services","module":"/js/runtime/extensions/services.js","scope":"region","when":{"selector":"#artalk_container, #twikoo_container, #waline_container, .data-service, [class*='ds-'], a[cardlink], a[data-md-link][data-siteinfo-api], .site-card [data-siteinfo-api], .voice\u003eaudio, .video\u003evideo, .chat-file"},"config":{"marked":"https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js"}},{"id":"comments","module":"/js/runtime/extensions/comments.js","scope":"region","when":{"selector":"#comments"},"config":{"provider":"giscus","options":{"data-repo":"wmyskxz/blog-comments","data-repo-id":"R_kgDOH7eiFA","data-category":"Announcements","data-category-id":"DIC_kwDOH7eiFM4C0qpW","data-mapping":"title","data-strict":0,"data-reactions-enabled":1,"data-emit-metadata":0,"data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":"zh-CN","data-loading":"lazy","crossorigin":"anonymous"},"pageTitle":"代码之外周刊（第 192 期）：未来几年，人只剩两件事可干","assets":{"js":"https://giscus.app/client.js"}}},{"id":"settings","module":"/js/runtime/extensions/settings.js","scope":"region","when":{"selector":".settings-page"},"config":{}},{"id":"link-prefetch","module":"/js/runtime/extensions/link-prefetch.js","scope":"document","when":{"always":true},"config":{"asset":"https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"}},{"id":"lightbox","module":"/js/runtime/extensions/lightbox.js","scope":"region","when":{"selector":"[data-fancybox]:not(.error), .with-fancybox, .ds-memos, .timenode p\u003eimg"},"config":{"enabled":true,"selector":".timenode p\u003eimg","assets":{"localCss":"/css/plugins/fancybox.css","js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"}}},{"id":"reveal","module":"/js/runtime/extensions/reveal.js","scope":"region","when":{"selector":".slide-up"},"config":{"enabled":true,"duration":800,"interval":200,"distance":8,"blur":4}},{"id":"code-copy","module":"/js/runtime/extensions/code-copy.js","scope":"region","when":{"selector":".code"},"config":{"assets":{"js":"/js/plugins/copycode.js"},"messages":{"label":"复制","copied":"复制成功","denied":"未获得剪贴板权限","unsupported":"当前浏览器不支持剪贴板或页面不是 HTTPS"}}},{"id":"adaptive-text","module":"/js/runtime/extensions/adaptive-text.js","scope":"region","when":{"selector":"[data-text-adaptive]"},"config":{"assets":{"colorJs":"/js/color.js","js":"/js/plugins/adaptive-text.js"}}},{"id":"swiper","module":"/js/runtime/extensions/swiper.js","scope":"region","when":{"selector":"#swiper-api"},"config":{"assets":{"localCss":"/css/plugins/swiper.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js","css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css"}}}]}</script>
+<script data-stellar-script="core" type="module" src="/js/runtime/index.js?v=2.0.0&amp;runtime=1"></script>
+
+
+<!-- inject -->
+
+
+<script data-stellar-script="core" defer="" src="/js/navigation-init.js?v=2.0.0"></script>
+</div>
+
+<script type="application/json" id="stellar-navigation-config">{"collection":"[\"post\",\"post\"]","url":"https://www.wmyskxz.cn/weekly/192/","signature":"cdf997920709d05d75153d9111f55f4ee182b442eda9ad5fd70e21873c7536d3"}</script></body></html>
